@@ -1,0 +1,14 @@
+CAPI=2:
+name: "lstmAccel:accel:accel_pkg:0.1"
+description: "Header package for accelerator"
+
+fileset:
+    files_rtl:
+        file:
+            - rtl/accel_pkg.sv
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - files_rtl
