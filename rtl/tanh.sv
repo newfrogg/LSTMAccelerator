@@ -21,7 +21,7 @@
 
 // tanh(Wx + Wh + b)
 // W: 8 bits, b: 32 bits
-module tanh_activation #(parameter OUTPUT_BITWIDTH = 8,
+module tanh #(parameter OUTPUT_BITWIDTH = 8,
                          parameter INPUT_BITWIDTH = 32
 )(
         input   logic   [INPUT_BITWIDTH - 1:0]  data_in,    //  32 bits input
