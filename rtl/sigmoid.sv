@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tanh_activation #(parameter OUTPUT_BITWIDTH = 8,
+module sigmoid #(parameter OUTPUT_BITWIDTH = 8,
                          parameter INPUT_BITWIDTH = 32 )(
 	input   logic   [INPUT_BITWIDTH - 1:0]  data_in,    //  32 bits input
 	output  logic   [OUTPUT_BITWIDTH - 1:0] data_out    // 8 bits output
