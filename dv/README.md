@@ -27,9 +27,9 @@ make SIM=verilator
 
 #### Result
 ***PASSED***
-![PASS](test_pass.png)
+![PASS](example/test_pass.png)
 ***FAILED***
-![FAIL](test_fail.png)
+![FAIL](example/test_fail.png)
 ## Reference
 Simulator support: [https://docs.cocotb.org/en/stable/simulator_support.html#verilator](https://docs.cocotb.org/en/stable/simulator_support.html#verilator)
 
