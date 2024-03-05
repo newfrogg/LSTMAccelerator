@@ -6,6 +6,9 @@ TOPLEVEL_LANG ?= verilog
 
 VERILOG_SOURCES += $(PWD)/my_design.sv
 
+# GENERATE waveform
+EXTRA_ARGS += --trace-fst --trace-structs
+
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
 TOPLEVEL = my_design
 
