@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1709632202" />
+    <testcase name="my_second_test" classname="test_my_design" file="/home/newfrogg/Desktop/lstm_accel/dv/example/test_my_design.py" lineno="15" time="0.0007786750793457031" sim_time_ns="6.001" ratio_time="7706.680436007349" />
+  </testsuite>
+</testsuites>
