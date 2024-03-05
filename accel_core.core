@@ -1,0 +1,16 @@
+CAPI=2:
+name: "lstmAccel:accel:accel_core:0.1"
+description: "lstmAccel Components"
+
+filesets:
+    files_rtl:
+        depend: 
+            - lstmAccel:accel:accel_pkg
+        files:
+            - rtl/tanh.sv
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - files_rtl
