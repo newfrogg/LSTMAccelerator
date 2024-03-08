@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1709797426" />
+    <testcase name="my_second_test" classname="test_my_design" file="/home/vanloi/Documents/Loi_study/DATN/LSTM_accel/lstm_accel/dv/example/test_my_design.py" lineno="15" time="0.0008909702301025391" sim_time_ns="6.001" ratio_time="6735.354108643297" />
+  </testsuite>
+</testsuites>
