@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-19T13:59:09.537Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="-Spuh9qjenbIhg7Y0AD9" version="24.0.7" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2024-03-19T14:04:05.819Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="4h7XQP4lb2yiBlEYxm30" version="24.0.7" type="github" pages="8">
   <diagram name="LSTM Scheme" id="HfgT4DtBJL-C-6Ssslgw">
     <mxGraphModel dx="919" dy="492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
       <root>
@@ -1022,6 +1022,74 @@
         </mxCell>
         <mxCell id="BPhg-jCEBpTEgTnZQdQy-15" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_input == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="330" y="170" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="P6_W6cV0ZDcav737Sol6" name="CAL_RECURRENT state">
+    <mxGraphModel dx="919" dy="492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sFcq2aMLGniXLBGZLPR_-2" target="sFcq2aMLGniXLBGZLPR_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;IDLE&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-3" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;- Reset all buffers and output value to 0&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Set flag finish_recurrent = 1&#39;b1&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-4" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="sFcq2aMLGniXLBGZLPR_-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="120" as="sourcePoint" />
+            <mxPoint x="330" y="70" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="310" y="90" />
+              <mxPoint x="270" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-5" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_recurrent == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-6" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;CAL&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-7" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="sFcq2aMLGniXLBGZLPR_-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="120" as="sourcePoint" />
+            <mxPoint x="650" y="70" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="630" y="90" />
+              <mxPoint x="590" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-8" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 &amp;amp;&amp;amp; enable_recurrent == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="20" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-9" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 &amp;amp;&amp;amp; enable_recurrent == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-10" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Posedge enable_recurrent: calculate buffer = W_h*h&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Posedge clk: assign output = prev state output + buffer&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="520" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-11" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="sFcq2aMLGniXLBGZLPR_-6" target="sFcq2aMLGniXLBGZLPR_-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="375" y="190" as="sourcePoint" />
+            <mxPoint x="425" y="140" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="200" />
+              <mxPoint x="290" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-12" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_recurrent == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sFcq2aMLGniXLBGZLPR_-14" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;assign output = tanh, sigmoid&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="290" y="320" width="200" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
