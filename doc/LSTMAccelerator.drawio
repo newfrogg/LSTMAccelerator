@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-19T13:48:27.312Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="VjnTWqCZeXkWbCqg7ctB" version="24.0.7" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2024-03-19T13:59:09.537Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="-Spuh9qjenbIhg7Y0AD9" version="24.0.7" type="github" pages="7">
   <diagram name="LSTM Scheme" id="HfgT4DtBJL-C-6Ssslgw">
     <mxGraphModel dx="919" dy="492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
       <root>
@@ -966,16 +966,16 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BPhg-jCEBpTEgTnZQdQy-4" target="BPhg-jCEBpTEgTnZQdQy-8">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BPhg-jCEBpTEgTnZQdQy-4" target="BPhg-jCEBpTEgTnZQdQy-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-4" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;IDLE&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-4" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;IDLE&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="80" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-5" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;- input_buffer &amp;lt;= 0&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- forget_buffer &amp;lt;= 0&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- cell_buffer &amp;lt;= 0&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- output_buffer &amp;lt;= 0&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- finish_input &amp;lt;= 1&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="117.5" y="260" width="200" height="120" as="geometry" />
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-5" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;- Reset all buffers and output value to 0&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Set flag finish_input = 1&#39;b1&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-6" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="BPhg-jCEBpTEgTnZQdQy-4">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-6" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="BPhg-jCEBpTEgTnZQdQy-4" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="280" y="120" as="sourcePoint" />
             <mxPoint x="330" y="70" as="targetPoint" />
@@ -985,13 +985,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-7" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_input == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-7" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_input == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="230" y="20" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-8" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;CAL&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-8" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;CAL&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="480" y="80" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-9" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="BPhg-jCEBpTEgTnZQdQy-8">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-9" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="BPhg-jCEBpTEgTnZQdQy-8" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="600" y="120" as="sourcePoint" />
             <mxPoint x="650" y="70" as="targetPoint" />
@@ -1001,16 +1001,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-10" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 || enable_input == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-10" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 &amp;amp;&amp;amp; enable_input == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="550" y="20" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-12" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 &amp;amp;&amp;amp; enable_input == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-12" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 1 &amp;amp;&amp;amp; enable_input == 1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="330" y="90" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-13" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;- buffer &amp;lt;= buffer + W*x[i]&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- finish_input &amp;lt;= 0&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- if (i == NUMBER_OF_FEATURES) then { output &amp;lt;= buffer &amp;amp;&amp;amp; finish_input &amp;lt;= 1)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;else finish_input &amp;lt;= 0&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="412.5" y="260" width="250" height="120" as="geometry" />
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-13" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Posedge enable_input: calculate buffer = W*x&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;- Posedge clk: assign output = buffer + bias&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="520" y="200" width="200" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-14" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="BPhg-jCEBpTEgTnZQdQy-8" target="BPhg-jCEBpTEgTnZQdQy-4">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-14" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BPhg-jCEBpTEgTnZQdQy-8" target="BPhg-jCEBpTEgTnZQdQy-4" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="375" y="190" as="sourcePoint" />
             <mxPoint x="425" y="140" as="targetPoint" />
@@ -1020,7 +1020,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BPhg-jCEBpTEgTnZQdQy-15" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_input == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="BPhg-jCEBpTEgTnZQdQy-15" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;rst_n == 0 || enable_input == 0&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="330" y="170" width="120" height="30" as="geometry" />
         </mxCell>
       </root>
