@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Tue Mar 19 10:43:49 2024
+# Process ID: 7152
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator
+# Command line: vivado
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.log
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 643.687 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.xpr
+update_compile_order -fileset sources_1
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim

@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_tanh_behav/xsimk -simmode gui -wdb tb_tanh_behav.wdb -simrunnum 0 -socket 53091
+Design successfully loaded
+Design Loading Memory Usage: 24052 KB (Peak: 24640 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 106048 KB (Peak: 163320 KB)
+Simulation CPU Usage: 30 ms

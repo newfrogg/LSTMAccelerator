@@ -1,0 +1,159 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Mon Mar 18 14:53:52 2024
+# Process ID: 6205
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator
+# Command line: vivado
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.log
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 3696.642 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.xpr
+update_compile_order -fileset sources_1
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+current_wave_config {Untitled 14}
+add_wave {{/tb_LSTM_unit/uut/wi}} 
+current_wave_config {Untitled 14}
+add_wave {{/tb_LSTM_unit/uut/r}} 
+add_force {/tb_LSTM_unit/uut/wi/clk} -radix hex {1 0ns} {0 50000ps} -repeat_every 100000ps
+add_force {/tb_LSTM_unit/uut/wi/clk} -radix bin {1 0ns} {0 2500ps} -repeat_every 5000ps -cancel_after 100
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+restart
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+run 10 ns
+run 10 ns
+run 10 ns
+set_property -name {xsim.simulate.runtime} -value {50ns} -objects [get_filesets tb_lstm_unit]
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+set_property -name {xsim.simulate.runtime} -value {100ns} -objects [get_filesets tb_lstm_unit]
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
+launch_simulation -simset [get_filesets tb_lstm_unit ]
+source tb_LSTM_unit.tcl
+close_sim
