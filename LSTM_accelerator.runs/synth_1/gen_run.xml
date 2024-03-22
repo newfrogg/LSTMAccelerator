@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1710905127">
-  <File Type="VDS-TIMINGSUMMARY" Name="LSTM_Unit_timing_summary_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1711079544" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/LSTM_Unit.dcp">
   <File Type="RDS-DCP" Name="LSTM_Unit.dcp"/>
   <File Type="RDS-UTIL-PB" Name="LSTM_Unit_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="LSTM_Unit_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="LSTM_Unit_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="LSTM_Unit.vds"/>
-  <File Type="REPORTS-TCL" Name="LSTM_Unit_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="LSTM_Unit_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="LSTM_Unit.tcl"/>
+  <File Type="RDS-UTIL" Name="LSTM_Unit_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="LSTM_Unit_reports.tcl"/>
+  <File Type="RDS-RDS" Name="LSTM_Unit.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/calculate_cell.sv">
@@ -67,6 +64,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/lstm_layer.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/add_bias.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -104,6 +109,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/LSTM_Unit.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>

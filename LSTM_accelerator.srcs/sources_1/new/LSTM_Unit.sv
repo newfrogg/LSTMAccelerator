@@ -25,6 +25,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
                    input logic   clk,
                    input logic   rst_n,
                    input logic   enable,
+                   input logic   last_timestep,
                    input logic   [7:0] vector_x          [0:NUMBER_OF_FEATURES-1],
                    input logic   [7:0] input_weights     [0:NUMBER_OF_FEATURES-1],
                    input logic   [7:0] forget_weights    [0:NUMBER_OF_FEATURES-1],
@@ -87,6 +88,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
     logic [7:0]  prev_ht;
     
     always @(posedge clk) begin
+//        #1;
         if (enable == 0 || rst_n == 0) begin
             enable_input        <= 1'b0;
 //            enable_bias         <= 1'b0;
@@ -108,30 +110,22 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
                 enable_recurrent    <= 1'b1;
 //                init_n              <= 1'b1;
             end
-//            else if ( enable_bias == 1'b1 && finish_bias == 1'b1 ) begin
-//                enable_bias          <= 1'b0;
-//                enable_recurrent     <= 1'b1;
-//            end
             else if ( enable_recurrent == 1'b1 && finish_recurrent == 1'b1 ) begin
                 enable_recurrent    <= 1'b0;
                 enable_cell         <= 1'b1;
             end
-//            else if ( enable_gate == 1'b1 && finish_gate == 1'b1 ) begin
-//                enable_gate     <= 1'b0;
-//                enable_cell     <= 1'b1;
-//            end
             else if ( enable_cell == 1'b1 && finish_cell == 1'b1 ) begin
                 enable_cell         <= 1'b0;
                 enable_output       <= 1'b1;
-                finish              <= 1'b1;
             end
-            else if (finish == 0 && enable_output == 1 && finish_output == 1) begin
+            else if (last_timestep == 0 && enable_output == 1 && finish_output == 1) begin
                 enable_output       <= 1'b0;
                 enable_input        <= 1'b1;
             end
             else begin
                 enable_output   <= 1'b0;
-                init_n          <= 1'b0;
+                init_n          <= 1'b1;
+                finish          <= 1'b1;
             end
         end 
     end
@@ -155,27 +149,6 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .output_cell_update_1(output_cell_update_1),
         .output_output_1(output_output_1)
     );
-    /*
-    // add bias into weights*input 
-    add_bias #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) b(
-        .clk(clk),
-        .rst_n(rst_n),
-        .enable_bias(enable_bias),
-        .output_input_1(output_input_1),
-        .output_forget_1(output_forget_1),
-        .output_cell_update_1(output_cell_update_1),
-        .output_output_1(output_output_1),
-        .input_bias(input_bias),
-        .forget_bias(forget_bias),
-        .cell_bias(cell_bias),
-        .output_bias(output_bias),
-        .finish_bias(finish_bias),
-        .output_input_2(output_input_2),
-        .output_forget_2(output_forget_2),
-        .output_cell_update_2(output_cell_update_2),
-        .output_output_2(output_output_2)
-    );
-    */
     
     calculate_recurrent #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) r(
         .clk(clk),
@@ -196,20 +169,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .output_cell_update_3(output_cell_update_3),
         .output_output_3(output_output_3)
     );
-    /*
-    calculate_gate #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) g(
-        .clk(clk),
-        .rst_n(rst_n),
-        .enable_gate(enable_gate),
-        .output_input_3(output_input_3),
-        .output_forget_3(output_forget_3),
-        .prev_cell(prev_cell),    
-        .output_cell_update_3(output_cell_update_3),
-        .finish_gate(finish_gate),
-        .forget_cell(forget_cell),
-        .input_update(input_update) 
-    );
-    */
+    
     calculate_cell #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) c(
         .clk(clk),
         .rst_n(rst_n),

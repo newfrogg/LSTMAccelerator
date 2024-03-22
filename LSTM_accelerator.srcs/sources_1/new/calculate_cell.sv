@@ -52,10 +52,11 @@ module calculate_cell #(parameter NUMBER_OF_FEATURES = 2,
     end
     
     always @(posedge enable_cell) begin
-            #1;
+//            #1;
             finish_cell                 = 1'b0;
             buffer_forget_cell          = output_forget_3*prev_cell;
             buffer_input_cell_update    = output_input_3*output_cell_update_3;
+            buffer_cell                 = buffer_forget_cell + buffer_input_cell_update;
             finish_cell                 = 1'b1;
     end
     

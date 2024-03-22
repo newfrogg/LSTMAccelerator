@@ -46,7 +46,7 @@ module calculate_output #(parameter NUMBER_OF_FEATURES = 2,
     end
     
     always @(posedge enable_output) begin
-            #1;
+//            #1;
             finish_output   = 1'b0;
             buffer_output   = output_output_3*tanh_output_cell;
             finish_output   = 1'b1;

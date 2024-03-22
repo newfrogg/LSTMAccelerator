@@ -72,7 +72,7 @@ module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
     end
     
     always @(posedge enable_recurrent) begin
-            #1;
+//            #1;
             finish_recurrent    = 1'b0;
             for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
                 input_buffer    = input_buffer     + r_input_weights[i]*vector_h_prev[i];

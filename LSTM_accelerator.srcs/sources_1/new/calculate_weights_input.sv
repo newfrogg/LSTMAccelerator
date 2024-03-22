@@ -60,7 +60,7 @@ module calculate_weights_input #(parameter NUMBER_OF_FEATURES = 2,
             finish_input    <= 1'b1;
         end
         else begin
-            finish_input    <= 1'b1;
+//            finish_input    <= 1'b1;
             output_input_1  <= input_buffer + input_bias;
             output_forget_1 <= forget_buffer + forget_bias;
             output_cell_update_1   <= cell_buffer + cell_bias;
@@ -69,7 +69,7 @@ module calculate_weights_input #(parameter NUMBER_OF_FEATURES = 2,
     end
     
     always @(posedge enable_input) begin
-            #1;
+//            #1;
             finish_input        = 1'b0;
             for (i = 0; i < NUMBER_OF_FEATURES; i = i+1) begin
                 input_buffer    = input_buffer + input_weights[i]*vector_x[i];

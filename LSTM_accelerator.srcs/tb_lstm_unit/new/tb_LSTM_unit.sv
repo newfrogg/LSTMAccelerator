@@ -28,6 +28,7 @@ module tb_LSTM_unit ();
     logic     clk;
     logic     rst_n;
     logic     enable;
+    logic     last_timestep;
     logic     [7:0] vector_x          [0:NUMBER_OF_FEATURES-1];
     logic     [7:0] input_weights     [0:NUMBER_OF_FEATURES-1];
     logic     [7:0] forget_weights    [0:NUMBER_OF_FEATURES-1];
@@ -50,6 +51,7 @@ module tb_LSTM_unit ();
         .clk(clk),
         .rst_n(rst_n),
         .enable(enable),
+        .last_timestep(last_timestep),
         .vector_x(vector_x),
         .input_weights(input_weights),
         .forget_weights(forget_weights),
@@ -72,8 +74,9 @@ module tb_LSTM_unit ();
     integer i;
     logic [7:0] value;
     initial begin
+        last_timestep = 1'b1;
         enable  = 1'b0;
-        rst_n   = 1'b0;
+        rst_n   = 1'b1;
         clk     = 1'b0;
         value   = 8'h4;
         prev_cell       = 8'ha;
@@ -96,20 +99,31 @@ module tb_LSTM_unit ();
             value = value + 8'h4;
         end
         
-        #5;
+        #4;
+        $display("Time = %t, finish = %0b", $time, uut.finish);
+        rst_n   = 1'b0;
         i = 0;
+        #29; 
         rst_n   = 1'b1;
-        #9 enable = 1'b1;
+        enable = 1'b1;
+        $display("Time = %t, finish = %0b", $time, uut.finish);
 //        #30 enable = 1'b0;
     end
     
     always #5 begin 
         clk = ~clk;
+        
     end
     
     always @(posedge uut.finish) begin
-        enable = 1'b0;
-        $display("Time = %t", $time);
+//        if (uut.finish == 1'b1) begin
+//          @(posedge uut.clk) ;
+          
+//          @(posedge uut.clk) begin
+            enable = 1'b0;
+            $display("Time = %t", $time);
+//          end     
+//        end
     end
     
     always @(clk) begin
