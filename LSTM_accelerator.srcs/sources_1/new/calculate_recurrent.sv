@@ -22,6 +22,7 @@
 
 module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
                              parameter NUMBER_OF_UNITS = 2) (
+                             input integer  step,
                              input logic    clk,
                              input logic    rst_n,
                              input logic    enable_recurrent,
@@ -74,11 +75,19 @@ module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
     always @(posedge enable_recurrent) begin
 //            #1;
             finish_recurrent    = 1'b0;
-            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
-                input_buffer    = input_buffer     + r_input_weights[i]*vector_h_prev[i];
-                forget_buffer   = forget_buffer    + r_forget_weights[i]*vector_h_prev[i];
-                cell_buffer     = cell_buffer      + r_cell_weights[i]*vector_h_prev[i];
-                output_buffer   = output_buffer    + r_output_weights[i]*vector_h_prev[i]; 
+            if (step == 0) begin
+                input_buffer    = 0;
+                forget_buffer   = 0;
+                cell_buffer     = 0;
+                output_buffer   = 0;
+            end
+            else begin 
+                for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
+                    input_buffer    = input_buffer     + r_input_weights[i]*vector_h_prev[i];
+                    forget_buffer   = forget_buffer    + r_forget_weights[i]*vector_h_prev[i];
+                    cell_buffer     = cell_buffer      + r_cell_weights[i]*vector_h_prev[i];
+                    output_buffer   = output_buffer    + r_output_weights[i]*vector_h_prev[i]; 
+                end
             end
             output_output3_buffer   = output_buffer + output_output_1;
             finish_recurrent    = 1'b1;

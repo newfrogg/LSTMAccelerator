@@ -21,7 +21,9 @@
 
 
 module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
-                   parameter NUMBER_OF_UNITS = 2)(
+                   parameter NUMBER_OF_UNITS = 2,
+                   parameter INDEX = 0)(
+                   input integer step,
                    input logic   clk,
                    input logic   rst_n,
                    input logic   enable,
@@ -35,8 +37,8 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
                    input logic   [7:0] r_forget_weights  [0:NUMBER_OF_UNITS-1],
                    input logic   [7:0] r_cell_weights    [0:NUMBER_OF_UNITS-1],
                    input logic   [7:0] r_output_weights  [0:NUMBER_OF_UNITS-1],
-                   input logic   [7:0]   vector_h_prev   [0:NUMBER_OF_UNITS-1],
-                   input logic   [7:0]   prev_cell,
+//                   input logic   [7:0]   vector_h_prev   [0:NUMBER_OF_UNITS-1],
+//                   input logic   [7:0]   prev_cell,
                    input logic   [31:0]  input_bias,
                    input logic   [31:0]  forget_bias,
                    input logic   [31:0]  cell_bias,
@@ -45,17 +47,13 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
                    output logic finish
     );
     
-    //enum bit [2:0] {INIT = 0, CAL_INPUT, CAL_BIAS, CAL_RECURR, CAL_GATE, CAL_CELL, CAL_OUTPUT} state;
+    integer i;
+    
     logic init_n;
-//    logic [2:0] state;
     logic enable_input;
     logic finish_input;
-//    logic enable_bias;
-//    logic finish_bias;
     logic enable_recurrent;
     logic finish_recurrent;
-//    logic enable_gate;
-//    logic finish_gate;
     logic enable_cell;
     logic finish_cell;
     logic enable_output;
@@ -67,11 +65,6 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
     logic [31:0] output_cell_update_1;
     logic [31:0] output_output_1;
     
-    //-------- add bias reg---------//
-//    logic [31:0] output_input_2;
-//    logic [31:0] output_forget_2;
-//    logic [31:0] output_cell_update_2;
-//    logic [31:0] output_output_2;
     
     //-------- recurrent*hidden reg---------//
     logic [7:0] output_input_3;
@@ -80,24 +73,26 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
     logic [7:0] output_output_3;
     
     //--------- cell reg -------------//
+    logic [7:0]  prev_cell;
     logic [7:0]  output_cell;
     logic [7:0]  tanh_output_cell;
     
     //--------- output reg------------//
     logic [7:0]  hidden_state;
-    logic [7:0]  prev_ht;
+    logic [7:0]  prev_ht    [0:NUMBER_OF_UNITS-1];
     
     always @(posedge clk) begin
-//        #1;
         if (enable == 0 || rst_n == 0) begin
             enable_input        <= 1'b0;
-//            enable_bias         <= 1'b0;
             enable_recurrent    <= 1'b0;
-//            enable_gate         <= 1'b0;
             enable_cell         <= 1'b0;
             enable_output       <= 1'b0;
             init_n              <= 1'b0;
             finish              <= 1'b1;
+//            prev_cell           <= 8'b0;
+//            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
+//                prev_ht[i]      <= 8'b0;
+//            end 
         end
         else begin
             if ( init_n == 0 ) begin
@@ -117,6 +112,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
             else if ( enable_cell == 1'b1 && finish_cell == 1'b1 ) begin
                 enable_cell         <= 1'b0;
                 enable_output       <= 1'b1;
+                prev_cell           <= output_cell;
             end
             else if (last_timestep == 0 && enable_output == 1 && finish_output == 1) begin
                 enable_output       <= 1'b0;
@@ -151,10 +147,11 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
     );
     
     calculate_recurrent #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) r(
+        .step(step),
         .clk(clk),
         .rst_n(rst_n),
         .enable_recurrent(enable_recurrent),
-        .vector_h_prev(vector_h_prev),
+        .vector_h_prev(prev_ht),
         .r_input_weights(r_input_weights),
         .r_forget_weights(r_forget_weights),
         .r_cell_weights(r_cell_weights),
@@ -171,6 +168,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
     );
     
     calculate_cell #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) c(
+        .step(step),
         .clk(clk),
         .rst_n(rst_n),
         .enable_cell(enable_cell),
@@ -183,14 +181,14 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .tanh_output_cell(tanh_output_cell)
     );
     
-    calculate_output #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) o(
+    calculate_output #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(INDEX)) o(
         .clk(clk),
         .rst_n(rst_n),
         .enable_output(enable_output),
         .tanh_output_cell(tanh_output_cell),
         .output_output_3(output_output_3),
         .hidden_state(hidden_state),
-        .prev_ht(prev_ht),
+        .prev_ht(prev_ht[INDEX]),
         .finish_output(finish_output)
     );
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1711079544" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/LSTM_Unit.dcp">
   <File Type="RDS-DCP" Name="LSTM_Unit.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="LSTM_Unit_utilization_synth.pb"/>
+  <File Type="RDS-UTIL-PB" Name="lstm_layer_utilization_synth.pb"/>
   <File Type="PA-TCL" Name="LSTM_Unit.tcl"/>
-  <File Type="RDS-UTIL" Name="LSTM_Unit_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="lstm_layer_utilization_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="LSTM_Unit_reports.tcl"/>
   <File Type="RDS-RDS" Name="LSTM_Unit.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">

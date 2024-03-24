@@ -160,3 +160,119 @@ At time = 55000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_out
 
 
 At time = 55000, output_cell = 4f6, tanh_output_cell = 7f
+----------------------------------
+At time = 57000, init_n = 1
+At time = 57000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 57000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 57000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 57000, before_output_input_3 = ab, before_output_forget_3 = ac, before_output_cell_update_3 = ad, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 57000, output_cell = 4f6, tanh_output_cell = 6
+
+At time = 57000, hidden_state = xx, prev_ht = xx
+----------------------------------
+At time = 62000, init_n = 1
+At time = 62000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 62000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 62000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 62000, before_output_input_3 = ab, before_output_forget_3 = ac, before_output_cell_update_3 = ad, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 62000, output_cell = 4f6, tanh_output_cell = 6
+
+At time = 62000, hidden_state = xx, prev_ht = xx
+####################################
+
+At time = 65000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 65000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1 
+
+
+At time = 65000, hidden_state = 2fa, prev_ht = xx
+----------------------------------
+At time = 67000, init_n = 1
+At time = 67000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 67000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+
+At time = 67000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 67000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 67000, output_cell = 4f6, tanh_output_cell = 6
+
+At time = 67000, hidden_state = xx, prev_ht = xx
+----------------------------------
+At time = 72000, init_n = 1
+At time = 72000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 72000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+
+At time = 72000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 72000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 72000, output_cell = 4f6, tanh_output_cell = 6
+
+At time = 72000, hidden_state = xx, prev_ht = xx
+Time =                75000
+----------------------------------
+At time = 77000, init_n = 0
+At time = 77000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 77000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 77000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 77000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 77000, output_cell = 0, tanh_output_cell = 7f
+
+At time = 77000, hidden_state = 2, prev_ht = 2
+----------------------------------
+At time = 82000, init_n = 0
+At time = 82000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 82000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 82000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 82000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 82000, output_cell = 0, tanh_output_cell = 7f
+
+At time = 82000, hidden_state = 2, prev_ht = 2
+----------------------------------
+At time = 87000, init_n = 0
+At time = 87000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 87000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 87000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 87000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 87000, output_cell = 0, tanh_output_cell = 7f
+
+At time = 87000, hidden_state = 2, prev_ht = 2
+----------------------------------
+At time = 92000, init_n = 0
+At time = 92000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 92000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 92000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 92000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 92000, output_cell = 0, tanh_output_cell = 7f
+
+At time = 92000, hidden_state = 2, prev_ht = 2
+----------------------------------
+At time = 97000, init_n = 0
+At time = 97000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 97000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 97000, output_input_1 = 0, output_forget_1 = 0, output_cell_update_1 = 0, output_output_1 = 0
+
+At time = 97000, before_output_input_3 = 0, before_output_forget_3 = 0, before_output_cell_update_3 = 0, before_output_output_3 = ae, sigmoid = 7f, tanh = 0
+
+At time = 97000, output_cell = 0, tanh_output_cell = 7f
+
+At time = 97000, hidden_state = 2, prev_ht = 2

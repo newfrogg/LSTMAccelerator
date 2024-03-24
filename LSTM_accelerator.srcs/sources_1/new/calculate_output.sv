@@ -21,7 +21,8 @@
 
 
 module calculate_output #(parameter NUMBER_OF_FEATURES = 2,
-                          parameter NUMBER_OF_UNITS = 2) (
+                          parameter NUMBER_OF_UNITS = 2,
+                          parameter INDEX = 0) (
                           input logic           clk,
                           input logic           rst_n,
                           input logic           enable_output,
@@ -40,8 +41,8 @@ module calculate_output #(parameter NUMBER_OF_FEATURES = 2,
             finish_output   <= 1'b1;
         end
         else begin
-            hidden_state    <= buffer_output[15:8];
-            prev_ht         <= buffer_output[15:8];
+            hidden_state[INDEX]    <= buffer_output[15:8];
+            prev_ht[INDEX]         <= buffer_output[15:8];
         end
     end
     

@@ -22,6 +22,7 @@
 
 module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
                     parameter NUMBER_OF_FEATURES = 2)(
+                    input   integer step,
                     input   logic   clk,
                     input   logic   rst_n,
                     input   logic   enable,
@@ -35,8 +36,6 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
                     input   logic   [7:0]   r_forget_weights    [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
                     input   logic   [7:0]   r_cell_weights      [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
                     input   logic   [7:0]   r_output_weights    [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
-                    input   logic   [7:0]   vector_h_prev       [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
-                    input   logic   [7:0]   prev_cell           [0:NUMBER_OF_UNITS-1],
                     input   logic   [31:0]  input_bias          [0:NUMBER_OF_UNITS-1],
                     input   logic   [31:0]  forget_bias         [0:NUMBER_OF_UNITS-1],
                     input   logic   [31:0]  cell_bias           [0:NUMBER_OF_UNITS-1],  
@@ -49,8 +48,10 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
     logic   local_enable;
     
     integer i;
+//    integer index;
     
-    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) u1(
+    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(0)) u1(
+        .step(step),
         .clk(clk),
         .rst_n(rst_n),
         .enable(local_enable),
@@ -64,8 +65,6 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         .r_forget_weights(r_forget_weights[0]),
         .r_cell_weights(r_cell_weights[0]),
         .r_output_weights(r_output_weights[0]),
-        .vector_h_prev(vector_h_prev[0]),
-        .prev_cell(prev_cell[0]),
         .input_bias(input_bias[0]),
         .forget_bias(forget_bias[0]),
         .cell_bias(cell_bias[0]),
@@ -74,7 +73,8 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         .finish(finish_unit[0])
     );
     
-    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) u2(
+    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(1)) u2(
+        .step(step),
         .clk(clk),
         .rst_n(rst_n),
         .enable(local_enable),
@@ -88,8 +88,6 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         .r_forget_weights(r_forget_weights[1]),
         .r_cell_weights(r_cell_weights[1]),
         .r_output_weights(r_output_weights[1]),
-        .vector_h_prev(vector_h_prev[1]),
-        .prev_cell(prev_cell[1]),
         .input_bias(input_bias[1]),
         .forget_bias(forget_bias[1]),
         .cell_bias(cell_bias[1]),

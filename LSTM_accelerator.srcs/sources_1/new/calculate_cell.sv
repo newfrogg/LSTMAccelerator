@@ -22,6 +22,7 @@
 
 module calculate_cell #(parameter NUMBER_OF_FEATURES = 2,
                         parameter NUMBER_OF_UNITS = 2)(
+                        input integer       step,
                         input logic         clk,
                         input logic         rst_n,
                         input logic         enable_cell,
@@ -43,7 +44,7 @@ module calculate_cell #(parameter NUMBER_OF_FEATURES = 2,
         if ( (!rst_n) || !(enable_cell) ) begin
             buffer_forget_cell          <= 0;
             buffer_input_cell_update    <= 0;
-            buffer_cell                 <= 0;
+//            buffer_cell                 <= 0;
             finish_cell                 <= 1'b1;
         end
         else begin
@@ -54,7 +55,12 @@ module calculate_cell #(parameter NUMBER_OF_FEATURES = 2,
     always @(posedge enable_cell) begin
 //            #1;
             finish_cell                 = 1'b0;
-            buffer_forget_cell          = output_forget_3*prev_cell;
+            if (step == 0) begin
+                buffer_forget_cell = 0;
+            end 
+            else begin
+                buffer_forget_cell          = output_forget_3*prev_cell;
+            end
             buffer_input_cell_update    = output_input_3*output_cell_update_3;
             buffer_cell                 = buffer_forget_cell + buffer_input_cell_update;
             finish_cell                 = 1'b1;
