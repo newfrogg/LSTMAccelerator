@@ -35,29 +35,28 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                                 input   logic   [7:0]   r_forget_weights    [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
                                 input   logic   [7:0]   r_cell_weights      [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
                                 input   logic   [7:0]   r_output_weights    [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
-//                                input   logic   [7:0]   vector_h_prev       [0:NUMBER_OF_UNITS-1][0:NUMBER_OF_UNITS-1],
-//                                input   logic   [7:0]   prev_cell           [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  input_bias          [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  forget_bias         [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  cell_bias           [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  output_bias         [0:NUMBER_OF_UNITS-1],
-//                                output  logic   [7:0]   h_t                 [0:NUMBER_OF_UNITS-1],
-                                output  logic   finish
+                                output  logic   finish,
+                                output  shortint unsigned index
     );
     
-    integer i;
+    shortint unsigned step;
     
-    logic [7:0] vector_x [0:NUMBER_OF_FEATURES-1];
-    logic       last_timestep;
-    logic [7:0] h_t [0:NUMBER_OF_UNITS-1];
+    assign index = step;
+    
+//    logic [7:0] vector_x [0:NUMBER_OF_FEATURES-1];
+//    logic       last_timestep;
+    logic [7:0] matrix_ht [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
+    logic finish_layer;
     
     lstm_layer #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) layer1 (
-        .step(i),
         .clk(clk),
         .rst_n(rst_n),
         .enable(enable),
-        .last_timestep(last_timestep),
-        .vector_x(vector_x),
+        .matrix_x(matrix_x),
         .input_weights(input_weights),
         .forget_weights(forget_weights),
         .cell_weights(cell_weights),
@@ -70,31 +69,63 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
         .forget_bias(forget_bias),
         .cell_bias(cell_bias),
         .output_bias(output_bias),
-        .h_t(h_t),
+        .matrix_ht(matrix_ht),
         .finish(finish)
     );
     
+    /*
     always @(posedge clk or negedge rst_n) begin
         if ( (!rst_n) || (!enable) ) begin
             last_timestep   <= 1'b0;
-            i               <= 0;
+            step            <= 0;
         end
         else begin
-            if (i == 0) begin
+            if (step == 0) begin
                 vector_x    <= matrix_x[0];
-                i           <= i+1;
+//                step        <= step+1;
+                @(posedge layer1.u1.finish_output) begin
+                    vector_x    <= matrix_x[step+1];
+                    step        <= step + 1;
+                end
             end
             else begin
                 @(posedge layer1.u1.finish_output) begin
-                    vector_x    <=  matrix_x[i];
-                    if (i != NUMBER_OF_TIMESTEPS-1) begin
-                        i           <=  i+1;
+                    if (step != NUMBER_OF_TIMESTEPS-1) begin
+                        vector_x        <=  matrix_x[step+1];
+                        step            <=  step+1;
                     end
                     else begin
-                        i               <= 0;
+                        step            <= 0;
                         last_timestep   <= 1'b1;
                     end
                 end
+            end
+        end
+    end
+    */
+//    always @(posedge clk or negedge rst_n) begin
+//        if (!rst_n || !enable) begin
+//            local_enable    <= 1'b0;
+//            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
+//                vector_ht_prev[i]   <= 0;
+//            end
+//        end
+//        else begin
+//            local_enable    <= 1'b1;
+////            finish          <= 1'b0;
+//        end
+//    end
+    
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            finish_layer          <= 1'b1;
+        end
+        else begin
+            if (finish) begin
+                finish_layer  <= 1'b1;
+            end
+            else begin
+                finish_layer  <= 1'b0;
             end
         end
     end

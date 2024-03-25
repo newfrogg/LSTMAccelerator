@@ -406,10 +406,10 @@ module tanh_16b #(parameter INPUT_WIDTH = 16, parameter OUTPUT_WIDTH = 8) (
         else if ((data_in >= 16'hff48) && (data_in < 16'hffa4)) begin
             data_out <= 8'b11111110;
         end
-        else if ((data_in >= 16'hffa4) && (data_in < 16'h1)) begin
+        else if ((data_in >= 16'hffa4) && (data_in <= 16'hffff)) begin
             data_out <= 8'b11111111;
         end
-        else if ((data_in >= 16'h1) && (data_in < 16'h5c)) begin
+        else if ((data_in >= 16'h0) && (data_in < 16'h5c)) begin
             data_out <= 8'b00000000;
         end
         else if ((data_in >= 16'h5c) && (data_in < 16'hb8)) begin

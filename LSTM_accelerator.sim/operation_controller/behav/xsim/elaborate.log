@@ -5,6 +5,7 @@ Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'index' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:73]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

@@ -41,8 +41,8 @@ module calculate_output #(parameter NUMBER_OF_FEATURES = 2,
             finish_output   <= 1'b1;
         end
         else begin
-            hidden_state[INDEX]    <= buffer_output[15:8];
-            prev_ht[INDEX]         <= buffer_output[15:8];
+            hidden_state    <= buffer_output[7:0];
+            prev_ht         <= buffer_output[7:0];
         end
     end
     
@@ -50,6 +50,10 @@ module calculate_output #(parameter NUMBER_OF_FEATURES = 2,
 //            #1;
             finish_output   = 1'b0;
             buffer_output   = output_output_3*tanh_output_cell;
+            hidden_state    = buffer_output[7:0];
+            prev_ht         = buffer_output[7:0];
+//            hidden_state    = buffer_output[7:0];
+//            prev_ht         = buffer_output[7:0];
             finish_output   = 1'b1;
 //            finish          = 1'b1;
     end

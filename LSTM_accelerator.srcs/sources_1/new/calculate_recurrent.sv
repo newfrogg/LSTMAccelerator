@@ -22,11 +22,11 @@
 
 module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
                              parameter NUMBER_OF_UNITS = 2) (
-                             input integer  step,
                              input logic    clk,
                              input logic    rst_n,
                              input logic    enable_recurrent,
-                             input logic    [7:0] vector_h_prev       [0:NUMBER_OF_UNITS-1],
+                             input logic    [7:0] step,
+                             input logic    [7:0] vector_ht_prev      [0:NUMBER_OF_UNITS-1],
                              input logic    [7:0] r_input_weights     [0:NUMBER_OF_UNITS-1],
                              input logic    [7:0] r_forget_weights    [0:NUMBER_OF_UNITS-1],
                              input logic    [7:0] r_cell_weights      [0:NUMBER_OF_UNITS-1],
@@ -47,14 +47,18 @@ module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
     logic [31:0] forget_buffer;
     logic [31:0] cell_buffer;
     logic [31:0] output_buffer;
+    
     logic [31:0] output_output3_buffer;
+    logic [31:0] output_input3_buffer;
+    logic [31:0] output_forget3_buffer;
+    logic [31:0] output_cell3_buffer;
     
     integer i;
     
-    sigmoid #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) in (.data_in(input_buffer), .data_out(output_input_3) );
-    sigmoid #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) f (.data_in(forget_buffer), .data_out(output_forget_3) );
+    sigmoid #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) in (.data_in(output_input3_buffer), .data_out(output_input_3) );
+    sigmoid #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) f (.data_in(output_forget3_buffer), .data_out(output_forget_3) );
     sigmoid #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) o (.data_in(output_output3_buffer), .data_out(output_output_3) );
-    tanh    #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) g (.data_in(cell_buffer), .data_out(output_cell_update_3) );
+    tanh    #(.INPUT_WIDTH(32), .OUTPUT_WIDTH(8)) g (.data_in(output_cell3_buffer), .data_out(output_cell_update_3) );
     
     always @(posedge clk or negedge rst_n) begin
         if ((!rst_n) || (!enable_recurrent)) begin
@@ -83,13 +87,17 @@ module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
             end
             else begin 
                 for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
-                    input_buffer    = input_buffer     + r_input_weights[i]*vector_h_prev[i];
-                    forget_buffer   = forget_buffer    + r_forget_weights[i]*vector_h_prev[i];
-                    cell_buffer     = cell_buffer      + r_cell_weights[i]*vector_h_prev[i];
-                    output_buffer   = output_buffer    + r_output_weights[i]*vector_h_prev[i]; 
+                    input_buffer    = input_buffer     + r_input_weights[i]*vector_ht_prev[i];
+                    forget_buffer   = forget_buffer    + r_forget_weights[i]*vector_ht_prev[i];
+                    cell_buffer     = cell_buffer      + r_cell_weights[i]*vector_ht_prev[i];
+                    output_buffer   = output_buffer    + r_output_weights[i]*vector_ht_prev[i]; 
                 end
             end
-            output_output3_buffer   = output_buffer + output_output_1;
+            output_output3_buffer   = output_buffer + output_output_1;  //sigmoid
+            output_input3_buffer    = input_buffer + output_input_1;    // sigmoid
+            output_forget3_buffer   = forget_buffer + output_forget_1;  // sigmoid
+            output_cell3_buffer     = cell_buffer + output_cell_update_1;   // tanh
+            
             finish_recurrent    = 1'b1;
     end
     

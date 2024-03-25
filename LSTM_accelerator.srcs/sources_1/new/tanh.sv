@@ -410,7 +410,7 @@ always_comb begin
     else if ((data_in >= 32'hff46df76) && (data_in < 32'hffa3712e)) begin
         data_out <= 8'b11111110;
     end
-    else if ((data_in >= 32'hffa3712e) && (data_in < 32'hffffffff)) begin
+    else if ((data_in >= 32'hffa3712e) && (data_in <= 32'hffffffff)) begin
         data_out <= 8'b11111111;
     end
     else if ((data_in >= 32'h0) && (data_in < 32'h5c8ed2)) begin
