@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
-                                parameter NUMBER_OF_UNITS = 2,
-                                parameter NUMBER_OF_TIMESTEPS = 2,
-                                parameter NUMBER_OF_LABELS = 2 )(
+module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
+                                parameter NUMBER_OF_UNITS = 64,
+                                parameter NUMBER_OF_TIMESTEPS = 28,
+                                parameter NUMBER_OF_LABELS = 10 )(
                                 input   logic   clk,
                                 input   logic   rst_n,
                                 input   logic   enable,
@@ -73,7 +73,7 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
     assign o_state = state;
     assign finish_layer = finish_layer1;
     
-    lstm_layer #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .NUMBER_OF_TIMESTEPS(2)) layer1 (
+    lstm_layer #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS)) layer1 (
         .clk(clk),
         .rst_n(rst_n),
         .enable(enable_layer1),
@@ -94,12 +94,12 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
         .finish(finish_layer1)
     );
     
-    reshape #(.SIZE_ROW(2), .SIZE_COL(2)) rs ( 
+    reshape #(.SIZE_ROW(NUMBER_OF_TIMESTEPS), .SIZE_COL(NUMBER_OF_UNITS)) rs ( 
         .matrix_x(matrix_ht),
         .vector_x(vector_x)
     );
     
-    fully_connected #(.NUMBER_OUTPUTS(NUMBER_OF_LABELS), .NUMBER_INPUTS(4)) fc1 (
+    fully_connected #(.NUMBER_OUTPUTS(NUMBER_OF_LABELS), .NUMBER_INPUTS(NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS)) fc1 (
         .clk(clk),
         .rst_n(rst_n),
         .enable_fully(enable_fc),

@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 2,
-                             parameter NUMBER_OF_UNITS = 2) (
+module calculate_recurrent #(parameter NUMBER_OF_FEATURES = 28,
+                             parameter NUMBER_OF_UNITS = 64) (
                              input logic    clk,
                              input logic    rst_n,
                              input logic    enable_recurrent,

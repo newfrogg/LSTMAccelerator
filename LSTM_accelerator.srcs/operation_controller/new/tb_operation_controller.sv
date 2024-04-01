@@ -22,10 +22,10 @@
 
 module tb_operation_controller();
     
-    parameter NUMBER_OF_FEATURES = 2;
-    parameter NUMBER_OF_UNITS = 2;
-    parameter NUMBER_OF_TIMESTEPS = 2;
-    parameter NUMBER_OF_LABELS = 2;
+    parameter NUMBER_OF_FEATURES = 28;
+    parameter NUMBER_OF_UNITS = 64;
+    parameter NUMBER_OF_TIMESTEPS = 28;
+    parameter NUMBER_OF_LABELS = 10;
     
     logic     clk;
     logic     rst_n;
@@ -51,7 +51,7 @@ module tb_operation_controller();
     logic     [2:0]   o_state;
     logic     finish_layer;
     
-    operation_controller #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .NUMBER_OF_TIMESTEPS(2)) uut (
+    operation_controller #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS), .NUMBER_OF_LABELS(NUMBER_OF_LABELS)) uut (
         .clk(clk),
         .rst_n(rst_n),
         .enable(enable),

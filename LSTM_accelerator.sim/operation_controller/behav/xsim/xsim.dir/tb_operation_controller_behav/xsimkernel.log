@@ -2,3 +2,6 @@ Running: xsim.dir/tb_operation_controller_behav/xsimk -simmode gui -wdb tb_opera
 Design successfully loaded
 Design Loading Memory Usage: 24700 KB (Peak: 25204 KB)
 Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 106696 KB (Peak: 163968 KB)
+Simulation CPU Usage: 500 ms
