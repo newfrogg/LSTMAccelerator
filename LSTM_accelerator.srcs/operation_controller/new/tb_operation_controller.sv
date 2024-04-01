@@ -48,6 +48,8 @@ module tb_operation_controller();
     logic     [31:0]  bias            [0:NUMBER_OF_LABELS-1];
     logic     [7:0]   labels          [0:NUMBER_OF_LABELS-1];
     logic     finish;
+    logic     [2:0]   o_state;
+    logic     finish_layer;
     
     operation_controller #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .NUMBER_OF_TIMESTEPS(2)) uut (
         .clk(clk),
@@ -69,7 +71,9 @@ module tb_operation_controller();
         .matrix_weights(matrix_weights),
         .bias(bias),
         .labels(labels),
-        .finish(finish)
+        .finish(finish),
+        .o_state(o_state),
+        .finish_layer(finish_layer)
     );
     
     integer i;
@@ -203,6 +207,10 @@ module tb_operation_controller();
             $display("\n------------------At time = %0t, CALCULATE FC -----------------------", $time);
             $display("At time = %0t, vector_input = [%0h, %0h, %0h, %0h]", $time, uut.vector_x[0], uut.vector_x[1], uut.vector_x[2], uut.vector_x[3]);
             $display("At time = %0t, vector_bias = [%0h, %0h]", $time, bias[0], bias[1]);
+            $display("At time = %0t, vector_output = [%0h, %0h]", $time, uut.labels[0], uut.labels[1]);
+        end
+        else if (uut.enable_output) begin
+            $display("\n------------------At time = %0t, OUTPUT     -----------------------", $time);
             $display("At time = %0t, vector_output = [%0h, %0h]", $time, uut.labels[0], uut.labels[1]);
         end
         else begin

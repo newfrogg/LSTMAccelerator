@@ -114,3 +114,28 @@ source tb_operation_controller.tcl
 close_sim
 launch_simulation -simset [get_filesets operation_controller ]
 source tb_operation_controller.tcl
+synth_design -top operation_controller -part xc7a35ticsg324-1L -lint 
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_design
+open_run impl_1
+close_sim
+launch_simulation -simset [get_filesets operation_controller ]
+source tb_operation_controller.tcl
+reset_run synth_1
+close_sim
+launch_simulation -simset [get_filesets operation_controller ]
+source tb_operation_controller.tcl
+close_sim
+launch_simulation -simset [get_filesets operation_controller ]
+source tb_operation_controller.tcl
+close_sim
+launch_simulation -simset [get_filesets operation_controller ]
+source tb_operation_controller.tcl
+close_sim
+launch_simulation -simset [get_filesets operation_controller ]
+source tb_operation_controller.tcl

@@ -43,7 +43,9 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                                 input   logic   [7:0]   matrix_weights      [0:NUMBER_OF_LABELS-1][0:NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  bias                [0:NUMBER_OF_LABELS-1],
                                 output  logic   [7:0]   labels              [0:NUMBER_OF_LABELS-1],
-                                output  logic   finish
+                                output  logic   finish,
+                                output  logic   [2:0]   o_state,
+                                output  logic   finish_layer
     );
     
     localparam  STATE_IDLE      = 3'd0,
@@ -54,7 +56,7 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                 STATE_FC        = 3'd5,
                 STATE_OUTPUT    = 3'd6;
     
-    logic [1:0] state;         
+    logic [2:0] state;         
     logic [7:0] matrix_ht [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
     logic [7:0] vector_x [0:NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS-1];
     
@@ -67,6 +69,9 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
     logic finish_layer2;
     logic finish_fc;
     logic finish_output;
+    
+    assign o_state = state;
+    assign finish_layer = finish_layer1;
     
     lstm_layer #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .NUMBER_OF_TIMESTEPS(2)) layer1 (
         .clk(clk),
