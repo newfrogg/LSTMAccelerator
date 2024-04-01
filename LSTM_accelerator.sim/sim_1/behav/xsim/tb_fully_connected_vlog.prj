@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" \
+"../../../../LSTM_accelerator.srcs/operation_controller/new/tb_fully_connected.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

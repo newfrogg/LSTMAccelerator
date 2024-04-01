@@ -22,7 +22,8 @@
 
 module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                                 parameter NUMBER_OF_UNITS = 2,
-                                parameter NUMBER_OF_TIMESTEPS = 2 )(
+                                parameter NUMBER_OF_TIMESTEPS = 2,
+                                parameter NUMBER_OF_LABELS = 2 )(
                                 input   logic   clk,
                                 input   logic   rst_n,
                                 input   logic   enable,
@@ -39,23 +40,38 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                                 input   logic   [31:0]  forget_bias         [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  cell_bias           [0:NUMBER_OF_UNITS-1],
                                 input   logic   [31:0]  output_bias         [0:NUMBER_OF_UNITS-1],
-                                output  logic   finish,
-                                output  shortint unsigned index
+                                input   logic   [7:0]   matrix_weights      [0:NUMBER_OF_LABELS-1][0:NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS-1],
+                                input   logic   [31:0]  bias                [0:NUMBER_OF_LABELS-1],
+                                output  logic   [7:0]   labels              [0:NUMBER_OF_LABELS-1],
+                                output  logic   finish
     );
     
-    shortint unsigned step;
+    localparam  STATE_IDLE      = 3'd0,
+                STATE_LAYER1    = 3'd1,
+                STATE_LAYER2    = 3'd2,
+                STATE_LAYER3    = 3'd3,
+                STATE_LAYER4    = 3'd4,
+                STATE_FC        = 3'd5,
+                STATE_OUTPUT    = 3'd6;
     
-    assign index = step;
-    
-//    logic [7:0] vector_x [0:NUMBER_OF_FEATURES-1];
-//    logic       last_timestep;
+    logic [1:0] state;         
     logic [7:0] matrix_ht [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
-    logic finish_layer;
+    logic [7:0] vector_x [0:NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS-1];
     
-    lstm_layer #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) layer1 (
+    logic enable_layer1;
+    logic enable_layer2;
+    logic enable_fc;
+    logic enable_output;
+    
+    logic finish_layer1;
+    logic finish_layer2;
+    logic finish_fc;
+    logic finish_output;
+    
+    lstm_layer #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .NUMBER_OF_TIMESTEPS(2)) layer1 (
         .clk(clk),
         .rst_n(rst_n),
-        .enable(enable),
+        .enable(enable_layer1),
         .matrix_x(matrix_x),
         .input_weights(input_weights),
         .forget_weights(forget_weights),
@@ -70,66 +86,108 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
         .cell_bias(cell_bias),
         .output_bias(output_bias),
         .matrix_ht(matrix_ht),
-        .finish(finish)
+        .finish(finish_layer1)
     );
     
-    /*
+    reshape #(.SIZE_ROW(2), .SIZE_COL(2)) rs ( 
+        .matrix_x(matrix_ht),
+        .vector_x(vector_x)
+    );
+    
+    fully_connected #(.NUMBER_OUTPUTS(NUMBER_OF_LABELS), .NUMBER_INPUTS(4)) fc1 (
+        .clk(clk),
+        .rst_n(rst_n),
+        .enable_fully(enable_fc),
+        .vector_x(vector_x),
+        .matrix_weights(matrix_weights),
+        .bias(bias),
+        .labels(labels),
+        .finish_fully(finish_fc)
+    );
+    
     always @(posedge clk or negedge rst_n) begin
-        if ( (!rst_n) || (!enable) ) begin
-            last_timestep   <= 1'b0;
-            step            <= 0;
+        if (!rst_n || !enable) begin
+            state   <= STATE_IDLE;
+            finish  <= 1'b0;
+            enable_layer1   <= 1'b0;
+            enable_layer2   <= 1'b0;
+            enable_fc       <= 1'b0;
+            enable_output   <= 1'b0;
         end
         else begin
-            if (step == 0) begin
-                vector_x    <= matrix_x[0];
-//                step        <= step+1;
-                @(posedge layer1.u1.finish_output) begin
-                    vector_x    <= matrix_x[step+1];
-                    step        <= step + 1;
+            case(state)
+                STATE_IDLE: begin
+                    enable_layer1   <= 1'b1;
+                    finish          <= 1'b0;
+                    state           <= STATE_LAYER1;                    
                 end
-            end
-            else begin
-                @(posedge layer1.u1.finish_output) begin
-                    if (step != NUMBER_OF_TIMESTEPS-1) begin
-                        vector_x        <=  matrix_x[step+1];
-                        step            <=  step+1;
+                
+                STATE_LAYER1: begin
+                    if (finish_layer1) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER2;
                     end
                     else begin
-                        step            <= 0;
-                        last_timestep   <= 1'b1;
+                        enable_layer1   <= 1'b1;
                     end
                 end
-            end
+                
+                STATE_LAYER2: begin
+                    if (finish_layer1) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER3;
+                    end
+                    else begin
+                        enable_layer1   <= 1'b1;
+                    end
+                end
+                
+                STATE_LAYER3: begin
+//                    #1;
+                    if (finish_layer1) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER4;
+                    end
+                    else begin
+                        enable_layer1   <= 1'b1;
+                    end
+                end
+                
+                STATE_LAYER4: begin
+                    if (finish_layer1) begin
+                        enable_layer1   <= 1'b0;
+                        enable_fc       <= 1'b1;
+                        state           <= STATE_FC;
+                    end
+                    else begin
+                        enable_layer1   <= 1'b1;
+                    end
+                end
+                
+                STATE_FC: begin
+                    if (finish_fc) begin
+                        enable_fc       <= 1'b0;
+                        enable_output   <= 1'b1;
+                        state           <= STATE_OUTPUT;
+                    end
+                    else begin
+                        enable_fc       <= 1'b1;
+                    end
+                end
+                
+                STATE_OUTPUT: begin
+                    state       <= STATE_IDLE;
+                    finish      <= 1'b1;
+                end
+                
+                default: begin
+                    state       <= STATE_IDLE;
+                end
+            endcase
         end
     end
-    */
-//    always @(posedge clk or negedge rst_n) begin
-//        if (!rst_n || !enable) begin
-//            local_enable    <= 1'b0;
-//            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
-//                vector_ht_prev[i]   <= 0;
-//            end
-//        end
-//        else begin
-//            local_enable    <= 1'b1;
-////            finish          <= 1'b0;
-//        end
-//    end
-    
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            finish_layer          <= 1'b1;
-        end
-        else begin
-            if (finish) begin
-                finish_layer  <= 1'b1;
-            end
-            else begin
-                finish_layer  <= 1'b0;
-            end
-        end
-    end
-    
-    
-    //  
+
 endmodule

@@ -1,148 +1,21 @@
 Time resolution is 1 ps
 Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
 
-Time =                 4000, finish = 1
-Time =                 4000, finish_layer = 1
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
 
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
 
-At time =                 5000, vector_ht = [xx, xx]
-At time =                 5000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                 5000, vector_ht = [xx, xx]
-At time =                 5000, vector_cell = [xx, xx]
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+--------------At time = 37000, CALCULATE LAYER-------------------
 
-----------------------------------
-
-At time =                 7000, Local enable = 0
-At time =                 7000, vector_x = {xx, xx}, step = 0
-At time = 7000, init_n1 = 0
-At time = 7000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 7000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 7000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
-
-At time = 7000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 7000, u1_after_add_output_input3 = xxxxxxxx, u1_after_add_output_forget3 = xxxxxxxx, u1_after_add_output_cell3 = xxxxxxxx, u1_after_add_output_output3 = xxxxxxxx
-At time = 7000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 7f, u1_output_output3_sigmoid = 7f
-
-At time = 7000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
-
-At time = 7000, u1_hidden_state = xx, u1_prev_ht = xx
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 7000, init_n2 = 0
-At time = 7000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 7000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 7000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 7000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 7000, u2_after_add_output_input3 = xxxxxxxx, u2_after_add_output_forget3 = xxxxxxxx, u2_after_add_output_cell3 = xxxxxxxx, u2_after_add_output_output3 = xxxxxxxx
-At time = 7000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, u2_output_cell_update3_tanh = 7f, u2_output_output3_sigmoid = 7f
-
-At time = 7000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
-
-At time = 7000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                10000, vector_ht = [xx, xx]
-At time =                10000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                10000, vector_ht = [xx, xx]
-At time =                10000, vector_cell = [xx, xx]
-
-
-At time =                15000, vector_ht = [xx, xx]
-At time =                15000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                15000, vector_ht = [xx, xx]
-At time =                15000, vector_cell = [xx, xx]
-
-----------------------------------
-
-At time =                17000, Local enable = 0
-At time =                17000, vector_x = {xx, xx}, step = 0
-At time = 17000, init_n1 = 0
-At time = 17000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 17000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 17000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
-
-At time = 17000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 17000, u1_after_add_output_input3 = xxxxxxxx, u1_after_add_output_forget3 = xxxxxxxx, u1_after_add_output_cell3 = xxxxxxxx, u1_after_add_output_output3 = xxxxxxxx
-At time = 17000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 7f, u1_output_output3_sigmoid = 7f
-
-At time = 17000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
-
-At time = 17000, u1_hidden_state = xx, u1_prev_ht = xx
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 17000, init_n2 = 0
-At time = 17000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 17000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 17000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 17000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 17000, u2_after_add_output_input3 = xxxxxxxx, u2_after_add_output_forget3 = xxxxxxxx, u2_after_add_output_cell3 = xxxxxxxx, u2_after_add_output_output3 = xxxxxxxx
-At time = 17000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, u2_output_cell_update3_tanh = 7f, u2_output_output3_sigmoid = 7f
-
-At time = 17000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
-
-At time = 17000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                20000, vector_ht = [xx, xx]
-At time =                20000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                20000, vector_ht = [xx, xx]
-At time =                20000, vector_cell = [xx, xx]
-
-
-At time =                25000, vector_ht = [xx, xx]
-At time =                25000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                25000, vector_ht = [xx, xx]
-At time =                25000, vector_cell = [xx, xx]
-
-----------------------------------
-
-At time =                27000, Local enable = 0
-At time =                27000, vector_x = {xx, xx}, step = 0
-At time = 27000, init_n1 = 0
-At time = 27000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 27000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 27000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
-
-At time = 27000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 27000, u1_after_add_output_input3 = xxxxxxxx, u1_after_add_output_forget3 = xxxxxxxx, u1_after_add_output_cell3 = xxxxxxxx, u1_after_add_output_output3 = xxxxxxxx
-At time = 27000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 7f, u1_output_output3_sigmoid = 7f
-
-At time = 27000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
-
-At time = 27000, u1_hidden_state = xx, u1_prev_ht = xx
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 27000, init_n2 = 0
-At time = 27000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 27000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 27000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 27000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 27000, u2_after_add_output_input3 = xxxxxxxx, u2_after_add_output_forget3 = xxxxxxxx, u2_after_add_output_cell3 = xxxxxxxx, u2_after_add_output_output3 = xxxxxxxx
-At time = 27000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, u2_output_cell_update3_tanh = 7f, u2_output_output3_sigmoid = 7f
-
-At time = 27000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
-
-At time = 27000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                30000, vector_ht = [xx, xx]
-At time =                30000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                30000, vector_ht = [xx, xx]
-At time =                30000, vector_cell = [xx, xx]
-
-Time =                33000, finish = 1
-
-At time =                35000, vector_ht = [xx, xx]
-At time =                35000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                35000, vector_ht = [xx, xx]
-At time =                35000, vector_cell = [xx, xx]
-
-----------------------------------
-
-At time =                37000, Local enable = 1
+At time =                37000, Local enable = 0
 At time =                37000, vector_x = {4, 8}, step = 0
 At time = 37000, init_n1 = 0
 At time = 37000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
@@ -171,24 +44,14 @@ At time = 37000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, 
 At time = 37000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
 
 At time = 37000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                40000, vector_ht = [xx, xx]
-At time =                40000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                40000, vector_ht = [xx, xx]
-At time =                40000, vector_cell = [xx, xx]
-
-
-At time =                45000, vector_ht = [xx, xx]
-At time =                45000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                45000, vector_ht = [xx, xx]
-At time =                45000, vector_cell = [xx, xx]
-
-----------------------------------
+###############At time = 45000, state = 2
+At time = 47000, finish_layer1 = 1
+--------------At time = 47000, CALCULATE LAYER-------------------
 
 At time =                47000, Local enable = 1
 At time =                47000, vector_x = {4, 8}, step = 0
-At time = 47000, init_n1 = 1
-At time = 47000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 47000, init_n1 = 0
+At time = 47000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 47000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 47000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
@@ -202,8 +65,8 @@ At time = 47000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
 At time = 47000, u1_hidden_state = xx, u1_prev_ht = xx
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 47000, init_n2 = 1
-At time = 47000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 47000, init_n2 = 0
+At time = 47000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 47000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 47000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
@@ -214,31 +77,21 @@ At time = 47000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, 
 At time = 47000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
 
 At time = 47000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                50000, vector_ht = [xx, xx]
-At time =                50000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                50000, vector_ht = [xx, xx]
-At time =                50000, vector_cell = [xx, xx]
-
-
-At time =                55000, vector_ht = [xx, xx]
-At time =                55000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                55000, vector_ht = [xx, xx]
-At time =                55000, vector_cell = [xx, xx]
-
-----------------------------------
+###############At time = 55000, state = 3
+At time = 57000, finish_layer1 = 1
+--------------At time = 57000, CALCULATE LAYER-------------------
 
 At time =                57000, Local enable = 1
 At time =                57000, vector_x = {4, 8}, step = 0
 At time = 57000, init_n1 = 1
-At time = 57000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 57000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 57000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 57000, u1_output_input_1 = 5b, u1_output_forget_1 = 5c, u1_output_cell_update_1 = 5d, u1_output_output_1 = 5e
+At time = 57000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
 At time = 57000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 57000, u1_after_add_output_input3 = 5b, u1_after_add_output_forget3 = 5c, u1_after_add_output_cell3 = 5d, u1_after_add_output_output3 = 5e
-At time = 57000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
+At time = 57000, u1_after_add_output_input3 = xxxxxxxx, u1_after_add_output_forget3 = xxxxxxxx, u1_after_add_output_cell3 = xxxxxxxx, u1_after_add_output_output3 = xxxxxxxx
+At time = 57000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 7f, u1_output_output3_sigmoid = 7f
 
 At time = 57000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
 
@@ -246,122 +99,92 @@ At time = 57000, u1_hidden_state = xx, u1_prev_ht = xx
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 57000, init_n2 = 1
-At time = 57000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 57000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 57000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 57000, u2_output_input_1 = 789ac47e, u2_output_forget_1 = 89abd580, u2_output_cell_update_1 = 9abce5a1, u2_output_output_1 = abcde7b2
+At time = 57000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
 At time = 57000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 57000, u2_after_add_output_input3 = 789ac47e, u2_after_add_output_forget3 = 89abd580, u2_after_add_output_cell3 = 9abce5a1, u2_after_add_output_output3 = abcde7b2
-At time = 57000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
+At time = 57000, u2_after_add_output_input3 = xxxxxxxx, u2_after_add_output_forget3 = xxxxxxxx, u2_after_add_output_cell3 = xxxxxxxx, u2_after_add_output_output3 = xxxxxxxx
+At time = 57000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 7f, u2_output_cell_update3_tanh = 7f, u2_output_output3_sigmoid = 7f
 
 At time = 57000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
 
 At time = 57000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                60000, vector_ht = [xx, xx]
-At time =                60000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                60000, vector_ht = [xx, xx]
-At time =                60000, vector_cell = [xx, xx]
-
-
-At time =                65000, vector_ht = [xx, xx]
-At time =                65000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                65000, vector_ht = [xx, xx]
-At time =                65000, vector_cell = [xx, xx]
-
-----------------------------------
+-------At time = 65000, finish_layer1 = 0
+###############At time = 65000, state = 0
+At time = 67000, finish_layer1 = 0
+--------------At time = 67000, CALCULATE LAYER-------------------
 
 At time =                67000, Local enable = 1
 At time =                67000, vector_x = {4, 8}, step = 0
 At time = 67000, init_n1 = 1
-At time = 67000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 67000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 67000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 67000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 67000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
+At time = 67000, u1_output_input_1 = 5b, u1_output_forget_1 = 5c, u1_output_cell_update_1 = 5d, u1_output_output_1 = 5e
 
-At time = 67000, u1_before_add_output_input_3 = 5b, u1_before_add_output_forget_3 = 5c, u1_before_add_output_cell_update_3 = 5d, u1_before_add_output_output_3 = 5e
+At time = 67000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
 At time = 67000, u1_after_add_output_input3 = 5b, u1_after_add_output_forget3 = 5c, u1_after_add_output_cell3 = 5d, u1_after_add_output_output3 = 5e
 At time = 67000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
 
-At time = 67000, u1_output_cell = 0, u1_tanh_output_cell = 0
+At time = 67000, u1_output_cell = xxxxx, u1_tanh_output_cell = 7f
 
 At time = 67000, u1_hidden_state = xx, u1_prev_ht = xx
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 67000, init_n2 = 1
-At time = 67000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 67000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 67000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 67000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 67000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 67000, u2_before_add_output_input_3 = 789ac47e, u2_before_add_output_forget_3 = 89abd580, u2_before_add_output_cell_update_3 = 9abce5a1, u2_before_add_output_output_3 = abcde7b2
+At time = 67000, u2_output_input_1 = 789ac47e, u2_output_forget_1 = 89abd580, u2_output_cell_update_1 = 9abce5a1, u2_output_output_1 = abcde7b2
+At time = 67000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
 At time = 67000, u2_after_add_output_input3 = 789ac47e, u2_after_add_output_forget3 = 89abd580, u2_after_add_output_cell3 = 9abce5a1, u2_after_add_output_output3 = abcde7b2
 At time = 67000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
 
-At time = 67000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
+At time = 67000, u2_output_cell = xxxxx, u2_tanh_output_cell = 7f
 
 At time = 67000, u2_hidden_state = xx, u2_prev_ht = xx
-
-At time =                70000, vector_ht = [xx, xx]
-At time =                70000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                70000, vector_ht = [xx, xx]
-At time =                70000, vector_cell = [xx, xx]
-
-
-At time =                75000, vector_ht = [xx, xx]
-At time =                75000, matrix_ht = [ [xx, xx], [xx, xx] ]
-At time =                75000, vector_ht = [xx, xx]
-At time =                75000, vector_cell = [xx, xx]
-
-----------------------------------
+###############At time = 75000, state = 1
+At time = 77000, finish_layer1 = 0
+--------------At time = 77000, CALCULATE LAYER-------------------
 
 At time =                77000, Local enable = 1
-At time =                77000, vector_x = {4, 8}, step = 1
+At time =                77000, vector_x = {4, 8}, step = 0
 At time = 77000, init_n1 = 1
 At time = 77000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 77000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+At time = 77000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 77000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
-At time = 77000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
+At time = 77000, u1_before_add_output_input_3 = 5b, u1_before_add_output_forget_3 = 5c, u1_before_add_output_cell_update_3 = 5d, u1_before_add_output_output_3 = 5e
 At time = 77000, u1_after_add_output_input3 = 5b, u1_after_add_output_forget3 = 5c, u1_after_add_output_cell3 = 5d, u1_after_add_output_output3 = 5e
 At time = 77000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
 
 At time = 77000, u1_output_cell = 0, u1_tanh_output_cell = 0
 
-At time = 77000, u1_hidden_state = 0, u1_prev_ht = 0
+At time = 77000, u1_hidden_state = xx, u1_prev_ht = xx
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 77000, init_n2 = 1
 At time = 77000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 77000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+At time = 77000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 77000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 77000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
+At time = 77000, u2_before_add_output_input_3 = 789ac47e, u2_before_add_output_forget_3 = 89abd580, u2_before_add_output_cell_update_3 = 9abce5a1, u2_before_add_output_output_3 = abcde7b2
 At time = 77000, u2_after_add_output_input3 = 789ac47e, u2_after_add_output_forget3 = 89abd580, u2_after_add_output_cell3 = 9abce5a1, u2_after_add_output_output3 = abcde7b2
 At time = 77000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
 
 At time = 77000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
-At time = 77000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =                80000, vector_ht = [0, e7]
-At time =                80000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =                80000, vector_ht = [0, e7]
-At time =                80000, vector_cell = [0, 40]
-
-
-At time =                85000, vector_ht = [0, e7]
-At time =                85000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =                85000, vector_ht = [0, e7]
-At time =                85000, vector_cell = [0, 40]
-
-----------------------------------
+At time = 77000, u2_hidden_state = xx, u2_prev_ht = xx
+At time = 87000, finish_layer1 = 0
+--------------At time = 87000, CALCULATE LAYER-------------------
 
 At time =                87000, Local enable = 1
 At time =                87000, vector_x = {4, 8}, step = 1
 At time = 87000, init_n1 = 1
-At time = 87000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 87000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 87000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 87000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
 
 At time = 87000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
@@ -375,8 +198,8 @@ At time = 87000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 87000, init_n2 = 1
-At time = 87000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 87000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 87000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 87000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
 
 At time = 87000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
 At time = 87000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
@@ -386,30 +209,19 @@ At time = 87000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u
 At time = 87000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 87000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =                90000, vector_ht = [0, e7]
-At time =                90000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =                90000, vector_ht = [0, e7]
-At time =                90000, vector_cell = [0, 40]
-
-
-At time =                95000, vector_ht = [0, e7]
-At time =                95000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =                95000, vector_ht = [0, e7]
-At time =                95000, vector_cell = [0, 40]
-
-----------------------------------
+At time = 97000, finish_layer1 = 0
+--------------At time = 97000, CALCULATE LAYER-------------------
 
 At time =                97000, Local enable = 1
 At time =                97000, vector_x = {4, 8}, step = 1
 At time = 97000, init_n1 = 1
-At time = 97000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 97000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 97000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 97000, u1_output_input_1 = 5b, u1_output_forget_1 = 5c, u1_output_cell_update_1 = 5d, u1_output_output_1 = 5e
+At time = 97000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
-At time = 97000, u1_before_add_output_input_3 = 738, u1_before_add_output_forget_3 = 738, u1_before_add_output_cell_update_3 = 738, u1_before_add_output_output_3 = 738
-At time = 97000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
+At time = 97000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
+At time = 97000, u1_after_add_output_input3 = 5b, u1_after_add_output_forget3 = 5c, u1_after_add_output_cell3 = 5d, u1_after_add_output_output3 = 5e
 At time = 97000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
 
 At time = 97000, u1_output_cell = 0, u1_tanh_output_cell = 0
@@ -418,40 +230,29 @@ At time = 97000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 97000, init_n2 = 1
-At time = 97000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 97000, enable_input = 1, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 97000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 97000, u2_output_input_1 = 789ac47e, u2_output_forget_1 = 89abd580, u2_output_cell_update_1 = 9abce5a1, u2_output_output_1 = abcde7b2
-At time = 97000, u2_before_add_output_input_3 = 93fc, u2_before_add_output_forget_3 = 93fc, u2_before_add_output_cell_update_3 = 93fc, u2_before_add_output_output_3 = 93fc
-At time = 97000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae
+At time = 97000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
+At time = 97000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
+At time = 97000, u2_after_add_output_input3 = 789ac47e, u2_after_add_output_forget3 = 89abd580, u2_after_add_output_cell3 = 9abce5a1, u2_after_add_output_output3 = abcde7b2
 At time = 97000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
 
 At time = 97000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 97000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =               100000, vector_ht = [0, e7]
-At time =               100000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =               100000, vector_ht = [0, e7]
-At time =               100000, vector_cell = [0, 40]
-
-
-At time =               105000, vector_ht = [0, e7]
-At time =               105000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =               105000, vector_ht = [0, e7]
-At time =               105000, vector_cell = [0, 40]
-
-----------------------------------
+At time = 107000, finish_layer1 = 0
+--------------At time = 107000, CALCULATE LAYER-------------------
 
 At time =               107000, Local enable = 1
 At time =               107000, vector_x = {4, 8}, step = 1
 At time = 107000, init_n1 = 1
-At time = 107000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 107000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 107000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 107000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 107000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
+At time = 107000, u1_output_input_1 = 5b, u1_output_forget_1 = 5c, u1_output_cell_update_1 = 5d, u1_output_output_1 = 5e
 
-At time = 107000, u1_before_add_output_input_3 = 793, u1_before_add_output_forget_3 = 794, u1_before_add_output_cell_update_3 = 795, u1_before_add_output_output_3 = 796
+At time = 107000, u1_before_add_output_input_3 = 738, u1_before_add_output_forget_3 = 738, u1_before_add_output_cell_update_3 = 738, u1_before_add_output_output_3 = 738
 At time = 107000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
 At time = 107000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
 
@@ -461,40 +262,29 @@ At time = 107000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 107000, init_n2 = 1
-At time = 107000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 107000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 107000, enable_input = 0, finish_input = 1, enable_recurrent = 1, finish_recurrent = 1
+At time = 107000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
-At time = 107000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 107000, u2_before_add_output_input_3 = 789b587a, u2_before_add_output_forget_3 = 89ac697c, u2_before_add_output_cell_update_3 = 9abd799d, u2_before_add_output_output_3 = abce7bae
+At time = 107000, u2_output_input_1 = 789ac47e, u2_output_forget_1 = 89abd580, u2_output_cell_update_1 = 9abce5a1, u2_output_output_1 = abcde7b2
+At time = 107000, u2_before_add_output_input_3 = 93fc, u2_before_add_output_forget_3 = 93fc, u2_before_add_output_cell_update_3 = 93fc, u2_before_add_output_output_3 = 93fc
 At time = 107000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae
 At time = 107000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
 
 At time = 107000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 107000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =               110000, vector_ht = [0, e7]
-At time =               110000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =               110000, vector_ht = [0, e7]
-At time =               110000, vector_cell = [0, 40]
-
-
-At time =               115000, vector_ht = [0, e7]
-At time =               115000, matrix_ht = [ [0, e7], [xx, xx] ]
-At time =               115000, vector_ht = [0, e7]
-At time =               115000, vector_cell = [0, 40]
-
-----------------------------------
+At time = 117000, finish_layer1 = 0
+--------------At time = 117000, CALCULATE LAYER-------------------
 
 At time =               117000, Local enable = 1
-At time =               117000, vector_x = {4, 8}, step = 0
+At time =               117000, vector_x = {4, 8}, step = 1
 At time = 117000, init_n1 = 1
 At time = 117000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 117000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+At time = 117000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 117000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
-At time = 117000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
+At time = 117000, u1_before_add_output_input_3 = 793, u1_before_add_output_forget_3 = 794, u1_before_add_output_cell_update_3 = 795, u1_before_add_output_output_3 = 796
 At time = 117000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
 At time = 117000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
 
@@ -505,35 +295,24 @@ At time = 117000, u1_hidden_state = 0, u1_prev_ht = 0
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 117000, init_n2 = 1
 At time = 117000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 117000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
+At time = 117000, enable_cell = 1, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 117000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 117000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
+At time = 117000, u2_before_add_output_input_3 = 789b587a, u2_before_add_output_forget_3 = 89ac697c, u2_before_add_output_cell_update_3 = 9abd799d, u2_before_add_output_output_3 = abce7bae
 At time = 117000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae
 At time = 117000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
 
 At time = 117000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 117000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =               120000, vector_ht = [0, e7]
-At time =               120000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               120000, vector_ht = [0, e7]
-At time =               120000, vector_cell = [0, 40]
-
-
-At time =               125000, vector_ht = [0, e7]
-At time =               125000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               125000, vector_ht = [0, e7]
-At time =               125000, vector_cell = [0, 40]
-
-----------------------------------
+At time = 127000, finish_layer1 = 0
+--------------At time = 127000, CALCULATE LAYER-------------------
 
 At time =               127000, Local enable = 1
 At time =               127000, vector_x = {4, 8}, step = 0
 At time = 127000, init_n1 = 1
 At time = 127000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 127000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 127000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
 
 At time = 127000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
@@ -548,7 +327,7 @@ At time = 127000, u1_hidden_state = 0, u1_prev_ht = 0
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 At time = 127000, init_n2 = 1
 At time = 127000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 127000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+At time = 127000, enable_cell = 0, finish_cell = 1, enable_output = 1, finish_output = 1
 
 At time = 127000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
 At time = 127000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
@@ -558,23 +337,8 @@ At time = 127000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 127000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 127000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =               130000, vector_ht = [0, e7]
-At time =               130000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               130000, vector_ht = [0, e7]
-At time =               130000, vector_cell = [0, 40]
-
-
-At time =               135000, vector_ht = [0, e7]
-At time =               135000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               135000, vector_ht = [0, e7]
-At time =               135000, vector_cell = [0, 40]
-
-
-Time =               135000, finish = 1
-Time =               135000, finish_layer = 0
-
-----------------------------------
+At time = 137000, finish_layer1 = 0
+--------------At time = 137000, CALCULATE LAYER-------------------
 
 At time =               137000, Local enable = 1
 At time =               137000, vector_x = {4, 8}, step = 0
@@ -605,21 +369,10 @@ At time = 137000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 137000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 137000, u2_hidden_state = e7, u2_prev_ht = e7
+At time = 147000, finish_layer1 = 1
+--------------At time = 147000, CALCULATE LAYER-------------------
 
-At time =               140000, vector_ht = [0, e7]
-At time =               140000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               140000, vector_ht = [0, e7]
-At time =               140000, vector_cell = [0, 40]
-
-
-At time =               145000, vector_ht = [0, e7]
-At time =               145000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               145000, vector_ht = [0, e7]
-At time =               145000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               147000, Local enable = 0
+At time =               147000, Local enable = 1
 At time =               147000, vector_x = {4, 8}, step = 0
 At time = 147000, init_n1 = 1
 At time = 147000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
@@ -648,23 +401,13 @@ At time = 147000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 147000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 147000, u2_hidden_state = e7, u2_prev_ht = e7
+###############At time = 155000, state = 2
+At time = 157000, finish_layer1 = 1
+--------------At time = 157000, CALCULATE LAYER-------------------
 
-At time =               150000, vector_ht = [0, e7]
-At time =               150000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               150000, vector_ht = [0, e7]
-At time =               150000, vector_cell = [0, 40]
-
-
-At time =               155000, vector_ht = [0, e7]
-At time =               155000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               155000, vector_ht = [0, e7]
-At time =               155000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               157000, Local enable = 0
+At time =               157000, Local enable = 1
 At time =               157000, vector_x = {4, 8}, step = 0
-At time = 157000, init_n1 = 0
+At time = 157000, init_n1 = 1
 At time = 157000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 157000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -679,7 +422,7 @@ At time = 157000, u1_output_cell = 0, u1_tanh_output_cell = 0
 At time = 157000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 157000, init_n2 = 0
+At time = 157000, init_n2 = 1
 At time = 157000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 157000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -691,23 +434,13 @@ At time = 157000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 157000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 157000, u2_hidden_state = e7, u2_prev_ht = e7
+###############At time = 165000, state = 3
+At time = 167000, finish_layer1 = 1
+--------------At time = 167000, CALCULATE LAYER-------------------
 
-At time =               160000, vector_ht = [0, e7]
-At time =               160000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               160000, vector_ht = [0, e7]
-At time =               160000, vector_cell = [0, 40]
-
-
-At time =               165000, vector_ht = [0, e7]
-At time =               165000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               165000, vector_ht = [0, e7]
-At time =               165000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               167000, Local enable = 0
+At time =               167000, Local enable = 1
 At time =               167000, vector_x = {4, 8}, step = 0
-At time = 167000, init_n1 = 0
+At time = 167000, init_n1 = 1
 At time = 167000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 167000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -722,7 +455,7 @@ At time = 167000, u1_output_cell = 0, u1_tanh_output_cell = 0
 At time = 167000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 167000, init_n2 = 0
+At time = 167000, init_n2 = 1
 At time = 167000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 167000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -734,23 +467,13 @@ At time = 167000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 167000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 167000, u2_hidden_state = e7, u2_prev_ht = e7
+###############At time = 175000, state = 0
+At time = 177000, finish_layer1 = 1
+--------------At time = 177000, CALCULATE LAYER-------------------
 
-At time =               170000, vector_ht = [0, e7]
-At time =               170000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               170000, vector_ht = [0, e7]
-At time =               170000, vector_cell = [0, 40]
-
-
-At time =               175000, vector_ht = [0, e7]
-At time =               175000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               175000, vector_ht = [0, e7]
-At time =               175000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               177000, Local enable = 0
+At time =               177000, Local enable = 1
 At time =               177000, vector_x = {4, 8}, step = 0
-At time = 177000, init_n1 = 0
+At time = 177000, init_n1 = 1
 At time = 177000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 177000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -765,7 +488,7 @@ At time = 177000, u1_output_cell = 0, u1_tanh_output_cell = 0
 At time = 177000, u1_hidden_state = 0, u1_prev_ht = 0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 177000, init_n2 = 0
+At time = 177000, init_n2 = 1
 At time = 177000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 177000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
@@ -777,84 +500,16 @@ At time = 177000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, 
 At time = 177000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
 
 At time = 177000, u2_hidden_state = e7, u2_prev_ht = e7
+###############At time = 185000, state = 1
+At time = 187000, finish_layer1 = 1
+--------------At time = 187000, CALCULATE LAYER-------------------
 
-At time =               180000, vector_ht = [0, e7]
-At time =               180000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               180000, vector_ht = [0, e7]
-At time =               180000, vector_cell = [0, 40]
-
-
-At time =               185000, vector_ht = [0, e7]
-At time =               185000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               185000, vector_ht = [0, e7]
-At time =               185000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               187000, Local enable = 0
+At time =               187000, Local enable = 1
 At time =               187000, vector_x = {4, 8}, step = 0
-At time = 187000, init_n1 = 0
+At time = 187000, init_n1 = 1
 At time = 187000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
 At time = 187000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
 
 At time = 187000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
 
 At time = 187000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 187000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
-At time = 187000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
-
-At time = 187000, u1_output_cell = 0, u1_tanh_output_cell = 0
-
-At time = 187000, u1_hidden_state = 0, u1_prev_ht = 0
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 187000, init_n2 = 0
-At time = 187000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 187000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 187000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 187000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 187000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae
-At time = 187000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
-
-At time = 187000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
-
-At time = 187000, u2_hidden_state = e7, u2_prev_ht = e7
-
-At time =               190000, vector_ht = [0, e7]
-At time =               190000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               190000, vector_ht = [0, e7]
-At time =               190000, vector_cell = [0, 40]
-
-
-At time =               195000, vector_ht = [0, e7]
-At time =               195000, matrix_ht = [ [0, e7], [0, e7] ]
-At time =               195000, vector_ht = [0, e7]
-At time =               195000, vector_cell = [0, 40]
-
-----------------------------------
-
-At time =               197000, Local enable = 0
-At time =               197000, vector_x = {4, 8}, step = 0
-At time = 197000, init_n1 = 0
-At time = 197000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 197000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 197000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_update_1 = 0, u1_output_output_1 = 0
-
-At time = 197000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
-At time = 197000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
-At time = 197000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
-
-At time = 197000, u1_output_cell = 0, u1_tanh_output_cell = 0
-
-At time = 197000, u1_hidden_state = 0, u1_prev_ht = 0
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-At time = 197000, init_n2 = 0
-At time = 197000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
-At time = 197000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
-
-At time = 197000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
-At time = 197000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
-At time = 197000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae

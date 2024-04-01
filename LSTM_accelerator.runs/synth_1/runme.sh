@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log LSTM_Unit.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source LSTM_Unit.tcl
+EAStep vivado -log operation_controller.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source operation_controller.tcl

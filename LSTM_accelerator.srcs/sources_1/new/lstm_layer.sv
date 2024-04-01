@@ -107,54 +107,45 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n || !enable) begin
             local_enable    <= 1'b0;
+            step            <= 1'b0;
             for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
                 vector_ht_prev[i]   <= 0;
             end
         end
         else begin
             local_enable    <= 1'b1;
-//            finish          <= 1'b0;
+            
+            if (step == 0) begin
+                vector_x        <= matrix_x[0];
+                last_timestep   <= 0;
+            end
         end
     end
     
-    always @(posedge clk or negedge rst_n) begin
-        if ( (!rst_n) || (!enable) ) begin
-            last_timestep   <= 1'b0;
-            step            <= 0;
+    always @(posedge u1.finish_output) begin
+//        if ( step == 0) begin
+//             vector_x            <= matrix_x[step+1];
+//             matrix_ht[0]        <= vector_ht;
+//             vector_ht_prev      <= vector_ht;
+//             step                <= step + 1;     
+//        end
+//        else begin
+         matrix_ht[step]     <= vector_ht;
+         vector_ht_prev      <= vector_ht;
+         if (step != NUMBER_OF_TIMESTEPS-1) begin
+            vector_x        <=  matrix_x[step+1];
+            step            <=  step+1;
         end
         else begin
-            if (step == 0) begin
-                vector_x    <= matrix_x[0];
-//                step        <= step+1;
-                @(posedge layer1.u1.finish_output) begin
-                    vector_x            <= matrix_x[step+1];
-                    matrix_ht[0]        <= vector_ht;
-                    vector_ht_prev      <= vector_ht;
-                    step                <= step + 1;
-                end
-            end
-            else begin
-                @(posedge layer1.u1.finish_output) begin
-                    matrix_ht[step]     <= vector_ht;
-                    vector_ht_prev      <= vector_ht;
-                    if (step != NUMBER_OF_TIMESTEPS-1) begin
-                        vector_x        <=  matrix_x[step+1];
-                        step            <=  step+1;
-                    end
-                    else begin
-                        step            <= 0;
-                        last_timestep   <= 1'b1;
-                    end
-                end
-            end
+            step            <= 0;
+            last_timestep   <= 1'b1;
         end
+//        end
     end
     
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             finish          <= 1'b1;
-//            finish_unit[0]  <= 1'b1;
-//            finish_unit[1]  <= 1'b1;
         end
         else begin
             if (finish_unit[0] == 1'b1 && finish_unit[1] == 1'b1) begin

@@ -47,7 +47,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
                    output logic finish
     );
     
-    integer i;
+//    integer i;
     
     logic init_n;
     logic enable_input;
