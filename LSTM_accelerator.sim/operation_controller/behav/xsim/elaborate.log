@@ -1,7 +1,7 @@
 Vivado Simulator v2023.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_behav xil_defaultlib.tb_operation_controller xil_defaultlib.glbl -log elaborate.log 
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -9,20 +9,20 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.calculate_weights_input
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
 Compiling module xil_defaultlib.sigmoid
 Compiling module xil_defaultlib.tanh
-Compiling module xil_defaultlib.calculate_recurrent
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
 Compiling module xil_defaultlib.tanh_16b
-Compiling module xil_defaultlib.calculate_cell
-Compiling module xil_defaultlib.calculate_output
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
 Compiling module xil_defaultlib.LSTM_Unit
-Compiling module xil_defaultlib.calculate_output(INDEX=1)
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
 Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
-Compiling module xil_defaultlib.lstm_layer
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
 Compiling module xil_defaultlib.reshape_default
 Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
 Compiling module xil_defaultlib.operation_controller
-Compiling module xil_defaultlib.tb_operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_operation_controller_behav
+Built simulation snapshot tb_operation_controller_real_data_behav

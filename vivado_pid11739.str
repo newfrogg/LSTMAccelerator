@@ -150,3 +150,2011 @@ selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); /
 expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2); // E
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv)]", 3, true); // E - Node
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), r : calculate_recurrent (calculate_recurrent.sv)]", 5, true, false, false, false, false, true); // E - Double Click - Node
+// Elapsed time: 162 seconds
+selectCodeEditor("LSTM_Unit.sv", 743, 595); // ad
+selectCodeEditor("LSTM_Unit.sv", 925, 502); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 1,837 MB. GUI used memory: 103 MB. Current time: 4/2/24, 9:02:29 PM ICT
+// Elapsed time: 1707 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // t
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), wi : calculate_weights_input (calculate_weights_input.sv)]", 4, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), wi : calculate_weights_input (calculate_weights_input.sv)]", 4, false, false, false, false, false, true); // E - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,878 MB. GUI used memory: 103 MB. Current time: 4/2/24, 9:03:44 PM ICT
+selectCodeEditor("calculate_weights_input.sv", 1176, 267); // ad
+selectCodeEditor("calculate_weights_input.sv", 1105, 257); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 1,888 MB (+6550kb) [00:33:59]
+// Elapsed Time for: 'L.f': 33m:46s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), r : calculate_recurrent (calculate_recurrent.sv)]", 5, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), r : calculate_recurrent (calculate_recurrent.sv), in : sigmoid (sigmoid.sv)]", 6, false, false, false, false, false, true); // E - Double Click
+// Elapsed Time for: 'L.f': 33m:48s
+selectCodeEditor("calculate_recurrent.sv", 1096, 367); // ad
+selectCodeEditor("calculate_recurrent.sv", 1043, 403); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 1,989 MB. GUI used memory: 103 MB. Current time: 4/2/24, 9:03:59 PM ICT
+selectCodeEditor("calculate_recurrent.sv", 909, 457); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 34m:00s
+// [Engine Memory]: 2,024 MB (+43113kb) [00:34:14]
+// Elapsed Time for: 'L.f': 34m:02s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), c : calculate_cell (calculate_cell.sv)]", 10, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), c : calculate_cell (calculate_cell.sv)]", 10, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("calculate_cell.sv", 1003, 375); // ad
+selectCodeEditor("calculate_cell.sv", 946, 412); // ad
+selectCodeEditor("calculate_cell.sv", 810, 327); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), o : calculate_output (calculate_output.sv)]", 12, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), o : calculate_output (calculate_output.sv)]", 12, false, false, false, false, false, true); // E - Double Click
+// Elapsed Time for: 'L.f': 34m:16s
+// [Engine Memory]: 2,152 MB (+27707kb) [00:34:30]
+selectCodeEditor("calculate_output.sv", 1032, 368); // ad
+selectCodeEditor("calculate_output.sv", 1040, 373); // ad
+// Elapsed Time for: 'L.f': 34m:18s
+selectCodeEditor("calculate_output.sv", 992, 410); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 2,163 MB. GUI used memory: 104 MB. Current time: 4/2/24, 9:04:29 PM ICT
+selectCodeEditor("calculate_output.sv", 1088, 368); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 34m:26s
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), c : calculate_cell (calculate_cell.sv)]", 10); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), r : calculate_recurrent (calculate_recurrent.sv)]", 5); // E
+// Elapsed Time for: 'L.f': 34m:28s
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv)]", 3); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("lstm_layer.sv", 890, 373); // ad
+selectCodeEditor("lstm_layer.sv", 944, 406); // ad
+selectCodeEditor("lstm_layer.sv", 959, 442); // ad
+selectCodeEditor("lstm_layer.sv", 1091, 421); // ad
+selectCodeEditor("lstm_layer.sv", 1091, 421, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_layer.sv", 1091, 421); // ad
+selectCodeEditor("lstm_layer.sv", 966, 448); // ad
+selectCodeEditor("lstm_layer.sv", 1000, 431); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 34m:46s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_recurrent.sv", 3); // o
+// [Engine Memory]: 2,295 MB (+37780kb) [00:35:00]
+// Elapsed Time for: 'L.f': 34m:48s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_weights_input.sv", 2); // o
+// HMemoryUtils.trashcanNow. Engine heap size: 2,296 MB. GUI used memory: 105 MB. Current time: 4/2/24, 9:04:59 PM ICT
+selectCodeEditor("calculate_weights_input.sv", 1130, 83); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_recurrent.sv", 3); // o
+// Elapsed Time for: 'L.f': 34m:56s
+selectCodeEditor("calculate_recurrent.sv", 1062, 90); // ad
+// Elapsed Time for: 'L.f': 34m:58s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_cell.sv", 4); // o
+// Elapsed Time for: 'L.f': 35m:00s
+selectCodeEditor("calculate_cell.sv", 973, 520); // ad
+// Elapsed Time for: 'L.f': 35m:02s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,419 MB (+9835kb) [00:35:17]
+// Elapsed Time for: 'L.f': 35m:04s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+// HMemoryUtils.trashcanNow. Engine heap size: 2,451 MB. GUI used memory: 105 MB. Current time: 4/2/24, 9:05:14 PM ICT
+// Elapsed Time for: 'L.f': 35m:06s
+selectCodeEditor("calculate_output.sv", 1006, 472); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 35m:10s
+// Elapsed Time for: 'L.f': 35m:12s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("lstm_layer.sv", 675, 381); // ad
+selectCodeEditor("lstm_layer.sv", 1062, 366); // ad
+selectCodeEditor("lstm_layer.sv", 667, 369); // ad
+selectCodeEditor("lstm_layer.sv", 1063, 374); // ad
+selectCodeEditor("lstm_layer.sv", 1261, 370); // ad
+selectCodeEditor("lstm_layer.sv", 1235, 389); // ad
+selectCodeEditor("lstm_layer.sv", 1062, 346); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 35m:42s
+// [Engine Memory]: 2,550 MB (+10305kb) [00:35:56]
+// Elapsed Time for: 'L.f': 35m:44s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,550 MB. GUI used memory: 105 MB. Current time: 4/2/24, 9:05:54 PM ICT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("operation_controller.sv", 1149, 369); // ad
+selectCodeEditor("operation_controller.sv", 1212, 351); // ad
+selectCodeEditor("operation_controller.sv", 1171, 447); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("operation_controller.sv", 673, 550); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("operation_controller.sv", 444, 232); // ad
+// Elapsed time: 51 seconds
+selectCodeEditor("operation_controller.sv", 522, 347); // ad
+selectCodeEditor("operation_controller.sv", 522, 347, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 686, 348); // ad
+selectCodeEditor("operation_controller.sv", 686, 348, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 1182, 335); // ad
+selectCodeEditor("operation_controller.sv", 1182, 334, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1371, 337); // ad
+selectCodeEditor("operation_controller.sv", 1371, 337, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 1771, 368); // ad
+selectCodeEditor("operation_controller.sv", 1771, 368, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 1785, 336); // ad
+selectCodeEditor("operation_controller.sv", 1785, 336, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1495, 333); // ad
+selectCodeEditor("operation_controller.sv", 1495, 333, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+// Elapsed time: 15 seconds
+selectCodeEditor("operation_controller.sv", 1314, 298); // ad
+selectCodeEditor("operation_controller.sv", 1314, 297, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 679, 123); // ad
+selectCodeEditor("operation_controller.sv", 679, 123, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1311, 296); // ad
+selectCodeEditor("operation_controller.sv", 1311, 296, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 1230, 119); // ad
+selectCodeEditor("operation_controller.sv", 1230, 119, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1660, 309); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 1394, 438); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 37m:56s
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+// Elapsed Time for: 'L.f': 37m:58s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,655 MB. GUI used memory: 106 MB. Current time: 4/2/24, 9:08:09 PM ICT
+selectCodeEditor("lstm_layer.sv", 183, 607); // ad
+selectCodeEditor("lstm_layer.sv", 58, 194); // ad
+selectCodeEditor("lstm_layer.sv", 146, 501); // ad
+selectCodeEditor("lstm_layer.sv", 144, 531); // ad
+// Elapsed time: 473 seconds
+selectCodeEditor("lstm_layer.sv", 73, 228); // ad
+typeControlKey((HResource) null, "lstm_layer.sv", 'c'); // ad
+selectCodeEditor("lstm_layer.sv", 375, 382); // ad
+typeControlKey((HResource) null, "lstm_layer.sv", 'v'); // ad
+selectCodeEditor("lstm_layer.sv", 130, 729); // ad
+selectCodeEditor("lstm_layer.sv", 345, 730); // ad
+selectCodeEditor("lstm_layer.sv", 215, 55); // ad
+selectCodeEditor("lstm_layer.sv", 799, 600); // ad
+selectCodeEditor("lstm_layer.sv", 838, 279); // ad
+// Elapsed time: 79 seconds
+selectCodeEditor("lstm_layer.sv", 605, 317); // ad
+selectCodeEditor("lstm_layer.sv", 605, 317, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'c'); // ad
+selectCodeEditor("lstm_layer.sv", 522, 554); // ad
+selectCodeEditor("lstm_layer.sv", 522, 554, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'v'); // ad
+selectCodeEditor("lstm_layer.sv", 1348, 547); // ad
+selectCodeEditor("lstm_layer.sv", 1348, 547, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'v'); // ad
+selectCodeEditor("lstm_layer.sv", 1265, 502); // ad
+selectCodeEditor("lstm_layer.sv", 1512, 378); // ad
+selectCodeEditor("lstm_layer.sv", 1552, 323); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 48m:00s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,694 MB. GUI used memory: 106 MB. Current time: 4/2/24, 9:18:09 PM ICT
+// [Engine Memory]: 2,694 MB (+17569kb) [00:48:14]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 3); // E
+// Elapsed Time for: 'L.f': 48m:02s
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller]", 4); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files]", 5); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false, false, false, false, false, true); // E - Double Click
+selectButton(PAResourceOtoP.OpenFileAction_OPEN_DIRECTORY, "Open Directory"); // a
+dismissDialog("Unable to Open File"); // R.a
+// Elapsed time: 16 seconds
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// [GUI Memory]: 204 MB (+17788kb) [00:48:41]
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 49 seconds
+dismissFileChooser();
+selectButton("CANCEL", "Cancel"); // JButton
+// 'f' command handler elapsed time: 56 seconds
+dismissDialog("Add Sources"); // c
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false, false, false, false, true, false); // E - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_OPEN_FILE_WITH, "Open With"); // al
+selectMenuItem(PAResourceQtoS.SrcMenu_OPEN_SELECTED_SOURCE_FILES, "Open File"); // ao
+selectButton(PAResourceOtoP.OpenFileAction_OPEN_DIRECTORY, "Open Directory"); // a
+dismissDialog("Unable to Open File"); // R.a
+// Elapsed time: 15 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller (tb_operation_controller.sv)]", 7, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false, false, false, false, true, false); // E - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, Non-module Files, tb_operation_controller_real_data.sv]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller (tb_operation_controller.sv)]", 7, true); // E - Node
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a
+selectComboBox(PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, "SystemVerilog", 2); // bd
+// Elapsed time: 10 seconds
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "tb_operation_controller_real_data"); // Q
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Source File"); // m
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 18 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets operation_controller] 
+// Tcl Message: close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv w ] 
+// Tcl Message: add_files -fileset operation_controller /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+selectButton("OptionPane.button", "Yes"); // JButton
+dismissDialog("Define Module"); // p
+// Elapsed Time for: 'L.f': 50m:14s
+// Elapsed Time for: 'L.f': 50m:16s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 6, false, false, false, false, false, true); // E - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,750 MB. GUI used memory: 110 MB. Current time: 4/2/24, 9:20:34 PM ICT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller (tb_operation_controller.sv)]", 5, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller (tb_operation_controller.sv)]", 5, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("tb_operation_controller.sv", 441, 328); // ad
+typeControlKey((HResource) null, "tb_operation_controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 431, 222); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 470, 500); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 250, 660); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 616, 586); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller.sv", 9); // o
+selectCodeEditor("tb_operation_controller.sv", 554, 238); // ad
+selectCodeEditor("tb_operation_controller.sv", 69, 120); // ad
+typeControlKey((HResource) null, "tb_operation_controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 147, 655); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 72, 658); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 2,780 MB. GUI used memory: 111 MB. Current time: 4/2/24, 9:21:04 PM ICT
+selectCodeEditor("tb_operation_controller_real_data.sv", 888, 592); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 647, 310); // ad
+// Elapsed time: 66 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 670, 192); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1151, 307); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 52m:26s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// Elapsed Time for: 'L.f': 52m:28s
+// Elapsed time: 10 seconds
+selectCodeEditor("operation_controller.sv", 1170, 544); // ad
+// Elapsed time: 16 seconds
+selectCodeEditor("operation_controller.sv", 755, 523); // ad
+selectCodeEditor("operation_controller.sv", 144, 774); // ad
+selectCodeEditor("operation_controller.sv", 504, 245); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+// Elapsed Time for: 'L.f': 53m:00s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,847 MB. GUI used memory: 111 MB. Current time: 4/2/24, 9:23:09 PM ICT
+// [Engine Memory]: 2,847 MB (+18888kb) [00:53:14]
+// Elapsed Time for: 'L.f': 53m:02s
+selectCodeEditor("lstm_layer.sv", 734, 274); // ad
+selectCodeEditor("lstm_layer.sv", 734, 274, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'c'); // ad
+selectCodeEditor("lstm_layer.sv", 818, 277); // ad
+selectCodeEditor("lstm_layer.sv", 818, 277, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'v'); // ad
+selectCodeEditor("lstm_layer.sv", 1336, 261); // ad
+selectCodeEditor("lstm_layer.sv", 1336, 261, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'c'); // ad
+selectCodeEditor("lstm_layer.sv", 1501, 262); // ad
+selectCodeEditor("lstm_layer.sv", 1501, 262, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_layer.sv", 'v'); // ad
+selectCodeEditor("lstm_layer.sv", 1312, 411); // ad
+selectCodeEditor("lstm_layer.sv", 1939, 273); // ad
+selectCodeEditor("lstm_layer.sv", 1939, 273, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_layer.sv", 1749, 404); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("lstm_layer.sv", 1142, 213); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+// Elapsed Time for: 'L.f': 53m:32s
+// Elapsed Time for: 'L.f': 53m:34s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,888 MB. GUI used memory: 109 MB. Current time: 4/2/24, 9:23:44 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// Elapsed time: 11 seconds
+selectCodeEditor("operation_controller.sv", 128, 652); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 460, 418); // ad
+selectCodeEditor("operation_controller.sv", 119, 706); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 2556, 266); // ad
+selectCodeEditor("operation_controller.sv", 1702, 318); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("operation_controller.sv", 268, 348); // ad
+selectCodeEditor("operation_controller.sv", 268, 348, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 390, 640); // ad
+selectCodeEditor("operation_controller.sv", 390, 640, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 647, 611); // ad
+selectCodeEditor("operation_controller.sv", 545, 627); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("operation_controller.sv", 1350, 447); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1288, 498); // ad
+selectCodeEditor("operation_controller.sv", 1385, 446); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 444, 485); // ad
+selectCodeEditor("operation_controller.sv", 573, 404); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("operation_controller.sv", 564, 401); // ad
+selectCodeEditor("operation_controller.sv", 432, 267); // ad
+selectCodeEditor("operation_controller.sv", 451, 238); // ad
+selectCodeEditor("operation_controller.sv", 438, 268); // ad
+selectCodeEditor("operation_controller.sv", 591, 243); // ad
+selectCodeEditor("operation_controller.sv", 388, 456); // ad
+selectCodeEditor("operation_controller.sv", 388, 456, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 379, 545); // ad
+selectCodeEditor("operation_controller.sv", 499, 590); // ad
+selectCodeEditor("operation_controller.sv", 505, 590); // ad
+selectCodeEditor("operation_controller.sv", 864, 428); // ad
+selectCodeEditor("operation_controller.sv", 482, 122); // ad
+selectCodeEditor("operation_controller.sv", 568, 301); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 55m:20s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,949 MB. GUI used memory: 109 MB. Current time: 4/2/24, 9:25:29 PM ICT
+// Elapsed Time for: 'L.f': 55m:22s
+// Elapsed time: 242 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller.sv", 9); // o
+selectCodeEditor("tb_operation_controller.sv", 1151, 348); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 960, 320); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectCodeEditor("operation_controller.sv", 794, 390); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// Elapsed time: 12 seconds
+selectCodeEditor("operation_controller.sv", 631, 402); // ad
+selectCodeEditor("operation_controller.sv", 705, 448); // ad
+selectCodeEditor("operation_controller.sv", 704, 556); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 745, 563); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 505, 589); // ad
+selectCodeEditor("operation_controller.sv", 761, 491); // ad
+selectCodeEditor("operation_controller.sv", 691, 585); // ad
+selectCodeEditor("operation_controller.sv", 777, 553); // ad
+selectCodeEditor("operation_controller.sv", 910, 448); // ad
+selectCodeEditor("operation_controller.sv", 894, 703); // ad
+selectCodeEditor("operation_controller.sv", 670, 773); // ad
+selectCodeEditor("operation_controller.sv", 703, 772); // ad
+selectCodeEditor("operation_controller.sv", 801, 718); // ad
+selectCodeEditor("operation_controller.sv", 801, 718); // ad
+// Elapsed time: 28 seconds
+selectCodeEditor("operation_controller.sv", 373, 460); // ad
+selectCodeEditor("operation_controller.sv", 373, 460, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 438, 150); // ad
+selectCodeEditor("operation_controller.sv", 438, 149, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 479, 159); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("operation_controller.sv", 294, 122); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 338, 728); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 499, 308); // ad
+selectCodeEditor("operation_controller.sv", 410, 317); // ad
+selectCodeEditor("operation_controller.sv", 410, 316, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 869, 54); // ad
+selectCodeEditor("operation_controller.sv", 870, 53, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 989, 443); // ad
+selectCodeEditor("operation_controller.sv", 671, 338); // ad
+selectCodeEditor("operation_controller.sv", 924, 240); // ad
+selectCodeEditor("operation_controller.sv", 924, 240, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 393, 476); // ad
+selectCodeEditor("operation_controller.sv", 393, 476, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 992, 626); // ad
+selectCodeEditor("operation_controller.sv", 510, 558); // ad
+selectCodeEditor("operation_controller.sv", 986, 615); // ad
+selectCodeEditor("operation_controller.sv", 505, 560); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("operation_controller.sv", 987, 197); // ad
+selectCodeEditor("operation_controller.sv", 504, 445); // ad
+selectCodeEditor("operation_controller.sv", 988, 622); // ad
+selectCodeEditor("operation_controller.sv", 505, 449); // ad
+selectCodeEditor("operation_controller.sv", 707, 366); // ad
+selectCodeEditor("operation_controller.sv", 385, 266); // ad
+selectCodeEditor("operation_controller.sv", 385, 266, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 547, 462); // ad
+selectCodeEditor("operation_controller.sv", 547, 462, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 788, 354); // ad
+selectCodeEditor("operation_controller.sv", 596, 186); // ad
+selectCodeEditor("operation_controller.sv", 596, 186, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 759, 348); // ad
+typeControlKey(null, null, 'z');
+selectCodeEditor("operation_controller.sv", 775, 250); // ad
+selectCodeEditor("operation_controller.sv", 590, 234); // ad
+selectCodeEditor("operation_controller.sv", 520, 233); // ad
+selectCodeEditor("operation_controller.sv", 520, 233, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 784, 346); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("operation_controller.sv", 514, 655); // ad
+selectCodeEditor("operation_controller.sv", 514, 655, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 581, 418); // ad
+selectCodeEditor("operation_controller.sv", 581, 418, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 589, 237); // ad
+selectCodeEditor("operation_controller.sv", 589, 237, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 569, 519); // ad
+selectCodeEditor("operation_controller.sv", 569, 519, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 604, 745); // ad
+selectCodeEditor("operation_controller.sv", 604, 744, false, false, false, false, true); // ad - Double Click
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("operation_controller.sv", 903, 576); // ad
+selectCodeEditor("operation_controller.sv", 548, 739); // ad
+selectCodeEditor("operation_controller.sv", 548, 739, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 577, 632); // ad
+selectCodeEditor("operation_controller.sv", 577, 632, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 628, 844); // ad
+selectCodeEditor("operation_controller.sv", 628, 843, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 605, 767); // ad
+selectCodeEditor("operation_controller.sv", 605, 767, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 623, 243); // ad
+selectCodeEditor("operation_controller.sv", 623, 243, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 783, 610); // ad
+selectCodeEditor("operation_controller.sv", 341, 411); // ad
+selectCodeEditor("operation_controller.sv", 341, 411, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 706, 595); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("operation_controller.sv", 577, 565); // ad
+selectCodeEditor("operation_controller.sv", 665, 557); // ad
+selectCodeEditor("operation_controller.sv", 615, 564); // ad
+selectCodeEditor("operation_controller.sv", 615, 564, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 606, 430); // ad
+selectCodeEditor("operation_controller.sv", 620, 419); // ad
+selectCodeEditor("operation_controller.sv", 620, 419, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 568, 516); // ad
+selectCodeEditor("operation_controller.sv", 568, 516, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 553, 588); // ad
+selectCodeEditor("operation_controller.sv", 553, 588, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 565, 659); // ad
+selectCodeEditor("operation_controller.sv", 591, 490); // ad
+selectCodeEditor("operation_controller.sv", 591, 490, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 621, 519); // ad
+selectCodeEditor("operation_controller.sv", 621, 519, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 541, 552); // ad
+selectCodeEditor("operation_controller.sv", 540, 552, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 584, 524); // ad
+selectCodeEditor("operation_controller.sv", 584, 524, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 726, 325); // ad
+selectCodeEditor("operation_controller.sv", 840, 523); // ad
+selectCodeEditor("operation_controller.sv", 851, 515); // ad
+selectCodeEditor("operation_controller.sv", 1319, 449); // ad
+selectCodeEditor("operation_controller.sv", 1898, 647); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:04m:40s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,996 MB. GUI used memory: 109 MB. Current time: 4/2/24, 9:34:49 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// [Engine Memory]: 2,996 MB (+6865kb) [01:04:55]
+// Elapsed Time for: 'L.f': 01h:04m:42s
+// Elapsed time: 57 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 810, 357); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 580, 591); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 579, 591, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 860, 595); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 860, 595, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1377, 578); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1377, 578, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1539, 598); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1539, 598, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_operation_controller_real_data.sv", 1548, 592); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1548, 592, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1988, 590); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1988, 590, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2247, 590); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2247, 590, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectCodeEditor("operation_controller.sv", 1005, 411); // ad
+selectCodeEditor("operation_controller.sv", 1005, 410, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 2579, 597); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 1517, 564); // ad
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectCodeEditor("operation_controller.sv", 1086, 229); // ad
+selectCodeEditor("operation_controller.sv", 535, 480); // ad
+selectCodeEditor("operation_controller.sv", 519, 689); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// Elapsed Time for: 'L.f': 01h:07m:04s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,038 MB. GUI used memory: 92 MB. Current time: 4/2/24, 9:37:14 PM ICT
+// Elapsed Time for: 'L.f': 01h:07m:06s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// Elapsed time: 19 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 1059, 437); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 75, 409); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 133, 520); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 679, 554); // ad
+// Elapsed time: 15 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 299, 622); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1483, 595); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1514, 595); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+// Elapsed time: 22 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 71, 228); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 542, 326); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 720, 423); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 739, 263); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1191, 301); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1057, 352); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 138, 264); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 229, 768); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 692, 658); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 220, 340); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 426, 540, false, false, false, true, false); // ad - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ao
+selectCodeEditor("tb_operation_controller_real_data.sv", 405, 523); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 319, 648); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 294, 663); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 1499, 739); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 613, 188); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1362, 266); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 1143, 240); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 930, 313); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 930, 313, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 1382, 693); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectCodeEditor("lstm_layer.sv", 2084, 277); // ad
+selectCodeEditor("lstm_layer.sv", 2017, 291); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:10m:36s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// Elapsed Time for: 'L.f': 01h:10m:38s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,087 MB. GUI used memory: 92 MB. Current time: 4/2/24, 9:40:49 PM ICT
+// Elapsed time: 13 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 1400, 83); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1400, 83, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 1913, 77); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1857, 84); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1857, 84, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1697, 172); // ad
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "layer2"); // d.c
+selectButton(RDIResource.HCodeEditor_CLOSE, (String) null); // j
+selectCodeEditor("tb_operation_controller_real_data.sv", 1420, 504); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2292, 413); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2292, 413, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 2265, 409, false, false, false, true, false); // ad - Popup Trigger
+selectMenuItem(PAResourceOtoP.PACodeEditor_REPLACE_IN_FILES, "Replace in Files..."); // ao
+selectComboBox("pa.FindAndReplaceAllDialog_FIND_COMBO_BOX", "layer1", -1); // JComboBox
+selectComboBox("pa.FindAndReplaceAllDialog_REPLACE_COMBO_BOX", "layer2", -1); // JComboBox
+selectButton(PAResourceEtoH.FindAndReplaceAllDialog_FIND, "Find"); // f
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_CANCEL, "Cancel"); // a
+// 'e' command handler elapsed time: 10 seconds
+dismissDialog("Text Changed"); // h
+selectCodeEditor("tb_operation_controller_real_data.sv", 2295, 415, false, false, false, true, false); // ad - Popup Trigger
+selectMenuItem(PAResourceOtoP.PACodeEditor_FIND_IN_FILES, "Find in Files..."); // ao
+selectButton(PAResourceEtoH.FindAndReplaceAllDialog_FIND, "Find"); // f
+// HMemoryUtils.trashcanNow. Engine heap size: 3,089 MB. GUI used memory: 110 MB. Current time: 4/2/24, 9:41:51 PM ICT
+dismissDialog("Find in Files"); // bq
+// HMemoryUtils.trashcanNow. Engine heap size: 3,090 MB. GUI used memory: 114 MB. Current time: 4/2/24, 9:41:51 PM ICT
+selectCodeEditor("tb_operation_controller_real_data.sv", 1987, 582, false, false, false, true, false); // ad - Popup Trigger
+selectCodeEditor("tb_operation_controller_real_data.sv", 1534, 471); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2322, 401); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1845, 410); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1845, 410, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 1846, 491); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1874, 415); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1874, 415, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2286, 407); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2286, 407, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1081, 475); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1081, 474, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2396, 508); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2396, 508, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2239, 552); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2239, 552, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1280, 507); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1280, 507, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1112, 562); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1112, 562, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1802, 523); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1802, 523, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1615, 554); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1615, 554, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1850, 513); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2182, 552); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2182, 552, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2458, 519); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2458, 519, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1535, 620); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1535, 620, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2048, 696); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2048, 696, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2172, 732); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2172, 732, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1888, 764); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1888, 764, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1072, 775); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1072, 775, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1386, 738); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1386, 738, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1378, 701); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1378, 701, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 709, 629); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 709, 628, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 833, 699); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 833, 699, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 691, 732); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 691, 732, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 498, 782); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 498, 782, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 280, 698); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 280, 698, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 111, 637); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 111, 637, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1715, 736); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1715, 736, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1632, 765); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1630, 765, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1196, 629); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1189, 629); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1234, 631); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1234, 631, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 1259, 632); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1259, 631, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 679, 840); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 674, 840); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 686, 842); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 686, 843, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 790, 519); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 686, 729); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 687, 728, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 180, 745); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 180, 745, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 543, 817); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 543, 817, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 985, 806); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 985, 806, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 451, 484); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 451, 484, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1803, 520); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1803, 520, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2332, 518); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2332, 517, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2175, 561); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2175, 560, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1675, 564); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1675, 564, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2195, 631); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2195, 630, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1143, 843); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1143, 843, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1656, 843); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1656, 842, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2584, 771); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2584, 771, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1047, 742); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1047, 742, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1052, 554); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1052, 553, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1151, 619); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1151, 619, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1246, 519); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1246, 518, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1611, 571); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1611, 571, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1283, 702); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1283, 702, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1558, 788); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1558, 788, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1707, 741); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1707, 741, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1850, 708); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1850, 708, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1751, 626); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1751, 625, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1885, 527); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1885, 527, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2131, 768); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2131, 768, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2439, 735); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2439, 735, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2408, 704); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2408, 703, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2446, 644); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2446, 644, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2183, 736); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2183, 735, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1982, 700); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1982, 700, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1879, 775); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1879, 775, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 817, 626); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 817, 626, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 1233, 669); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1233, 669, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 732, 676); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 686, 672); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 686, 672, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2083, 204); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 2083, 204, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 1281, 601); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:13m:50s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// Elapsed Time for: 'L.f': 01h:13m:52s
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 7, true); // E - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 7); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 7, true, false, false, false, true, false); // E - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top tb_operation_controller_real_data [get_filesets operation_controller] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top_lib xil_defaultlib [get_filesets operation_controller] 
+// TclEventType: DG_GRAPH_STALE
+// Elapsed Time for: 'L.f': 01h:14m:06s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:14m:08s
+// Tcl Message: update_compile_order -fileset operation_controller 
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 5); // E
+// Elapsed Time for: 'L.f': 01h:14m:10s
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller (tb_operation_controller.sv)]", 6); // E
+// HMemoryUtils.trashcanNow. Engine heap size: 3,131 MB. GUI used memory: 107 MB. Current time: 4/2/24, 9:44:19 PM ICT
+// Elapsed Time for: 'L.f': 01h:14m:12s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, operation_controller, tb_operation_controller_real_data (tb_operation_controller_real_data.sv)]", 5, true, false, false, false, true, false); // E - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectCodeEditor("tb_operation_controller_real_data.sv", 471, 587); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 3 seconds
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aa
+// Elapsed time: 18 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 542, 319); // cD
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+selectCodeEditor("tb_operation_controller_real_data.sv", 963, 455); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1314, 480); // ad
+// Elapsed time: 47 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectCodeEditor("lstm_layer.sv", 1154, 417); // ad
+// Elapsed time: 64 seconds
+selectCodeEditor("lstm_layer.sv", 1212, 544); // ad
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 218, 379); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1760, 345); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 119, 377); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1782, 336); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 132, 405); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 227, 553); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 222, 520); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 150, 370); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 279, 373); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 604, 367); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:18m:26s
+// Elapsed Time for: 'L.f': 01h:18m:28s
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("tb_operation_controller_real_data.sv", 876, 214); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 3 seconds
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_layer.sv", 419, 230); // ad
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// Elapsed time: 139 seconds
+selectCodeEditor("lstm_layer.sv", 1235, 580); // ad
+// Elapsed time: 29 seconds
+selectCodeEditor("lstm_layer.sv", 1255, 386); // ad
+selectCodeEditor("lstm_layer.sv", 1255, 386, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 18 seconds
+selectCodeEditor("lstm_layer.sv", 565, 427); // ad
+selectCodeEditor("lstm_layer.sv", 565, 427, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_recurrent.sv", 3); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_cell.sv", 4); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer2 : lstm_layer (lstm_layer.sv)]", 5); // E
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_recurrent.sv", 3); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_cell.sv", 4); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "calculate_output.sv", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectCodeEditor("lstm_layer.sv", 678, 290); // ad
+selectCodeEditor("lstm_layer.sv", 386, 80); // ad
+// Elapsed time: 22 seconds
+selectCodeEditor("lstm_layer.sv", 879, 302); // ad
+selectCodeEditor("lstm_layer.sv", 824, 332); // ad
+selectCodeEditor("lstm_layer.sv", 672, 384); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("lstm_layer.sv", 769, 350); // ad
+// Elapsed Time for: 'L.f': 01h:23m:44s
+// [Engine Memory]: 3,192 MB (+47905kb) [01:23:58]
+// HMemoryUtils.trashcanNow. Engine heap size: 3,202 MB. GUI used memory: 107 MB. Current time: 4/2/24, 9:53:54 PM ICT
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// Elapsed Time for: 'L.f': 01h:23m:48s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '0' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message: Built simulation snapshot tb_operation_controller_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,257 MB. GUI used memory: 121 MB. Current time: 4/2/24, 9:54:05 PM ICT
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_operation_controller_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 200ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 200ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 9276.703 ; gain = 61.266 ; free physical = 2865 ; free virtual = 12460 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false, false, false, false, true, false); // f - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_SETTINGS, "Simulation Settings..."); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_SETTINGS
+// Tcl (Dont Echo) Command: 'rdi::info_commands {device::*}'
+// Tcl (Dont Echo) Command: 'rdi::info_commands {debug::*}'
+// Tcl (Dont Echo) Command: 'rdi::info_commands {*}'
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATION, "Simulation", 2); // g
+selectButton(RDIResource.BaseDialog_APPLY, "Apply"); // a
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property -name {xsim.simulate.runtime} -value {400ns} -objects [get_filesets operation_controller] 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// [GUI Memory]: 235 MB (+21863kb) [01:24:27]
+dismissDialog("Settings"); // d
+// [GUI Memory]: 270 MB (+23696kb) [01:24:28]
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_operation_controller_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,268 MB. GUI used memory: 209 MB. Current time: 4/2/24, 9:54:32 PM ICT
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_operation_controller_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 400ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 400ns 
+// 'd' command handler elapsed time: 6 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,281 MB. GUI used memory: 159 MB. Current time: 4/2/24, 9:54:35 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// HMemoryUtils.trashcanNow. Engine heap size: 3,281 MB. GUI used memory: 192 MB. Current time: 4/2/24, 9:54:36 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,270 MB. GUI used memory: 159 MB. Current time: 4/2/24, 9:54:37 PM ICT
+// Elapsed time: 128 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 576, 235); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 925, 390); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 548, 488); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1216, 473); // cD
+// Elapsed time: 12 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 293, 274); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 659, 382); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 679, 515); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 716, 544); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 592, 613); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 603, 742); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 647, 839); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 686, 627); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 667, 854); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 700, 742); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 727, 633); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 693, 854); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 699, 734); // cD
+// Elapsed time: 17 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 630, 476); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 706, 525); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 618, 707); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 708, 589); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 702, 592); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 674, 810); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 715, 454); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 674, 694); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 686, 838); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 690, 806); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 667, 812); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 659, 594); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 613, 701); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 672, 698); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 672, 708); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 643, 708); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 676, 704); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 701, 698); // cD
+// Elapsed time: 55 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1038, 256); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 663, 268); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 686, 241); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 789, 216); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 973, 192); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1196, 167); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1018, 122); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1050, 90); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1290, 56); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 812, 244); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 895, 199); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1118, 155); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1023, 115); // cD
+// HMemoryUtils.trashcanNow. Engine heap size: 3,271 MB. GUI used memory: 159 MB. Current time: 4/2/24, 9:59:17 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,271 MB. GUI used memory: 160 MB. Current time: 4/2/24, 9:59:24 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,271 MB. GUI used memory: 227 MB. Current time: 4/2/24, 9:59:26 PM ICT
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectCodeEditor("operation_controller.sv", 1121, 529); // ad
+// Elapsed time: 248 seconds
+selectCodeEditor("operation_controller.sv", 564, 176); // ad
+selectCodeEditor("operation_controller.sv", 448, 133); // ad
+selectCodeEditor("operation_controller.sv", 663, 234); // ad
+// Elapsed time: 241 seconds
+selectCodeEditor("operation_controller.sv", 1094, 530); // ad
+selectCodeEditor("operation_controller.sv", 266, 519); // ad
+selectCodeEditor("operation_controller.sv", 506, 483); // ad
+selectCodeEditor("operation_controller.sv", 466, 559); // ad
+selectCodeEditor("operation_controller.sv", 416, 274); // ad
+// Elapsed time: 442 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1, true); // E - Node
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a
+selectComboBox(PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, "SystemVerilog", 2); // bd
+// Elapsed time: 10 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Source File"); // m
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 17 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Message: close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/controller.sv w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/controller.sv 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "Yes"); // JButton
+dismissDialog("Define Module"); // p
+// Elapsed Time for: 'L.f': 01h:45m:51s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,322 MB. GUI used memory: 163 MB. Current time: 4/2/24, 10:15:59 PM ICT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:45m:52s
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv)]", 2, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv)]", 2, false, false, false, false, false, true); // E - Double Click
+// Elapsed Time for: 'L.f': 01h:45m:55s
+// [Engine Memory]: 3,412 MB (+63926kb) [01:46:08]
+selectCodeEditor("controller.sv", 190, 674); // ad
+// Elapsed Time for: 'L.f': 01h:45m:56s
+// Elapsed time: 80 seconds
+selectCodeEditor("controller.sv", 359, 669); // ad
+// Elapsed time: 318 seconds
+typeControlKey(null, null, 'z');
+// Elapsed time: 23 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Untitled 2", 10); // o
+// TclEventType: WAVEFORM_CLOSE_WCFG
+closeView(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 2"); // u
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller.sv", 9); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 10); // o
+// Elapsed time: 51 seconds
+selectCodeEditor("controller.sv", 725, 597); // ad
+selectCodeEditor("controller.sv", 643, 622); // ad
+// Elapsed time: 27 seconds
+selectCodeEditor("controller.sv", 874, 632); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("controller.sv", 664, 518); // ad
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// Elapsed time: 42 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 10); // o
+selectCodeEditor("controller.sv", 647, 663); // ad
+// Elapsed time: 132 seconds
+selectCodeEditor("controller.sv", 915, 558); // ad
+selectCodeEditor("controller.sv", 714, 516); // ad
+selectCodeEditor("controller.sv", 716, 490); // ad
+selectCodeEditor("controller.sv", 695, 463); // ad
+selectCodeEditor("controller.sv", 350, 430); // ad
+selectCodeEditor("controller.sv", 255, 419); // ad
+selectCodeEditor("controller.sv", 255, 419, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 479, 383); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("controller.sv", 873, 560); // ad
+selectCodeEditor("controller.sv", 873, 608); // ad
+selectCodeEditor("controller.sv", 933, 587); // ad
+selectCodeEditor("controller.sv", 1045, 558); // ad
+selectCodeEditor("controller.sv", 918, 522); // ad
+selectCodeEditor("controller.sv", 959, 496); // ad
+selectCodeEditor("controller.sv", 993, 460); // ad
+selectCodeEditor("controller.sv", 949, 493); // ad
+selectCodeEditor("controller.sv", 907, 541); // ad
+selectCodeEditor("controller.sv", 970, 482); // ad
+selectCodeEditor("controller.sv", 999, 439); // ad
+selectCodeEditor("controller.sv", 892, 601); // ad
+selectCodeEditor("controller.sv", 599, 674); // ad
+selectCodeEditor("controller.sv", 625, 657); // ad
+selectCodeEditor("controller.sv", 601, 688); // ad
+selectCodeEditor("controller.sv", 614, 662); // ad
+selectCodeEditor("controller.sv", 595, 689); // ad
+selectCodeEditor("controller.sv", 615, 656); // ad
+selectCodeEditor("controller.sv", 968, 445); // ad
+selectCodeEditor("controller.sv", 821, 577); // ad
+selectCodeEditor("controller.sv", 831, 609); // ad
+selectCodeEditor("controller.sv", 871, 611); // ad
+selectCodeEditor("controller.sv", 878, 617); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 9); // o
+// Elapsed Time for: 'L.f': 01h:58m:33s
+// Elapsed Time for: 'L.f': 01h:58m:34s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,471 MB. GUI used memory: 158 MB. Current time: 4/2/24, 10:28:44 PM ICT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// Elapsed time: 53 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 720, 168); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 816, 162); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 737, 341); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 741, 371); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 748, 412); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 748, 373); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 843, 282); // cD
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+selectCodeEditor("operation_controller.sv", 572, 444); // ad
+// Elapsed time: 18 seconds
+selectCodeEditor("operation_controller.sv", 332, 551); // ad
+// Elapsed time: 44 seconds
+selectCodeEditor("operation_controller.sv", 401, 200); // ad
+selectCodeEditor("operation_controller.sv", 401, 200, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 790, 240); // ad
+// Elapsed time: 134 seconds
+selectCodeEditor("operation_controller.sv", 321, 576); // ad
+selectCodeEditor("operation_controller.sv", 674, 298); // ad
+selectCodeEditor("operation_controller.sv", 295, 230); // ad
+selectCodeEditor("operation_controller.sv", 467, 556); // ad
+// Elapsed time: 27 seconds
+selectCodeEditor("operation_controller.sv", 795, 244); // ad
+selectCodeEditor("operation_controller.sv", 749, 487); // ad
+selectCodeEditor("operation_controller.sv", 747, 447); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("operation_controller.sv", 219, 623); // ad
+selectCodeEditor("operation_controller.sv", 757, 529); // ad
+selectCodeEditor("operation_controller.sv", 853, 376); // ad
+selectCodeEditor("operation_controller.sv", 634, 550); // ad
+selectCodeEditor("operation_controller.sv", 958, 449); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("operation_controller.sv", 673, 317); // ad
+selectCodeEditor("operation_controller.sv", 876, 300); // ad
+selectCodeEditor("operation_controller.sv", 736, 416); // ad
+selectCodeEditor("operation_controller.sv", 704, 381); // ad
+selectCodeEditor("operation_controller.sv", 820, 358); // ad
+selectCodeEditor("operation_controller.sv", 860, 326); // ad
+selectCodeEditor("operation_controller.sv", 634, 406); // ad
+selectCodeEditor("operation_controller.sv", 639, 59); // ad
+selectCodeEditor("operation_controller.sv", 753, 254); // ad
+selectCodeEditor("operation_controller.sv", 636, 449); // ad
+selectCodeEditor("operation_controller.sv", 742, 522); // ad
+selectCodeEditor("operation_controller.sv", 308, 488); // ad
+selectCodeEditor("operation_controller.sv", 461, 514); // ad
+selectCodeEditor("operation_controller.sv", 225, 523); // ad
+selectCodeEditor("operation_controller.sv", 530, 519); // ad
+selectCodeEditor("operation_controller.sv", 370, 495); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("operation_controller.sv", 373, 521); // ad
+selectCodeEditor("operation_controller.sv", 373, 521, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 773, 274); // ad
+selectCodeEditor("operation_controller.sv", 721, 314); // ad
+// Elapsed time: 19 seconds
+selectCodeEditor("operation_controller.sv", 144, 321); // ad
+selectCodeEditor("operation_controller.sv", 569, 297); // ad
+selectCodeEditor("operation_controller.sv", 890, 503); // ad
+selectCodeEditor("operation_controller.sv", 298, 130); // ad
+selectCodeEditor("operation_controller.sv", 298, 130, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 846, 153); // ad
+selectCodeEditor("operation_controller.sv", 306, 131); // ad
+selectCodeEditor("operation_controller.sv", 306, 131, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 769, 166); // ad
+selectCodeEditor("operation_controller.sv", 275, 132); // ad
+selectCodeEditor("operation_controller.sv", 275, 132, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("operation_controller.sv", 605, 184); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("operation_controller.sv", 941, 544); // ad
+selectCodeEditor("operation_controller.sv", 854, 427); // ad
+selectCodeEditor("operation_controller.sv", 668, 493); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("operation_controller.sv", 710, 485); // ad
+selectCodeEditor("operation_controller.sv", 655, 486); // ad
+selectCodeEditor("operation_controller.sv", 442, 487); // ad
+selectCodeEditor("operation_controller.sv", 742, 484); // ad
+selectCodeEditor("operation_controller.sv", 1111, 624); // ad
+selectCodeEditor("operation_controller.sv", 352, 121); // ad
+selectCodeEditor("operation_controller.sv", 352, 121, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 1059, 476); // ad
+selectCodeEditor("operation_controller.sv", 963, 585); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("operation_controller.sv", 45, 489); // ad
+selectCodeEditor("operation_controller.sv", 22, 673); // ad
+selectCodeEditor("operation_controller.sv", 964, 267); // ad
+selectCodeEditor("operation_controller.sv", 998, 265); // ad
+selectCodeEditor("operation_controller.sv", 994, 266); // ad
+selectCodeEditor("operation_controller.sv", 1079, 259); // ad
+selectCodeEditor("operation_controller.sv", 908, 328); // ad
+selectCodeEditor("operation_controller.sv", 575, 368); // ad
+selectCodeEditor("operation_controller.sv", 663, 315); // ad
+// Elapsed time: 24 seconds
+selectCodeEditor("operation_controller.sv", 673, 270); // ad
+selectCodeEditor("operation_controller.sv", 676, 90); // ad
+selectCodeEditor("operation_controller.sv", 697, 40); // ad
+selectCodeEditor("operation_controller.sv", 687, 55); // ad
+selectCodeEditor("operation_controller.sv", 1041, 165); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("operation_controller.sv", 899, 198); // ad
+selectCodeEditor("operation_controller.sv", 954, 136); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 872, 152); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 826, 89); // ad
+selectCodeEditor("operation_controller.sv", 838, 54); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 883, 729); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 979, 624); // ad
+selectCodeEditor("operation_controller.sv", 665, 653); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 910, 494); // ad
+selectCodeEditor("operation_controller.sv", 1045, 378); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 901, 806); // ad
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 982, 627); // ad
+selectCodeEditor("operation_controller.sv", 1017, 605); // ad
+selectCodeEditor("operation_controller.sv", 700, 482); // ad
+selectCodeEditor("operation_controller.sv", 639, 271); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:09m:03s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,519 MB. GUI used memory: 158 MB. Current time: 4/2/24, 10:39:14 PM ICT
+// Elapsed Time for: 'L.f': 02h:09m:07s
+// Elapsed time: 191 seconds
+selectCodeEditor("operation_controller.sv", 676, 478); // ad
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("operation_controller.sv", 589, 291); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_operation_controller_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,519 MB. GUI used memory: 172 MB. Current time: 4/2/24, 10:42:38 PM ICT
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// Tcl Message: source tb_operation_controller_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 400ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 400ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9532.012 ; gain = 0.000 ; free physical = 1400 ; free virtual = 10798 
+// 'd' command handler elapsed time: 7 seconds
+dismissDialog("Run Simulation"); // e
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,520 MB. GUI used memory: 222 MB. Current time: 4/2/24, 10:42:39 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,520 MB. GUI used memory: 167 MB. Current time: 4/2/24, 10:42:41 PM ICT
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 24 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 640, 487); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 738, 398); // cD
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,510 MB. GUI used memory: 168 MB. Current time: 4/2/24, 10:43:13 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 10); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller.sv", 9); // o
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectCodeEditor("tb_operation_controller.sv", 995, 289); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 10); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+// Elapsed time: 12 seconds
+selectCodeEditor("operation_controller.sv", 671, 120); // ad
+selectCodeEditor("operation_controller.sv", 888, 181); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:13m:31s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,550 MB. GUI used memory: 168 MB. Current time: 4/2/24, 10:43:39 PM ICT
+selectCodeEditor("operation_controller.sv", 596, 156); // ad
+// Elapsed Time for: 'L.f': 02h:13m:33s
+selectCodeEditor("operation_controller.sv", 571, 590); // ad
+selectCodeEditor("operation_controller.sv", 571, 590, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'c'); // ad
+selectCodeEditor("operation_controller.sv", 494, 164); // ad
+selectCodeEditor("operation_controller.sv", 494, 164, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "operation_controller.sv", 'v'); // ad
+selectCodeEditor("operation_controller.sv", 805, 159); // ad
+selectCodeEditor("operation_controller.sv", 810, 184); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+// [Engine Memory]: 3,590 MB (+7797kb) [02:13:58]
+// Elapsed Time for: 'L.f': 02h:13m:45s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,600 MB. GUI used memory: 168 MB. Current time: 4/2/24, 10:43:54 PM ICT
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("operation_controller.sv", 341, 434); // ad
+// Elapsed Time for: 'L.f': 02h:13m:47s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_operation_controller_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,618 MB. GUI used memory: 181 MB. Current time: 4/2/24, 10:44:05 PM ICT
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_operation_controller_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 400ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 400ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9630.043 ; gain = 16.988 ; free physical = 1845 ; free virtual = 11190 
+// 'd' command handler elapsed time: 7 seconds
+dismissDialog("Run Simulation"); // e
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,618 MB. GUI used memory: 172 MB. Current time: 4/2/24, 10:44:06 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,618 MB. GUI used memory: 208 MB. Current time: 4/2/24, 10:44:07 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,618 MB. GUI used memory: 174 MB. Current time: 4/2/24, 10:44:08 PM ICT
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 461, 413); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 769, 206); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 488, 142); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 570, 247); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 780, 131); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 704, 381); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 625, 172); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 710, 295); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 871, 190); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 608, 284); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 868, 201); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 863, 271); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 985, 257); // cD
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,618 MB. GUI used memory: 255 MB. Current time: 4/2/24, 10:44:40 PM ICT
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller.sv", 9); // o
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectCodeEditor("tb_operation_controller_real_data.sv", 1188, 393); // ad
+// Elapsed time: 113 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 141, 552); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1735, 480); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 270, 548); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 658, 451); // ad
+// Elapsed time: 39 seconds
+selectCodeEditor("tb_operation_controller_real_data.sv", 2204, 453); // ad
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2); // E
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_layer.sv", 6); // o
+selectCodeEditor("lstm_layer.sv", 909, 460); // ad
+selectCodeEditor("lstm_layer.sv", 909, 460, false, false, false, false, true); // ad - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "operation_controller.sv", 7); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o
+selectCodeEditor("tb_operation_controller_real_data.sv", 592, 442); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 172, 450); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 944, 427); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1179, 632); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 768, 451); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 818, 446); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 688, 348); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 197, 450); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 197, 450, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_operation_controller_real_data.sv", 197, 450); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 279, 414); // ad
+typeControlKey((HResource) null, "tb_operation_controller_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 432, 445); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1450, 447); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 809, 454); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 878, 530); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 1088, 444); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 659, 596); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 666, 558); // ad
+selectCodeEditor("tb_operation_controller_real_data.sv", 744, 634); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:19m:33s
+// Elapsed Time for: 'L.f': 02h:19m:35s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation -simset [get_filesets operation_controller ] 
+// Tcl Message: Command: launch_simulation  -simset operation_controller 
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data Waiting for jobs to finish... No pending jobs, compilation finished. 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_operation_controller_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,598 MB. GUI used memory: 237 MB. Current time: 4/2/24, 10:49:52 PM ICT
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_operation_controller_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 400ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 400ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9630.043 ; gain = 0.000 ; free physical = 2152 ; free virtual = 11613 
+// 'd' command handler elapsed time: 7 seconds
+dismissDialog("Run Simulation"); // e
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,600 MB. GUI used memory: 179 MB. Current time: 4/2/24, 10:49:53 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,601 MB. GUI used memory: 224 MB. Current time: 4/2/24, 10:49:54 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,601 MB. GUI used memory: 178 MB. Current time: 4/2/24, 10:49:55 PM ICT
+// Elapsed time: 13 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 745, 379); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 770, 343); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1203, 321); // cD
+// Elapsed time: 10 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 765, 412); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 786, 312); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1086, 391); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1121, 378); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1109, 520); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1057, 493); // cD
+// Elapsed time: 16 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 679, 178); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 937, 239); // cD
+// Elapsed time: 15 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 447, 275); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 899, 579); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1067, 532); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1081, 631); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1123, 549); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1087, 554); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1168, 528); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1084, 385); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1189, 375); // cD
+// Elapsed time: 26 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 755, 523); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 666, 377); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 759, 293); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 808, 345); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 653, 407); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 757, 378); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 778, 519); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 916, 358); // cD
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, (String) null); // h.b
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,591 MB. GUI used memory: 256 MB. Current time: 4/2/24, 10:52:22 PM ICT
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_operation_controller_real_data.sv", 8); // o

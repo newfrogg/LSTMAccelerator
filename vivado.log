@@ -80,3 +80,1743 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/ip'.
 update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets operation_controller]
+close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv w ]
+add_files -fileset operation_controller /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv
+WARNING: [filemgmt 56-12] File '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv' cannot be added to the project because it already exists in the project, skipping this file
+set_property top tb_operation_controller_real_data [get_filesets operation_controller]
+set_property top_lib xil_defaultlib [get_filesets operation_controller]
+update_compile_order -fileset operation_controller
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:181]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:182]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:183]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:185]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:187]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:188]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:189]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:191]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:193]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:196]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:197]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:198]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:200]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:202]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:203]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:204]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:206]
+ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:207]
+ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer2' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:214]
+INFO: [#UNDEF] Sorry, too many errors..
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2989] 'u1' is not declared [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:155]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_operation_controller_real_data.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 200ns
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+###############At time = 45000, state = 2
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+###############At time = 55000, state = 3
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+-------At time = 65000, finish_layer1 = 0-----------
+###############At time = 65000, state = 4
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+###############At time = 155000, state = 5
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER2-------------------
+
+At time =               157000, Local enable = 0
+At time =               157000, vector_x = {xx, xx}, step = 0
+###############At time = 165000, state = 6
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER2-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {0, e7}, step = 0
+###############At time = 175000, state = 7
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER2-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {0, e7}, step = 0
+-------At time = 185000, finish_layer2 = 0-----------
+###############At time = 185000, state = 8
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 0
+--------------At time = 187000, CALCULATE LAYER2-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {0, e7}, step = 0
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER2-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {0, e7}, step = 0
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 200ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 9276.703 ; gain = 61.266 ; free physical = 2865 ; free virtual = 12460
+set_property -name {xsim.simulate.runtime} -value {400ns} -objects [get_filesets operation_controller]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_operation_controller_real_data.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 400ns
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+###############At time = 45000, state = 2
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+###############At time = 55000, state = 3
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+-------At time = 65000, finish_layer1 = 0-----------
+###############At time = 65000, state = 4
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+###############At time = 155000, state = 5
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER2-------------------
+
+At time =               157000, Local enable = 0
+At time =               157000, vector_x = {xx, xx}, step = 0
+###############At time = 165000, state = 6
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER2-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {0, e7}, step = 0
+###############At time = 175000, state = 7
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER2-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {0, e7}, step = 0
+-------At time = 185000, finish_layer2 = 0-----------
+###############At time = 185000, state = 8
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 0
+--------------At time = 187000, CALCULATE LAYER2-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {0, e7}, step = 0
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER2-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {0, e7}, step = 0
+At time = 207000, finish_layer1 = 1
+At time = 207000, finish_layer2 = 0
+--------------At time = 207000, CALCULATE LAYER2-------------------
+
+At time =               207000, Local enable = 1
+At time =               207000, vector_x = {0, e7}, step = 1
+At time = 217000, finish_layer1 = 1
+At time = 217000, finish_layer2 = 0
+--------------At time = 217000, CALCULATE LAYER2-------------------
+
+At time =               217000, Local enable = 1
+At time =               217000, vector_x = {0, e7}, step = 1
+At time = 227000, finish_layer1 = 1
+At time = 227000, finish_layer2 = 0
+--------------At time = 227000, CALCULATE LAYER2-------------------
+
+At time =               227000, Local enable = 1
+At time =               227000, vector_x = {0, e7}, step = 1
+At time = 237000, finish_layer1 = 1
+At time = 237000, finish_layer2 = 0
+--------------At time = 237000, CALCULATE LAYER2-------------------
+
+At time =               237000, Local enable = 1
+At time =               237000, vector_x = {0, e7}, step = 1
+At time = 247000, finish_layer1 = 1
+At time = 247000, finish_layer2 = 0
+--------------At time = 247000, CALCULATE LAYER2-------------------
+
+At time =               247000, Local enable = 1
+At time =               247000, vector_x = {0, e7}, step = 0
+At time = 257000, finish_layer1 = 1
+At time = 257000, finish_layer2 = 0
+--------------At time = 257000, CALCULATE LAYER2-------------------
+
+At time =               257000, Local enable = 1
+At time =               257000, vector_x = {0, e7}, step = 0
+At time = 267000, finish_layer1 = 1
+At time = 267000, finish_layer2 = 1
+--------------At time = 267000, CALCULATE LAYER2-------------------
+
+At time =               267000, Local enable = 1
+At time =               267000, vector_x = {0, e7}, step = 0
+###############At time = 275000, state = 9
+At time = 277000, finish_layer1 = 1
+At time = 277000, finish_layer2 = 1
+
+------------------At time = 277000, CALCULATE FC -----------------------
+At time = 277000, vector_input = [0, e7, 0, e7]
+At time = 277000, vector_bias = [abcd0123, abcd012d]
+At time = 277000, vector_output = [xx, xx]
+###############At time = 285000, state = a
+At time = 287000, finish_layer1 = 1
+At time = 287000, finish_layer2 = 1
+
+------------------At time = 287000, OUTPUT     -----------------------
+At time = 287000, vector_output = [7f, c1]
+###############At time = 295000, state = 0
+
+---------------------Time =               295000, finish = 1--------------------
+At time = 297000, finish_layer1 = 1
+At time = 297000, finish_layer2 = 1
+
+------------------At time = 297000, OUTPUT     -----------------------
+At time = 297000, vector_output = [7f, c1]
+At time = 307000, finish_layer1 = 1
+At time = 307000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 317000, finish_layer1 = 1
+At time = 317000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 327000, finish_layer1 = 1
+At time = 327000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 337000, finish_layer1 = 1
+At time = 337000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 347000, finish_layer1 = 1
+At time = 347000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 357000, finish_layer1 = 1
+At time = 357000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 367000, finish_layer1 = 1
+At time = 367000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 377000, finish_layer1 = 1
+At time = 377000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 387000, finish_layer1 = 1
+At time = 387000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 397000, finish_layer1 = 1
+At time = 397000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 400ns
+close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/controller.sv w ]
+add_files /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/controller.sv
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_operation_controller_real_data.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 400ns
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+-------At time = 65000, finish_layer1 = 0-----------
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+###############At time = 155000, state = 2
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER1-------------------
+
+At time =               157000, Local enable = 1
+At time =               157000, vector_x = {4, 8}, step = 0
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER1-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {4, 8}, step = 0
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER1-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {4, 8}, step = 0
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 1
+--------------At time = 187000, CALCULATE LAYER1-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {4, 8}, step = 0
+-------At time = 195000, finish_layer2 = 0-----------
+###############At time = 195000, state = 3
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER1-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {4, 8}, step = 0
+###############At time = 205000, state = 4
+At time = 207000, finish_layer1 = 1
+At time = 207000, finish_layer2 = 0
+--------------At time = 207000, CALCULATE LAYER1-------------------
+
+At time =               207000, Local enable = 1
+At time =               207000, vector_x = {4, 8}, step = 0
+###############At time = 215000, state = 0
+
+---------------------Time =               215000, finish = 1--------------------
+At time = 217000, finish_layer1 = 1
+At time = 217000, finish_layer2 = 0
+--------------At time = 217000, CALCULATE LAYER1-------------------
+
+At time =               217000, Local enable = 1
+At time =               217000, vector_x = {4, 8}, step = 0
+At time = 227000, finish_layer1 = 1
+At time = 227000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 237000, finish_layer1 = 1
+At time = 237000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 247000, finish_layer1 = 1
+At time = 247000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 257000, finish_layer1 = 1
+At time = 257000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 267000, finish_layer1 = 1
+At time = 267000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 277000, finish_layer1 = 1
+At time = 277000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 287000, finish_layer1 = 1
+At time = 287000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 297000, finish_layer1 = 1
+At time = 297000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 307000, finish_layer1 = 1
+At time = 307000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 317000, finish_layer1 = 1
+At time = 317000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 327000, finish_layer1 = 1
+At time = 327000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 337000, finish_layer1 = 1
+At time = 337000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 347000, finish_layer1 = 1
+At time = 347000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 357000, finish_layer1 = 1
+At time = 357000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 367000, finish_layer1 = 1
+At time = 367000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 377000, finish_layer1 = 1
+At time = 377000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 387000, finish_layer1 = 1
+At time = 387000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 397000, finish_layer1 = 1
+At time = 397000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 400ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9532.012 ; gain = 0.000 ; free physical = 1400 ; free virtual = 10798
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reshape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_operation_controller_real_data.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 400ns
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+-------At time = 65000, finish_layer1 = 0-----------
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+###############At time = 155000, state = 2
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER2-------------------
+
+At time =               157000, Local enable = 0
+At time =               157000, vector_x = {xx, xx}, step = 0
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER2-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {0, e7}, step = 0
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER2-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {0, e7}, step = 0
+-------At time = 185000, finish_layer2 = 0-----------
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 0
+--------------At time = 187000, CALCULATE LAYER2-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {0, e7}, step = 0
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER2-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {0, e7}, step = 0
+At time = 207000, finish_layer1 = 1
+At time = 207000, finish_layer2 = 0
+--------------At time = 207000, CALCULATE LAYER2-------------------
+
+At time =               207000, Local enable = 1
+At time =               207000, vector_x = {0, e7}, step = 1
+At time = 217000, finish_layer1 = 1
+At time = 217000, finish_layer2 = 0
+--------------At time = 217000, CALCULATE LAYER2-------------------
+
+At time =               217000, Local enable = 1
+At time =               217000, vector_x = {0, e7}, step = 1
+At time = 227000, finish_layer1 = 1
+At time = 227000, finish_layer2 = 0
+--------------At time = 227000, CALCULATE LAYER2-------------------
+
+At time =               227000, Local enable = 1
+At time =               227000, vector_x = {0, e7}, step = 1
+At time = 237000, finish_layer1 = 1
+At time = 237000, finish_layer2 = 0
+--------------At time = 237000, CALCULATE LAYER2-------------------
+
+At time =               237000, Local enable = 1
+At time =               237000, vector_x = {0, e7}, step = 1
+At time = 247000, finish_layer1 = 1
+At time = 247000, finish_layer2 = 0
+--------------At time = 247000, CALCULATE LAYER2-------------------
+
+At time =               247000, Local enable = 1
+At time =               247000, vector_x = {0, e7}, step = 0
+At time = 257000, finish_layer1 = 1
+At time = 257000, finish_layer2 = 0
+--------------At time = 257000, CALCULATE LAYER2-------------------
+
+At time =               257000, Local enable = 1
+At time =               257000, vector_x = {0, e7}, step = 0
+At time = 267000, finish_layer1 = 1
+At time = 267000, finish_layer2 = 1
+--------------At time = 267000, CALCULATE LAYER2-------------------
+
+At time =               267000, Local enable = 1
+At time =               267000, vector_x = {0, e7}, step = 0
+###############At time = 275000, state = 3
+At time = 277000, finish_layer1 = 1
+At time = 277000, finish_layer2 = 1
+
+------------------At time = 277000, CALCULATE FC -----------------------
+At time = 277000, vector_input = [0, e7, 0, e7]
+At time = 277000, vector_bias = [abcd0123, abcd012d]
+At time = 277000, vector_output = [xx, xx]
+###############At time = 285000, state = 4
+At time = 287000, finish_layer1 = 1
+At time = 287000, finish_layer2 = 1
+
+------------------At time = 287000, OUTPUT     -----------------------
+At time = 287000, vector_output = [7f, c1]
+###############At time = 295000, state = 0
+
+---------------------Time =               295000, finish = 1--------------------
+At time = 297000, finish_layer1 = 1
+At time = 297000, finish_layer2 = 1
+
+------------------At time = 297000, OUTPUT     -----------------------
+At time = 297000, vector_output = [7f, c1]
+At time = 307000, finish_layer1 = 1
+At time = 307000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 317000, finish_layer1 = 1
+At time = 317000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 327000, finish_layer1 = 1
+At time = 327000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 337000, finish_layer1 = 1
+At time = 337000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 347000, finish_layer1 = 1
+At time = 347000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 357000, finish_layer1 = 1
+At time = 357000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 367000, finish_layer1 = 1
+At time = 367000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 377000, finish_layer1 = 1
+At time = 377000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 387000, finish_layer1 = 1
+At time = 387000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 397000, finish_layer1 = 1
+At time = 397000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 400ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9630.043 ; gain = 16.988 ; free physical = 1845 ; free virtual = 11190
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation -simset [get_filesets operation_controller ]
+Command: launch_simulation  -simset operation_controller
+INFO: [Vivado 12-12493] Simulation top is 'tb_operation_controller_real_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'operation_controller'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_operation_controller_real_data' in fileset 'operation_controller'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'operation_controller'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_operation_controller_real_data_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_operation_controller_real_data_behav -key {Behavioral:operation_controller:Functional:tb_operation_controller_real_data} -tclbatch {tb_operation_controller_real_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_operation_controller_real_data.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 400ns
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+
+At time = 37000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+
+At time = 47000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+
+At time = 57000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+-------At time = 65000, finish_layer1 = 0-----------
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+
+At time = 67000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+
+At time = 77000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+
+At time = 87000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+
+At time = 97000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+
+At time = 107000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+
+At time = 117000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+
+At time = 127000, layer1 hidden state = [ [0, e7], [0, e7] ]
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+
+At time = 137000, layer1 hidden state = [ [0, e7], [0, e7] ]
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+
+At time = 147000, layer1 hidden state = [ [0, e7], [0, e7] ]
+###############At time = 155000, state = 2
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER2-------------------
+
+At time =               157000, Local enable = 0
+At time =               157000, vector_x = {xx, xx}, step = 0
+
+At time = 157000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER2-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {0, e7}, step = 0
+
+At time = 167000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER2-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {0, e7}, step = 0
+
+At time = 177000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+-------At time = 185000, finish_layer2 = 0-----------
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 0
+--------------At time = 187000, CALCULATE LAYER2-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {0, e7}, step = 0
+
+At time = 187000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER2-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {0, e7}, step = 0
+
+At time = 197000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 207000, finish_layer1 = 1
+At time = 207000, finish_layer2 = 0
+--------------At time = 207000, CALCULATE LAYER2-------------------
+
+At time =               207000, Local enable = 1
+At time =               207000, vector_x = {0, e7}, step = 1
+
+At time = 207000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 217000, finish_layer1 = 1
+At time = 217000, finish_layer2 = 0
+--------------At time = 217000, CALCULATE LAYER2-------------------
+
+At time =               217000, Local enable = 1
+At time =               217000, vector_x = {0, e7}, step = 1
+
+At time = 217000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 227000, finish_layer1 = 1
+At time = 227000, finish_layer2 = 0
+--------------At time = 227000, CALCULATE LAYER2-------------------
+
+At time =               227000, Local enable = 1
+At time =               227000, vector_x = {0, e7}, step = 1
+
+At time = 227000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 237000, finish_layer1 = 1
+At time = 237000, finish_layer2 = 0
+--------------At time = 237000, CALCULATE LAYER2-------------------
+
+At time =               237000, Local enable = 1
+At time =               237000, vector_x = {0, e7}, step = 1
+
+At time = 237000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 247000, finish_layer1 = 1
+At time = 247000, finish_layer2 = 0
+--------------At time = 247000, CALCULATE LAYER2-------------------
+
+At time =               247000, Local enable = 1
+At time =               247000, vector_x = {0, e7}, step = 0
+
+At time = 247000, layer2 hidden state = [ [0, e7], [0, e7] ]
+At time = 257000, finish_layer1 = 1
+At time = 257000, finish_layer2 = 0
+--------------At time = 257000, CALCULATE LAYER2-------------------
+
+At time =               257000, Local enable = 1
+At time =               257000, vector_x = {0, e7}, step = 0
+
+At time = 257000, layer2 hidden state = [ [0, e7], [0, e7] ]
+At time = 267000, finish_layer1 = 1
+At time = 267000, finish_layer2 = 1
+--------------At time = 267000, CALCULATE LAYER2-------------------
+
+At time =               267000, Local enable = 1
+At time =               267000, vector_x = {0, e7}, step = 0
+
+At time = 267000, layer2 hidden state = [ [0, e7], [0, e7] ]
+###############At time = 275000, state = 3
+At time = 277000, finish_layer1 = 1
+At time = 277000, finish_layer2 = 1
+
+------------------At time = 277000, CALCULATE FC -----------------------
+At time = 277000, vector_input = [0, e7, 0, e7]
+At time = 277000, vector_bias = [abcd0123, abcd012d]
+At time = 277000, vector_output = [xx, xx]
+###############At time = 285000, state = 4
+At time = 287000, finish_layer1 = 1
+At time = 287000, finish_layer2 = 1
+
+------------------At time = 287000, OUTPUT     -----------------------
+At time = 287000, vector_output = [7f, c1]
+###############At time = 295000, state = 0
+
+---------------------Time =               295000, finish = 1--------------------
+At time = 297000, finish_layer1 = 1
+At time = 297000, finish_layer2 = 1
+
+------------------At time = 297000, OUTPUT     -----------------------
+At time = 297000, vector_output = [7f, c1]
+At time = 307000, finish_layer1 = 1
+At time = 307000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 317000, finish_layer1 = 1
+At time = 317000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 327000, finish_layer1 = 1
+At time = 327000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 337000, finish_layer1 = 1
+At time = 337000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 347000, finish_layer1 = 1
+At time = 347000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 357000, finish_layer1 = 1
+At time = 357000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 367000, finish_layer1 = 1
+At time = 367000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 377000, finish_layer1 = 1
+At time = 377000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 387000, finish_layer1 = 1
+At time = 387000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 397000, finish_layer1 = 1
+At time = 397000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_real_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 400ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9630.043 ; gain = 0.000 ; free physical = 2152 ; free virtual = 11613

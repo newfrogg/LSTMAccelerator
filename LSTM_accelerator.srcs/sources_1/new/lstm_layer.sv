@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
-                    parameter NUMBER_OF_FEATURES = 2,
-                    parameter NUMBER_OF_TIMESTEPS = 2)(
+module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
+                    parameter NUMBER_OF_FEATURES = 28,
+                    parameter NUMBER_OF_TIMESTEPS = 28)(
                     input   logic   clk,
                     input   logic   rst_n,
                     input   logic   enable,
@@ -55,8 +55,8 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
     logic   [7:0] vector_ht_prev    [0:NUMBER_OF_UNITS-1];
 //    logic   [7:0] vector_cell       [0:NUMBER_OF_UNITS-1];
     logic   [7:0] buffer_vector_ht_prev [0:NUMBER_OF_UNITS-1];
-    
-    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(0)) u1(
+/* 
+    LSTM_Unit #(.NUMBER_OF_FEATURES(28), .NUMBER_OF_UNITS(64), .INDEX(0)) u1(
         .clk(clk),
         .rst_n(rst_n),
         .enable(local_enable),
@@ -80,7 +80,7 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         .finish(finish_unit[0])
     );
     
-    LSTM_Unit #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(1)) u2(
+    LSTM_Unit #(.NUMBER_OF_FEATURES(28), .NUMBER_OF_UNITS(64), .INDEX(1)) u2(
         .step(step),
         .clk(clk),
         .rst_n(rst_n),
@@ -103,6 +103,36 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         .h_t(vector_ht[1]),
         .finish(finish_unit[1])
     );
+*/
+
+    genvar index;
+    generate
+        for (index = 0; index < NUMBER_OF_UNITS; index = index + 1) begin
+            LSTM_Unit #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .INDEX(index)) u1(
+                .clk(clk),
+                .rst_n(rst_n),
+                .enable(local_enable),
+                .last_timestep(last_timestep),
+                .step(step),
+                .vector_x(vector_x),
+                .input_weights(input_weights[index]),
+                .forget_weights(forget_weights[index]),
+                .cell_weights(cell_weights[index]),
+                .output_weights(output_weights[index]),
+                .r_input_weights(r_input_weights[index]),
+                .r_forget_weights(r_forget_weights[index]),
+                .r_cell_weights(r_cell_weights[index]),
+                .r_output_weights(r_output_weights[index]),
+                .vector_ht_prev(vector_ht_prev),
+                .input_bias(input_bias[index]),
+                .forget_bias(forget_bias[index]),
+                .cell_bias(cell_bias[index]),
+                .output_bias(output_bias[index]),
+                .h_t(vector_ht[index]),
+                .finish(finish_unit[index])
+            );
+        end
+    endgenerate
     
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n || !enable) begin
@@ -122,7 +152,7 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
         end
     end
     
-    always @(posedge u1.finish_output) begin
+    always @(posedge genblk1[0].u1.finish_output) begin
 //        if ( step == 0) begin
 //             vector_x            <= matrix_x[step+1];
 //             matrix_ht[0]        <= vector_ht;
@@ -130,7 +160,7 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
 //             step                <= step + 1;     
 //        end
 //        else begin
-         matrix_ht[step]     <= vector_ht;
+         matrix_ht[step]     <= vector_ht;  
          vector_ht_prev      <= vector_ht;
          if (step != NUMBER_OF_TIMESTEPS-1) begin
             vector_x        <=  matrix_x[step+1];
@@ -148,7 +178,7 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 2,
             finish          <= 1'b1;
         end
         else begin
-            if (finish_unit[0] == 1'b1 && finish_unit[1] == 1'b1) begin
+            if (finish_unit[NUMBER_OF_TIMESTEPS-2] == 1'b1 && finish_unit[NUMBER_OF_TIMESTEPS-1] == 1'b1) begin
                 finish  <= 1'b1;
             end
             else begin
