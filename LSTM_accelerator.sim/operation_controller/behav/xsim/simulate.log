@@ -382,3 +382,46 @@ At time = 147000, u1_output_input_1 = 0, u1_output_forget_1 = 0, u1_output_cell_
 At time = 147000, u1_before_add_output_input_3 = 0, u1_before_add_output_forget_3 = 0, u1_before_add_output_cell_update_3 = 0, u1_before_add_output_output_3 = 0
 At time = 147000, u1_after_add_output_input3 = 793, u1_after_add_output_forget3 = 794, u1_after_add_output_cell3 = 795, u1_after_add_output_output3 = 796
 At time = 147000, u1_output_input3_sigmoid = 7f, u1_output_forget3_sigmoid = 7f, u1_output_cell_update3_tanh = 0, u1_output_output3_sigmoid = 7f
+
+At time = 147000, u1_output_cell = 0, u1_tanh_output_cell = 0
+
+At time = 147000, u1_hidden_state = 0, u1_prev_ht = 0
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+At time = 147000, init_n2 = 1
+At time = 147000, enable_input = 0, finish_input = 1, enable_recurrent = 0, finish_recurrent = 1
+At time = 147000, enable_cell = 0, finish_cell = 1, enable_output = 0, finish_output = 1
+
+At time = 147000, u2_output_input_1 = 0, u2_output_forget_1 = 0, u2_output_cell_update_1 = 0, u2_output_output_1 = 0
+At time = 147000, u2_before_add_output_input_3 = 0, u2_before_add_output_forget_3 = 0, u2_before_add_output_cell_update_3 = 0, u2_before_add_output_output_3 = 0
+At time = 147000, u2_after_add_output_input3 = 789b587a, u2_after_add_output_forget3 = 89ac697c, u2_after_add_output_cell3 = 9abd799d, u2_after_add_output_output3 = abce7bae
+At time = 147000, u2_output_input3_sigmoid = 7f, u2_output_forget3_sigmoid = 0, u2_output_cell_update3_tanh = 83, u2_output_output3_sigmoid = 3
+
+At time = 147000, u2_output_cell = 40fd, u2_tanh_output_cell = 4d
+
+At time = 147000, u2_hidden_state = e7, u2_prev_ht = e7
+###############At time = 155000, state = 5
+At time = 157000, finish_layer1 = 1
+
+------------------At time = 157000, CALCULATE FC -----------------------
+At time = 157000, vector_input = [0, e7, 0, e7]
+At time = 157000, vector_bias = [abcd0123, abcd012d]
+At time = 157000, vector_output = [xx, xx]
+###############At time = 165000, state = 6
+At time = 167000, finish_layer1 = 1
+
+------------------At time = 167000, OUTPUT     -----------------------
+At time = 167000, vector_output = [7f, c1]
+###############At time = 175000, state = 0
+
+---------------------Time =               175000, finish = 1--------------------
+At time = 177000, finish_layer1 = 1
+
+------------------At time = 177000, OUTPUT     -----------------------
+At time = 177000, vector_output = [7f, c1]
+At time = 187000, finish_layer1 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 197000, finish_layer1 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -1,0 +1,152 @@
+/*
+
+AMD Vivado v2023.1 (64-bit) [Major: 2023, Minor: 1]
+SW Build: 3865809 on Sun May  7 15:04:56 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+
+Process ID (PID): 11739
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Tue Apr 02 20:30:03 ICT 2024
+Time zone: 	Indochina Time (Asia/Ho_Chi_Minh)
+
+OS: Ubuntu
+OS Version: 6.5.0-26-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 1
+Screen size: 3072x1920
+Screen resolution (DPI): 250
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=30
+Scale size: 75
+OS font scaling: 250%
+
+Java version: 	17.0.3 64-bit
+JavaFX version: 17.0.1
+Java home: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64/jre17.0.3_7
+Java executable: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64/jre17.0.3_7/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	vanloi
+User home directory: /home/vanloi
+User working directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado
+HDI_APPROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+RDI_DATADIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data
+RDI_BINDIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin
+
+Vivado preferences file: /home/vanloi/.Xilinx/Vivado/2023.1/vivado.xml
+Vivado preferences directory: /home/vanloi/.Xilinx/Vivado/2023.1/
+Vivado layouts directory: /home/vanloi/.Xilinx/Vivado/2023.1/data/layouts
+PlanAhead jar file: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.log
+Vivado journal file: 	/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-11739-vanloi-laptop
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+GNOME_SHELL_SESSION_MODE: ubuntu
+RDI_APPROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+RDI_BASEROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado
+RDI_BINROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin
+RDI_BUILD: yes
+RDI_DATADIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data
+RDI_INSTALLROOT: /home/vanloi/Documents/Loi_study/Vivado
+RDI_INSTALLVER: 2023.1
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 17.0.3_7
+RDI_LIBDIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/lnx64.o/Ubuntu:/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE/bin/lin64
+RDI_PROG: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator:vanloi-laptop_1712064592_11698
+RDI_SHARED_DATA: /home/vanloi/Documents/Loi_study/Vivado/SharedData/2023.1/data
+RDI_TPS_ROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64
+RDI_USE_JDK17: True
+SHELL: /bin/bash
+XILINX: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE
+XILINX_DSP: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE
+XILINX_HLS: /home/vanloi/Documents/Loi_study/Vivado/Vitis_HLS/2023.1
+XILINX_PLANAHEAD: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+XILINX_VITIS: 
+XILINX_VIVADO: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+XILINX_VIVADO_HLS: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,492 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,506 MB. GUI used memory: 98 MB. Current time: 4/2/24, 8:30:04 PM ICT
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // u
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+setFileChooser("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.xpr");
+// Opening Vivado Project: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.xpr. Version: Vivado v2023.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 123 MB (+126778kb) [00:00:12]
+// [Engine Memory]: 1,564 MB (+1488034kb) [00:00:12]
+// [GUI Memory]: 166 MB (+38678kb) [00:00:13]
+// WARNING: HEventQueue.dispatchEvent() is taking  1822 ms.
+// Tcl Message: open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.xpr 
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/ip'. 
+// [GUI Memory]: 178 MB (+3899kb) [00:00:14]
+// [Engine Memory]: 1,705 MB (+66339kb) [00:00:14]
+// Project name: LSTM_accelerator; location: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator; part: xc7a35ticsg324-1L
+dismissDialog("Open Project"); // bq
+// Tcl Message: update_compile_order -fileset sources_1 
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Project 1-19] Could not find the file '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv'.", 0); // b
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Project 1-19] Could not find the file '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv'.", 0); // b
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// Elapsed time: 115 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv)]", 1); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), fc1 : fully_connected (fully_connected.sv)]", 4, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), fc1 : fully_connected (fully_connected.sv)]", 4, false, false, false, false, false, true); // E - Double Click
+// [Engine Memory]: 1,792 MB (+2257kb) [00:02:31]
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// HMemoryUtils.trashcanNow. Engine heap size: 1,793 MB. GUI used memory: 101 MB. Current time: 4/2/24, 8:32:29 PM ICT
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv)]", 2); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv)]", 3, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, operation_controller (operation_controller.sv), layer1 : lstm_layer (lstm_layer.sv), u1 : LSTM_Unit (LSTM_Unit.sv), r : calculate_recurrent (calculate_recurrent.sv)]", 5, true, false, false, false, false, true); // E - Double Click - Node
