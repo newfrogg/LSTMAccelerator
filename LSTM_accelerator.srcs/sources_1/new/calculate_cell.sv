@@ -48,7 +48,7 @@ module calculate_cell #(parameter NUMBER_OF_FEATURES = 28,
             finish_cell                 <= 1'b1;
         end
         else begin
-            buffer_cell         <= buffer_forget_cell + buffer_input_cell_update;
+//            buffer_cell         <= buffer_forget_cell + buffer_input_cell_update;
         end
     end
     
