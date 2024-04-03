@@ -22,9 +22,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 32972
+INFO: [Synth 8-7075] Helper process launched with PID 9051
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1693.078 ; gain = 388.676 ; free physical = 1538 ; free virtual = 9222
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1691.070 ; gain = 385.738 ; free physical = 1958 ; free virtual = 11363
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'operation_controller' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/operation_controller.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'lstm_layer' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:23]
@@ -64,7 +64,7 @@ INFO: [Synth 8-6157] synthesizing module 'calculate_output' [/home/vanloi/Docume
 	Parameter NUMBER_OF_UNITS bound to: 2 - type: integer 
 	Parameter INDEX bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'calculate_output' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:23]
-WARNING: [Synth 8-6104] Input port 'vector_ht_prev' has an internal driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:190]
+WARNING: [Synth 8-6104] Input port 'vector_ht_prev' has an internal driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:186]
 INFO: [Synth 8-6155] done synthesizing module 'LSTM_Unit' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'LSTM_Unit__parameterized0' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:23]
 	Parameter NUMBER_OF_FEATURES bound to: 2 - type: integer 
@@ -75,7 +75,7 @@ INFO: [Synth 8-6157] synthesizing module 'calculate_output__parameterized0' [/ho
 	Parameter NUMBER_OF_UNITS bound to: 2 - type: integer 
 	Parameter INDEX bound to: 1 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'calculate_output__parameterized0' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_output.sv:23]
-WARNING: [Synth 8-6104] Input port 'vector_ht_prev' has an internal driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:190]
+WARNING: [Synth 8-6104] Input port 'vector_ht_prev' has an internal driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:186]
 INFO: [Synth 8-6155] done synthesizing module 'LSTM_Unit__parameterized0' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'lstm_layer' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'reshape' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/reshape.sv:23]
@@ -151,17 +151,17 @@ WARNING: [Synth 8-7129] Port bias[1][10] in module fully_connected is either unc
 WARNING: [Synth 8-7129] Port bias[1][9] in module fully_connected is either unconnected or has no load
 WARNING: [Synth 8-7129] Port bias[1][8] in module fully_connected is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1801.047 ; gain = 496.645 ; free physical = 1437 ; free virtual = 9090
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1801.008 ; gain = 495.676 ; free physical = 1831 ; free virtual = 11221
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1809.953 ; gain = 505.551 ; free physical = 1452 ; free virtual = 9093
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1806.945 ; gain = 501.613 ; free physical = 1849 ; free virtual = 11226
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1817.957 ; gain = 513.555 ; free physical = 1452 ; free virtual = 9093
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1814.949 ; gain = 509.617 ; free physical = 1849 ; free virtual = 11226
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'operation_controller'
@@ -176,7 +176,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'opera
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'operation_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1985.129 ; gain = 680.727 ; free physical = 1347 ; free virtual = 8951
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 1985.090 ; gain = 679.758 ; free physical = 1766 ; free virtual = 11056
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -426,22 +426,22 @@ CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv:55]
 INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:01 ; elapsed = 00:00:59 . Memory (MB): peak = 2108.184 ; gain = 803.781 ; free physical = 1181 ; free virtual = 8808
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:50 . Memory (MB): peak = 2106.145 ; gain = 800.812 ; free physical = 1622 ; free virtual = 10979
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:01 ; elapsed = 00:00:59 . Memory (MB): peak = 2108.184 ; gain = 803.781 ; free physical = 1181 ; free virtual = 8808
+Finished Timing Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:50 . Memory (MB): peak = 2106.145 ; gain = 800.812 ; free physical = 1622 ; free virtual = 10979
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5966] Removing register instance (\layer1/last_timestep_reg ) from module (operation_controller) as it has self-loop and (\layer1/last_timestep_reg__0 ) is actual driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:171]
-INFO: [Synth 8-5966] Removing register instance (\layer2/last_timestep_reg ) from module (operation_controller) as it has self-loop and (\layer2/last_timestep_reg__0 ) is actual driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:171]
+INFO: [Synth 8-5966] Removing register instance (\layer1/last_timestep_reg ) from module (operation_controller) as it has self-loop and (\layer1/last_timestep_reg__0 ) is actual driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:165]
+INFO: [Synth 8-5966] Removing register instance (\layer2/last_timestep_reg ) from module (operation_controller) as it has self-loop and (\layer2/last_timestep_reg__0 ) is actual driver [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv:165]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:03 ; elapsed = 00:01:01 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1107 ; free virtual = 8734
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:52 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1540 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -459,37 +459,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1102 ; free virtual = 8729
+Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1102 ; free virtual = 8729
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1102 ; free virtual = 8729
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:55 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1102 ; free virtual = 8729
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1100 ; free virtual = 8727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1100 ; free virtual = 8727
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -552,18 +552,18 @@ Report Instance Areas:
 |24    |      wi            |calculate_weights_input          |   193|
 +------+--------------------+---------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1101 ; free virtual = 8728
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 864 critical warnings and 66 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.191 ; gain = 890.789 ; free physical = 1101 ; free virtual = 8728
-Synthesis Optimization Complete : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2195.199 ; gain = 890.789 ; free physical = 1101 ; free virtual = 8728
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:56 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.152 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:00:54 . Memory (MB): peak = 2195.160 ; gain = 889.820 ; free physical = 1628 ; free virtual = 10903
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2198.160 ; gain = 0.000 ; free physical = 1387 ; free virtual = 9013
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2195.160 ; gain = 0.000 ; free physical = 1907 ; free virtual = 11185
 INFO: [Netlist 29-17] Analyzing 78 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2257.156 ; gain = 0.000 ; free physical = 1385 ; free virtual = 9012
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2257.117 ; gain = 0.000 ; free physical = 1904 ; free virtual = 11181
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -571,10 +571,10 @@ Synth Design complete | Checksum: a852af33
 INFO: [Common 17-83] Releasing license: Synthesis
 50 Infos, 66 Warnings, 200 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:12 ; elapsed = 00:01:06 . Memory (MB): peak = 2257.156 ; gain = 960.691 ; free physical = 1385 ; free virtual = 9012
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1758.350; main = 1514.932; forked = 374.789
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3094.727; main = 2257.160; forked = 986.539
+synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:00:56 . Memory (MB): peak = 2257.117 ; gain = 959.723 ; free physical = 1904 ; free virtual = 11181
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1754.416; main = 1514.415; forked = 375.680
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3092.641; main = 2257.121; forked = 986.492
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.runs/synth_1/operation_controller.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file operation_controller_utilization_synth.rpt -pb operation_controller_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Apr  2 23:37:01 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  3 10:07:34 2024...

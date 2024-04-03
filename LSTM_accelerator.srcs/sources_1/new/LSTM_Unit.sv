@@ -88,10 +88,6 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
             enable_output       <= 1'b0;
             init_n              <= 1'b0;
             finish              <= 1'b1;
-//            prev_cell           <= 8'b0;
-//            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
-//                prev_ht[i]      <= 8'b0;
-//            end 
         end
         else begin
             if ( init_n == 0 ) begin
@@ -125,7 +121,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         end 
     end
     // calculate weights*input 
-    calculate_weights_input #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) wi(
+    calculate_weights_input #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS)) wi(
         .clk(clk),
         .rst_n(rst_n),
         .enable_input(enable_input),
@@ -145,7 +141,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .output_output_1(output_output_1)
     );
     
-    calculate_recurrent #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) r(
+    calculate_recurrent #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS)) r(
         .clk(clk),
         .rst_n(rst_n),
         .enable_recurrent(enable_recurrent),
@@ -166,7 +162,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .output_output_3(output_output_3)
     );
     
-    calculate_cell #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2)) c(
+    calculate_cell #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS)) c(
         .clk(clk),
         .rst_n(rst_n),
         .enable_cell(enable_cell),
@@ -180,7 +176,7 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 2,
         .tanh_output_cell(tanh_output_cell)
     );
     
-    calculate_output #(.NUMBER_OF_FEATURES(2), .NUMBER_OF_UNITS(2), .INDEX(INDEX)) o(
+    calculate_output #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .INDEX(INDEX)) o(
         .clk(clk),
         .rst_n(rst_n),
         .enable_output(enable_output),

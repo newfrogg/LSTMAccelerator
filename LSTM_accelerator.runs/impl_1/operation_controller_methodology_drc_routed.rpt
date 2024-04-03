@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Tue Apr  2 23:37:54 2024
+| Date         : Wed Apr  3 10:08:13 2024
 | Host         : vanloi-laptop running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_methodology -file operation_controller_methodology_drc_routed.rpt -pb operation_controller_methodology_drc_routed.pb -rpx operation_controller_methodology_drc_routed.rpx
 | Design       : operation_controller

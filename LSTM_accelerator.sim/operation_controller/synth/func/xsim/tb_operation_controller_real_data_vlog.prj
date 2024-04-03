@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_operation_controller_real_data_func_synth.v" \
+
+sv xil_defaultlib  \
+"../../../../../LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" \
+
+# Do not sort compile order
+nosort

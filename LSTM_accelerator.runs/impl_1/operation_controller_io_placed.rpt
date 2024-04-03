@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date                      : Tue Apr  2 23:37:39 2024
+| Date                      : Wed Apr  3 10:08:01 2024
 | Host                      : vanloi-laptop running 64-bit Ubuntu 22.04.4 LTS
 | Command                   : report_io -file operation_controller_io_placed.rpt
 | Design                    : operation_controller

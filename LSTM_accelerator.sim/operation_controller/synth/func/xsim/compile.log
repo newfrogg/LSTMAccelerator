@@ -1,0 +1,28 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/synth/func/xsim/tb_operation_controller_real_data_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LSTM_Unit
+INFO: [VRFC 10-311] analyzing module LSTM_Unit_9
+INFO: [VRFC 10-311] analyzing module LSTM_Unit__parameterized0
+INFO: [VRFC 10-311] analyzing module LSTM_Unit__parameterized0_10
+INFO: [VRFC 10-311] analyzing module calculate_cell
+INFO: [VRFC 10-311] analyzing module calculate_cell_2
+INFO: [VRFC 10-311] analyzing module calculate_output
+INFO: [VRFC 10-311] analyzing module calculate_output__parameterized0
+INFO: [VRFC 10-311] analyzing module calculate_recurrent
+INFO: [VRFC 10-311] analyzing module calculate_recurrent_3
+INFO: [VRFC 10-311] analyzing module calculate_weights_input
+INFO: [VRFC 10-311] analyzing module calculate_weights_input_4
+INFO: [VRFC 10-311] analyzing module fully_connected
+INFO: [VRFC 10-311] analyzing module lstm_layer
+INFO: [VRFC 10-311] analyzing module lstm_layer_0
+INFO: [VRFC 10-311] analyzing module operation_controller
+INFO: [VRFC 10-311] analyzing module sigmoid
+INFO: [VRFC 10-311] analyzing module sigmoid_1
+INFO: [VRFC 10-311] analyzing module sigmoid_6
+INFO: [VRFC 10-311] analyzing module sigmoid_7
+INFO: [VRFC 10-311] analyzing module tanh
+INFO: [VRFC 10-311] analyzing module tanh_16b
+INFO: [VRFC 10-311] analyzing module tanh_16b_8
+INFO: [VRFC 10-311] analyzing module tanh_5
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_operation_controller_real_data

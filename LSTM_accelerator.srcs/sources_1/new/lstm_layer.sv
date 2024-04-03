@@ -153,17 +153,11 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
     end
     
     always @(posedge genblk1[0].u1.finish_output) begin
-//        if ( step == 0) begin
-//             vector_x            <= matrix_x[step+1];
-//             matrix_ht[0]        <= vector_ht;
-//             vector_ht_prev      <= vector_ht;
-//             step                <= step + 1;     
-//        end
-//        else begin
-         matrix_ht[step]     <= vector_ht;  
-         vector_ht_prev      <= vector_ht;
-         if (step != NUMBER_OF_TIMESTEPS-1) begin
-            vector_x        <=  matrix_x[step+1];
+         matrix_ht[step]    <= vector_ht;  
+         vector_ht_prev     <= vector_ht;
+//         step               <= step + 1; 
+         if (step != NUMBER_OF_TIMESTEPS - 1) begin
+            vector_x        <=  matrix_x[step + 1];
             step            <=  step+1;
         end
         else begin

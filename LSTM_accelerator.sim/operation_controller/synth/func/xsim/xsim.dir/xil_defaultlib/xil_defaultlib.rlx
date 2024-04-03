@@ -1,0 +1,6 @@
+0.7
+2020.2
+May  7 2023
+15:10:42
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.sim/operation_controller/synth/func/xsim/tb_operation_controller_real_data_func_synth.v,1712113719,verilog,,,,LSTM_Unit;LSTM_Unit_9;LSTM_Unit__parameterized0;LSTM_Unit__parameterized0_10;calculate_cell;calculate_cell_2;calculate_output;calculate_output__parameterized0;calculate_recurrent;calculate_recurrent_3;calculate_weights_input;calculate_weights_input_4;fully_connected;glbl;lstm_layer;lstm_layer_0;operation_controller;sigmoid;sigmoid_1;sigmoid_6;sigmoid_7;tanh;tanh_16b;tanh_16b_8;tanh_5,,uvm,,,,,,
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv,1712072979,systemVerilog,,,,tb_operation_controller_real_data,,uvm,,,,,,
