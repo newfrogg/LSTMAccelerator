@@ -19157,6 +19157,7 @@ At time = 197000, finish_layer1 = 1
  FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_operation_controller_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 200ns
+<<<<<<< HEAD
 update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
 close_sim
@@ -19546,3 +19547,5 @@ close_sim
 INFO: [Simtcl 6-16] Simulation closed
 exit
 INFO: [Common 17-206] Exiting Vivado at Mon Apr  1 23:03:04 2024...
+=======
+>>>>>>> lstm_real_data

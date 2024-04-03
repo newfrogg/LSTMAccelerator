@@ -1,0 +1,25 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L uvm -L simprims_ver -L secureip --snapshot tb_operation_controller_real_data_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'labels' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:72]
+ERROR: [VRFC 10-3180] cannot find port 'bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:71]
+ERROR: [VRFC 10-3180] cannot find port 'matrix_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:70]
+ERROR: [VRFC 10-3180] cannot find port 'output_bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:69]
+ERROR: [VRFC 10-3180] cannot find port 'cell_bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:68]
+ERROR: [VRFC 10-3180] cannot find port 'forget_bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:67]
+ERROR: [VRFC 10-3180] cannot find port 'input_bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:66]
+ERROR: [VRFC 10-3180] cannot find port 'r_output_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:65]
+ERROR: [VRFC 10-3180] cannot find port 'r_cell_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:64]
+ERROR: [VRFC 10-3180] cannot find port 'r_forget_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:63]
+ERROR: [VRFC 10-3180] cannot find port 'r_input_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:62]
+ERROR: [VRFC 10-3180] cannot find port 'output_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:61]
+ERROR: [VRFC 10-3180] cannot find port 'cell_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:60]
+ERROR: [VRFC 10-3180] cannot find port 'forget_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:59]
+ERROR: [VRFC 10-3180] cannot find port 'input_weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:58]
+ERROR: [VRFC 10-3180] cannot find port 'matrix_x' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:57]
+WARNING: [VRFC 10-2861] module 'operation_controller' does not have a parameter named NUMBER_OF_FEATURES [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv:53]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

@@ -41,8 +41,8 @@ module calculate_output #(parameter NUMBER_OF_FEATURES = 28,
             finish_output   <= 1'b1;
         end
         else begin
-            hidden_state    <= buffer_output[7:0];
-            prev_ht         <= buffer_output[7:0];
+//            hidden_state    <= buffer_output[7:0];
+//            prev_ht         <= buffer_output[7:0];
         end
     end
     

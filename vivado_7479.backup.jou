@@ -139,6 +139,7 @@ source tb_operation_controller.tcl
 close_sim
 launch_simulation -simset [get_filesets operation_controller ]
 source tb_operation_controller.tcl
+<<<<<<< HEAD
 update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
 close_sim
@@ -151,3 +152,5 @@ close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/
 add_files -fileset operation_controller /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv
 update_compile_order -fileset operation_controller
 close_sim
+=======
+>>>>>>> lstm_real_data

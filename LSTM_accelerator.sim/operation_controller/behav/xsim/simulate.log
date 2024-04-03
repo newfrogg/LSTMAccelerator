@@ -1,0 +1,213 @@
+Time resolution is 1 ps
+Time =                 4000, finish = x
+###############At time = 4000, state = 0
+At time = 7000, finish_layer1 = 1
+At time = 7000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 17000, finish_layer1 = 1
+At time = 17000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At time = 27000, finish_layer1 = 1
+At time = 27000, finish_layer2 = 1
+
+ FINISH!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Time =                33000, start enable, finish = 0
+###############At time = 35000, state = 1
+At time = 37000, finish_layer1 = 1
+At time = 37000, finish_layer2 = 1
+--------------At time = 37000, CALCULATE LAYER1-------------------
+
+At time =                37000, Local enable = 0
+At time =                37000, vector_x = {4, 8}, step = 0
+
+At time = 37000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 47000, finish_layer1 = 1
+At time = 47000, finish_layer2 = 1
+--------------At time = 47000, CALCULATE LAYER1-------------------
+
+At time =                47000, Local enable = 1
+At time =                47000, vector_x = {4, 8}, step = 0
+
+At time = 47000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 57000, finish_layer1 = 1
+At time = 57000, finish_layer2 = 1
+--------------At time = 57000, CALCULATE LAYER1-------------------
+
+At time =                57000, Local enable = 1
+At time =                57000, vector_x = {4, 8}, step = 0
+
+At time = 57000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+-------At time = 65000, finish_layer1 = 0-----------
+At time = 67000, finish_layer1 = 0
+At time = 67000, finish_layer2 = 1
+--------------At time = 67000, CALCULATE LAYER1-------------------
+
+At time =                67000, Local enable = 1
+At time =                67000, vector_x = {4, 8}, step = 0
+
+At time = 67000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 77000, finish_layer1 = 0
+At time = 77000, finish_layer2 = 1
+--------------At time = 77000, CALCULATE LAYER1-------------------
+
+At time =                77000, Local enable = 1
+At time =                77000, vector_x = {4, 8}, step = 0
+
+At time = 77000, layer1 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 87000, finish_layer1 = 0
+At time = 87000, finish_layer2 = 1
+--------------At time = 87000, CALCULATE LAYER1-------------------
+
+At time =                87000, Local enable = 1
+At time =                87000, vector_x = {4, 8}, step = 1
+
+At time = 87000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 97000, finish_layer1 = 0
+At time = 97000, finish_layer2 = 1
+--------------At time = 97000, CALCULATE LAYER1-------------------
+
+At time =                97000, Local enable = 1
+At time =                97000, vector_x = {4, 8}, step = 1
+
+At time = 97000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 107000, finish_layer1 = 0
+At time = 107000, finish_layer2 = 1
+--------------At time = 107000, CALCULATE LAYER1-------------------
+
+At time =               107000, Local enable = 1
+At time =               107000, vector_x = {4, 8}, step = 1
+
+At time = 107000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 117000, finish_layer1 = 0
+At time = 117000, finish_layer2 = 1
+--------------At time = 117000, CALCULATE LAYER1-------------------
+
+At time =               117000, Local enable = 1
+At time =               117000, vector_x = {4, 8}, step = 1
+
+At time = 117000, layer1 hidden state = [ [0, e7], [xx, xx] ]
+At time = 127000, finish_layer1 = 0
+At time = 127000, finish_layer2 = 1
+--------------At time = 127000, CALCULATE LAYER1-------------------
+
+At time =               127000, Local enable = 1
+At time =               127000, vector_x = {4, 8}, step = 0
+
+At time = 127000, layer1 hidden state = [ [0, e7], [0, e7] ]
+At time = 137000, finish_layer1 = 0
+At time = 137000, finish_layer2 = 1
+--------------At time = 137000, CALCULATE LAYER1-------------------
+
+At time =               137000, Local enable = 1
+At time =               137000, vector_x = {4, 8}, step = 0
+
+At time = 137000, layer1 hidden state = [ [0, e7], [0, e7] ]
+At time = 147000, finish_layer1 = 1
+At time = 147000, finish_layer2 = 1
+--------------At time = 147000, CALCULATE LAYER1-------------------
+
+At time =               147000, Local enable = 1
+At time =               147000, vector_x = {4, 8}, step = 0
+
+At time = 147000, layer1 hidden state = [ [0, e7], [0, e7] ]
+###############At time = 155000, state = 2
+At time = 157000, finish_layer1 = 1
+At time = 157000, finish_layer2 = 1
+--------------At time = 157000, CALCULATE LAYER2-------------------
+
+At time =               157000, Local enable = 0
+At time =               157000, vector_x = {xx, xx}, step = 0
+
+At time = 157000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 167000, finish_layer1 = 1
+At time = 167000, finish_layer2 = 1
+--------------At time = 167000, CALCULATE LAYER2-------------------
+
+At time =               167000, Local enable = 1
+At time =               167000, vector_x = {0, e7}, step = 0
+
+At time = 167000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 177000, finish_layer1 = 1
+At time = 177000, finish_layer2 = 1
+--------------At time = 177000, CALCULATE LAYER2-------------------
+
+At time =               177000, Local enable = 1
+At time =               177000, vector_x = {0, e7}, step = 0
+
+At time = 177000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+-------At time = 185000, finish_layer2 = 0-----------
+At time = 187000, finish_layer1 = 1
+At time = 187000, finish_layer2 = 0
+--------------At time = 187000, CALCULATE LAYER2-------------------
+
+At time =               187000, Local enable = 1
+At time =               187000, vector_x = {0, e7}, step = 0
+
+At time = 187000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 197000, finish_layer1 = 1
+At time = 197000, finish_layer2 = 0
+--------------At time = 197000, CALCULATE LAYER2-------------------
+
+At time =               197000, Local enable = 1
+At time =               197000, vector_x = {0, e7}, step = 0
+
+At time = 197000, layer2 hidden state = [ [xx, xx], [xx, xx] ]
+At time = 207000, finish_layer1 = 1
+At time = 207000, finish_layer2 = 0
+--------------At time = 207000, CALCULATE LAYER2-------------------
+
+At time =               207000, Local enable = 1
+At time =               207000, vector_x = {0, e7}, step = 1
+
+At time = 207000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 217000, finish_layer1 = 1
+At time = 217000, finish_layer2 = 0
+--------------At time = 217000, CALCULATE LAYER2-------------------
+
+At time =               217000, Local enable = 1
+At time =               217000, vector_x = {0, e7}, step = 1
+
+At time = 217000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 227000, finish_layer1 = 1
+At time = 227000, finish_layer2 = 0
+--------------At time = 227000, CALCULATE LAYER2-------------------
+
+At time =               227000, Local enable = 1
+At time =               227000, vector_x = {0, e7}, step = 1
+
+At time = 227000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 237000, finish_layer1 = 1
+At time = 237000, finish_layer2 = 0
+--------------At time = 237000, CALCULATE LAYER2-------------------
+
+At time =               237000, Local enable = 1
+At time =               237000, vector_x = {0, e7}, step = 1
+
+At time = 237000, layer2 hidden state = [ [0, e7], [xx, xx] ]
+At time = 247000, finish_layer1 = 1
+At time = 247000, finish_layer2 = 0
+--------------At time = 247000, CALCULATE LAYER2-------------------
+
+At time =               247000, Local enable = 1
+At time =               247000, vector_x = {0, e7}, step = 0
+
+At time = 247000, layer2 hidden state = [ [0, e7], [0, e7] ]
+At time = 257000, finish_layer1 = 1
+At time = 257000, finish_layer2 = 0
+--------------At time = 257000, CALCULATE LAYER2-------------------
+
+At time =               257000, Local enable = 1
+At time =               257000, vector_x = {0, e7}, step = 0
+
+At time = 257000, layer2 hidden state = [ [0, e7], [0, e7] ]
+At time = 267000, finish_layer1 = 1
+At time = 267000, finish_layer2 = 1
+--------------At time = 267000, CALCULATE LAYER2-------------------
+
+At time =               267000, Local enable = 1
+At time =               267000, vector_x = {0, e7}, step = 0
+
+At time = 267000, layer2 hidden state = [ [0, e7], [0, e7] ]
+###############At time = 275000, state = 3

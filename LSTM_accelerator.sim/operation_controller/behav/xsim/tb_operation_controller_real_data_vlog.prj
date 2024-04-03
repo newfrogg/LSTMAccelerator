@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../LSTM_accelerator.srcs/sources_1/new/LSTM_Unit.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/calculate_cell.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/calculate_output.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/calculate_recurrent.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/calculate_weights_input.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/fully_connected.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/lstm_layer.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/operation_controller.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/reshape.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/tanh.sv" \
+"../../../../LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" \
+"../../../../LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller_real_data.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

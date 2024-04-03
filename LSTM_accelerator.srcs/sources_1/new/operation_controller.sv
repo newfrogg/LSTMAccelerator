@@ -20,10 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+<<<<<<< HEAD
 module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
                                 parameter NUMBER_OF_UNITS = 64,
                                 parameter NUMBER_OF_TIMESTEPS = 28,
                                 parameter NUMBER_OF_LABELS = 10 )(
+=======
+module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
+                                parameter NUMBER_OF_UNITS = 2,
+                                parameter NUMBER_OF_TIMESTEPS = 2,
+                                parameter NUMBER_OF_LABELS = 2)(
+>>>>>>> lstm_real_data
                                 input   logic   clk,
                                 input   logic   rst_n,
                                 input   logic   enable,
@@ -51,13 +58,20 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
     localparam  STATE_IDLE      = 3'd0,
                 STATE_LAYER1    = 3'd1,
                 STATE_LAYER2    = 3'd2,
-                STATE_LAYER3    = 3'd3,
-                STATE_LAYER4    = 3'd4,
-                STATE_FC        = 3'd5,
-                STATE_OUTPUT    = 3'd6;
+//                STATE_LAYER3    = 4'd3,
+//                STATE_LAYER4    = 4'd4,
+//                STATE_LAYER5    = 4'd5,
+//                STATE_LAYER6    = 4'd6,
+//                STATE_LAYER7    = 4'd7,
+//                STATE_LAYER8    = 4'd8,
+                STATE_FC        = 3'd3,
+                STATE_OUTPUT    = 3'd4,
+                DELAY_LAYER     = 2'd3;
     
+    logic [1:0] time_delay;
     logic [2:0] state;         
-    logic [7:0] matrix_ht [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
+    logic [7:0] matrix_ht1 [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
+    logic [7:0] matrix_ht2 [0:NUMBER_OF_TIMESTEPS-1][0:NUMBER_OF_UNITS-1];
     logic [7:0] vector_x [0:NUMBER_OF_TIMESTEPS*NUMBER_OF_UNITS-1];
     
     logic enable_layer1;
@@ -71,8 +85,12 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
     logic finish_output;
     
     assign o_state = state;
-    assign finish_layer = finish_layer1;
+    assign finish_layer = finish_layer2;
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> lstm_real_data
     lstm_layer #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS)) layer1 (
         .clk(clk),
         .rst_n(rst_n),
@@ -90,12 +108,39 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
         .forget_bias(forget_bias),
         .cell_bias(cell_bias),
         .output_bias(output_bias),
-        .matrix_ht(matrix_ht),
+        .matrix_ht(matrix_ht1),
         .finish(finish_layer1)
     );
     
+<<<<<<< HEAD
     reshape #(.SIZE_ROW(NUMBER_OF_TIMESTEPS), .SIZE_COL(NUMBER_OF_UNITS)) rs ( 
         .matrix_x(matrix_ht),
+=======
+    lstm_layer #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS)) layer2 (
+        .clk(clk),
+        .rst_n(rst_n),
+        .enable(enable_layer2),
+        .matrix_x(matrix_ht1),
+        .input_weights(input_weights),
+        .forget_weights(forget_weights),
+        .cell_weights(cell_weights),
+        .output_weights(output_weights),
+        .r_input_weights(r_input_weights),
+        .r_forget_weights(r_forget_weights),
+        .r_cell_weights(r_cell_weights),
+        .r_output_weights(r_output_weights),
+        .input_bias(input_bias),
+        .forget_bias(forget_bias),
+        .cell_bias(cell_bias),
+        .output_bias(output_bias),
+        .matrix_ht(matrix_ht2),
+        .finish(finish_layer2)
+    );
+    
+    
+    reshape #(.SIZE_ROW(NUMBER_OF_TIMESTEPS), .SIZE_COL(NUMBER_OF_UNITS)) rs ( 
+        .matrix_x(matrix_ht2),
+>>>>>>> lstm_real_data
         .vector_x(vector_x)
     );
     
@@ -112,8 +157,9 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
     
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n || !enable) begin
-            state   <= STATE_IDLE;
-            finish  <= 1'b0;
+            state           <= STATE_IDLE;
+            time_delay      <= 2'b0;
+            finish          <= 1'b0;
             enable_layer1   <= 1'b0;
             enable_layer2   <= 1'b0;
             enable_fc       <= 1'b0;
@@ -123,32 +169,37 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
             case(state)
                 STATE_IDLE: begin
                     enable_layer1   <= 1'b1;
+                    time_delay      <= 2'b0;
                     finish          <= 1'b0;
                     state           <= STATE_LAYER1;                    
                 end
                 
                 STATE_LAYER1: begin
-                    if (finish_layer1) begin
-//                        enable_layer1   <= 1'b0;
-//                        enable_fc       <= 1'b1;
+                    if (finish_layer1 && time_delay == DELAY_LAYER) begin
+                        enable_layer1   <= 1'b0;
+                        enable_layer2   <= 1'b1;
+                        time_delay      <= 2'b0;
                         state           <= STATE_LAYER2;
                     end
                     else begin
                         enable_layer1   <= 1'b1;
+                        time_delay      <= time_delay + 1;
                     end
                 end
                 
                 STATE_LAYER2: begin
-                    if (finish_layer1) begin
-//                        enable_layer1   <= 1'b0;
-//                        enable_fc       <= 1'b1;
-                        state           <= STATE_LAYER3;
+                    if (finish_layer2 && time_delay == DELAY_LAYER) begin
+                        enable_layer2   <= 1'b0;
+                        enable_fc       <= 1'b1;
+                        time_delay      <= 2'b0;
+                        state           <= STATE_FC;
                     end
                     else begin
-                        enable_layer1   <= 1'b1;
+                        enable_layer2   <= 1'b1;
+                        time_delay      <= time_delay + 1;
                     end
                 end
-                
+/*                
                 STATE_LAYER3: begin
 //                    #1;
                     if (finish_layer1) begin
@@ -164,14 +215,59 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
                 STATE_LAYER4: begin
                     if (finish_layer1) begin
                         enable_layer1   <= 1'b0;
-                        enable_fc       <= 1'b1;
-                        state           <= STATE_FC;
+                        enable_layer2   <= 1'b1;
+                        state           <= STATE_LAYER5;
                     end
                     else begin
                         enable_layer1   <= 1'b1;
                     end
                 end
                 
+                STATE_LAYER5: begin
+                    if (finish_layer2) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER6;
+                    end
+                    else begin
+                        enable_layer2   <= 1'b1;
+                    end
+                end
+                
+                STATE_LAYER6: begin
+                    if (finish_layer2) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER7;
+                    end
+                    else begin
+                        enable_layer2   <= 1'b1;
+                    end
+                end
+                
+                STATE_LAYER7: begin
+//                    #1;
+                    if (finish_layer2) begin
+//                        enable_layer1   <= 1'b0;
+//                        enable_fc       <= 1'b1;
+                        state           <= STATE_LAYER8;
+                    end
+                    else begin
+                        enable_layer2   <= 1'b1;
+                    end
+                end
+                
+                STATE_LAYER8: begin
+                    if (finish_layer2) begin
+                        enable_layer2   <= 1'b0;
+                        enable_fc       <= 1'b1;
+                        state           <= STATE_FC;
+                    end
+                    else begin
+                        enable_layer2   <= 1'b1;
+                    end
+                end
+*/                
                 STATE_FC: begin
                     if (finish_fc) begin
                         enable_fc       <= 1'b0;

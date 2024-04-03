@@ -1,10 +1,11 @@
 Vivado Simulator v2023.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_behav xil_defaultlib.tb_operation_controller xil_defaultlib.glbl -log elaborate.log 
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_operation_controller_real_data_behav xil_defaultlib.tb_operation_controller_real_data xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+<<<<<<< HEAD
 ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:176]
 ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:177]
 ERROR: [VRFC 10-2991] 'u1' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:178]
@@ -24,3 +25,26 @@ ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/D
 ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:203]
 ERROR: [VRFC 10-2991] 'u2' is not declared under prefix 'layer1' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/LSTM_accelerator/LSTM_accelerator.srcs/operation_controller/new/tb_operation_controller.sv:204]
 ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+=======
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.calculate_weights_input(NUMBER_O...
+Compiling module xil_defaultlib.sigmoid
+Compiling module xil_defaultlib.tanh
+Compiling module xil_defaultlib.calculate_recurrent(NUMBER_OF_FE...
+Compiling module xil_defaultlib.tanh_16b
+Compiling module xil_defaultlib.calculate_cell(NUMBER_OF_FEATURE...
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit
+Compiling module xil_defaultlib.calculate_output(NUMBER_OF_FEATU...
+Compiling module xil_defaultlib.LSTM_Unit(INDEX=1)
+Compiling module xil_defaultlib.lstm_layer(NUMBER_OF_UNITS=2,NUM...
+Compiling module xil_defaultlib.reshape_default
+Compiling module xil_defaultlib.fully_connected(NUMBER_OUTPUTS=2...
+Compiling module xil_defaultlib.operation_controller
+Compiling module xil_defaultlib.tb_operation_controller_real_dat...
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_operation_controller_real_data_behav
+>>>>>>> lstm_real_data

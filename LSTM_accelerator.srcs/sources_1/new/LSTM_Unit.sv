@@ -88,10 +88,6 @@ module LSTM_Unit #(parameter NUMBER_OF_FEATURES = 28,
             enable_output       <= 1'b0;
             init_n              <= 1'b0;
             finish              <= 1'b1;
-//            prev_cell           <= 8'b0;
-//            for (i = 0; i < NUMBER_OF_UNITS; i = i+1) begin
-//                prev_ht[i]      <= 8'b0;
-//            end 
         end
         else begin
             if ( init_n == 0 ) begin
