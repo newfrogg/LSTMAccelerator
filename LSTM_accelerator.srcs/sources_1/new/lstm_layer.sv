@@ -55,12 +55,8 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
     logic   [7:0] vector_ht_prev    [0:NUMBER_OF_UNITS-1];
 //    logic   [7:0] vector_cell       [0:NUMBER_OF_UNITS-1];
     logic   [7:0] buffer_vector_ht_prev [0:NUMBER_OF_UNITS-1];
-<<<<<<< HEAD
     
-    /*
-=======
 /* 
->>>>>>> lstm_real_data
     LSTM_Unit #(.NUMBER_OF_FEATURES(28), .NUMBER_OF_UNITS(64), .INDEX(0)) u1(
         .clk(clk),
         .rst_n(rst_n),
@@ -108,21 +104,19 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
         .h_t(vector_ht[1]),
         .finish(finish_unit[1])
     );
-<<<<<<< HEAD
     */
-    
+/* 
     genvar index;
     generate 
         for (index = 0; index < NUMBER_OF_UNITS; index = index + 1) begin
             LSTM_Unit #(.NUMBER_OF_FEATURES(28), .NUMBER_OF_UNITS(64), .INDEX(0)) u1(
-=======
+
 */
 
     genvar index;
     generate
         for (index = 0; index < NUMBER_OF_UNITS; index = index + 1) begin
             LSTM_Unit #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .INDEX(index)) u1(
->>>>>>> lstm_real_data
                 .clk(clk),
                 .rst_n(rst_n),
                 .enable(local_enable),
@@ -144,11 +138,8 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
                 .output_bias(output_bias[index]),
                 .h_t(vector_ht[index]),
                 .finish(finish_unit[index])
-<<<<<<< HEAD
     );
-=======
-            );
->>>>>>> lstm_real_data
+
         end
     endgenerate
     
@@ -190,11 +181,7 @@ module lstm_layer #(parameter NUMBER_OF_UNITS = 64,
             finish          <= 1'b1;
         end
         else begin
-<<<<<<< HEAD
-            if (finish_unit[NUMBER_OF_UNITS-2] == 1'b1 && finish_unit[NUMBER_OF_UNITS-1] == 1'b1) begin
-=======
             if (finish_unit[NUMBER_OF_TIMESTEPS-2] == 1'b1 && finish_unit[NUMBER_OF_TIMESTEPS-1] == 1'b1) begin
->>>>>>> lstm_real_data
                 finish  <= 1'b1;
             end
             else begin

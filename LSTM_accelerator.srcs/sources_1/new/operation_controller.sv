@@ -19,18 +19,11 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-<<<<<<< HEAD
-module operation_controller #(  parameter NUMBER_OF_FEATURES = 28,
-                                parameter NUMBER_OF_UNITS = 64,
-                                parameter NUMBER_OF_TIMESTEPS = 28,
-                                parameter NUMBER_OF_LABELS = 10 )(
-=======
+                                
 module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
                                 parameter NUMBER_OF_UNITS = 2,
                                 parameter NUMBER_OF_TIMESTEPS = 2,
                                 parameter NUMBER_OF_LABELS = 2)(
->>>>>>> lstm_real_data
                                 input   logic   clk,
                                 input   logic   rst_n,
                                 input   logic   enable,
@@ -87,10 +80,6 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
     assign o_state = state;
     assign finish_layer = finish_layer2;
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> lstm_real_data
     lstm_layer #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS)) layer1 (
         .clk(clk),
         .rst_n(rst_n),
@@ -112,10 +101,10 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
         .finish(finish_layer1)
     );
     
-<<<<<<< HEAD
+/*
     reshape #(.SIZE_ROW(NUMBER_OF_TIMESTEPS), .SIZE_COL(NUMBER_OF_UNITS)) rs ( 
         .matrix_x(matrix_ht),
-=======
+*/
     lstm_layer #(.NUMBER_OF_FEATURES(NUMBER_OF_FEATURES), .NUMBER_OF_UNITS(NUMBER_OF_UNITS), .NUMBER_OF_TIMESTEPS(NUMBER_OF_TIMESTEPS)) layer2 (
         .clk(clk),
         .rst_n(rst_n),
@@ -140,7 +129,6 @@ module operation_controller #(  parameter NUMBER_OF_FEATURES = 2,
     
     reshape #(.SIZE_ROW(NUMBER_OF_TIMESTEPS), .SIZE_COL(NUMBER_OF_UNITS)) rs ( 
         .matrix_x(matrix_ht2),
->>>>>>> lstm_real_data
         .vector_x(vector_x)
     );
     

@@ -3,11 +3,11 @@
 // Company: 
 // Engineer: 
 // 
-<<<<<<< HEAD
+
 // Create Date: 04/01/2024 11:02:01 PM
-=======
+
 // Create Date: 04/02/2024 09:20:22 PM
->>>>>>> lstm_real_data
+
 // Design Name: 
 // Module Name: tb_operation_controller_real_data
 // Project Name: 
@@ -24,11 +24,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-<<<<<<< HEAD
-module tb_operation_controller_real_data(
-
-    );
-=======
 module tb_operation_controller_real_data();
     parameter NUMBER_OF_FEATURES = 2;
     parameter NUMBER_OF_UNITS = 2;
@@ -314,5 +309,5 @@ module tb_operation_controller_real_data();
         end
     end
     */
->>>>>>> lstm_real_data
+
 endmodule
