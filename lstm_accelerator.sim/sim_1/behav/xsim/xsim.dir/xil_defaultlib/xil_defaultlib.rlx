@@ -1,0 +1,8 @@
+0.7
+2020.2
+May  7 2023
+15:10:42
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,uvm,,,,,,
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv,1712332871,systemVerilog,,,,tb_controller,,uvm,,,,,,
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv,1712320359,systemVerilog,/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv;/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv,/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv,,$unit_MAC_sv_1648542035;MAC,,uvm,,,,,,
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv,1712334930,systemVerilog,,/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv,,controller,,uvm,,,,,,

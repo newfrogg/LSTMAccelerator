@@ -1,0 +1,267 @@
+
+*** Running vivado
+    with args -log controller.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source controller.tcl
+
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source controller.tcl -notrace
+Command: synth_design -top controller -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 48515
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1688.070 ; gain = 391.637 ; free physical = 1303 ; free virtual = 9339
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'controller' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'MAC' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:23]
+	Parameter W_BITWIDTH bound to: 8 - type: integer 
+	Parameter OUT_BITWIDTH bound to: 20 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MAC' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
+WARNING: [Synth 8-7137] Register index_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:93]
+WARNING: [Synth 8-7137] Register flag_accu_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:105]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[0] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[1] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[2] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[3] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[4] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[5] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[6] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register sum_arr_bf_reg[7] in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:64]
+WARNING: [Synth 8-7137] Register mac_en_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:67]
+WARNING: [Synth 8-7137] Register t_valid_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:159]
+WARNING: [Synth 8-7137] Register out_data_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:162]
+WARNING: [Synth 8-7129] Port data_in[31] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[30] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[29] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[28] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[27] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[26] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[25] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[24] in module controller is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1759.039 ; gain = 462.605 ; free physical = 1211 ; free virtual = 9249
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1773.883 ; gain = 477.449 ; free physical = 1211 ; free virtual = 9249
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1781.887 ; gain = 485.453 ; free physical = 1210 ; free virtual = 9248
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MAC'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                              001 |                               00
+              STATE_MULT |                              010 |                               01
+              STATE_ACCM |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MAC'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                               00 |                               00
+      STATE_DATA_RECEIVE |                               01 |                               01
+               STATE_RUN |                               10 |                               10
+            STATE_FINISH |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'controller'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1798.801 ; gain = 502.367 ; free physical = 1187 ; free virtual = 9226
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 2     
+	   8 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 2     
+	               10 Bit    Registers := 8     
+	                8 Bit    Registers := 12    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 18    
+	   3 Input    1 Bit        Muxes := 13    
+	   4 Input    1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port data_in[31] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[30] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[29] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[28] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[27] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[26] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[25] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_in[24] in module controller is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1032 ; free virtual = 9050
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1032 ; free virtual = 9050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1031 ; free virtual = 9050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    26|
+|3     |LUT1   |     5|
+|4     |LUT2   |    52|
+|5     |LUT3   |    29|
+|6     |LUT4   |    46|
+|7     |LUT5   |    37|
+|8     |LUT6   |    93|
+|9     |MUXF7  |    25|
+|10    |MUXF8  |     9|
+|11    |FDCE   |   164|
+|12    |FDPE   |     1|
+|13    |FDRE   |   106|
+|14    |IBUF   |    27|
+|15    |OBUF   |    33|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   654|
+|2     |  u_mac  |MAC    |   485|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.074 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1965.082 ; gain = 668.641 ; free physical = 1028 ; free virtual = 9047
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1965.082 ; gain = 0.000 ; free physical = 1305 ; free virtual = 9327
+INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2090.852 ; gain = 0.000 ; free physical = 1254 ; free virtual = 9276
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: d53b11d4
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2090.852 ; gain = 805.324 ; free physical = 1254 ; free virtual = 9276
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1339.332; main = 1339.332; forked = 0.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2090.855; main = 2090.855; forked = 0.000
+INFO: [Common 17-1381] The checkpoint '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/controller.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file controller_utilization_synth.rpt -pb controller_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Apr  5 17:39:03 2024...
