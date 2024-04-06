@@ -3006,3 +3006,573 @@ selectCodeEditor("lstm_unit.sv", 564, 249); // ad
 // TclEventType: FILE_SET_CHANGE
 // Elapsed Time for: 'L.f': 01h:07m:24s
 // Elapsed Time for: 'L.f': 01h:07m:26s
+// Elapsed time: 42 seconds
+selectCodeEditor("lstm_unit.sv", 431, 238); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 72, 266); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 114, 710); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 352, 559); // ad
+selectCodeEditor("lstm_unit.sv", 177, 598); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 444, 340); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 684, 359); // ad
+selectCodeEditor("lstm_unit.sv", 280, 532); // ad
+// Elapsed time: 24 seconds
+selectCodeEditor("lstm_unit.sv", 476, 436); // ad
+// Elapsed time: 20 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 249, 594); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 446, 210); // ad
+selectCodeEditor("lstm_unit.sv", 446, 210, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 305, 592); // ad
+selectCodeEditor("lstm_unit.sv", 194, 344); // ad
+selectCodeEditor("lstm_unit.sv", 105, 178); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 416, 124); // ad
+selectCodeEditor("lstm_unit.sv", 416, 123, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 295, 553); // ad
+selectCodeEditor("lstm_unit.sv", 416, 118); // ad
+selectCodeEditor("lstm_unit.sv", 416, 117, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 241, 574); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 480, 153); // ad
+selectCodeEditor("lstm_unit.sv", 480, 153, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 254, 615); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 461, 208); // ad
+selectCodeEditor("lstm_unit.sv", 461, 208, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 302, 646); // ad
+selectCodeEditor("lstm_unit.sv", 279, 663); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 480, 239); // ad
+selectCodeEditor("lstm_unit.sv", 480, 239, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 282, 695); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 477, 270); // ad
+selectCodeEditor("lstm_unit.sv", 477, 270, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 211, 741); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 17 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectCodeEditor("MAC.sv", 975, 415); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 213, 379); // ad
+typeControlKey((HResource) null, "controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 1049, 351); // ad
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 695, 334); // ad
+selectCodeEditor("controller.sv", 290, 384); // ad
+selectCodeEditor("controller.sv", 290, 384, false, false, false, false, true); // ad - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 3); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 17 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 325 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 686, 337); // ad
+selectCodeEditor("controller.sv", 686, 337, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 115 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 109, 629); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 382, 334); // ad
+selectCodeEditor("controller.sv", 78, 190); // ad
+selectCodeEditor("controller.sv", 1060, 532); // ad
+selectCodeEditor("controller.sv", 1029, 597); // ad
+selectCodeEditor("controller.sv", 388, 293, false, false, false, true, false); // ad - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ao
+selectCodeEditor("controller.sv", 559, 175); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// [GUI Memory]: 233 MB (+3446kb) [01:20:27]
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 962, 372); // ad
+selectCodeEditor("lstm_unit.sv", 943, 379); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey(null, null, 'z');
+// Elapsed time: 12 seconds
+selectCodeEditor("lstm_unit.sv", 1068, 370); // ad
+selectCodeEditor("lstm_unit.sv", 362, 654); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 888, 531); // ad
+selectCodeEditor("lstm_unit.sv", 1092, 569); // ad
+selectCodeEditor("lstm_unit.sv", 1067, 630); // ad
+selectCodeEditor("lstm_unit.sv", 965, 539); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:21m:10s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+// Elapsed Time for: 'L.f': 01h:21m:12s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 68, 155); // ad
+typeControlKey((HResource) null, "controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 3); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 144, 674); // ad
+selectCodeEditor("lstm_unit.sv", 128, 709); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 947, 130); // ad
+selectCodeEditor("lstm_unit.sv", 947, 129, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 459, 489); // ad
+selectCodeEditor("lstm_unit.sv", 459, 489, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 486, 524); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 868, 469); // ad
+selectCodeEditor("lstm_unit.sv", 633, 510); // ad
+selectCodeEditor("lstm_unit.sv", 656, 604); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectCodeEditor("MAC.sv", 1660, 449); // ad
+selectCodeEditor("MAC.sv", 1417, 396); // ad
+selectCodeEditor("MAC.sv", 1633, 455); // ad
+selectCodeEditor("MAC.sv", 1131, 391); // ad
+selectCodeEditor("MAC.sv", 1125, 315); // ad
+selectCodeEditor("MAC.sv", 800, 572); // ad
+selectCodeEditor("MAC.sv", 790, 295); // ad
+selectCodeEditor("MAC.sv", 948, 312); // ad
+selectCodeEditor("MAC.sv", 1435, 332); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:22m:30s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed Time for: 'L.f': 01h:22m:32s
+selectCodeEditor("lstm_unit.sv", 667, 516); // ad
+selectCodeEditor("lstm_unit.sv", 691, 445); // ad
+// Elapsed time: 35 seconds
+selectCodeEditor("lstm_unit.sv", 671, 461); // ad
+selectCodeEditor("lstm_unit.sv", 718, 441); // ad
+selectCodeEditor("lstm_unit.sv", 726, 438); // ad
+// Elapsed time: 23 seconds
+selectCodeEditor("lstm_unit.sv", 253, 621); // ad
+selectCodeEditor("lstm_unit.sv", 224, 693); // ad
+selectCodeEditor("lstm_unit.sv", 451, 688); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 537, 310); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 273, 272); // ad
+selectCodeEditor("lstm_unit.sv", 273, 272, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 287, 562); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 499, 702); // ad
+selectCodeEditor("lstm_unit.sv", 576, 588); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 360, 339); // ad
+selectCodeEditor("controller.sv", 732, 511); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 335, 129); // ad
+selectCodeEditor("lstm_unit.sv", 335, 129, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 436, 693); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 17 seconds
+typeControlKey(null, null, 'z');
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 1077, 561); // ad
+selectCodeEditor("lstm_unit.sv", 1134, 346); // ad
+selectCodeEditor("lstm_unit.sv", 1134, 346, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 531, 622); // ad
+selectCodeEditor("lstm_unit.sv", 549, 598); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectCodeEditor("MAC.sv", 247, 593); // ad
+selectCodeEditor("MAC.sv", 247, 593, false, false, false, false, true); // ad - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 566, 225); // ad
+selectCodeEditor("lstm_unit.sv", 1292, 485); // ad
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 44 seconds
+selectCodeEditor("lstm_unit.sv", 542, 522); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 729, 395); // ad
+selectCodeEditor("lstm_unit.sv", 500, 478); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 477, 310); // ad
+selectCodeEditor("lstm_unit.sv", 477, 309, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 439, 591); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 978, 593); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 482, 640); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 562, 294); // ad
+selectCodeEditor("lstm_unit.sv", 327, 99); // ad
+selectCodeEditor("lstm_unit.sv", 327, 99, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 996, 661); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 965, 667); // ad
+selectCodeEditor("lstm_unit.sv", 970, 490); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 1000, 485); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 1073, 446); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 985, 563); // ad
+selectCodeEditor("lstm_unit.sv", 308, 408); // ad
+selectCodeEditor("lstm_unit.sv", 308, 408, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 541, 697); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MAC.sv", 1); // o
+selectCodeEditor("MAC.sv", 575, 686); // ad
+selectCodeEditor("MAC.sv", 575, 686, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("MAC.sv", 575, 672); // ad
+selectCodeEditor("MAC.sv", 575, 672, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 442, 375); // ad
+selectCodeEditor("controller.sv", 442, 375, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 518, 469); // ad
+selectCodeEditor("controller.sv", 405, 374); // ad
+selectCodeEditor("controller.sv", 405, 374, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 457, 469); // ad
+selectCodeEditor("controller.sv", 443, 355); // ad
+selectCodeEditor("controller.sv", 402, 389); // ad
+selectCodeEditor("controller.sv", 402, 389, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 401, 466); // ad
+selectCodeEditor("controller.sv", 411, 396); // ad
+selectCodeEditor("controller.sv", 411, 396, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 414, 442); // ad
+selectCodeEditor("controller.sv", 438, 381); // ad
+selectCodeEditor("controller.sv", 438, 381, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 430, 436); // ad
+selectCodeEditor("controller.sv", 448, 379); // ad
+selectCodeEditor("controller.sv", 448, 379, false, false, false, false, true); // ad - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 10 seconds
+selectCodeEditor("lstm_unit.sv", 385, 673); // ad
+// Elapsed time: 49 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 599, 307); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 295, 203); // ad
+selectCodeEditor("lstm_unit.sv", 295, 203, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 404, 462); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 435, 340); // ad
+typeControlKey((HResource) null, "controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 499, 486); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 838, 411); // ad
+selectCodeEditor("controller.sv", 495, 588); // ad
+selectCodeEditor("controller.sv", 495, 588, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("controller.sv", 694, 463); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 423, 562); // ad
+selectCodeEditor("lstm_unit.sv", 401, 632); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 775, 232); // ad
+selectCodeEditor("controller.sv", 436, 485); // ad
+typeControlKey((HResource) null, "controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 885, 518); // ad
+selectCodeEditor("lstm_unit.sv", 459, 535); // ad
+selectCodeEditor("lstm_unit.sv", 459, 535, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 366, 714); // ad
+selectCodeEditor("lstm_unit.sv", 366, 714, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 529, 426); // ad
+selectCodeEditor("lstm_unit.sv", 437, 482); // ad
+selectCodeEditor("lstm_unit.sv", 318, 522); // ad
+// Elapsed time: 38 seconds
+selectCodeEditor("lstm_unit.sv", 721, 399); // ad
+selectCodeEditor("lstm_unit.sv", 758, 212); // ad
+// Elapsed time: 16 seconds
+selectCodeEditor("lstm_unit.sv", 225, 327); // ad
+selectCodeEditor("lstm_unit.sv", 846, 419); // ad
+selectCodeEditor("lstm_unit.sv", 846, 419, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 1045, 648); // ad
+selectCodeEditor("lstm_unit.sv", 1062, 625); // ad
+selectCodeEditor("lstm_unit.sv", 1032, 629); // ad
+selectCodeEditor("lstm_unit.sv", 1335, 310); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("lstm_unit.sv", 356, 203); // ad
+// Elapsed time: 22 seconds
+selectCodeEditor("lstm_unit.sv", 332, 224); // ad
+selectCodeEditor("lstm_unit.sv", 943, 317); // ad
+selectCodeEditor("lstm_unit.sv", 623, 315); // ad
+selectCodeEditor("lstm_unit.sv", 608, 282); // ad
+selectCodeEditor("lstm_unit.sv", 742, 240); // ad
+selectCodeEditor("lstm_unit.sv", 549, 209); // ad
+selectCodeEditor("lstm_unit.sv", 594, 384); // ad
+selectCodeEditor("lstm_unit.sv", 637, 417); // ad
+selectCodeEditor("lstm_unit.sv", 755, 520); // ad
+// Elapsed time: 141 seconds
+selectCodeEditor("lstm_unit.sv", 489, 331); // ad
+selectCodeEditor("lstm_unit.sv", 771, 263); // ad
+selectCodeEditor("lstm_unit.sv", 806, 115); // ad
+selectCodeEditor("lstm_unit.sv", 835, 130); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 2,193 MB. GUI used memory: 119 MB. Current time: 4/6/24, 10:56:08 AM ICT
+// Elapsed time: 16 seconds
+selectCodeEditor("lstm_unit.sv", 581, 550); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("lstm_unit.sv", 662, 507); // ad
+selectCodeEditor("lstm_unit.sv", 546, 626); // ad
+selectCodeEditor("lstm_unit.sv", 822, 546); // ad
+selectCodeEditor("lstm_unit.sv", 812, 552); // ad
+selectCodeEditor("lstm_unit.sv", 812, 552, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 1209, 341); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 1400, 320); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:37m:44s
+// Elapsed Time for: 'L.f': 01h:37m:46s
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 663, 264); // ad
+selectCodeEditor("lstm_unit.sv", 493, 169); // ad
+selectCodeEditor("lstm_unit.sv", 493, 169, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 493, 634); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 104 seconds
+selectCodeEditor("lstm_unit.sv", 679, 539); // ad
+selectCodeEditor("lstm_unit.sv", 614, 598); // ad
+selectCodeEditor("lstm_unit.sv", 551, 556); // ad
+selectCodeEditor("lstm_unit.sv", 668, 514); // ad
+selectCodeEditor("lstm_unit.sv", 545, 557); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+// Elapsed time: 41 seconds
+selectCodeEditor("lstm_unit.sv", 523, 156); // ad
+selectCodeEditor("lstm_unit.sv", 523, 156, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 83 seconds
+selectCodeEditor("lstm_unit.sv", 679, 492); // ad
+selectCodeEditor("lstm_unit.sv", 648, 706); // ad
+selectCodeEditor("lstm_unit.sv", 621, 694); // ad
+// Elapsed time: 68 seconds
+selectCodeEditor("lstm_unit.sv", 693, 444); // ad
+// Elapsed time: 18 seconds
+selectCodeEditor("lstm_unit.sv", 274, 580); // ad
+// Elapsed time: 15 seconds
+selectCodeEditor("lstm_unit.sv", 177, 632); // ad
+selectCodeEditor("lstm_unit.sv", 210, 626); // ad
+selectCodeEditor("lstm_unit.sv", 781, 476); // ad
+selectCodeEditor("lstm_unit.sv", 472, 643); // ad
+selectCodeEditor("lstm_unit.sv", 472, 642, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 714, 602); // ad
+selectCodeEditor("lstm_unit.sv", 400, 636); // ad
+selectCodeEditor("lstm_unit.sv", 755, 563); // ad
+selectCodeEditor("lstm_unit.sv", 871, 547); // ad
+selectCodeEditor("lstm_unit.sv", 482, 633); // ad
+// Elapsed time: 21 seconds
+selectCodeEditor("lstm_unit.sv", 301, 609); // ad
+selectCodeEditor("lstm_unit.sv", 259, 565); // ad
+selectCodeEditor("lstm_unit.sv", 195, 530); // ad
+selectCodeEditor("lstm_unit.sv", 185, 467); // ad
+selectCodeEditor("lstm_unit.sv", 209, 422); // ad
+selectCodeEditor("lstm_unit.sv", 438, 641); // ad
+selectCodeEditor("lstm_unit.sv", 438, 641, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 333, 564); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 995, 257); // ad
+selectCodeEditor("lstm_unit.sv", 391, 268); // ad
+selectCodeEditor("lstm_unit.sv", 391, 268, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 822, 251); // ad
+selectCodeEditor("lstm_unit.sv", 967, 269); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 524, 442); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 765, 370); // ad
+selectCodeEditor("lstm_unit.sv", 1201, 351); // ad
+selectCodeEditor("lstm_unit.sv", 1122, 388); // ad
+selectCodeEditor("lstm_unit.sv", 665, 374); // ad
+selectCodeEditor("lstm_unit.sv", 665, 374, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 644, 521); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 24 seconds
+selectCodeEditor("lstm_unit.sv", 563, 629); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+// Elapsed time: 20 seconds
+selectCodeEditor("lstm_unit.sv", 936, 590); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("lstm_unit.sv", 724, 90); // ad
+selectCodeEditor("lstm_unit.sv", 724, 90, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 719, 119); // ad
+selectCodeEditor("lstm_unit.sv", 719, 119, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 708, 164); // ad
+selectCodeEditor("lstm_unit.sv", 708, 164, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 899, 212); // ad
+selectCodeEditor("lstm_unit.sv", 735, 93); // ad
+selectCodeEditor("lstm_unit.sv", 735, 93, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 862, 188); // ad
+selectCodeEditor("lstm_unit.sv", 648, 84); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 699, 309); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 68, 342); // ad
+selectCodeEditor("lstm_unit.sv", 778, 314); // ad
+selectCodeEditor("lstm_unit.sv", 656, 381); // ad
+selectCodeEditor("lstm_unit.sv", 977, 298); // ad
+selectCodeEditor("lstm_unit.sv", 639, 305); // ad
+selectCodeEditor("lstm_unit.sv", 639, 305, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 1025, 303); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 866, 296); // ad
+selectCodeEditor("lstm_unit.sv", 1329, 306); // ad
+selectCodeEditor("lstm_unit.sv", 1188, 370); // ad
+selectCodeEditor("lstm_unit.sv", 799, 340); // ad
+selectCodeEditor("lstm_unit.sv", 685, 348); // ad
+selectCodeEditor("lstm_unit.sv", 685, 347, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 1001, 351); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 751, 390); // ad
+selectCodeEditor("lstm_unit.sv", 651, 388); // ad
+selectCodeEditor("lstm_unit.sv", 651, 387, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 985, 374); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 651, 280); // ad
+selectCodeEditor("lstm_unit.sv", 1263, 285); // ad
+// Elapsed time: 34 seconds
+selectCodeEditor("lstm_unit.sv", 1307, 700); // ad
+selectCodeEditor("lstm_unit.sv", 897, 171); // ad
+selectCodeEditor("lstm_unit.sv", 780, 202); // ad
+selectCodeEditor("lstm_unit.sv", 878, 170); // ad
+selectCodeEditor("lstm_unit.sv", 827, 193); // ad
+selectCodeEditor("lstm_unit.sv", 900, 164); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 368, 154); // ad
+selectCodeEditor("lstm_unit.sv", 508, 187); // ad
+selectCodeEditor("lstm_unit.sv", 1029, 273); // ad
+selectCodeEditor("lstm_unit.sv", 561, 523); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 796, 359); // ad
+selectCodeEditor("controller.sv", 558, 231); // ad
+selectCodeEditor("controller.sv", 558, 231, false, false, false, false, true); // ad - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 462, 537); // ad
+selectCodeEditor("lstm_unit.sv", 453, 544); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 683, 285); // ad
+selectCodeEditor("controller.sv", 428, 264); // ad
+typeControlKey((HResource) null, "controller.sv", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 487, 557); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 956, 634); // ad
+selectCodeEditor("lstm_unit.sv", 966, 628); // ad
+selectCodeEditor("lstm_unit.sv", 1129, 595); // ad
+selectCodeEditor("lstm_unit.sv", 1129, 595, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 525, 456); // ad
+selectCodeEditor("lstm_unit.sv", 525, 456, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 1162, 457); // ad
+selectCodeEditor("lstm_unit.sv", 663, 451); // ad
+selectCodeEditor("lstm_unit.sv", 985, 430); // ad
+selectCodeEditor("lstm_unit.sv", 564, 398); // ad
+selectCodeEditor("lstm_unit.sv", 564, 398, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 1075, 395); // ad
+selectCodeEditor("lstm_unit.sv", 613, 408); // ad
+selectCodeEditor("lstm_unit.sv", 613, 408, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("lstm_unit.sv", 410, 482); // ad
+selectCodeEditor("lstm_unit.sv", 881, 382); // ad
+selectCodeEditor("lstm_unit.sv", 477, 570); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+selectCodeEditor("controller.sv", 846, 413); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 2); // o
+selectCodeEditor("lstm_unit.sv", 1119, 270); // ad
+selectCodeEditor("lstm_unit.sv", 1119, 270, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 540, 451); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 562, 442); // ad
+selectCodeEditor("lstm_unit.sv", 796, 401); // ad
+selectCodeEditor("lstm_unit.sv", 657, 437); // ad
+selectCodeEditor("lstm_unit.sv", 664, 449); // ad
+selectCodeEditor("lstm_unit.sv", 881, 433); // ad
+selectCodeEditor("lstm_unit.sv", 597, 195); // ad
+selectCodeEditor("lstm_unit.sv", 597, 195, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 839, 656); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("lstm_unit.sv", 497, 596); // ad
+selectCodeEditor("lstm_unit.sv", 1172, 595); // ad
+selectCodeEditor("lstm_unit.sv", 1031, 389); // ad
+selectCodeEditor("lstm_unit.sv", 597, 477); // ad
+selectCodeEditor("lstm_unit.sv", 508, 267); // ad
+selectCodeEditor("lstm_unit.sv", 508, 267, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "lstm_unit.sv", 'c'); // ad
+selectCodeEditor("lstm_unit.sv", 493, 465); // ad
+typeControlKey((HResource) null, "lstm_unit.sv", 'v'); // ad
+selectCodeEditor("lstm_unit.sv", 1053, 272); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("lstm_unit.sv", 1053, 272); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01h:50m:44s
+// Elapsed Time for: 'L.f': 01h:50m:46s
+selectCodeEditor("lstm_unit.sv", 1523, 264); // ad

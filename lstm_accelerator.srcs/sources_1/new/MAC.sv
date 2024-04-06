@@ -35,9 +35,9 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 input  [IN_BITWIDTH-1:0]                data_in_2,
                 input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                 output logic                            done,
-                output [OUT_BITWIDTH:0]                 out,
-                output logic [2:0]                      o_index,
-                output logic [IN_BITWIDTH+1:0]          o_sum_arr_bf    [0:IN_BITWIDTH-1]
+                output [OUT_BITWIDTH:0]                 out
+//                output logic [2:0]                      o_index,
+//                output logic [IN_BITWIDTH+1:0]          o_sum_arr_bf    [0:IN_BITWIDTH-1]
     );
     
     localparam 
@@ -83,15 +83,15 @@ module MAC #(   parameter W_BITWIDTH = 8,
 //    assign accu_bf[5] = accu_bf[2] + accu_bf[3];
 //    assign accu_bf[6] = accu_bf[4] + accu_bf[5];
     
-    assign o_index = index;
-    assign o_sum_arr_bf[0] = sum_arr_bf[0];
-    assign o_sum_arr_bf[1] = sum_arr_bf[1];
-    assign o_sum_arr_bf[2] = sum_arr_bf[2];
-    assign o_sum_arr_bf[3] = sum_arr_bf[3];
-    assign o_sum_arr_bf[4] = sum_arr_bf[4];
-    assign o_sum_arr_bf[5] = sum_arr_bf[5];
-    assign o_sum_arr_bf[6] = sum_arr_bf[6];
-    assign o_sum_arr_bf[7] = sum_arr_bf[7];
+//    assign o_index = index;
+//    assign o_sum_arr_bf[0] = sum_arr_bf[0];
+//    assign o_sum_arr_bf[1] = sum_arr_bf[1];
+//    assign o_sum_arr_bf[2] = sum_arr_bf[2];
+//    assign o_sum_arr_bf[3] = sum_arr_bf[3];
+//    assign o_sum_arr_bf[4] = sum_arr_bf[4];
+//    assign o_sum_arr_bf[5] = sum_arr_bf[5];
+//    assign o_sum_arr_bf[6] = sum_arr_bf[6];
+//    assign o_sum_arr_bf[7] = sum_arr_bf[7];
     
     always @ (posedge clk or negedge rstn) begin
         if(!rstn) begin
