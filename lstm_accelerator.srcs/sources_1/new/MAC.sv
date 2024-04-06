@@ -35,7 +35,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 input  [IN_BITWIDTH-1:0]                data_in_2,
                 input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                 output logic                            done,
-                output [OUT_BITWIDTH:0]               out,
+                output [OUT_BITWIDTH:0]                 out,
                 output logic [2:0]                      o_index,
                 output logic [IN_BITWIDTH+1:0]          o_sum_arr_bf    [0:IN_BITWIDTH-1]
     );

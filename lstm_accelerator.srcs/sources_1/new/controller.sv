@@ -24,6 +24,7 @@ module controller(
     input               clk,
     input               rstn,
     input               r_valid,
+    input               load_bias,
     input [31:0]        data_in,
     output logic        t_valid,
     output logic [31:0] out_data,
@@ -61,6 +62,7 @@ module controller(
     logic                                   mac_done;
     logic  [20:0]                           mac_result;
     
+    logic  [OUT_BITWIDTH-2:0]               accumulation;
     assign o_state = state;
     
     MAC #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_mac (
@@ -106,6 +108,8 @@ module controller(
                     finish_done         <= 1'b0;
                     counter             <= 2'b0;
                     t_valid             <= 1'b0;
+                    
+                    
                     if (r_valid) begin
                         state   <= STATE_DATA_RECEIVE;
                     end
@@ -131,7 +135,12 @@ module controller(
                                 data_in_2   <= data_in[23:16];
                             end
                             else if (counter == 2'b10) begin
-                                pre_sum     <= data_in[OUT_BITWIDTH-2:0];
+                                if (load_bias) begin
+                                    pre_sum     <= data_in[OUT_BITWIDTH-2:0];
+                                end
+                                else begin
+                                    pre_sum     <= accumulation;
+                                end
                             end
                             else ;
                             
@@ -164,10 +173,13 @@ module controller(
                     end
                     else begin
                         out_data        <= mac_result[OUT_BITWIDTH:0];
+                        accumulation    <= mac_result[OUT_BITWIDTH-1:0];
                         finish_done     <= 1'b1;
                     end
                 end
             endcase
         end
     end
+    
+    
 endmodule

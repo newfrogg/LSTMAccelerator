@@ -36,21 +36,24 @@ module tb_controller();
     logic               r_valid;
     logic [31:0]        data_in;
     logic               t_valid;
+    logic               load_bias;
     logic [31:0]        out_data;
     
-    logic [31:0]        weight_bf;
-    logic [31:0]        input_bf;
-    logic [31:0]        pre_sum_bf;
+//    logic [31:0]        weight_bf;
+//    logic [31:0]        input_bf;
+//    logic [31:0]        pre_sum_bf;
 //    logic [31:0]        out_bf;
     logic [1:0]         o_state;
     logic [2:0]         o_index;
     logic [9:0]         o_sum_arr_bf    [0:7];
     logic [31:0]        expected_value;
+    logic [31:0]        accumulation;
     
     controller uut (
         .clk(clk),
         .rstn(rstn),
         .r_valid(r_valid),
+        .load_bias(load_bias),
         .data_in(data_in),
         .t_valid(t_valid),
         .out_data(out_data),
@@ -70,12 +73,20 @@ module tb_controller();
 //        input_bf    = 32'h00_cd_ae_0a;
 //        pre_sum_bf  = 32'h00_05_ab_cd;
         index = 0;
+        accumulation = 0;
         pkt = new ();
         
         repeat(10) begin
             pkt.randomize();
+            if (index == 0) begin 
+                load_bias = 1'b1;
+            end
+            else begin 
+                load_bias = 1'b0;
+                pkt.pre_sum_bf = 32'h0;
+            end
             
-            expected_value = (pkt.weight_bf[7:0] * pkt.input_bf[7:0]) + (pkt.weight_bf[15:8] * pkt.input_bf[15:8]) + (pkt.weight_bf[23:16] * pkt.input_bf[23:16]) + pkt.pre_sum_bf[18:0];
+            expected_value = accumulation + (pkt.weight_bf[7:0] * pkt.input_bf[7:0]) + (pkt.weight_bf[15:8] * pkt.input_bf[15:8]) + (pkt.weight_bf[23:16] * pkt.input_bf[23:16]) + pkt.pre_sum_bf[18:0];
             
             clk  = 1'b0;
             rstn = 1'b0;
@@ -116,16 +127,20 @@ module tb_controller();
             wait(t_valid);
             
             if (out_data === expected_value) begin
-                $display("///////////////////////////////////////////////////////////");
-                $display("///////////////// Test No[%0d]: Result is correct! ////////", index);
+                $display("///////////////////////////////////////////////////////////\n");
+                $display("Expected Result = %0h, Real result = %0h", expected_value, out_data);
+                $display("-------------Test No[%0d]: Result is correct!------------", index);
                 $display("///////////////////////////////////////////////////////////\n");
             end
             else begin
                 $display("///////////////////////////////////////////////////////////");
-                $display("////////////////// Test No[%0d]: Result is wrong! /////////", index);
+                $display("Expected Result = %0h, Real result = %0h", expected_value, out_data);
+                $display("--------------- Test No[%0d]: Result is wrong! ----------------", index);
                 $display("///////////////////////////////////////////////////////////\n");
             end
             index = index + 1;
+            load_bias = 1'b0;
+            accumulation   = accumulation + (pkt.weight_bf[7:0] * pkt.input_bf[7:0]) + (pkt.weight_bf[15:8] * pkt.input_bf[15:8]) + (pkt.weight_bf[23:16] * pkt.input_bf[23:16]) + pkt.pre_sum_bf[18:0];
         end
     end
     
