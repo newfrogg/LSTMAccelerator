@@ -1,0 +1,1400 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Apr  6 09:18:50 2024
+# Process ID: 6024
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
+# Command line: vivado
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 3341.376 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.3 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.3/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.1 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a7, 9f, 58]
+input[2, 1, 0] = [45, bc, 35], pre_sum = ff0b 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[0]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f, c4, 61]
+input[2, 1, 0] = [5, 40, 2d], pre_sum = b630 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[1]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [51, b5, 3b]
+input[2, 1, 0] = [e7, 77, ad], pre_sum = 63085 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[2]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [48, 17, 47]
+input[2, 1, 0] = [8b, 46, a5], pre_sum = 73c0e 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[3]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [49, df, 30]
+input[2, 1, 0] = [af, 1b, c0], pre_sum = 1772b 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[4]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [86, 66, 82]
+input[2, 1, 0] = [78, db, b9], pre_sum = 73307 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[5]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a8, d, a9]
+input[2, 1, 0] = [d2, 4, 94], pre_sum = 45b2 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[6]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a6, b4, 72]
+input[2, 1, 0] = [20, e9, 62], pre_sum = 47744 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[7]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [4b, d6, 42]
+input[2, 1, 0] = [31, 5b, e], pre_sum = 67bd8 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[8]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f2, 8a, b4]
+input[2, 1, 0] = [3d, d9, 20], pre_sum = 570b9 
+
+///////////////////////////////////////////////////////////
+///////////////// Test No[9]: Result is correct! ////////
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 8040.629 ; gain = 73.250 ; free physical = 5183 ; free virtual = 13383
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a7, 9f, 58]
+input[2, 1, 0] = [45, bc, 35], pre_sum = xxxxx 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[0]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f, c4, 61]
+input[2, 1, 0] = [5, 40, 2d], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[1]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [51, b5, 3b]
+input[2, 1, 0] = [e7, 77, ad], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[2]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [48, 17, 47]
+input[2, 1, 0] = [8b, 46, a5], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[3]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [49, df, 30]
+input[2, 1, 0] = [af, 1b, c0], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[4]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [86, 66, 82]
+input[2, 1, 0] = [78, db, b9], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[5]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a8, d, a9]
+input[2, 1, 0] = [d2, 4, 94], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[6]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a6, b4, 72]
+input[2, 1, 0] = [20, e9, 62], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[7]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [4b, d6, 42]
+input[2, 1, 0] = [31, 5b, e], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[8]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f2, 8a, b4]
+input[2, 1, 0] = [3d, d9, 20], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+////////////////// Test No[9]: Result is wrong! /////////
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a7, 9f, 58]
+input[2, 1, 0] = [45, bc, 35], pre_sum = xxxxx 
+
+///////////////////////////////////////////////////////////
+Expected Result = 36614, Real result = Xxxxxx
+--------------- Test No[0]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f, c4, 61]
+input[2, 1, 0] = [5, 40, 2d], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 237ba, Real result = 4258
+--------------- Test No[1]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [51, b5, 3b]
+input[2, 1, 0] = [e7, 77, ad], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 37f94, Real result = c519
+--------------- Test No[2]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [48, 17, 47]
+input[2, 1, 0] = [8b, 46, a5], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 370c5, Real result = 5b25
+--------------- Test No[3]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [49, df, 30]
+input[2, 1, 0] = [af, 1b, c0], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 3f078, Real result = 6d6c
+--------------- Test No[4]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [86, 66, 82]
+input[2, 1, 0] = [78, db, b9], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 56b14, Real result = f404
+--------------- Test No[5]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a8, d, a9]
+input[2, 1, 0] = [d2, 4, 94], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 64e80, Real result = ebb8
+--------------- Test No[6]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a6, b4, 72]
+input[2, 1, 0] = [20, e9, 62], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 72b38, Real result = e438
+--------------- Test No[7]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [4b, d6, 42]
+input[2, 1, 0] = [31, 5b, e], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 70312, Real result = 5e09
+--------------- Test No[8]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f2, 8a, b4]
+input[2, 1, 0] = [3d, d9, 20], pre_sum = 0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 82f51, Real result = c524
+--------------- Test No[9]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a7, 9f, 58]
+input[2, 1, 0] = [45, bc, 35], pre_sum = ff0b 
+
+///////////////////////////////////////////////////////////
+Expected Result = 36614, Real result = 1b30a
+--------------- Test No[0]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f, c4, 61]
+input[2, 1, 0] = [5, 40, 2d], pre_sum = 1b30a 
+
+///////////////////////////////////////////////////////////
+Expected Result = 237ba, Real result = 1f562
+--------------- Test No[1]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [51, b5, 3b]
+input[2, 1, 0] = [e7, 77, ad], pre_sum = 1f562 
+
+///////////////////////////////////////////////////////////
+Expected Result = 37f94, Real result = 2ba7b
+--------------- Test No[2]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [48, 17, 47]
+input[2, 1, 0] = [8b, 46, a5], pre_sum = 2ba7b 
+
+///////////////////////////////////////////////////////////
+Expected Result = 370c5, Real result = 315a0
+--------------- Test No[3]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [49, df, 30]
+input[2, 1, 0] = [af, 1b, c0], pre_sum = 315a0 
+
+///////////////////////////////////////////////////////////
+Expected Result = 3f078, Real result = 3830c
+--------------- Test No[4]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [86, 66, 82]
+input[2, 1, 0] = [78, db, b9], pre_sum = 3830c 
+
+///////////////////////////////////////////////////////////
+Expected Result = 56b14, Real result = 47710
+--------------- Test No[5]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a8, d, a9]
+input[2, 1, 0] = [d2, 4, 94], pre_sum = 47710 
+
+///////////////////////////////////////////////////////////
+Expected Result = 64e80, Real result = 562c8
+--------------- Test No[6]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a6, b4, 72]
+input[2, 1, 0] = [20, e9, 62], pre_sum = 562c8 
+
+///////////////////////////////////////////////////////////
+Expected Result = 72b38, Real result = 64700
+--------------- Test No[7]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [4b, d6, 42]
+input[2, 1, 0] = [31, 5b, e], pre_sum = 64700 
+
+///////////////////////////////////////////////////////////
+Expected Result = 70312, Real result = 6a509
+--------------- Test No[8]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f2, 8a, b4]
+input[2, 1, 0] = [3d, d9, 20], pre_sum = 6a509 
+
+///////////////////////////////////////////////////////////
+Expected Result = 82f51, Real result = 76a2d
+--------------- Test No[9]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [167, 159, 88]
+input[2, 1, 0] = [69, 188, 53], pre_sum = 65291 
+
+///////////////////////////////////////////////////////////
+Expected Result = 222740, Real result = 111370
+--------------- Test No[0]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [15, 196, 97]
+input[2, 1, 0] = [5, 64, 45], pre_sum = 111370 
+
+///////////////////////////////////////////////////////////
+Expected Result = 145338, Real result = 128354
+--------------- Test No[1]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [81, 181, 59]
+input[2, 1, 0] = [231, 119, 173], pre_sum = 128354 
+
+///////////////////////////////////////////////////////////
+Expected Result = 229268, Real result = 178811
+--------------- Test No[2]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [72, 23, 71]
+input[2, 1, 0] = [139, 70, 165], pre_sum = 178811 
+
+///////////////////////////////////////////////////////////
+Expected Result = 225477, Real result = 202144
+--------------- Test No[3]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [73, 223, 48]
+input[2, 1, 0] = [175, 27, 192], pre_sum = 202144 
+
+///////////////////////////////////////////////////////////
+Expected Result = 258168, Real result = 230156
+--------------- Test No[4]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [134, 102, 130]
+input[2, 1, 0] = [120, 219, 185], pre_sum = 230156 
+
+///////////////////////////////////////////////////////////
+Expected Result = 355092, Real result = 292624
+--------------- Test No[5]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [168, 13, 169]
+input[2, 1, 0] = [210, 4, 148], pre_sum = 292624 
+
+///////////////////////////////////////////////////////////
+Expected Result = 413312, Real result = 352968
+--------------- Test No[6]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [166, 180, 114]
+input[2, 1, 0] = [32, 233, 98], pre_sum = 352968 
+
+///////////////////////////////////////////////////////////
+Expected Result = 469816, Real result = 411392
+--------------- Test No[7]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [75, 214, 66]
+input[2, 1, 0] = [49, 91, 14], pre_sum = 411392 
+
+///////////////////////////////////////////////////////////
+Expected Result = 459538, Real result = 435465
+--------------- Test No[8]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [242, 138, 180]
+input[2, 1, 0] = [61, 217, 32], pre_sum = 435465 
+
+///////////////////////////////////////////////////////////
+Expected Result = 536401, Real result = 485933
+--------------- Test No[9]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [167, 159, 88]
+input[2, 1, 0] = [69, 188, 53], pre_sum = 65291 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 111370, Real result = 111370
+-------------Test No[0]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [15, 196, 97]
+input[2, 1, 0] = [5, 64, 45], pre_sum = 111370 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 128354, Real result = 128354
+-------------Test No[1]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [81, 181, 59]
+input[2, 1, 0] = [231, 119, 173], pre_sum = 128354 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 178811, Real result = 178811
+-------------Test No[2]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [72, 23, 71]
+input[2, 1, 0] = [139, 70, 165], pre_sum = 178811 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 202144, Real result = 202144
+-------------Test No[3]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [73, 223, 48]
+input[2, 1, 0] = [175, 27, 192], pre_sum = 202144 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 230156, Real result = 230156
+-------------Test No[4]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [134, 102, 130]
+input[2, 1, 0] = [120, 219, 185], pre_sum = 230156 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 292624, Real result = 292624
+-------------Test No[5]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [168, 13, 169]
+input[2, 1, 0] = [210, 4, 148], pre_sum = 292624 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 352968, Real result = 352968
+-------------Test No[6]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [166, 180, 114]
+input[2, 1, 0] = [32, 233, 98], pre_sum = 352968 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 411392, Real result = 411392
+-------------Test No[7]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [75, 214, 66]
+input[2, 1, 0] = [49, 91, 14], pre_sum = 411392 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 435465, Real result = 435465
+-------------Test No[8]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [242, 138, 180]
+input[2, 1, 0] = [61, 217, 32], pre_sum = 435465 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 485933, Real result = 485933
+-------------Test No[9]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_behav xil_defaultlib.tb_controller xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 25, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 24, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller.sv, Line : 23, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1648542035
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_behav -key {Behavioral:sim_1:Functional:tb_controller} -tclbatch {tb_controller.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller/pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 10000ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a7, 9f, 58]
+input[2, 1, 0] = [45, bc, 35], pre_sum = ff0b 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 1b30a, Real result = 1b30a
+-------------Test No[0]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[1] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f, c4, 61]
+input[2, 1, 0] = [5, 40, 2d], pre_sum = 1b30a 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 1f562, Real result = 1f562
+-------------Test No[1]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[2] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [51, b5, 3b]
+input[2, 1, 0] = [e7, 77, ad], pre_sum = 1f562 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 2ba7b, Real result = 2ba7b
+-------------Test No[2]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[3] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [48, 17, 47]
+input[2, 1, 0] = [8b, 46, a5], pre_sum = 2ba7b 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 315a0, Real result = 315a0
+-------------Test No[3]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[4] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [49, df, 30]
+input[2, 1, 0] = [af, 1b, c0], pre_sum = 315a0 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 3830c, Real result = 3830c
+-------------Test No[4]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[5] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [86, 66, 82]
+input[2, 1, 0] = [78, db, b9], pre_sum = 3830c 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 47710, Real result = 47710
+-------------Test No[5]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[6] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a8, d, a9]
+input[2, 1, 0] = [d2, 4, 94], pre_sum = 47710 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 562c8, Real result = 562c8
+-------------Test No[6]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[7] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [a6, b4, 72]
+input[2, 1, 0] = [20, e9, 62], pre_sum = 562c8 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 64700, Real result = 64700
+-------------Test No[7]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[8] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [4b, d6, 42]
+input[2, 1, 0] = [31, 5b, e], pre_sum = 64700 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 6a509, Real result = 6a509
+-------------Test No[8]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+//////////////////// Test No[9] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Weight[2, 1, 0] = [f2, 8a, b4]
+input[2, 1, 0] = [3d, d9, 20], pre_sum = 6a509 
+
+///////////////////////////////////////////////////////////
+
+Expected Result = 76a2d, Real result = 76a2d
+-------------Test No[9]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 10000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Apr  6 11:10:44 2024...

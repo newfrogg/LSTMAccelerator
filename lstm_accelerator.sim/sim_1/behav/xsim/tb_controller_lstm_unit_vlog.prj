@@ -2,7 +2,8 @@
 sv xil_defaultlib  \
 "../../../../lstm_accelerator.srcs/sources_1/new/MAC.sv" \
 "../../../../lstm_accelerator.srcs/sources_1/new/controller.sv" \
-"../../../../lstm_accelerator.srcs/sim_1/new/tb_controller.sv" \
+"../../../../lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" \
+"../../../../lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

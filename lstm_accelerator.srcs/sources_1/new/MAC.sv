@@ -43,7 +43,9 @@ module MAC #(   parameter W_BITWIDTH = 8,
     localparam 
         STATE_IDLE = 2'b00, 
         STATE_MULT = 2'b01, 
-        STATE_ACCM = 2'b10;
+        STATE_ACCM = 2'b10,
+        
+        LATENCY    = 1;
         
 //        LATENCY    = 7;
     
@@ -51,6 +53,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
     logic [1:0]                               state;
     logic [2:0]                               index;
     logic                                     flag_accu;
+    logic                                     time_remaining;
     
     logic signed [OUT_BITWIDTH:0]           out_temp;
 
@@ -129,6 +132,8 @@ module MAC #(   parameter W_BITWIDTH = 8,
                         data_in_bf_2 <= data_in_2;
                         prev_sum_bf  <= pre_sum;
                         flag_accu    <= 0;
+                        
+                        time_remaining <= 1'b1;
                     end
                     else begin
                     // If not, just waiting for condition.
@@ -137,6 +142,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 STATE_MULT: begin
                     if (flag_accu == 1) begin
                         state   <= STATE_ACCM;
+                        index   <= 0;
                     end
                     else begin
                         index   <= index + 1;
@@ -181,10 +187,11 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 end
                 STATE_ACCM: begin
                 // TO DO
-                // Do add and make output 'done' flag high.( done = 1)
-                    state <= STATE_IDLE;
+                // Do add and make output 'done' flag high.( done = 1)      
                     out_temp <= accu_bf[6] + prev_sum_bf;
                     done <= 1;
+                    if (time_remaining == 0) state <= STATE_IDLE;
+                    else time_remaining <= time_remaining - 1;;
                 end
                 default:;
            endcase
