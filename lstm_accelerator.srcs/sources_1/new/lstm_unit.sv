@@ -27,7 +27,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   clk,
                     input                                   rstn,
                     input                                   en,
-                    input                                   last_input,
+                    input                                   is_last_input,
+                    input                                   is_last_data_gate,
                     input                                   is_continued,
                     input                                   is_load_bias,
                     input  [1:0]                            type_gate,
@@ -137,6 +138,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     finish_done         <= 1'b0;
                     done                <= 1'b0;
                     
+                    accu_input_bf       <= 0;
+                    accu_forget_bf      <= 0;
+                    accu_cell_bf        <= 0;
+                    accu_output_bf      <= 0;
+                    
                     remain_waiting_time <= LATENCY;
                     
                     if (en && !done) begin
@@ -158,13 +164,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_RUN: begin
                     if (run_done) begin
-                        if (!last_input) begin
-                            state           <= STATE_WAIT;
-                            is_waiting      <= 1'b1;
-                            run_done        <= 1'b0;
-                            accu_bf         <= mac_result; 
-                        end
-                        else begin
+                        if (is_last_data_gate && is_last_input) begin
                             state           <= STATE_FINISH;
                             is_waiting      <= 1'b0;
                             done            <= 1'b1;
@@ -175,6 +175,12 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 CELL_UPDATE:    accu_cell_bf    <= mac_result;
                                 OUTPUT_GATE:    accu_output_bf  <= mac_result;
                             endcase
+                        end
+                        else begin
+                            state           <= STATE_WAIT;
+                            is_waiting      <= 1'b1;
+                            run_done        <= 1'b0;
+                            accu_bf         <= mac_result;
                         end               
                     end
                     else begin
@@ -182,7 +188,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         if (mac_done) begin
                             run_done    <= 1'b1;
                             mac_en      <= 1'b0;
-//                            accu_bf     <= accu_bf + mac_result;
                         end
                         else ;
                     end
@@ -192,7 +197,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     is_waiting          <= 1'b0;
                     if (remain_waiting_time == 0) begin
                         if (is_continued == 1) begin
-//                            accu_bf         <= accu_bf + mac_result;
                             state           <= STATE_RUN;
                             weights_bf_0    <= weights_0;
                             weights_bf_1    <= weights_1;
@@ -205,6 +209,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 1: pre_sum_bf       <= pre_sum;
                             endcase
                             remain_waiting_time     <= LATENCY;
+                        end
+                        else begin
+                            state      <= STATE_WAIT;
                             if (gate != type_gate) begin
                                 case(gate)
                                     INPUT_GATE:     accu_input_bf   <= accu_bf;
@@ -212,11 +219,18 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     CELL_UPDATE:    accu_cell_bf    <= accu_bf;
                                     OUTPUT_GATE:    accu_output_bf  <= accu_bf;
                                 endcase
-                                accu_bf <= 0;
+                                
+                                case(type_gate)
+                                    INPUT_GATE:     accu_bf <= accu_input_bf;
+                                    FORGET_GATE:    accu_bf <= accu_forget_bf;
+                                    CELL_UPDATE:    accu_bf <= accu_cell_bf;
+                                    OUTPUT_GATE:    accu_bf <= accu_output_bf;
+                                endcase
+                                
+                                gate    <= type_gate;
                             end
                             else gate   <= type_gate;
                         end
-                        else state      <= STATE_WAIT;
                     end
                     else remain_waiting_time <= remain_waiting_time - 1;
                 end

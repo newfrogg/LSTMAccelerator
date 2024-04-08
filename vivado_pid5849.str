@@ -24848,3 +24848,19 @@ maximizeFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 41"); // R
 // TclEventType: WAVEFORM_MOVE_CURSOR
 selectCodeEditor("tb_controller_lstm_unit.sv", 774, 143); // ad
 // Run Command: RDIResourceCommand.RDICommands_WAVEFORM_SAVE_CONFIGURATION
+// Elapsed time: 60 seconds
+dismissFileChooser();
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 2807, 1690); // b
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_SELECTED_WAVE_OBJECT_NAMES
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_SELECTED_WAVE_OBJECT_NAMES
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// RDIResource.RDIViews_WAVEFORM_VIEWER: Untitled 41: close view
+closeFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 41"); // R
+dockFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 41"); // R
+maximizeFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 41"); // R
+closeView(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 41"); // u
