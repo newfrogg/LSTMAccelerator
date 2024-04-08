@@ -40,7 +40,7 @@ module tb_controller_lstm_unit();
     logic [31:0]        data_in;
     logic               t_valid;
     logic [31:0]        out_data;
-    logic [1:0]         o_state;
+    logic [2:0]         o_state;
     logic               o_lstm_unit_done;
     logic [2:0]         o_lstm_state;
     logic               o_lstm_is_continued;
@@ -50,6 +50,9 @@ module tb_controller_lstm_unit();
     logic [18:0]        bias;
     logic               o_is_load_bias;
     logic [3:0]         o_index;
+    logic [1:0]         o_mac_state;
+    logic               o_is_last_input;
+    logic [31:0]        o_lstm_accu_bf;
     
     logic [31:0]        expected_value;
     logic [31:0]        accumulation;
@@ -75,7 +78,10 @@ module tb_controller_lstm_unit();
         .inputs(inputs),
         .bias(bias),
         .o_is_load_bias(o_is_load_bias),
-        .o_index(o_index)
+        .o_index(o_index),
+        .o_mac_state(o_mac_state),
+        .o_is_last_input(o_is_last_input),
+        .o_lstm_accu_bf(o_lstm_accu_bf)
     );
     
     always #5 begin 

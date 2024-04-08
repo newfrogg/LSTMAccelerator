@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_controller_lstm_unit_func_synth.v" \
+
+sv xil_defaultlib  \
+"../../../../../lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" \
+
+# Do not sort compile order
+nosort

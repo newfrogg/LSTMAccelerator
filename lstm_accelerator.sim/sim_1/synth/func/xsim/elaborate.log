@@ -1,0 +1,18 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L secureip --snapshot tb_controller_lstm_unit_func_synth xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'o_index' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:78]
+ERROR: [VRFC 10-3180] cannot find port 'o_is_load_bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:77]
+ERROR: [VRFC 10-3180] cannot find port 'bias' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:76]
+ERROR: [VRFC 10-3180] cannot find port 'inputs' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:75]
+ERROR: [VRFC 10-3180] cannot find port 'weights' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:74]
+ERROR: [VRFC 10-3180] cannot find port 'o_lstm_is_waiting' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:73]
+ERROR: [VRFC 10-3180] cannot find port 'o_lstm_is_continued' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:72]
+ERROR: [VRFC 10-3180] cannot find port 'o_lstm_state' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:71]
+ERROR: [VRFC 10-3180] cannot find port 'o_lstm_unit_done' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:70]
+ERROR: [VRFC 10-3180] cannot find port 'o_state' on this module [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:69]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

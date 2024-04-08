@@ -3,40 +3,36 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Apr  8 14:19:13 2024
-# Process ID: 5849
+# Start of session at: Sun Apr  7 10:33:41 2024
+# Process ID: 6551
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
 # Command line: vivado
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 3431.730 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 909.219 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
 start_gui
 open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr
 update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_controller_lstm_unit [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
 launch_simulation
 source tb_controller_lstm_unit.tcl
-launch_simulation -mode post-synthesis -type functional
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {21000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {2500ns} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.runtime} -value {50000ns} -objects [get_filesets sim_1]
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
@@ -46,15 +42,13 @@ source tb_controller_lstm_unit.tcl
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
+update_compile_order -fileset sources_1
 close_sim
 launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
+launch_simulation
 launch_simulation
 source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
+update_compile_order -fileset sources_1
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
@@ -82,3 +76,33 @@ source tb_controller_lstm_unit.tcl
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim

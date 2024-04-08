@@ -1,0 +1,6 @@
+0.7
+2020.2
+May  7 2023
+15:10:42
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/synth/func/xsim/tb_controller_lstm_unit_func_synth.v,1712560932,verilog,,,,MAC;controller;glbl,,uvm,,,,,,
+/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv,1712549576,systemVerilog,,,,$unit_tb_controller_lstm_unit_sv;tb_controller_lstm_unit,,uvm,,,,,,

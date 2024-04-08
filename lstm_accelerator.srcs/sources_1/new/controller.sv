@@ -37,7 +37,10 @@ module controller(
     output logic [7:0]  inputs  [0:2],
     output logic [18:0] bias,
     output logic        o_is_load_bias,
-    output logic [3:0]  o_index
+    output logic [3:0]  o_index,
+    output logic [1:0]  o_mac_state,
+    output logic        o_is_last_input,
+    output logic [31:0] o_lstm_accu_bf
 );
 
     localparam
@@ -102,6 +105,8 @@ module controller(
     logic                                   lstm_unit_done;
     logic  [31:0]                           lstm_unit_result [0:3];
     
+//    logic  [31:0]                           accu_bf;
+    
     assign o_state = state;
     assign weights[0] = weights_0;
     assign weights[1] = weights_1;
@@ -112,6 +117,9 @@ module controller(
     assign bias       = pre_sum;
     assign o_is_load_bias = is_load_bias;
     assign o_index    = current_buffer_index;
+    assign o_mac_state = u_lstm_unit.u_mac.state;
+    assign o_is_last_input = is_last_input;
+    assign o_lstm_accu_bf = u_lstm_unit.accu_bf;
     
     lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
         .clk(clk),
@@ -173,6 +181,7 @@ module controller(
                     counter             <= 2'b0;
                     t_valid             <= 1'b0;
                     is_load_bias        <= 1'b0;
+                    is_last_input       <= 1'b0;
                     
                     current_weight_index    <= 4'b0;
                     current_input_index     <= 4'b0;
