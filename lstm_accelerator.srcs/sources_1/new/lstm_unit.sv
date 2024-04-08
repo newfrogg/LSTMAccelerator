@@ -22,8 +22,8 @@
 
 module lstm_unit #( parameter W_BITWIDTH = 8,
                     parameter IN_BITWIDTH = W_BITWIDTH,
-                    parameter OUT_BITWIDTH = 20,
-                    parameter PREV_SUM_BITWIDTH = OUT_BITWIDTH - 2)(
+                    parameter OUT_BITWIDTH = 32,
+                    parameter PREV_SUM_BITWIDTH = OUT_BITWIDTH)(
                     input                                   clk,
                     input                                   rstn,
                     input                                   en,
@@ -40,7 +40,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                     output logic                            is_waiting,
                     output logic                            done,
-                    output logic [31:0]                     out [0:3],
+                    output logic [OUT_BITWIDTH-1:0]         out [0:3],
                     output logic [2:0]                      o_lstm_state
     );
     
@@ -84,9 +84,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic  [IN_BITWIDTH-1:0]                data_in_bf_0;
     logic  [IN_BITWIDTH-1:0]                data_in_bf_1;
     logic  [IN_BITWIDTH-1:0]                data_in_bf_2;
-    logic  [OUT_BITWIDTH-2:0]               pre_sum_bf;
+    logic  [OUT_BITWIDTH-1:0]               pre_sum_bf;
     logic                                   mac_done;
-    logic  [20:0]                           mac_result;
+    logic  [OUT_BITWIDTH-1:0]               mac_result;
     
     assign o_lstm_state = state;
     
@@ -123,7 +123,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             data_in_bf_0           <= {IN_BITWIDTH{1'b0}};
             data_in_bf_1           <= {IN_BITWIDTH{1'b0}};
             data_in_bf_2           <= {IN_BITWIDTH{1'b0}};
-            pre_sum_bf             <= {(OUT_BITWIDTH-1){1'b0}};
+            pre_sum_bf             <= {PREV_SUM_BITWIDTH{1'b0}};
             accu_bf                <= {BUFFER_SIZE{1'b0}};
             
             done                   <= 1'b0;
@@ -147,7 +147,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         data_in_bf_1    <= data_in_1;
                         data_in_bf_2    <= data_in_2;
                         case(is_load_bias)
-                            0: pre_sum_bf       <= accu_bf[OUT_BITWIDTH-2:0];
+                            0: pre_sum_bf       <= accu_bf[PREV_SUM_BITWIDTH-1:0];
                             1: pre_sum_bf       <= pre_sum;
                         endcase
                         gate            <= type_gate;
@@ -161,17 +161,19 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         if (!last_input) begin
                             state           <= STATE_WAIT;
                             is_waiting      <= 1'b1;
-                            run_done        <= 1'b0; 
+                            run_done        <= 1'b0;
+                            accu_bf         <= mac_result; 
                         end
                         else begin
                             state           <= STATE_FINISH;
                             is_waiting      <= 1'b0;
                             done            <= 1'b1;
+                            accu_bf         <= mac_result;
                             case(gate)
-                                INPUT_GATE:     accu_input_bf   <= accu_bf;
-                                FORGET_GATE:    accu_forget_bf  <= accu_bf;
-                                CELL_UPDATE:    accu_cell_bf    <= accu_bf;
-                                OUTPUT_GATE:    accu_output_bf  <= accu_bf;
+                                INPUT_GATE:     accu_input_bf   <= mac_result;
+                                FORGET_GATE:    accu_forget_bf  <= mac_result;
+                                CELL_UPDATE:    accu_cell_bf    <= mac_result;
+                                OUTPUT_GATE:    accu_output_bf  <= mac_result;
                             endcase
                         end               
                     end
@@ -180,7 +182,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         if (mac_done) begin
                             run_done    <= 1'b1;
                             mac_en      <= 1'b0;
-                            accu_bf     <= accu_bf + mac_result;
+//                            accu_bf     <= accu_bf + mac_result;
                         end
                         else ;
                     end
@@ -190,6 +192,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     is_waiting          <= 1'b0;
                     if (remain_waiting_time == 0) begin
                         if (is_continued == 1) begin
+//                            accu_bf         <= accu_bf + mac_result;
                             state           <= STATE_RUN;
                             weights_bf_0    <= weights_0;
                             weights_bf_1    <= weights_1;
@@ -197,6 +200,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             data_in_bf_0    <= data_in_0;
                             data_in_bf_1    <= data_in_1;
                             data_in_bf_2    <= data_in_2;
+                            case(is_load_bias)
+                                0: pre_sum_bf       <= accu_bf[PREV_SUM_BITWIDTH-1:0];
+                                1: pre_sum_bf       <= pre_sum;
+                            endcase
                             remain_waiting_time     <= LATENCY;
                             if (gate != type_gate) begin
                                 case(gate)

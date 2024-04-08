@@ -22,8 +22,8 @@
 
 module MAC #(   parameter W_BITWIDTH = 8,
                 parameter IN_BITWIDTH = W_BITWIDTH,
-                parameter OUT_BITWIDTH = 20,
-                parameter PREV_SUM_BITWIDTH = OUT_BITWIDTH - 1) (
+                parameter OUT_BITWIDTH = 32,
+                parameter PREV_SUM_BITWIDTH = OUT_BITWIDTH) (
                 input                                   clk,
                 input                                   rstn,
                 input                                   en,
@@ -35,7 +35,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 input  [IN_BITWIDTH-1:0]                data_in_2,
                 input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                 output logic                            done,
-                output [OUT_BITWIDTH:0]                 out
+                output logic [OUT_BITWIDTH-1:0]         out
 //                output logic [2:0]                      o_index,
 //                output logic [IN_BITWIDTH+1:0]          o_sum_arr_bf    [0:IN_BITWIDTH-1]
     );
@@ -55,7 +55,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
     logic                                     flag_accu;
     logic [1:0]                               time_remaining;
     
-    logic signed [OUT_BITWIDTH:0]           out_temp;
+    logic signed [OUT_BITWIDTH-1:0]           out_temp;
 
     logic  [W_BITWIDTH-1:0]             weights_bf_0;
     logic  [W_BITWIDTH-1:0]             weights_bf_1;
@@ -65,8 +65,8 @@ module MAC #(   parameter W_BITWIDTH = 8,
     logic  [IN_BITWIDTH-1:0]            data_in_bf_2;
     logic  [PREV_SUM_BITWIDTH-1:0]      prev_sum_bf;
     
-    logic  [IN_BITWIDTH*2-1:0]            sum_arr_bf    [0:IN_BITWIDTH-1];
-    logic  [IN_BITWIDTH*2-1:0]            accu_bf       [0:6];
+    logic  [OUT_BITWIDTH-1:0]            sum_arr_bf    [0:IN_BITWIDTH-1];
+    logic  [OUT_BITWIDTH-1:0]            accu_bf       [0:6];
     
     assign out = out_temp;
     always @(*) begin
@@ -189,10 +189,13 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 STATE_ACCM: begin
                 // TO DO
                 // Do add and make output 'done' flag high.( done = 1)      
-                    out_temp <= accu_bf[6] + prev_sum_bf;
+//                    out_temp <= accu_bf[6] + prev_sum_bf;
 //                    done <= 1;
                     if (time_remaining == 0) state <= STATE_IDLE;
-                    else time_remaining <= time_remaining - 1;;
+                    else begin 
+                        time_remaining <= time_remaining - 1;;
+                        out_temp <= accu_bf[6] + prev_sum_bf;
+                    end
                 end
                 default:;
            endcase

@@ -35,18 +35,19 @@ module controller(
     output logic        o_lstm_is_waiting,
     output logic [7:0]  weights [0:2],
     output logic [7:0]  inputs  [0:2],
-    output logic [18:0] bias,
+    output logic [31:0] bias,
     output logic        o_is_load_bias,
     output logic [3:0]  o_index,
     output logic [1:0]  o_mac_state,
     output logic        o_is_last_input,
-    output logic [31:0] o_lstm_accu_bf
+    output logic [31:0] o_lstm_accu_bf,
+    output logic [31:0] o_mac_result
 );
 
     localparam
         W_BITWIDTH              = 8,
         IN_BITWIDTH             = 8,
-        OUT_BITWIDTH            = 20,
+        OUT_BITWIDTH            = 32,
         SIZE_BUFFER             = 10,
         
         STATE_IDLE              = 3'd0,
@@ -101,25 +102,26 @@ module controller(
     logic  [IN_BITWIDTH-1:0]                data_in_0;
     logic  [IN_BITWIDTH-1:0]                data_in_1;
     logic  [IN_BITWIDTH-1:0]                data_in_2;
-    logic  [OUT_BITWIDTH-2:0]               pre_sum;
+    logic  [OUT_BITWIDTH-1:0]               pre_sum;
     logic                                   lstm_unit_done;
     logic  [31:0]                           lstm_unit_result [0:3];
     
 //    logic  [31:0]                           accu_bf;
     
     assign o_state = state;
-    assign weights[0] = weights_0;
-    assign weights[1] = weights_1;
-    assign weights[2] = weights_2;
-    assign inputs[0]  = data_in_0;
-    assign inputs[1]  = data_in_1;
-    assign inputs[2]  = data_in_2;
-    assign bias       = pre_sum;
+    assign weights[0] = u_lstm_unit.u_mac.weights_0;
+    assign weights[1] = u_lstm_unit.u_mac.weights_1;
+    assign weights[2] = u_lstm_unit.u_mac.weights_2;
+    assign inputs[0]  = u_lstm_unit.u_mac.data_in_0;
+    assign inputs[1]  = u_lstm_unit.u_mac.data_in_1;
+    assign inputs[2]  = u_lstm_unit.u_mac.data_in_2;
+    assign bias       = u_lstm_unit.u_mac.pre_sum;
     assign o_is_load_bias = is_load_bias;
     assign o_index    = current_buffer_index;
     assign o_mac_state = u_lstm_unit.u_mac.state;
     assign o_is_last_input = is_last_input;
     assign o_lstm_accu_bf = u_lstm_unit.accu_bf;
+    assign o_mac_result = u_lstm_unit.mac_result;    
     
     lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
         .clk(clk),
@@ -161,7 +163,7 @@ module controller(
             data_in_0           <= {IN_BITWIDTH{1'b0}};
             data_in_1           <= {IN_BITWIDTH{1'b0}};
             data_in_2           <= {IN_BITWIDTH{1'b0}};
-            pre_sum             <= {(OUT_BITWIDTH-1){1'b0}};
+            pre_sum             <= {OUT_BITWIDTH{1'b0}};
         end
         else begin
             case(state)
@@ -172,7 +174,7 @@ module controller(
                     data_in_0           <= {IN_BITWIDTH{1'b0}};
                     data_in_1           <= {IN_BITWIDTH{1'b0}};
                     data_in_2           <= {IN_BITWIDTH{1'b0}};
-                    pre_sum             <= {(OUT_BITWIDTH-1){1'b0}};
+                    pre_sum             <= {OUT_BITWIDTH{1'b0}};
             
                     data_receive_done   <= 1'b0;
                     data_load_done      <= 1'b0;
@@ -252,7 +254,7 @@ module controller(
                         data_in_2               <= input_bf[current_input_index][IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                         
                         if (is_load_bias) begin
-                            pre_sum         <= bias_bf[OUT_BITWIDTH-2:0];             
+                            pre_sum         <= bias_bf[OUT_BITWIDTH-1:0];             
                         end 
                         else pre_sum        <= 0;
                         

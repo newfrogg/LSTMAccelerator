@@ -2030,3 +2030,1680 @@ Expected Result = 4ec87, Real result = 5d51b
 
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:138]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 5d51b
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:138]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 5d51b
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:138]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 540e6
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:138]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 5d51b
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:131]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:138]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 65c54
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:140]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 65c54
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:140]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 65c54
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 19 differs from formal bit length 18 for port 'pre_sum' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:140]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 27a20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 2fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+WARNING: [VRFC 10-3091] actual bit length 21 differs from formal bit length 32 for port 'out' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:105]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 8fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 96fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 19 for port 'bias' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:80]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 20 for port 'o_mac_result' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv:86]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 96fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 4ec87, Real result = 96fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Expected Result = 94481, Real result = 96fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Accumulation[0] = 493cc
+Accumulation[1] = 4985b
+Accumulation[2] = 4c2be
+Accumulation[3] = 51af6
+Accumulation[4] = 5908f
+Accumulation[5] = 6bc4b
+Accumulation[6] = 728cb
+Accumulation[7] = 7d909
+Accumulation[8] = 91543
+Accumulation[9] = 94481
+///////////////////////////////////////////////////////////
+Expected Result = 94481, Real result = 96fa20a
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Accumulation[0] = 493cc
+Accumulation[1] = 4985b
+Accumulation[2] = 4c2be
+Accumulation[3] = 51af6
+Accumulation[4] = 5908f
+Accumulation[5] = 6bc4b
+Accumulation[6] = 728cb
+Accumulation[7] = 7d909
+Accumulation[8] = 91543
+Accumulation[9] = 94481
+///////////////////////////////////////////////////////////
+Expected Result = 94481, Real result = 74481
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Accumulation[0] = 493cc
+Accumulation[1] = 4985b
+Accumulation[2] = 4c2be
+Accumulation[3] = 51af6
+Accumulation[4] = 5908f
+Accumulation[5] = 6bc4b
+Accumulation[6] = 728cb
+Accumulation[7] = 7d909
+Accumulation[8] = 91543
+Accumulation[9] = 94481
+///////////////////////////////////////////////////////////
+Expected Result = 94481, Real result = 74481
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Accumulation[0] = 493cc
+Accumulation[1] = 4985b
+Accumulation[2] = 4c2be
+Accumulation[3] = 51af6
+Accumulation[4] = 5908f
+Accumulation[5] = 6bc4b
+Accumulation[6] = 728cb
+Accumulation[7] = 7d909
+Accumulation[8] = 91543
+Accumulation[9] = 94481
+///////////////////////////////////////////////////////////
+Expected Result = 94481, Real result = 74481
+--------------- Test No[10]: Result is wrong! ----------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_controller_lstm_unit'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_controller_lstm_unit' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_controller_lstm_unit_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MAC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lstm_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_controller_lstm_unit_behav xil_defaultlib.tb_controller_lstm_unit xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 2 for port 'type_gate' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:133]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_MAC_sv_1145791285
+Compiling module xil_defaultlib.MAC_default
+Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.tb_controller_lstm_unit
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_controller_lstm_unit_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_controller_lstm_unit_behav -key {Behavioral:sim_1:Functional:tb_controller_lstm_unit} -tclbatch {tb_controller_lstm_unit.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_controller_lstm_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+WARNING: Simulation object /tb_controller_lstm_unit/input_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/weight_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+WARNING: Simulation object /tb_controller_lstm_unit/bias_pkt was not traceable in the design for the following reason:
+Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# run 2500ns
+///////////////////////////////////////////////////////////
+//////////////////// Test No[0] Start /////////////////////
+///////////////////////////////////////////////////////////
+
+Accumulation[0] = 493cc
+Accumulation[1] = 4985b
+Accumulation[2] = 4c2be
+Accumulation[3] = 51af6
+Accumulation[4] = 5908f
+Accumulation[5] = 6bc4b
+Accumulation[6] = 728cb
+Accumulation[7] = 7d909
+Accumulation[8] = 91543
+Accumulation[9] = 94481
+///////////////////////////////////////////////////////////
+
+Expected Result = 94481, Real result = 94481
+-------------Test No[10]: Result is correct!------------
+///////////////////////////////////////////////////////////
+
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_controller_lstm_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 2500ns

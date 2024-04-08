@@ -47,12 +47,13 @@ module tb_controller_lstm_unit();
     logic               o_lstm_is_waiting;
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
-    logic [18:0]        bias;
+    logic [31:0]        bias;
     logic               o_is_load_bias;
     logic [3:0]         o_index;
     logic [1:0]         o_mac_state;
     logic               o_is_last_input;
     logic [31:0]        o_lstm_accu_bf;
+    logic [31:0]        o_mac_result;
     
     logic [31:0]        expected_value;
     logic [31:0]        accumulation;
@@ -81,7 +82,8 @@ module tb_controller_lstm_unit();
         .o_index(o_index),
         .o_mac_state(o_mac_state),
         .o_is_last_input(o_is_last_input),
-        .o_lstm_accu_bf(o_lstm_accu_bf)
+        .o_lstm_accu_bf(o_lstm_accu_bf),
+        .o_mac_result(o_mac_result)
     );
     
     always #5 begin 
@@ -143,15 +145,16 @@ module tb_controller_lstm_unit();
             bias_pkt.randomize();
             @(negedge clk);
             data_in = bias_pkt.bias_bf;
-            bias_array[index] =  bias_pkt.bias_bf;
+            bias_array  =  bias_pkt.bias_bf;
         end
         
+        expected_value = expected_value + bias_array;
         for (index = 0; index < 10; index = index + 1) begin
             expected_value = expected_value + weight_array[index][7:0]*input_array[index][7:0] + weight_array[index][15:8]*input_array[index][15:8] + weight_array[index][23:16]*input_array[index][23:16];
+            $display("Accumulation[%0d] = %0h", index, expected_value);
         end
         
-        expected_value = expected_value + bias_array[0];
-        
+//        $display("Accumulation[%0d] = %0h", index, expected_value);
         repeat(1) begin
             @(negedge clk);
             r_valid = 1'b0;
