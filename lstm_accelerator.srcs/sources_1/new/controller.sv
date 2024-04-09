@@ -44,7 +44,8 @@ module controller(
     output logic [31:0] o_lstm_accu_bf,
     output logic [31:0] o_mac_result,
     output logic [1:0]  o_type_gate,
-    output logic [1:0]  o_gate
+    output logic [1:0]  o_gate,
+    output logic [7:0]  o_value_gate [0:3]
 );
 
     localparam
@@ -138,6 +139,10 @@ module controller(
     assign o_mac_result = u_lstm_unit.mac_result;    
     assign o_type_gate  = u_lstm_unit.type_gate;
     assign o_gate = u_lstm_unit.gate;
+    assign o_value_gate[0] = u_lstm_unit.input_gate;
+    assign o_value_gate[1] = u_lstm_unit.forget_gate;
+    assign o_value_gate[2] = u_lstm_unit.cell_update;
+    assign o_value_gate[3] = u_lstm_unit.output_gate;
     
     lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
         .clk(clk),
@@ -220,7 +225,6 @@ module controller(
                     if (data_receive_done && data_load_done) begin
                         data_load_done          <= 1'b0;
                         current_buffer_index    <= 4'b0;
-//                        counter                 <= 2'b0;
                         r_state                 <= LOAD;
                         state                   <= STATE_RUN;
                     end

@@ -46,13 +46,17 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
+        QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
         
         STATE_IDLE          = 3'b000,
         STATE_RECEIVE_DATA  = 3'b001,
-        STATE_RUN           = 3'b010,
-        STATE_WAIT          = 3'b011,
-        STATE_FINISH        = 3'b100,
+        STATE_IRB           = 3'b010,
+        STATE_GATE          = 3'b011,
+        STATE_CELL          = 3'b100,
+        STATE_HIDDEN        = 3'b101,
+        STATE_WAIT          = 3'b110,
+        STATE_FINISH        = 3'b111,
         
         INPUT_GATE          = 2'b00,
         FORGET_GATE         = 2'b01,
@@ -76,7 +80,14 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [BUFFER_SIZE-1:0]       accu_output_bf;
     logic   [BUFFER_SIZE-1:0]       accu_bf;
     
+    logic   [QUANTIZE_SIZE-1:0]     cell_update;
+    logic   [QUANTIZE_SIZE-1:0]     input_gate;
+    logic   [QUANTIZE_SIZE-1:0]     forget_gate;
+    logic   [QUANTIZE_SIZE-1:0]     output_gate;
+    logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf;
+     
     logic  [1:0]                            gate;
+    logic  [1:0]                            count_gate;
     
     logic                                   mac_en;
     logic  [W_BITWIDTH-1:0]                 weights_bf_0;
@@ -106,6 +117,15 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .out(mac_result)
     );
     
+    tanh #(.OUT_BITWIDTH(OUT_BITWIDTH), .IN_BITWIDTH(IN_BITWIDTH)) u_tanh (
+        .data_in(accu_cell_bf),
+        .data_out(cell_update)
+    );
+    
+    sigmoid #(.OUT_BITWIDTH(OUT_BITWIDTH), .IN_BITWIDTH(IN_BITWIDTH)) u_sigmoid (
+        .data_in(accu_bf),
+        .data_out(sigmoid_bf)
+    );
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -115,6 +135,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             run_done            <= 1'b0;
             wait_done           <= 1'b0;
             finish_done         <= 1'b0;
+            count_gate          <= 2'b00;
             
             remain_waiting_time    <= LATENCY;
             
@@ -157,18 +178,20 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             1: pre_sum_bf       <= pre_sum;
                         endcase
                         gate            <= type_gate;
-                        state           <= STATE_RUN;
+                        state           <= STATE_IRB;
                         is_waiting      <= 1'b0;
+                        count_gate      <= 2'b00;
                     end
                 end
                 
-                STATE_RUN: begin
+                STATE_IRB: begin
                     if (run_done) begin
                         if (is_last_data_gate && is_last_input) begin
-                            state           <= STATE_FINISH;
+                            state           <= STATE_GATE;
                             is_waiting      <= 1'b0;
-                            done            <= 1'b1;
-                            accu_bf         <= mac_result;
+//                            done            <= 1'b1;
+//                            accu_bf         <= mac_result;
+//                            accu_bf         <= 
                             case(gate)
                                 INPUT_GATE:     accu_input_bf   <= mac_result;
                                 FORGET_GATE:    accu_forget_bf  <= mac_result;
@@ -197,7 +220,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     is_waiting          <= 1'b0;
                     if (remain_waiting_time == 0) begin
                         if (is_continued == 1) begin
-                            state           <= STATE_RUN;
+                            state           <= STATE_IRB;
                             weights_bf_0    <= weights_0;
                             weights_bf_1    <= weights_1;
                             weights_bf_2    <= weights_2;
@@ -233,6 +256,40 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         end
                     end
                     else remain_waiting_time <= remain_waiting_time - 1;
+                end
+                
+                STATE_GATE: begin
+                    if (count_gate == 2'b11) begin
+                        state       <= STATE_FINISH;
+                        done        <= 1'b1;
+                    end
+                    else count_gate  <= count_gate + 1;
+                    
+                    case(gate)
+                        INPUT_GATE: begin
+                            input_gate  <= sigmoid_bf;
+                            accu_bf     <= accu_forget_bf;
+                            gate        <= FORGET_GATE;
+                        end
+                        FORGET_GATE: begin
+                            forget_gate <= sigmoid_bf;
+                            accu_bf     <= accu_output_bf;
+                            gate        <= OUTPUT_GATE;
+                        end
+                        OUTPUT_GATE: begin
+                            output_gate <= sigmoid_bf;
+                            accu_bf     <= accu_input_bf;
+                            gate        <= INPUT_GATE;
+                        end
+                    endcase
+                end
+                
+                STATE_CELL: begin
+                
+                end
+                
+                STATE_HIDDEN: begin
+                
                 end
                 
                 STATE_FINISH: begin

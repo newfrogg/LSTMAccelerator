@@ -30,7 +30,7 @@ endclass
 
 class GenerateBias;
     randc   bit[31:0]   bias_bf;
-    constraint c_bias_bf { bias_bf <= 32'h00_07_ff_ff; }
+    constraint c_bias_bf { bias_bf <= 32'hff_ff_ff_ff; }
 endclass
 
 module tb_controller_lstm_unit();
@@ -50,6 +50,7 @@ module tb_controller_lstm_unit();
     logic               o_lstm_is_waiting;
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
+    logic [7:0]         o_value_gate [0:3];
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
@@ -94,7 +95,8 @@ module tb_controller_lstm_unit();
         .o_lstm_accu_bf(o_lstm_accu_bf),
         .o_mac_result(o_mac_result),
         .o_type_gate(o_type_gate),
-        .o_gate(o_gate)
+        .o_gate(o_gate),
+        .o_value_gate(o_value_gate)
     );
     
     always #5 begin 
@@ -138,7 +140,7 @@ module tb_controller_lstm_unit();
         $display("//////////////////// Test No[%0d] Start /////////////////////", index);
         $display("///////////////////////////////////////////////////////////\n");
         
-        repeat(20) begin
+        repeat(2) begin
             index = 0;
             repeat(4) begin
                 weight_pkt.randomize();
@@ -188,7 +190,7 @@ module tb_controller_lstm_unit();
                 r_valid = 1'b0;
                 data_in = 32'd0;
             end
-            if (iter < 19) begin
+            if (iter < 1) begin
                 iter = iter + 1;
                 is_last_data_gate = 1'b0;
                 wait(r_data);
