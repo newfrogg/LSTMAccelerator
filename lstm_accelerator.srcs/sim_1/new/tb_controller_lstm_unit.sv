@@ -33,6 +33,11 @@ class GenerateBias;
     constraint c_bias_bf { bias_bf <= 32'hff_ff_ff_ff; }
 endclass
 
+class GenerateCell;
+    randc   bit[31:0]   cell_bf;
+    constraint c_cell_bf { cell_bf <= 32'h00_00_00_ff; }
+endclass
+
 module tb_controller_lstm_unit();
     logic               clk;
     logic               rstn;
@@ -45,21 +50,24 @@ module tb_controller_lstm_unit();
     logic [2:0]         o_state;
     logic [2:0]         o_lstm_state;
     logic [1:0]         o_mac_state;
+    logic [2:0]         o_r_state;
     logic               o_lstm_unit_done;
     logic               o_lstm_is_continued;
     logic               o_lstm_is_waiting;
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
     logic [7:0]         o_value_gate [0:3];
+    logic [31:0]        o_cell_state;
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
     logic               o_is_load_bias;
+    logic               o_is_load_cell;
     logic               o_is_last_input;
     logic [3:0]         o_index;
     logic [31:0]        o_lstm_accu_bf;
     logic [31:0]        o_mac_result;
-    
+    logic [7:0]         o_prev_cell_bf;
     
     logic [31:0]        expected_input_gate;
     logic [31:0]        expected_forget_gate;
@@ -69,6 +77,7 @@ module tb_controller_lstm_unit();
     logic [31:0]    weight_array [0:3];
     logic [31:0]    input_array;
     logic [31:0]    bias_array [0:3];
+    logic [31:0]    cell_array;
 
     
     controller uut (
@@ -96,7 +105,11 @@ module tb_controller_lstm_unit();
         .o_mac_result(o_mac_result),
         .o_type_gate(o_type_gate),
         .o_gate(o_gate),
-        .o_value_gate(o_value_gate)
+        .o_value_gate(o_value_gate),
+        .o_is_load_cell(o_is_load_cell),
+        .o_r_state(o_r_state),
+        .o_prev_cell_bf(o_prev_cell_bf),
+        .o_cell_state(o_cell_state)
     );
     
     always #5 begin 
@@ -109,6 +122,7 @@ module tb_controller_lstm_unit();
     GenerateInput   input_pkt;
     GenerateWeight  weight_pkt;
     GenerateBias    bias_pkt;
+    GenerateCell    cell_pkt;
     
     initial begin
         index = 0;
@@ -121,6 +135,7 @@ module tb_controller_lstm_unit();
         input_pkt       = new ();
         weight_pkt      = new ();
         bias_pkt        = new ();
+        cell_pkt        = new ();
         
         clk  = 1'b0;
         rstn = 1'b0;
@@ -175,6 +190,14 @@ module tb_controller_lstm_unit();
             end
             else ;
             
+            if (is_last_data_gate) begin
+                cell_pkt.randomize();
+                @(negedge clk);
+                data_in = cell_pkt.cell_bf;
+                cell_array = cell_pkt.cell_bf;
+            end
+            else;
+            
             expected_input_gate = expected_input_gate + weight_array[0][7:0]*input_array[7:0] + weight_array[0][15:8]*input_array[15:8] + weight_array[0][23:16]*input_array[23:16];
             expected_forget_gate = expected_forget_gate + weight_array[1][7:0]*input_array[7:0] + weight_array[1][15:8]*input_array[15:8] + weight_array[1][23:16]*input_array[23:16];
             expected_cell_gate = expected_cell_gate + weight_array[2][7:0]*input_array[7:0] + weight_array[2][15:8]*input_array[15:8] + weight_array[2][23:16]*input_array[23:16];
@@ -197,7 +220,10 @@ module tb_controller_lstm_unit();
                 @(negedge clk);
                 r_valid = 1'b1;
             end
-            else is_last_data_gate = 1'b1;
+            else ; 
+            
+            if (iter == 1) is_last_data_gate = 1'b1;
+            else ;
             
         end  
         

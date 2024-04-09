@@ -45,7 +45,11 @@ module controller(
     output logic [31:0] o_mac_result,
     output logic [1:0]  o_type_gate,
     output logic [1:0]  o_gate,
-    output logic [7:0]  o_value_gate [0:3]
+    output logic [7:0]  o_value_gate [0:3],
+    output logic        o_is_load_cell,
+    output logic [2:0]  o_r_state,
+    output logic [7:0]  o_prev_cell_bf,
+    output logic [31:0] o_cell_state
 );
 
     localparam
@@ -65,10 +69,11 @@ module controller(
         STATE_FINISH            = 3'd4,
         
         
-        WREAD                   = 2'd0,
-        IREAD                   = 2'd1,
-        BREAD                   = 2'd2,
-        LOAD                    = 2'd3,
+        WREAD                   = 3'd0,
+        IREAD                   = 3'd1,
+        BREAD                   = 3'd2,
+        CREAD                   = 3'd3,
+        LOAD                    = 3'd4,
         
         IGATE                   = 2'd0,
         FGATE                   = 2'd1,
@@ -80,7 +85,7 @@ module controller(
     
     
     
-    logic [1:0]                             r_state;
+    logic [2:0]                             r_state;
     logic                                   w_state;
     logic [2:0]                             state;
     logic [1:0]                             type_gate;
@@ -95,6 +100,7 @@ module controller(
     logic                                   is_continued;
     logic                                   is_last_input;
     logic                                   is_load_bias;
+    logic                                   is_load_cell;
     logic                                   lstm_is_waiting;
     logic                                   read_bias;
     // Signals for lstm unit
@@ -143,6 +149,10 @@ module controller(
     assign o_value_gate[1] = u_lstm_unit.forget_gate;
     assign o_value_gate[2] = u_lstm_unit.cell_update;
     assign o_value_gate[3] = u_lstm_unit.output_gate;
+    assign o_is_load_cell = is_load_cell;
+    assign o_r_state = r_state;
+    assign o_prev_cell_bf = u_lstm_unit.prev_cell_bf;
+    assign o_cell_state = u_lstm_unit.cell_state;
     
     lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
         .clk(clk),
@@ -152,6 +162,7 @@ module controller(
         .is_last_data_gate(is_last_data_gate),
         .is_continued(is_continued),
         .is_load_bias(is_load_bias),
+        .is_load_cell(is_load_cell),
         .type_gate(type_gate),
         .weights_0(weights_0),
         .weights_1(weights_1),
@@ -205,6 +216,7 @@ module controller(
                     counter             <= 2'b0;
                     t_valid             <= 1'b0;
                     is_load_bias        <= 1'b0;
+                    is_load_cell        <= 1'b0;
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     
@@ -244,9 +256,14 @@ module controller(
                                 if (current_buffer_index == N_INPUTS-1) begin
                                     current_buffer_index    <= 0;
                                     if (read_bias) begin
-                                        r_state             <= LOAD;
-                                        data_receive_done   <= 1'b1;
-                                        r_data              <= 1'b0;
+                                        case(is_last_data_gate) 
+                                            0: begin 
+                                                r_state             <= LOAD;
+                                                data_receive_done   <= 1'b1;
+                                                r_data              <= 1'b0;
+                                            end
+                                            1: r_state      <= CREAD;
+                                        endcase
                                     end
                                     else r_state <= BREAD;
                                 end 
@@ -264,7 +281,13 @@ module controller(
                                 end 
                                 else current_buffer_index   <= current_buffer_index + 1;       
                             end
-                            
+                            CREAD: begin
+                                bias_bf[3][IN_BITWIDTH-1:0] <= data_in[IN_BITWIDTH-1:0];
+                                is_load_cell                <= 1'b1;
+                                data_receive_done           <= 1'b1;
+                                r_data                      <= 1'b0;
+                                r_state                     <= LOAD;
+                            end
                         endcase
                     end
                     else begin
