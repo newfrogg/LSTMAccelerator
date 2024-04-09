@@ -64,7 +64,6 @@ module tb_controller_lstm_unit();
     logic [31:0]        expected_forget_gate;
     logic [31:0]        expected_cell_gate;
     logic [31:0]        expected_output_gate;
-//    logic [31:0]        accumulation;
     
     logic [31:0]    weight_array [0:3];
     logic [31:0]    input_array;
@@ -110,9 +109,6 @@ module tb_controller_lstm_unit();
     GenerateBias    bias_pkt;
     
     initial begin
-//        weight_bf   = 32'h00_ab_12_34;
-//        input_bf    = 32'h00_cd_ae_0a;
-//        pre_sum_bf  = 32'h00_05_ab_cd;
         index = 0;
         iter = 0;
         expected_input_gate = 0;
@@ -142,7 +138,7 @@ module tb_controller_lstm_unit();
         $display("//////////////////// Test No[%0d] Start /////////////////////", index);
         $display("///////////////////////////////////////////////////////////\n");
         
-        repeat(2) begin
+        repeat(20) begin
             index = 0;
             repeat(4) begin
                 weight_pkt.randomize();
@@ -192,22 +188,10 @@ module tb_controller_lstm_unit();
                 r_valid = 1'b0;
                 data_in = 32'd0;
             end
-            if (iter == 0) begin
+            if (iter < 19) begin
                 iter = iter + 1;
                 is_last_data_gate = 1'b0;
                 wait(r_data);
-                if (out_data[0] === expected_input_gate && out_data[1] === expected_forget_gate && out_data[2] === expected_cell_gate && out_data[3] === expected_output_gate) begin
-                    $display("///////////////////////////////////////////////////////////\n");
-                    $display("Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", expected_input_gate, expected_forget_gate, expected_cell_gate, expected_output_gate, out_data[0], out_data[1], out_data[2], out_data[3]);
-                    $display("-------------Test No[%0d]: Result is correct!------------", index);
-                    $display("///////////////////////////////////////////////////////////\n");
-                end
-                else begin
-                    $display("///////////////////////////////////////////////////////////");
-                    $display("Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", expected_input_gate, expected_forget_gate, expected_cell_gate, expected_output_gate, out_data[0], out_data[1], out_data[2], out_data[3]);
-                    $display("--------------- Test No[%0d]: Result is wrong! ----------------", index);
-                    $display("///////////////////////////////////////////////////////////\n");
-                end
                 @(negedge clk);
                 r_valid = 1'b1;
             end

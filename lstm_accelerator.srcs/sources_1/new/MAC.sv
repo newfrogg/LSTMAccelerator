@@ -78,23 +78,6 @@ module MAC #(   parameter W_BITWIDTH = 8,
         accu_bf[5] <= accu_bf[2] + accu_bf[3];
         accu_bf[6] <= accu_bf[4] + accu_bf[5];
     end
-//    assign accu_bf[0] = sum_arr_bf[0] + sum_arr_bf[1];
-//    assign accu_bf[1] = sum_arr_bf[2] + sum_arr_bf[3];
-//    assign accu_bf[2] = sum_arr_bf[4] + sum_arr_bf[5];
-//    assign accu_bf[3] = sum_arr_bf[6] + sum_arr_bf[7];
-//    assign accu_bf[4] = accu_bf[0] + accu_bf[1];
-//    assign accu_bf[5] = accu_bf[2] + accu_bf[3];
-//    assign accu_bf[6] = accu_bf[4] + accu_bf[5];
-    
-//    assign o_index = index;
-//    assign o_sum_arr_bf[0] = sum_arr_bf[0];
-//    assign o_sum_arr_bf[1] = sum_arr_bf[1];
-//    assign o_sum_arr_bf[2] = sum_arr_bf[2];
-//    assign o_sum_arr_bf[3] = sum_arr_bf[3];
-//    assign o_sum_arr_bf[4] = sum_arr_bf[4];
-//    assign o_sum_arr_bf[5] = sum_arr_bf[5];
-//    assign o_sum_arr_bf[6] = sum_arr_bf[6];
-//    assign o_sum_arr_bf[7] = sum_arr_bf[7];
     
     always @ (posedge clk or negedge rstn) begin
         if(!rstn) begin
