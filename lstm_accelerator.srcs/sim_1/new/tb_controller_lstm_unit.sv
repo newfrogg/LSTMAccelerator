@@ -40,7 +40,7 @@ endclass
 
 module tb_controller_lstm_unit();
 
-    localparam      NO_UNITS = 32;
+    localparam      NO_UNITS = 14;
     localparam      NO_FEATURES = 9;
     localparam      NO_TIMESTEPS = 28;
     
@@ -52,7 +52,8 @@ module tb_controller_lstm_unit();
     logic               r_data;
     logic               w_valid;
     logic               t_valid;
-    logic [31:0]        out_data [0:3];
+    logic [31:0]        out_data;
+    logic [7:0]         o_index;
     logic [2:0]         o_state;
     logic [2:0]         o_lstm_state;
     logic [1:0]         o_mac_state;
@@ -70,7 +71,6 @@ module tb_controller_lstm_unit();
     logic               o_is_load_bias;
     logic               o_is_load_cell;
     logic               o_is_last_input;
-    logic [7:0]         o_index;
     logic [31:0]        o_lstm_accu_bf;
     logic [31:0]        o_mac_result;
     logic [7:0]         o_prev_cell_bf;
@@ -81,16 +81,22 @@ module tb_controller_lstm_unit();
     logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
     logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
     logic [31:0]        expected_output_gate [0:NO_UNITS-1];
+    logic [31:0]        input_gate;
+    logic [31:0]        forget_gate;
+    logic [31:0]        cell_gate;
+    logic [31:0]        output_gate;
     
     logic [31:0]        weight_array [0:4*NO_UNITS-1];
     logic [31:0]        input_array;
     logic [31:0]        bias_array [0:4*NO_UNITS-1];
     logic [31:0]        cell_array [0:NO_UNITS-1];
 
-    logic [31:0]        h_t [0:NO_TIMESTEPS-1][0:(NO_UNITS-1)/3 + 1];         
+    logic [31:0]        ht [0:(NO_UNITS-1)/3];         
 
     
-    logic [7:0]     current_unit;
+    integer         current_unit;
+    
+    logic [7:0]     current_ht;
     logic           wrong_flag;
     
     controller uut (
@@ -143,6 +149,7 @@ module tb_controller_lstm_unit();
     initial begin
         wrong_flag   = 0;
         current_unit = 0;
+        current_ht   = 0;
         index = 0;
         iter = 0;
         for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
@@ -216,7 +223,7 @@ module tb_controller_lstm_unit();
             
             if (is_last_data_gate) begin
                 index = 0;
-                repeat(2) begin
+                repeat(NO_UNITS) begin
                     cell_pkt.randomize();
                     @(negedge clk);
                     data_in = cell_pkt.cell_bf;
@@ -251,20 +258,90 @@ module tb_controller_lstm_unit();
             
         end  
         
+        wait(o_lstm_state==5);
+        
+        current_unit = 0;
+        input_gate = uut.genblk1[0].u_lstm_unit.accu_input_bf;
+        forget_gate = uut.genblk1[0].u_lstm_unit.accu_forget_bf;
+        cell_gate = uut.genblk1[0].u_lstm_unit.accu_cell_bf;
+        output_gate = uut.genblk1[0].u_lstm_unit.accu_output_bf;
+        
+        
+        if (input_gate === expected_input_gate[current_unit] && forget_gate === expected_forget_gate[current_unit] && cell_gate === expected_cell_gate[current_unit] && output_gate === expected_output_gate[current_unit]) begin
+            $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+        end
+        else begin
+            $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+            wrong_flag = 1;
+        end
+        
+        current_unit = NO_UNITS/2;
+        input_gate = uut.genblk1[NO_UNITS/2].u_lstm_unit.accu_input_bf;
+        forget_gate = uut.genblk1[NO_UNITS/2].u_lstm_unit.accu_forget_bf;
+        cell_gate = uut.genblk1[NO_UNITS/2].u_lstm_unit.accu_cell_bf;
+        output_gate = uut.genblk1[NO_UNITS/2].u_lstm_unit.accu_output_bf;
+        
+        
+        if (input_gate === expected_input_gate[current_unit] && forget_gate === expected_forget_gate[current_unit] && cell_gate === expected_cell_gate[current_unit] && output_gate === expected_output_gate[current_unit]) begin
+            $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+        end
+        else begin
+            $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+            wrong_flag = 1;
+        end
+        
+        current_unit = NO_UNITS - 1;
+        input_gate = uut.genblk1[NO_UNITS-1].u_lstm_unit.accu_input_bf;
+        forget_gate = uut.genblk1[NO_UNITS-1].u_lstm_unit.accu_forget_bf;
+        cell_gate = uut.genblk1[NO_UNITS-1].u_lstm_unit.accu_cell_bf;
+        output_gate = uut.genblk1[NO_UNITS-1].u_lstm_unit.accu_output_bf;
+        
+        
+        if (input_gate === expected_input_gate[current_unit] && forget_gate === expected_forget_gate[current_unit] && cell_gate === expected_cell_gate[current_unit] && output_gate === expected_output_gate[current_unit]) begin
+            $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+        end
+        else begin
+            $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+            wrong_flag = 1;
+        end
+        
+        
         index = 0;
         wait(w_valid);
-        @(negedge clk);
+        
+//        @(negedge clk);
+//        while (w_valid) begin
+            
+//            for (current_unit = 0; current_unit < NO_UNITS; current_unit++) begin
+////                @(negedge clk);
+//                input_gate = uut.genblk1[1].u_lstm_unit.accu_input_bf;
+//                forget_gate = uut.genblk1[1].u_lstm_unit.accu_forget_bf;
+//                cell_gate = uut.genblk1[1].u_lstm_unit.accu_cell_bf;
+//                output_gate = uut.genblk1[1].u_lstm_unit.accu_output_bf;
+                
+                
+//                if (input_gate === expected_input_gate[current_unit] && forget_gate === expected_forget_gate[current_unit] && cell_gate === expected_cell_gate[current_unit] && output_gate === expected_output_gate[current_unit]) begin
+//                    $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+//                end
+//                else begin
+//                    $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], input_gate, forget_gate, cell_gate, output_gate);
+//                    wrong_flag = 1;
+//                end
+//            end
+//        end
+        
+        current_ht = 0;
+//        @(negedge clk);
+//        #1;
         while (w_valid) begin
-            for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+            for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
                 @(negedge clk);
-                if (out_data[0] === expected_input_gate[current_unit] && out_data[1] === expected_forget_gate[current_unit] && out_data[2] === expected_cell_gate[current_unit] && out_data[3] === expected_output_gate[current_unit]) begin
-                    $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], out_data[0], out_data[1], out_data[2], out_data[3]);
-               end
-                else begin
-                    $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], out_data[0], out_data[1], out_data[2], out_data[3]);
-                    wrong_flag = 1;
-                end
+                ht[current_ht] = out_data;
             end
+            @(negedge clk);
+        end
+        for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
+            $display("Real result ht[%0d]= [%0h]", current_ht, ht[current_ht]);
         end
         
         wait(t_valid);

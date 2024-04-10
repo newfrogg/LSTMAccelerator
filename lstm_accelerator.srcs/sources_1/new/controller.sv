@@ -29,7 +29,7 @@ module controller(
     output logic        r_data,
     output logic        w_valid,
     output logic        t_valid,
-    output logic [31:0] out_data [0:3],
+    output logic [31:0] out_data,
     output logic [2:0]  o_state,
     output logic [2:0]  o_lstm_state,
     output logic        o_lstm_is_continued,
@@ -54,7 +54,7 @@ module controller(
 );
 
     localparam
-        NO_UNITS                = 32,
+        NO_UNITS                = 14,
         
         W_BITWIDTH              = 8,
         IN_BITWIDTH             = 8,
@@ -130,7 +130,7 @@ module controller(
     logic  [IN_BITWIDTH*3-1:0]              data_input;
     logic  [OUT_BITWIDTH-1:0]               pre_sum     [0:NO_UNITS-1];
     logic                                   lstm_unit_done  [0:NO_UNITS-1];
-    logic  [OUT_BITWIDTH-1:0]               lstm_unit_result [0:NO_UNITS-1][0:3];
+    logic  [7:0]                            lstm_unit_result [0:NO_UNITS-1];
     
 //    logic  [31:0]                           accu_bf;
     
@@ -185,25 +185,7 @@ module controller(
             );
         end
     endgenerate
-    
-//    lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
-//        .clk(clk),
-//        .rstn(rstn),
-//        .en(lstm_unit_en),
-//        .is_last_input(is_last_input),
-//        .is_last_data_gate(is_last_data_gate),
-//        .is_continued(is_continued),
-//        .is_load_bias(is_load_bias),
-//        .is_load_cell(is_load_cell),
-//        .type_gate(type_gate),
-//        .weight(weight),
-//        .data_in(data_input),
-//        .pre_sum(pre_sum),
-//        .is_waiting(lstm_is_waiting),
-//        .done(lstm_unit_done),
-//        .out(lstm_unit_result)
-//    );
-    
+        
     assign o_lstm_is_continued = is_continued;
 //    assign o_lstm_is_waiting = lstm_is_waiting;
 //    assign o_lstm_unit_done = lstm_unit_done;
@@ -302,7 +284,7 @@ module controller(
                                 else current_buffer_index   <= current_buffer_index + 1;       
                             end
                             CREAD: begin
-                                bias_bf[(N_GATES-1)*NO_UNITS + current_buffer_index][IN_BITWIDTH-1:0] <= data_in[IN_BITWIDTH-1:0];
+                                bias_bf[(N_GATES-1)*NO_UNITS + current_buffer_index] <= {{24{1'b0}},data_in[IN_BITWIDTH-1:0]};
                                 if (current_buffer_index == NO_UNITS-1) begin
                                     current_buffer_index    <= 0;
                                     is_load_cell                <= 1'b1;
@@ -349,7 +331,7 @@ module controller(
                         if (is_last_input && is_last_data_gate) begin
                             state           <= STATE_WBACK;
                             lstm_unit_en    <= 1'b0;
-                            w_valid         <= 1'b1;
+//                            w_valid         <= 1'b1;
                         end
                         else begin
                             case(is_last_input) 
@@ -383,17 +365,25 @@ module controller(
                         wb_done <= 0;
                     end
                     else begin
-                        current_buffer_index <= current_buffer_index + 1;
-                        if (current_buffer_index == NO_UNITS-1) begin
+                        if (current_buffer_index > NO_UNITS - 1) begin
                             w_valid <= 0;
                             wb_done <= 1;
+                            out_data    <= {32{1'b0}};
                         end
-                        out_data[0]     <= lstm_unit_result[current_buffer_index][0];
-                        out_data[1]     <= lstm_unit_result[current_buffer_index][1];
-                        out_data[2]     <= lstm_unit_result[current_buffer_index][2];
-                        out_data[3]     <= lstm_unit_result[current_buffer_index][3];
+                        else begin
+                            w_valid         <= 1'b1;
+                            current_buffer_index <= current_buffer_index + 3;
+                            if (current_buffer_index <= NO_UNITS - 3) begin
+                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                            end
+                            else if (current_buffer_index == NO_UNITS - 2) begin
+                                out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                            end
+                            else if (current_buffer_index == NO_UNITS - 1) begin
+                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index]};
+                            end
+                        end
                     end
-                    
                 end
                 
                 STATE_FINISH: begin

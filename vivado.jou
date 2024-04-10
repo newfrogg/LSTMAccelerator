@@ -74,3 +74,82 @@ set_property -name {xsim.simulate.runtime} -value {50000ns} -objects [get_filese
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
