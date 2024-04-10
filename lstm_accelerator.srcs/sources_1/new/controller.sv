@@ -15,7 +15,7 @@
 // 
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments:
+// Additional Comments: 
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -27,18 +27,17 @@ module controller(
     input               is_last_data_gate,
     input [31:0]        data_in,
     output logic        r_data,
+    output logic        w_valid,
     output logic        t_valid,
     output logic [31:0] out_data [0:3],
     output logic [2:0]  o_state,
-    output logic        o_lstm_unit_done,
     output logic [2:0]  o_lstm_state,
     output logic        o_lstm_is_continued,
-    output logic        o_lstm_is_waiting,
     output logic [7:0]  weights [0:2],
     output logic [7:0]  inputs  [0:2],
     output logic [31:0] bias,
     output logic        o_is_load_bias,
-    output logic [3:0]  o_index,
+    output logic [7:0]  o_index,
     output logic [1:0]  o_mac_state,
     output logic        o_is_last_input,
     output logic [31:0] o_lstm_accu_bf,
@@ -49,10 +48,14 @@ module controller(
     output logic        o_is_load_cell,
     output logic [2:0]  o_r_state,
     output logic [7:0]  o_prev_cell_bf,
-    output logic [31:0] o_cell_state
+    output logic [31:0] o_cell_state,
+    output logic [7:0]  o_tanh_cell_state,
+    output logic [31:0] o_ht
 );
 
     localparam
+        NO_UNITS                = 32,
+        
         W_BITWIDTH              = 8,
         IN_BITWIDTH             = 8,
         OUT_BITWIDTH            = 32,
@@ -61,6 +64,7 @@ module controller(
         N_WEIGHTS               = 4,
         N_BIASES                = 4,
         N_INPUTS                = 1,
+        N_GATES                 = 4,
         
         STATE_IDLE              = 3'd0,
         STATE_RDATA             = 3'd1,
@@ -95,91 +99,114 @@ module controller(
     logic                                   data_receive_done;
     logic                                   data_load_done;
     logic                                   run_done;
+    logic                                   wb_done;
     logic                                   finish_done;
     
     logic                                   is_continued;
     logic                                   is_last_input;
     logic                                   is_load_bias;
     logic                                   is_load_cell;
-    logic                                   lstm_is_waiting;
+    logic                                   lstm_is_waiting [0:NO_UNITS-1];
     logic                                   read_bias;
     // Signals for lstm unit
     
-    logic   [W_BITWIDTH*3-1:0]              weight_bf   [0:N_WEIGHTS-1];
-    logic   [W_BITWIDTH*3-1:0]              input_bf    ;
-    logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_BIASES-1];
+    logic   [W_BITWIDTH*3-1:0]              weight_bf   [0:N_GATES*NO_UNITS-1];
+    logic   [IN_BITWIDTH*3-1:0]             input_bf    ;
+    logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_GATES*NO_UNITS-1];
+
+//    logic   [W_BITWIDTH*3-1:0]              weight_bf   [0:N_WEIGHTS-1];
+//    logic   [W_BITWIDTH*3-1:0]              input_bf    ;
+//    logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_BIASES-1];
     
-    logic   [3:0]                           current_buffer_index;
-    logic   [3:0]                           current_weight_index;
-    logic   [3:0]                           current_input_index;
-    logic   [3:0]                           current_bias_index;  
+    logic   [7:0]                           current_buffer_index;
+    logic   [7:0]                           current_weight_index;
+    logic   [7:0]                           current_input_index;
+    logic   [7:0]                           current_bias_index;  
     
 //    logic   [1:0]                           type_read;
     
     logic                                   lstm_unit_en;
-    logic  [W_BITWIDTH-1:0]                 weights_0;
-    logic  [W_BITWIDTH-1:0]                 weights_1; 
-    logic  [W_BITWIDTH-1:0]                 weights_2;  
-    logic  [IN_BITWIDTH-1:0]                data_in_0;
-    logic  [IN_BITWIDTH-1:0]                data_in_1;
-    logic  [IN_BITWIDTH-1:0]                data_in_2;
-    logic  [OUT_BITWIDTH-1:0]               pre_sum;
-    logic                                   lstm_unit_done;
-    logic  [OUT_BITWIDTH-1:0]               lstm_unit_result [0:3];
+    logic  [W_BITWIDTH*3-1:0]               weight      [0:NO_UNITS-1]; 
+    logic  [IN_BITWIDTH*3-1:0]              data_input;
+    logic  [OUT_BITWIDTH-1:0]               pre_sum     [0:NO_UNITS-1];
+    logic                                   lstm_unit_done  [0:NO_UNITS-1];
+    logic  [OUT_BITWIDTH-1:0]               lstm_unit_result [0:NO_UNITS-1][0:3];
     
 //    logic  [31:0]                           accu_bf;
     
     assign o_state = state;
-    assign weights[0] = u_lstm_unit.u_mac.weights_0;
-    assign weights[1] = u_lstm_unit.u_mac.weights_1;
-    assign weights[2] = u_lstm_unit.u_mac.weights_2;
-    assign inputs[0]  = u_lstm_unit.u_mac.data_in_0;
-    assign inputs[1]  = u_lstm_unit.u_mac.data_in_1;
-    assign inputs[2]  = u_lstm_unit.u_mac.data_in_2;
-    assign bias       = u_lstm_unit.u_mac.pre_sum;
+    assign weights[0] = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.weights_0;
+    assign weights[1] = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.weights_1;
+    assign weights[2] = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.weights_2;
+    assign inputs[0]  = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.data_in_0;
+    assign inputs[1]  = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.data_in_1;
+    assign inputs[2]  = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.data_in_2;
+    assign bias       = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.pre_sum;
     assign o_is_load_bias = is_load_bias;
     assign o_index    = current_buffer_index;
-    assign o_mac_state = u_lstm_unit.u_mac.state;
+    assign o_mac_state = genblk1[NO_UNITS-1].u_lstm_unit.u_mac.state;
     assign o_is_last_input = is_last_input;
-    assign o_lstm_accu_bf = u_lstm_unit.accu_bf;
-    assign o_mac_result = u_lstm_unit.mac_result;    
-    assign o_type_gate  = u_lstm_unit.type_gate;
-    assign o_gate = u_lstm_unit.gate;
-    assign o_value_gate[0] = u_lstm_unit.input_gate;
-    assign o_value_gate[1] = u_lstm_unit.forget_gate;
-    assign o_value_gate[2] = u_lstm_unit.cell_update;
-    assign o_value_gate[3] = u_lstm_unit.output_gate;
+    assign o_lstm_accu_bf = genblk1[NO_UNITS-1].u_lstm_unit.accu_bf;
+    assign o_mac_result = genblk1[NO_UNITS-1].u_lstm_unit.mac_result;    
+    assign o_type_gate  = genblk1[NO_UNITS-1].u_lstm_unit.type_gate;
+    assign o_gate = genblk1[NO_UNITS-1].u_lstm_unit.gate;
+    assign o_value_gate[0] = genblk1[NO_UNITS-1].u_lstm_unit.input_gate;
+    assign o_value_gate[1] = genblk1[NO_UNITS-1].u_lstm_unit.forget_gate;
+    assign o_value_gate[2] = genblk1[NO_UNITS-1].u_lstm_unit.cell_update;
+    assign o_value_gate[3] = genblk1[NO_UNITS-1].u_lstm_unit.output_gate;
     assign o_is_load_cell = is_load_cell;
     assign o_r_state = r_state;
-    assign o_prev_cell_bf = u_lstm_unit.prev_cell_bf;
-    assign o_cell_state = u_lstm_unit.cell_state;
+    assign o_prev_cell_bf = genblk1[NO_UNITS-1].u_lstm_unit.prev_cell_bf;
+    assign o_cell_state = genblk1[NO_UNITS-1].u_lstm_unit.cell_state;
+    assign o_tanh_cell_state = genblk1[NO_UNITS-1].u_lstm_unit.tanh_cell_state_bf;
+    assign o_ht = genblk1[NO_UNITS-1].u_lstm_unit.hidden_state;
+    assign o_lstm_state = genblk1[NO_UNITS-1].u_lstm_unit.state;
     
-    lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
-        .clk(clk),
-        .rstn(rstn),
-        .en(lstm_unit_en),
-        .is_last_input(is_last_input),
-        .is_last_data_gate(is_last_data_gate),
-        .is_continued(is_continued),
-        .is_load_bias(is_load_bias),
-        .is_load_cell(is_load_cell),
-        .type_gate(type_gate),
-        .weights_0(weights_0),
-        .weights_1(weights_1),
-        .weights_2(weights_2),
-        .data_in_0(data_in_0),
-        .data_in_1(data_in_1),
-        .data_in_2(data_in_2),
-        .pre_sum(pre_sum),
-        .is_waiting(lstm_is_waiting),
-        .done(lstm_unit_done),
-        .out(lstm_unit_result),
-        .o_lstm_state(o_lstm_state)
-    );
+    genvar i;
+    
+    generate
+        for (i = 0; i < NO_UNITS; i = i+1) begin
+            lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
+                .clk(clk),
+                .rstn(rstn),
+                .en(lstm_unit_en),
+                .is_last_input(is_last_input),
+                .is_last_data_gate(is_last_data_gate),
+                .is_continued(is_continued),
+                .is_load_bias(is_load_bias),
+                .is_load_cell(is_load_cell),
+                .type_gate(type_gate),
+                .weight(weight[i]),
+                .data_in(data_input),
+                .pre_sum(pre_sum[i]),
+                .is_waiting(lstm_is_waiting[i]),
+                .done(lstm_unit_done[i]),
+                .out(lstm_unit_result[i])
+            );
+        end
+    endgenerate
+    
+//    lstm_unit #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_lstm_unit (
+//        .clk(clk),
+//        .rstn(rstn),
+//        .en(lstm_unit_en),
+//        .is_last_input(is_last_input),
+//        .is_last_data_gate(is_last_data_gate),
+//        .is_continued(is_continued),
+//        .is_load_bias(is_load_bias),
+//        .is_load_cell(is_load_cell),
+//        .type_gate(type_gate),
+//        .weight(weight),
+//        .data_in(data_input),
+//        .pre_sum(pre_sum),
+//        .is_waiting(lstm_is_waiting),
+//        .done(lstm_unit_done),
+//        .out(lstm_unit_result)
+//    );
     
     assign o_lstm_is_continued = is_continued;
-    assign o_lstm_is_waiting = lstm_is_waiting;
-    assign o_lstm_unit_done = lstm_unit_done;
+//    assign o_lstm_is_waiting = lstm_is_waiting;
+//    assign o_lstm_unit_done = lstm_unit_done;
     // implement FSM for controller
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -187,30 +214,24 @@ module controller(
             
             data_receive_done   <= 1'b0;
             run_done            <= 1'b0;
+            wb_done             <= 1'b0;
             finish_done         <= 1'b0;
             counter             <= 2'b0;
             
-            weights_0           <= {W_BITWIDTH{1'b0}};
-            weights_1           <= {W_BITWIDTH{1'b0}};
-            weights_2           <= {W_BITWIDTH{1'b0}};
-            data_in_0           <= {IN_BITWIDTH{1'b0}};
-            data_in_1           <= {IN_BITWIDTH{1'b0}};
-            data_in_2           <= {IN_BITWIDTH{1'b0}};
-            pre_sum             <= {OUT_BITWIDTH{1'b0}};
+//            weight              <= {(W_BITWIDTH*3){1'b0}};
+//            data_input          <= {(IN_BITWIDTH*3){1'b0}};
+//            pre_sum             <= {OUT_BITWIDTH{1'b0}};
         end
         else begin
             case(state)
                 STATE_IDLE: begin
-                    weights_0           <= {W_BITWIDTH{1'b0}};
-                    weights_1           <= {W_BITWIDTH{1'b0}};
-                    weights_2           <= {W_BITWIDTH{1'b0}};
-                    data_in_0           <= {IN_BITWIDTH{1'b0}};
-                    data_in_1           <= {IN_BITWIDTH{1'b0}};
-                    data_in_2           <= {IN_BITWIDTH{1'b0}};
-                    pre_sum             <= {OUT_BITWIDTH{1'b0}};
+//                    weight              <= {(W_BITWIDTH*3){1'b0}};
+//                    data_input          <= {(IN_BITWIDTH*3){1'b0}};
+//                    pre_sum             <= {OUT_BITWIDTH{1'b0}};
                     
                     data_receive_done   <= 1'b0;
                     data_load_done      <= 1'b0;
+                    wb_done             <= 1'b0;
                     run_done            <= 1'b0;
                     finish_done         <= 1'b0;
                     counter             <= 2'b0;
@@ -220,10 +241,10 @@ module controller(
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     
-                    current_weight_index    <= 4'b0;
-                    current_input_index     <= 4'b0;
-                    current_buffer_index    <= 4'b0;
-                    current_bias_index      <= 4'b0;
+                    current_weight_index    <= 8'b0;
+                    current_input_index     <= 8'b0;
+                    current_buffer_index    <= 8'b0;
+                    current_bias_index      <= 8'b0;
                     
                     if (r_valid) begin
                         type_gate   <= IGATE;
@@ -236,16 +257,15 @@ module controller(
                 STATE_RDATA: begin
                     if (data_receive_done && data_load_done) begin
                         data_load_done          <= 1'b0;
-                        current_buffer_index    <= 4'b0;
+                        current_buffer_index    <= 8'b0;
                         r_state                 <= LOAD;
                         state                   <= STATE_RUN;
                     end
-                    else if (!data_receive_done) begin
-                                                
+                    else if (!data_receive_done) begin       
                         case(r_state)
                             WREAD: begin
                                 weight_bf[current_buffer_index] <= data_in[W_BITWIDTH*3-1:0];
-                                if (current_buffer_index == N_WEIGHTS-1) begin
+                                if (current_buffer_index == N_GATES*NO_UNITS-1) begin
                                     current_buffer_index    <= 0;
                                     r_state                 <= IREAD;
                                 end 
@@ -272,7 +292,7 @@ module controller(
                             BREAD: begin
                                 bias_bf[current_buffer_index]   <= data_in;
                                 is_load_bias                <= 1'b1;
-                                if (current_buffer_index == N_BIASES-1) begin
+                                if (current_buffer_index == N_GATES*NO_UNITS-1) begin
                                     current_buffer_index    <= 0;
                                     r_state                 <= LOAD;
                                     data_receive_done       <= 1'b1;
@@ -282,40 +302,43 @@ module controller(
                                 else current_buffer_index   <= current_buffer_index + 1;       
                             end
                             CREAD: begin
-                                bias_bf[3][IN_BITWIDTH-1:0] <= data_in[IN_BITWIDTH-1:0];
-                                is_load_cell                <= 1'b1;
-                                data_receive_done           <= 1'b1;
-                                r_data                      <= 1'b0;
-                                r_state                     <= LOAD;
+                                bias_bf[(N_GATES-1)*NO_UNITS + current_buffer_index][IN_BITWIDTH-1:0] <= data_in[IN_BITWIDTH-1:0];
+                                if (current_buffer_index == NO_UNITS-1) begin
+                                    current_buffer_index    <= 0;
+                                    is_load_cell                <= 1'b1;
+                                    data_receive_done           <= 1'b1;
+                                    r_data                      <= 1'b0;
+                                    r_state                     <= LOAD;
+                                end
+                                else current_buffer_index   <= current_buffer_index + 1;
                             end
                         endcase
                     end
                     else begin
                         
                         current_weight_index    <= current_weight_index + 1;
-                        current_input_index     <= current_input_index + 1;
+//                        current_input_index     <= current_input_index + 1;
                         current_bias_index      <= current_bias_index + 1;
+                        current_buffer_index    <= current_buffer_index + 1;
                         
-                        weights_0               <= weight_bf[current_weight_index][W_BITWIDTH-1:0];
-                        weights_1               <= weight_bf[current_weight_index][W_BITWIDTH*2-1:W_BITWIDTH];
-                        weights_2               <= weight_bf[current_weight_index][W_BITWIDTH*3-1:W_BITWIDTH*2];
-                        pre_sum                 <= bias_bf[current_bias_index][OUT_BITWIDTH-1:0];
+                        weight[current_buffer_index]    <= weight_bf[current_weight_index][W_BITWIDTH*3-1:0];
+                        data_input                      <= input_bf[IN_BITWIDTH*3-1:0];
+                        pre_sum[current_buffer_index]   <= bias_bf[current_bias_index][OUT_BITWIDTH-1:0];
                         
-                        data_in_0               <= input_bf[IN_BITWIDTH-1:0];
-                        data_in_1               <= input_bf[IN_BITWIDTH*2-1:IN_BITWIDTH];
-                        data_in_2               <= input_bf[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
-                        
-                        case(current_weight_index) 
-                            0: type_gate    <= IGATE;
-                            1: type_gate    <= FGATE;
-                            2: type_gate    <= CGATE;
-                            3: type_gate    <= OGATE;
-                        endcase
-                        
-                        data_load_done      <= 1'b1;
-                        if (current_weight_index == N_WEIGHTS-1)  is_last_input <= 1'b1;
-                        else is_last_input  <= 1'b0;
-                        
+                        if (current_buffer_index == NO_UNITS-1) begin
+                            current_buffer_index    <= 0;
+//                            case(current_weight_index) 
+//                                0: type_gate    <= IGATE;
+//                                1: type_gate    <= FGATE;
+//                                2: type_gate    <= CGATE;
+//                                3: type_gate    <= OGATE;
+//                            endcase
+//                            type_gate   <= type_gate+1;
+                            
+                            data_load_done      <= 1'b1;
+                            if (current_weight_index == N_GATES*NO_UNITS-1)  is_last_input <= 1'b1;
+                            else is_last_input  <= 1'b0;
+                        end
                     end
                 end
                 
@@ -324,14 +347,16 @@ module controller(
                         is_continued    <= 1'b0;
                         run_done        <= 1'b0;
                         if (is_last_input && is_last_data_gate) begin
-                            state           <= STATE_FINISH;
+                            state           <= STATE_WBACK;
                             lstm_unit_en    <= 1'b0;
+                            w_valid         <= 1'b1;
                         end
                         else begin
                             case(is_last_input) 
                                 0: begin
                                     state           <= STATE_RDATA;
                                     r_state         <= LOAD;
+                                    type_gate       <= type_gate+1;
                                 end
                                 1: begin
                                     state           <= STATE_IDLE;
@@ -343,7 +368,7 @@ module controller(
                      else begin
                         lstm_unit_en    <= 1'b1;
                         
-                        if (lstm_unit_done || lstm_is_waiting) begin
+                        if (lstm_unit_done[NO_UNITS-1] || lstm_is_waiting[NO_UNITS-1]) begin
                             run_done        <= 1'b1;
                             is_continued    <= 1'b0;
                         end
@@ -351,9 +376,25 @@ module controller(
                      end
                 end  
                 
-//                STATE_WBACK: begin
+                STATE_WBACK: begin
+                    if (wb_done) begin
+                        state   <= STATE_FINISH;
+                        w_valid <= 0;
+                        wb_done <= 0;
+                    end
+                    else begin
+                        current_buffer_index <= current_buffer_index + 1;
+                        if (current_buffer_index == NO_UNITS-1) begin
+                            w_valid <= 0;
+                            wb_done <= 1;
+                        end
+                        out_data[0]     <= lstm_unit_result[current_buffer_index][0];
+                        out_data[1]     <= lstm_unit_result[current_buffer_index][1];
+                        out_data[2]     <= lstm_unit_result[current_buffer_index][2];
+                        out_data[3]     <= lstm_unit_result[current_buffer_index][3];
+                    end
                     
-//                end
+                end
                 
                 STATE_FINISH: begin
                     if (finish_done) begin
@@ -362,10 +403,10 @@ module controller(
                         t_valid         <= 1'b1;
                     end
                     else begin
-                        out_data[0]     <= lstm_unit_result[0];
-                        out_data[1]     <= lstm_unit_result[1];
-                        out_data[2]     <= lstm_unit_result[2];
-                        out_data[3]     <= lstm_unit_result[3];
+//                        out_data[0]     <= lstm_unit_result[0];
+//                        out_data[1]     <= lstm_unit_result[1];
+//                        out_data[2]     <= lstm_unit_result[2];
+//                        out_data[3]     <= lstm_unit_result[3];
                         finish_done     <= 1'b1;
                     end
                 end

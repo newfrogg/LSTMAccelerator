@@ -33,17 +33,13 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   is_load_bias,
                     input                                   is_load_cell,
                     input  [1:0]                            type_gate,
-                    input  [W_BITWIDTH-1:0]                 weights_0,
-                    input  [W_BITWIDTH-1:0]                 weights_1, 
-                    input  [W_BITWIDTH-1:0]                 weights_2,  
-                    input  [IN_BITWIDTH-1:0]                data_in_0,
-                    input  [IN_BITWIDTH-1:0]                data_in_1,
-                    input  [IN_BITWIDTH-1:0]                data_in_2,
+                    input  [W_BITWIDTH*3-1:0]               weight,
+                    input  [IN_BITWIDTH*3-1:0]              data_in,
                     input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                     output logic                            is_waiting,
                     output logic                            done,
-                    output logic [OUT_BITWIDTH-1:0]         out [0:3],
-                    output logic [2:0]                      o_lstm_state
+                    output logic [7:0]                      out
+//                    output logic [2:0]                      o_lstm_state
     );
     
     localparam
@@ -90,8 +86,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [QUANTIZE_SIZE-1:0]     forget_gate;
     logic   [QUANTIZE_SIZE-1:0]     output_gate;
     logic   [QUANTIZE_SIZE-1:0]     prev_cell_bf;
+    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
+    
     
     logic   [OUT_BITWIDTH-1:0]      cell_state;  
+    logic   [QUANTIZE_SIZE-1:0]     hidden_state;
     
     logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf;
     logic   [QUANTIZE_SIZE-1:0]     cell_update_bf;
@@ -110,7 +109,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic                                   mac_done;
     logic  [OUT_BITWIDTH-1:0]               mac_result;
     
-    assign o_lstm_state = state;
+//    assign o_lstm_state = state;
     
     MAC #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_mac (
         .clk(clk),
@@ -135,6 +134,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     sigmoid #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_sigmoid (
         .data_in(accu_bf),
         .data_out(sigmoid_bf)
+    );
+    
+    tanh_16b #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
+        .data_in(cell_state[15:0]),
+        .data_out(tanh_cell_state_bf)
     );
     
     always @(posedge clk or negedge rstn) begin
@@ -184,12 +188,12 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     remain_waiting_time <= LATENCY;
                     
                     if (en && !done) begin
-                        weights_bf_0    <= weights_0;
-                        weights_bf_1    <= weights_1;
-                        weights_bf_2    <= weights_2;
-                        data_in_bf_0    <= data_in_0;
-                        data_in_bf_1    <= data_in_1;
-                        data_in_bf_2    <= data_in_2;
+                        weights_bf_0    <= weight[W_BITWIDTH-1:0];
+                        weights_bf_1    <= weight[W_BITWIDTH*2-1:W_BITWIDTH];
+                        weights_bf_2    <= weight[W_BITWIDTH*3-1:W_BITWIDTH*2];
+                        data_in_bf_0    <= data_in[IN_BITWIDTH-1:0];
+                        data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
+                        data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                         prev_cell_bf    <= {QUANTIZE_SIZE{1'b0}};
                         
                         case(is_load_bias)
@@ -238,12 +242,13 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     if (remain_waiting_time == 0) begin
                         if (is_continued == 1) begin
                             state           <= STATE_IRB;
-                            weights_bf_0    <= weights_0;
-                            weights_bf_1    <= weights_1;
-                            weights_bf_2    <= weights_2;
-                            data_in_bf_0    <= data_in_0;
-                            data_in_bf_1    <= data_in_1;
-                            data_in_bf_2    <= data_in_2;
+                            weights_bf_0    <= weight[W_BITWIDTH-1:0];
+                            weights_bf_1    <= weight[W_BITWIDTH*2-1:W_BITWIDTH];
+                            weights_bf_2    <= weight[W_BITWIDTH*3-1:W_BITWIDTH*2];
+                            data_in_bf_0    <= data_in[IN_BITWIDTH-1:0];
+                            data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
+                            data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
+                            
                             case(is_load_bias)
                                 0: pre_sum_bf       <= accu_bf[PREV_SUM_BITWIDTH-1:0];
                                 1: pre_sum_bf       <= pre_sum;
@@ -321,10 +326,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_CELL: begin
                     if (cell_done) begin
-                        state           <= STATE_FINISH;
+                        state           <= STATE_HIDDEN;
                         cell_done       <= 1'b0;
-                        done            <= 1'b1;
-                        cell_state      <= mac_result;               
+//                        done            <= 1'b1;
+                        cell_state      <= mac_result;
+                                       
                     end
                     else begin
                         mac_en          <= 1'b1;       
@@ -338,7 +344,32 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 end
                 
                 STATE_HIDDEN: begin
-                
+                    if (hidden_done) begin
+                        state           <= STATE_FINISH;
+                        hidden_done     <= 1'b0;
+                        done            <= 1'b1;
+                        hidden_state    <= mac_result[QUANTIZE_SIZE-1:0];
+                    end
+                    else begin
+                        if (remain_waiting_time == 0) begin
+                            mac_en          <= 1'b1;       
+                            if (mac_done) begin
+                                hidden_done <= 1'b1;
+                                mac_en      <= 1'b0;
+                            end
+                            else ;
+                        end
+                        else begin 
+                            remain_waiting_time <= remain_waiting_time - 1;
+                            weights_bf_0    <= output_gate;
+                            weights_bf_1    <= {W_BITWIDTH{1'b0}};
+                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
+                            data_in_bf_0    <= tanh_cell_state_bf;
+                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
+                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
+                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                        end
+                    end
                 end
                 
                 STATE_FINISH: begin
@@ -348,10 +379,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         done            <= 1'b1;
                     end
                     else begin
-                        out[0]          <= accu_input_bf;
-                        out[1]          <= accu_forget_bf;
-                        out[2]          <= accu_cell_bf;
-                        out[3]          <= accu_output_bf;
+                        out             <= hidden_state;
                         finish_done     <= 1'b1;
                     end
                 end

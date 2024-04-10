@@ -39,12 +39,18 @@ class GenerateCell;
 endclass
 
 module tb_controller_lstm_unit();
+
+    localparam      NO_UNITS = 32;
+    localparam      NO_FEATURES = 9;
+    localparam      NO_TIMESTEPS = 28;
+    
     logic               clk;
     logic               rstn;
     logic               r_valid;
     logic               is_last_data_gate;
     logic [31:0]        data_in;
     logic               r_data;
+    logic               w_valid;
     logic               t_valid;
     logic [31:0]        out_data [0:3];
     logic [2:0]         o_state;
@@ -64,21 +70,28 @@ module tb_controller_lstm_unit();
     logic               o_is_load_bias;
     logic               o_is_load_cell;
     logic               o_is_last_input;
-    logic [3:0]         o_index;
+    logic [7:0]         o_index;
     logic [31:0]        o_lstm_accu_bf;
     logic [31:0]        o_mac_result;
     logic [7:0]         o_prev_cell_bf;
+    logic [7:0]         o_tanh_cell_state;
+    logic [31:0]        o_ht;
     
-    logic [31:0]        expected_input_gate;
-    logic [31:0]        expected_forget_gate;
-    logic [31:0]        expected_cell_gate;
-    logic [31:0]        expected_output_gate;
+    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
+    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
+    logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
+    logic [31:0]        expected_output_gate [0:NO_UNITS-1];
     
-    logic [31:0]    weight_array [0:3];
-    logic [31:0]    input_array;
-    logic [31:0]    bias_array [0:3];
-    logic [31:0]    cell_array;
+    logic [31:0]        weight_array [0:4*NO_UNITS-1];
+    logic [31:0]        input_array;
+    logic [31:0]        bias_array [0:4*NO_UNITS-1];
+    logic [31:0]        cell_array [0:NO_UNITS-1];
 
+    logic [31:0]        h_t [0:NO_TIMESTEPS-1][0:(NO_UNITS-1)/3 + 1];         
+
+    
+    logic [7:0]     current_unit;
+    logic           wrong_flag;
     
     controller uut (
         .clk(clk),
@@ -87,13 +100,14 @@ module tb_controller_lstm_unit();
         .is_last_data_gate(is_last_data_gate),
         .data_in(data_in),
         .r_data(r_data),
+        .w_valid(w_valid),
         .t_valid(t_valid),
         .out_data(out_data),
         .o_state(o_state),
-        .o_lstm_unit_done(o_lstm_unit_done),
+//        .o_lstm_unit_done(o_lstm_unit_done),
         .o_lstm_state(o_lstm_state),
         .o_lstm_is_continued(o_lstm_is_continued),
-        .o_lstm_is_waiting(o_lstm_is_waiting),
+//        .o_lstm_is_waiting(o_lstm_is_waiting),
         .weights(weights),
         .inputs(inputs),
         .bias(bias),
@@ -109,7 +123,9 @@ module tb_controller_lstm_unit();
         .o_is_load_cell(o_is_load_cell),
         .o_r_state(o_r_state),
         .o_prev_cell_bf(o_prev_cell_bf),
-        .o_cell_state(o_cell_state)
+        .o_cell_state(o_cell_state),
+        .o_tanh_cell_state(o_tanh_cell_state),
+        .o_ht(o_ht)
     );
     
     always #5 begin 
@@ -125,13 +141,17 @@ module tb_controller_lstm_unit();
     GenerateCell    cell_pkt;
     
     initial begin
+        wrong_flag   = 0;
+        current_unit = 0;
         index = 0;
         iter = 0;
-        expected_input_gate = 0;
-        expected_forget_gate = 0;
-        expected_cell_gate = 0;
-        expected_output_gate = 0;
-           
+        for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+            expected_input_gate[current_unit] = 0;
+            expected_forget_gate[current_unit] = 0;
+            expected_cell_gate[current_unit] = 0;
+            expected_output_gate[current_unit] = 0;
+        end
+
         input_pkt       = new ();
         weight_pkt      = new ();
         bias_pkt        = new ();
@@ -155,9 +175,11 @@ module tb_controller_lstm_unit();
         $display("//////////////////// Test No[%0d] Start /////////////////////", index);
         $display("///////////////////////////////////////////////////////////\n");
         
-        repeat(2) begin
+//        NO_FEATURES = 28;
+        
+        repeat(NO_FEATURES) begin
             index = 0;
-            repeat(4) begin
+            repeat(4*NO_UNITS) begin
                 weight_pkt.randomize();
                 @(negedge clk);
                 data_in = weight_pkt.weight_bf;
@@ -176,44 +198,46 @@ module tb_controller_lstm_unit();
             
             if (iter==0) begin
                 index = 0;
-                repeat(4) begin
+                repeat(4*NO_UNITS) begin
                     bias_pkt.randomize();
                     @(negedge clk);
                     data_in = bias_pkt.bias_bf;
                     bias_array[index]  =  bias_pkt.bias_bf;
                     index = index + 1;
                 end
-                expected_input_gate = bias_array[0];
-                expected_forget_gate = bias_array[1];
-                expected_cell_gate = bias_array[2];
-                expected_output_gate = bias_array[3];
+                for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+                    expected_input_gate[current_unit] = bias_array[current_unit];
+                    expected_forget_gate[current_unit] = bias_array[current_unit + NO_UNITS];
+                    expected_cell_gate[current_unit] = bias_array[current_unit + NO_UNITS*2];
+                    expected_output_gate[current_unit] = bias_array[current_unit + NO_UNITS*3];
+                end
             end
             else ;
             
             if (is_last_data_gate) begin
-                cell_pkt.randomize();
-                @(negedge clk);
-                data_in = cell_pkt.cell_bf;
-                cell_array = cell_pkt.cell_bf;
+                index = 0;
+                repeat(2) begin
+                    cell_pkt.randomize();
+                    @(negedge clk);
+                    data_in = cell_pkt.cell_bf;
+                    cell_array[index] = cell_pkt.cell_bf;
+                    index = index + 1;
+                end
             end
             else;
-            
-            expected_input_gate = expected_input_gate + weight_array[0][7:0]*input_array[7:0] + weight_array[0][15:8]*input_array[15:8] + weight_array[0][23:16]*input_array[23:16];
-            expected_forget_gate = expected_forget_gate + weight_array[1][7:0]*input_array[7:0] + weight_array[1][15:8]*input_array[15:8] + weight_array[1][23:16]*input_array[23:16];
-            expected_cell_gate = expected_cell_gate + weight_array[2][7:0]*input_array[7:0] + weight_array[2][15:8]*input_array[15:8] + weight_array[2][23:16]*input_array[23:16];
-            expected_output_gate = expected_output_gate + weight_array[3][7:0]*input_array[7:0] + weight_array[3][15:8]*input_array[15:8] + weight_array[3][23:16]*input_array[23:16];
-    //        for (index = 0; index < 10; index = index + 1) begin
-    //            expected_value = expected_value + weight_array[index][7:0]*input_array[index][7:0] + weight_array[index][15:8]*input_array[index][15:8] + weight_array[index][23:16]*input_array[index][23:16];
-    //            $display("Accumulation[%0d] = %0h", index, expected_value);
-    //        end
-            
-    //        $display("Accumulation[%0d] = %0h", index, expected_value);
+            for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+                expected_input_gate[current_unit] = expected_input_gate[current_unit] + weight_array[current_unit][7:0]*input_array[7:0] + weight_array[current_unit][15:8]*input_array[15:8] + weight_array[current_unit][23:16]*input_array[23:16];
+                expected_forget_gate[current_unit] = expected_forget_gate[current_unit] + weight_array[current_unit + NO_UNITS][7:0]*input_array[7:0] + weight_array[current_unit + NO_UNITS][15:8]*input_array[15:8] + weight_array[current_unit + NO_UNITS][23:16]*input_array[23:16];
+                expected_cell_gate[current_unit] = expected_cell_gate[current_unit] + weight_array[current_unit + NO_UNITS*2][7:0]*input_array[7:0] + weight_array[current_unit + NO_UNITS*2][15:8]*input_array[15:8] + weight_array[current_unit + NO_UNITS*2][23:16]*input_array[23:16];
+                expected_output_gate[current_unit] = expected_output_gate[current_unit] + weight_array[current_unit + NO_UNITS*3][7:0]*input_array[7:0] + weight_array[current_unit + NO_UNITS*3][15:8]*input_array[15:8] + weight_array[current_unit + NO_UNITS*3][23:16]*input_array[23:16];
+            end
+                       
             repeat(1) begin
                 @(negedge clk);
                 r_valid = 1'b0;
                 data_in = 32'd0;
             end
-            if (iter < 1) begin
+            if (iter < NO_FEATURES-1) begin
                 iter = iter + 1;
                 is_last_data_gate = 1'b0;
                 wait(r_data);
@@ -222,25 +246,43 @@ module tb_controller_lstm_unit();
             end
             else ; 
             
-            if (iter == 1) is_last_data_gate = 1'b1;
+            if (iter == NO_FEATURES-1) is_last_data_gate = 1'b1;
             else ;
             
         end  
         
+        index = 0;
+        wait(w_valid);
+        @(negedge clk);
+        while (w_valid) begin
+            for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+                @(negedge clk);
+                if (out_data[0] === expected_input_gate[current_unit] && out_data[1] === expected_forget_gate[current_unit] && out_data[2] === expected_cell_gate[current_unit] && out_data[3] === expected_output_gate[current_unit]) begin
+                    $display("[Unit no.%0d CORRECT] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], out_data[0], out_data[1], out_data[2], out_data[3]);
+               end
+                else begin
+                    $display("[Unit no.%0d WRONG] Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", current_unit, expected_input_gate[current_unit], expected_forget_gate[current_unit], expected_cell_gate[current_unit], expected_output_gate[current_unit], out_data[0], out_data[1], out_data[2], out_data[3]);
+                    wrong_flag = 1;
+                end
+            end
+        end
+        
         wait(t_valid);
-            
-        if (out_data[0] === expected_input_gate && out_data[1] === expected_forget_gate && out_data[2] === expected_cell_gate && out_data[3] === expected_output_gate) begin
-            $display("///////////////////////////////////////////////////////////\n");
-            $display("Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", expected_input_gate, expected_forget_gate, expected_cell_gate, expected_output_gate, out_data[0], out_data[1], out_data[2], out_data[3]);
-            $display("-------------Test No[%0d]: Result is correct!------------", index);
-            $display("///////////////////////////////////////////////////////////\n");
+        if (!wrong_flag) begin
+            $display("\n#####################################################");
+            $display("-----------------------------------------------------");
+            $display("\n!!!!!!!!!!!!!!!!   TESTCASE PASS   !!!!!!!!!!!!!!!!!!\n");
+            $display("-----------------------------------------------------");
+            $display("#####################################################");
         end
         else begin
-            $display("///////////////////////////////////////////////////////////");
-            $display("Expected Result = [%0h, %0h, %0h, %0h], Real result = [%0h, %0h, %0h, %0h]", expected_input_gate, expected_forget_gate, expected_cell_gate, expected_output_gate, out_data[0], out_data[1], out_data[2], out_data[3]);
-            $display("--------------- Test No[%0d]: Result is wrong! ----------------", index);
-            $display("///////////////////////////////////////////////////////////\n");
+            $display("\n#####################################################");
+            $display("-----------------------------------------------------");
+            $display("\n!!!!!!!!!!!!!!!!   TESTCASE FAIL   !!!!!!!!!!!!!!!!!!\n");
+            $display("-----------------------------------------------------");
+            $display("#####################################################");
         end
+            $display("\n---------------------- END ------------------------");    
         
         /*    
         repeat(10) begin
