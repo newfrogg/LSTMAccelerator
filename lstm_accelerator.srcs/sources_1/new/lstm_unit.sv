@@ -29,6 +29,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   en,
                     input                                   is_last_input,
                     input                                   is_last_data_gate,
+                    input                                   is_last_timestep,
                     input                                   is_continued,
                     input                                   is_load_bias,
                     input                                   is_load_cell,
@@ -37,6 +38,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input  [IN_BITWIDTH*3-1:0]              data_in,
                     input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                     output logic                            is_waiting,
+                    output logic                            finish_step,
                     output logic                            done,
                     output logic [7:0]                      out
 //                    output logic [2:0]                      o_lstm_state
@@ -60,7 +62,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         CELL_UPDATE         = 2'b10,
         OUTPUT_GATE         = 2'b11,
         
+        TIMESTEPS_LATENCY   = 5,
         LATENCY             = 1;
+        
         
     
     logic   [2:0]   state;
@@ -73,7 +77,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic           wait_done;
     logic           finish_done;
     
-    logic           remain_waiting_time;
+    logic   [2:0]   remain_waiting_time;
     
     logic   [BUFFER_SIZE-1:0]       accu_input_bf;
     logic   [BUFFER_SIZE-1:0]       accu_forget_bf;
@@ -177,6 +181,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     hidden_done         <= 1'b0;
                     wait_done           <= 1'b0;
                     finish_done         <= 1'b0;
+                    finish_step         <= 1'b0;
                     done                <= 1'b0;
                     
                     accu_input_bf       <= 0;
@@ -240,6 +245,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 STATE_WAIT: begin
                     is_waiting          <= 1'b0;
                     if (remain_waiting_time == 0) begin
+                        finish_step     <= 1'b0;
                         if (is_continued == 1) begin
                             state           <= STATE_IRB;
                             weights_bf_0    <= weight[W_BITWIDTH-1:0];
@@ -258,6 +264,16 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 1: prev_cell_bf <= pre_sum[QUANTIZE_SIZE-1:0];
                                 0: prev_cell_bf <= {QUANTIZE_SIZE{1'b0}}; 
                             endcase
+                            
+                            if (finish_step == 1'b1) begin
+                                finish_step         <= 1'b0;
+                                accu_input_bf       <= 0;
+                                accu_forget_bf      <= 0;
+                                accu_cell_bf        <= 0;
+                                accu_output_bf      <= 0;
+                                accu_bf             <= {BUFFER_SIZE{1'b0}};
+                            end
+                            else ;
                             
                             remain_waiting_time     <= LATENCY;
                         end
@@ -345,9 +361,16 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_HIDDEN: begin
                     if (hidden_done) begin
-                        state           <= STATE_FINISH;
-                        hidden_done     <= 1'b0;
-                        done            <= 1'b1;
+                        if (is_last_timestep) begin
+                            state           <= STATE_FINISH;
+                            done            <= 1'b1;
+                        end
+                        else begin
+                            state           <= STATE_WAIT;
+                            is_waiting      <= 1'b1;
+                            finish_step     <= 1'b1;
+                        end
+                        hidden_done     <= 1'b0;     
                         hidden_state    <= mac_result[QUANTIZE_SIZE-1:0];
                     end
                     else begin
@@ -356,6 +379,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             if (mac_done) begin
                                 hidden_done <= 1'b1;
                                 mac_en      <= 1'b0;
+                                remain_waiting_time <= LATENCY;
                             end
                             else ;
                         end
