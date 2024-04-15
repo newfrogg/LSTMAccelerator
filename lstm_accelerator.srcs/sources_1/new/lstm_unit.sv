@@ -30,6 +30,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   is_last_input,
                     input                                   is_last_data_gate,
                     input                                   is_last_timestep,
+                    input                                   is_last_sample,
                     input                                   is_continued,
                     input                                   is_load_bias,
                     input                                   is_load_cell,
@@ -362,8 +363,13 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 STATE_HIDDEN: begin
                     if (hidden_done) begin
                         if (is_last_timestep) begin
-                            state           <= STATE_FINISH;
-                            done            <= 1'b1;
+                            if (!is_last_sample) begin
+                                state           <= STATE_IDLE;
+                            end
+                            else begin
+                                state           <= STATE_FINISH;
+                                done            <= 1'b1;
+                            end 
                         end
                         else begin
                             state           <= STATE_WAIT;

@@ -61,6 +61,7 @@ module controller(
         NO_UNITS                = 2,
         NO_FEATURES             = 3,
         NO_TIMESTEPS            = 2,
+        NO_SAMPLES              = 2,
         
         W_BITWIDTH              = 8,
         IN_BITWIDTH             = 8,
@@ -96,6 +97,7 @@ module controller(
     
     
     logic [1:0]                             current_timestep;
+    logic [1:0]                             current_sample;
     
     logic [2:0]                             r_state;
     logic                                   w_state;
@@ -113,6 +115,7 @@ module controller(
     logic                                   is_continued;
     logic                                   is_last_input;
     logic                                   is_last_timestep;
+    logic                                   is_last_sample;
     logic                                   is_load_bias;
     logic                                   is_load_cell;
     logic                                   lstm_is_waiting [0:NO_UNITS-1];
@@ -189,6 +192,7 @@ module controller(
                 .is_last_input(is_last_input),
                 .is_last_data_gate(is_last_data_gate),
                 .is_last_timestep(is_last_timestep),
+                .is_last_sample(is_last_sample),
                 .is_continued(is_continued),
                 .is_load_bias(is_load_bias),
                 .is_load_cell(is_load_cell),
@@ -206,7 +210,7 @@ module controller(
         
     assign o_lstm_is_continued = is_continued;
     assign o_lstm_is_waiting = lstm_is_waiting[NO_UNITS-1];
-//    assign o_lstm_unit_done = lstm_unit_done;
+//    assign o_lstm_unit_done = lstm_unit_done[[NO_UNITS-1]];
 
     // implement FSM for controller
     always @(posedge clk or negedge rstn) begin
@@ -231,6 +235,7 @@ module controller(
 //                    pre_sum             <= {OUT_BITWIDTH{1'b0}};
                     
                     is_last_timestep    <= 1'b0;
+                    is_last_sample      <= 1'b0;
                     data_receive_done   <= 1'b0;
                     data_load_done      <= 1'b0;
                     wb_done             <= 1'b0;
@@ -247,6 +252,7 @@ module controller(
                     current_input_index     <= 8'b0;
                     current_buffer_index    <= 8'b0;
                     current_bias_index      <= 8'b0;
+                    current_sample          <= 0;
                     
                     current_timestep        <= 0;
                     
@@ -321,7 +327,6 @@ module controller(
                     else begin
                         
                         current_weight_index    <= current_weight_index + 1;
-//                        current_input_index     <= current_input_index + 1;
                         current_bias_index      <= current_bias_index + 1;
                         current_buffer_index    <= current_buffer_index + 1;
                         
@@ -330,15 +335,7 @@ module controller(
                         pre_sum[current_buffer_index]   <= bias_bf[current_bias_index][OUT_BITWIDTH-1:0];
                         
                         if (current_buffer_index == NO_UNITS-1) begin
-                            current_buffer_index    <= 0;
-//                            case(current_weight_index) 
-//                                0: type_gate    <= IGATE;
-//                                1: type_gate    <= FGATE;
-//                                2: type_gate    <= CGATE;
-//                                3: type_gate    <= OGATE;
-//                            endcase
-//                            type_gate   <= type_gate+1;
-                            
+                            current_buffer_index    <= 0;                            
                             data_load_done      <= 1'b1;
                             if (current_weight_index == N_GATES*NO_UNITS-1)  is_last_input <= 1'b1;
                             else is_last_input  <= 1'b0;
@@ -412,7 +409,40 @@ module controller(
                         w_valid <= 0;
                         wb_done <= 0;
                         if (current_timestep == NO_TIMESTEPS-1) begin
-                            state   <= STATE_FINISH;
+                            if (current_sample == NO_SAMPLES - 1) begin
+                                current_sample  <= 0;
+                                state   <= STATE_FINISH;
+                            end
+                            else begin
+                                state               <= STATE_RDATA;
+                                current_sample      <= current_sample + 1;
+                                r_state             <= WREAD;
+                                w_state             <= LDATA;
+                                type_gate           <= IGATE;
+    
+                                is_last_timestep    <= 1'b0;
+                                data_receive_done   <= 1'b0;
+                                data_load_done      <= 1'b0;
+                                wb_done             <= 1'b0;
+                                run_done            <= 1'b0;
+                                finish_done         <= 1'b0;
+                                
+                                t_valid             <= 1'b0;
+                                is_load_bias        <= 1'b0;
+                                is_load_cell        <= 1'b0;
+                                is_last_input       <= 1'b0;
+                                read_bias           <= 1'b0;
+                                
+                                current_weight_index    <= 8'b0;
+                                current_input_index     <= 8'b0;
+                                current_buffer_index    <= 8'b0;
+                                current_bias_index      <= 8'b0;
+                                
+                                current_timestep        <= 0;
+                                
+                                if (current_sample == NO_SAMPLES - 2) is_last_sample    <= 1;
+                                else  is_last_sample <= 1;
+                            end
                         end
                         else begin
                             current_timestep    <= current_timestep + 1;
@@ -421,7 +451,7 @@ module controller(
                             w_state             <= LDATA;
                             type_gate           <= IGATE;
 
-                           is_last_timestep     <= 1'b0;
+                            is_last_timestep    <= 1'b0;
                             data_receive_done   <= 1'b0;
                             data_load_done      <= 1'b0;
                             wb_done             <= 1'b0;
@@ -473,10 +503,6 @@ module controller(
                         t_valid         <= 1'b1;
                     end
                     else begin
-//                        out_data[0]     <= lstm_unit_result[0];
-//                        out_data[1]     <= lstm_unit_result[1];
-//                        out_data[2]     <= lstm_unit_result[2];
-//                        out_data[3]     <= lstm_unit_result[3];
                         finish_done     <= 1'b1;
                     end
                 end

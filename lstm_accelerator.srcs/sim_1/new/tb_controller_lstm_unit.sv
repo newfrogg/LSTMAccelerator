@@ -43,6 +43,7 @@ module tb_controller_lstm_unit();
     localparam      NO_UNITS = 2;
     localparam      NO_FEATURES = 3;
     localparam      NO_TIMESTEPS = 2;
+    localparam      NO_SAMPLES = 2;
     
     logic               clk;
     logic               rstn;
@@ -60,7 +61,7 @@ module tb_controller_lstm_unit();
     logic [2:0]         o_lstm_state;
     logic [1:0]         o_mac_state;
     logic [2:0]         o_r_state;
-    logic               o_lstm_unit_done;
+//    logic               o_lstm_unit_done;
     logic               o_lstm_finish_step;
     logic               o_lstm_is_continued;
     logic               o_lstm_is_waiting;
@@ -89,7 +90,7 @@ module tb_controller_lstm_unit();
     logic [31:0]        cell_gate;
     logic [31:0]        output_gate;
     
-    logic [31:0]        input_matrix [0:NO_TIMESTEPS-1][0:NO_FEATURES-1];
+    logic [31:0]        input_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:NO_FEATURES-1];
     
     logic [31:0]        in_weight_matrix [0:NO_UNITS-1][0:NO_FEATURES-1];
     logic [31:0]        for_weight_matrix [0:NO_UNITS-1][0:NO_FEATURES-1];
@@ -103,13 +104,14 @@ module tb_controller_lstm_unit();
     
     logic [31:0]        bias_matrix [0:NO_UNITS-1][0:3];
     
-    logic [31:0]        ht_matrix [0:NO_TIMESTEPS-1][0:(NO_UNITS-1)/3];
+    logic [31:0]        ht_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:(NO_UNITS-1)/3];
     
     logic [31:0]        cell_state;        
 
     
     integer         current_unit;
     integer         current_timestep;
+    integer         current_sample;
     logic [7:0]     current_ht;
     logic           wrong_flag;
     
@@ -184,16 +186,20 @@ module tb_controller_lstm_unit();
         
         // generate input matrix [timesteps, features]
         current_timestep = 0;
-        repeat(NO_TIMESTEPS) begin
-            index = 0;
-            repeat(NO_FEATURES) begin
-                input_pkt.randomize();
-                input_matrix[current_timestep][index] = input_pkt.input_bf;
-                index = index + 1;
+        current_sample = 0;
+        repeat(NO_SAMPLES) begin
+            repeat(NO_TIMESTEPS) begin
+                index = 0;
+                repeat(NO_FEATURES) begin
+                    input_pkt.randomize();
+                    input_matrix[current_sample][current_timestep][index] = input_pkt.input_bf;
+                    index = index + 1;
+                end
+                current_timestep = current_timestep + 1;
             end
-            current_timestep = current_timestep + 1;
+            current_sample = current_sample + 1;
+            current_timestep = 0;
         end
-        
         // generate input weight matrix [units, features]
         current_unit = 0;
         repeat(NO_UNITS) begin
@@ -278,7 +284,9 @@ module tb_controller_lstm_unit();
         $display("///////////////////////////////////////////////////////////\n");
         
 //        NO_FEATURES = 28;
-        repeat(NO_TIMESTEPS) begin
+        current_sample = 0;
+        repeat(NO_SAMPLES) begin
+            repeat(NO_TIMESTEPS) begin
         /////////////////////////////////////////////////////////////////////////
         
             index = 0;
@@ -320,7 +328,7 @@ module tb_controller_lstm_unit();
             /*          load input               */
             
                 @(negedge clk);
-                data_in = input_matrix[current_timestep][index];
+                data_in = input_matrix[current_sample][current_timestep][index];
                 
             /*          load bias               */    
                 current_unit = 0;
@@ -435,7 +443,7 @@ module tb_controller_lstm_unit();
                 /*          load input               */
                 
                     @(negedge clk);
-                    data_in = ht_matrix[current_timestep-1][index];
+                    data_in = ht_matrix[current_sample][current_timestep-1][index];
                     
                     repeat(1) begin
                     @(negedge clk);
@@ -463,13 +471,13 @@ module tb_controller_lstm_unit();
                 while (w_valid) begin
                     for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
                         @(negedge clk);
-                        ht_matrix[current_timestep][current_ht] = out_data;
+                        ht_matrix[current_sample][current_timestep][current_ht] = out_data;
                     end
                     @(negedge clk);
                 end
                 
                 for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
-                    $display("Real result ht[%0d][%0d]= [%0h]", current_timestep, current_ht, ht_matrix[current_timestep][current_ht]);
+                    $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
                 end
                
             ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -479,13 +487,13 @@ module tb_controller_lstm_unit();
                 while (w_valid) begin
                     for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
                         @(negedge clk);
-                        ht_matrix[current_timestep][current_ht] = out_data;
+                        ht_matrix[current_sample][current_timestep][current_ht] = out_data;
                     end
                     @(negedge clk);
                 end
                 
                 for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
-                    $display("Real result ht[%0d][%0d]= [%0h]", current_timestep, current_ht, ht_matrix[current_timestep][current_ht]);
+                    $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
                 end
             end
             
@@ -493,8 +501,13 @@ module tb_controller_lstm_unit();
             is_last_data_gate = 1'b0;
             
                     /////////////////////////////////////////////////////////////////////////
-        end    
-        
+            end    
+            
+            current_sample = current_sample + 1;
+            current_timestep = 0;
+        end
+         
+           
         wait(t_valid);
         if (!wrong_flag) begin
             $display("\n#####################################################");
@@ -512,8 +525,8 @@ module tb_controller_lstm_unit();
         end
             
             $display("\n---------------------- END ------------------------");
-        
-    end    
+    
+        end 
 /*
         ////////////////////////////
 
