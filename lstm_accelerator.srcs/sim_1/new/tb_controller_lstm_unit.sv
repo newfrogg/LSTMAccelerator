@@ -40,8 +40,8 @@ endclass
 
 module tb_controller_lstm_unit();
 
-    localparam      NO_UNITS = 4;
-    localparam      NO_FEATURES = 5;
+    localparam      NO_UNITS = 2;
+    localparam      NO_FEATURES = 3;
     localparam      NO_TIMESTEPS = 2;
     
     logic               clk;
@@ -53,6 +53,7 @@ module tb_controller_lstm_unit();
     logic               w_valid;
     logic               t_valid;
     logic [31:0]        out_data;
+    logic [7:0]         o_lstm_unit_result [0:3];
     logic [7:0]         o_index;
     logic [1:0]         o_current_timestep;
     logic [2:0]         o_state;
@@ -102,7 +103,7 @@ module tb_controller_lstm_unit();
     
     logic [31:0]        bias_matrix [0:NO_UNITS-1][0:3];
     
-    logic [31:0]        ht_matrix [0:NO_UNITS-1][0:(NO_UNITS-1)/3];
+    logic [31:0]        ht_matrix [0:NO_TIMESTEPS-1][0:(NO_UNITS-1)/3];
     
     logic [31:0]        cell_state;        
 
@@ -145,7 +146,8 @@ module tb_controller_lstm_unit();
         .o_cell_state(o_cell_state),
         .o_tanh_cell_state(o_tanh_cell_state),
         .o_ht(o_ht),
-        .o_current_timestep(o_current_timestep)
+        .o_current_timestep(o_current_timestep),
+        .o_lstm_unit_result(o_lstm_unit_result)
     );
     
     always #5 begin 

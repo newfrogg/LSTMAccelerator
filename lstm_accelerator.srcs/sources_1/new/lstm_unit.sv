@@ -369,6 +369,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             state           <= STATE_WAIT;
                             is_waiting      <= 1'b1;
                             finish_step     <= 1'b1;
+                            out             <= mac_result[QUANTIZE_SIZE-1:0];
                         end
                         hidden_done     <= 1'b0;     
                         hidden_state    <= mac_result[QUANTIZE_SIZE-1:0];

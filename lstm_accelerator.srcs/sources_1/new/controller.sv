@@ -53,12 +53,13 @@ module controller(
     output logic [31:0] o_cell_state,
     output logic [7:0]  o_tanh_cell_state,
     output logic [31:0] o_ht,
-    output logic [1:0]  o_current_timestep
+    output logic [1:0]  o_current_timestep,
+    output logic [7:0]  o_lstm_unit_result [0:3]
 );
 
     localparam
-        NO_UNITS                = 4,
-        NO_FEATURES             = 5,
+        NO_UNITS                = 2,
+        NO_FEATURES             = 3,
         NO_TIMESTEPS            = 2,
         
         W_BITWIDTH              = 8,
@@ -172,6 +173,10 @@ module controller(
     assign o_lstm_state = genblk1[NO_UNITS-1].u_lstm_unit.state;
     assign o_lstm_finish_step = genblk1[NO_UNITS-1].u_lstm_unit.finish_step;
     assign o_current_timestep = current_timestep;
+    assign o_lstm_unit_result[0] = lstm_unit_result[0];
+    assign o_lstm_unit_result[1] = lstm_unit_result[1];
+    assign o_lstm_unit_result[2] = lstm_unit_result[2];
+    assign o_lstm_unit_result[3] = lstm_unit_result[3];
     
     genvar i;
     
@@ -448,14 +453,14 @@ module controller(
                         else begin
                             w_valid         <= 1'b1;
                             current_buffer_index <= current_buffer_index + 3;
-                            if (current_buffer_index <= NO_UNITS - 3) begin
-                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                            if (current_buffer_index == NO_UNITS - 1) begin
+                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index]};
                             end
                             else if (current_buffer_index == NO_UNITS - 2) begin
                                 out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
                             end
-                            else if (current_buffer_index == NO_UNITS - 1) begin
-                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index]};
+                            else if (current_buffer_index <= NO_UNITS - 3) begin
+                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
                             end
                         end
                     end
