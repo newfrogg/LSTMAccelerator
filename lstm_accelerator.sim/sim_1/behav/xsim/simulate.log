@@ -5,8 +5,6 @@ Time resolution is 1 ps
 
 SAMPLE = 0, Real result ht[0][0]= [1868]
 SAMPLE = 0, Real result ht[1][0]= [1868]
-SAMPLE = 1, Real result ht[0][0]= [1868]
-SAMPLE = 1, Real result ht[1][0]= [1868]
 
 #####################################################
 -----------------------------------------------------

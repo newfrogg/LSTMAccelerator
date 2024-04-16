@@ -61,7 +61,7 @@ module controller(
         NO_UNITS                = 2,
         NO_FEATURES             = 3,
         NO_TIMESTEPS            = 2,
-        NO_SAMPLES              = 2,
+        NO_SAMPLES              = 1,
         
         W_BITWIDTH              = 8,
         IN_BITWIDTH             = 8,

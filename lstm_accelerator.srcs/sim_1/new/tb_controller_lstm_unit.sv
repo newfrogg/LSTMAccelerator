@@ -43,7 +43,7 @@ module tb_controller_lstm_unit();
     localparam      NO_UNITS = 2;
     localparam      NO_FEATURES = 3;
     localparam      NO_TIMESTEPS = 2;
-    localparam      NO_SAMPLES = 2;
+    localparam      NO_SAMPLES = 1;
     
     logic               clk;
     logic               rstn;
