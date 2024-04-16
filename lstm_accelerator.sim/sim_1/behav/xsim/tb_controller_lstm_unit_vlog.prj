@@ -3,9 +3,9 @@ sv xil_defaultlib  \
 "../../../../lstm_accelerator.srcs/sources_1/new/MAC.sv" \
 "../../../../lstm_accelerator.srcs/sources_1/new/controller.sv" \
 "../../../../lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" \
-"../../../../../LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/sigmoid.sv" \
-"../../../../../LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh.sv" \
-"../../../../../LSTM_accelerator/LSTM_accelerator.srcs/sources_1/new/tanh_16b.sv" \
+"../../../../lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv" \
+"../../../../lstm_accelerator.srcs/sources_1/new/tanh_appr.sv" \
+"../../../../lstm_accelerator.srcs/sources_1/new/tanh_appr_16.sv" \
 "../../../../lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" \
 
 # compile glbl module

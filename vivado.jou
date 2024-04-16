@@ -19,3 +19,16 @@ remove_files  /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
 close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv w ]
 add_files /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl
+close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/tanh_appr_16.sv w ]
+add_files /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/tanh_appr_16.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source tb_controller_lstm_unit.tcl

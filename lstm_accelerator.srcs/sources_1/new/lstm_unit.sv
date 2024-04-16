@@ -131,20 +131,34 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .out(mac_result)
     );
     
-    tanh #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh (
+//    tanh #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh (
+//        .data_in(accu_cell_bf),
+//        .data_out(cell_update_bf)
+//    );
+    
+//    sigmoid #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_sigmoid (
+//        .data_in(accu_bf),
+//        .data_out(sigmoid_bf)
+//    );
+    
+    tanh_appr #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh (
         .data_in(accu_cell_bf),
         .data_out(cell_update_bf)
     );
     
-    sigmoid #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_sigmoid (
+    sigmoid_appro #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_sigmoid (
         .data_in(accu_bf),
         .data_out(sigmoid_bf)
     );
     
-    tanh_16b #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
+    tanh_appr_16 #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
         .data_in(cell_state[15:0]),
         .data_out(tanh_cell_state_bf)
     );
+//    tanh_16b #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
+//        .data_in(cell_state[15:0]),
+//        .data_out(tanh_cell_state_bf)
+//    );
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
