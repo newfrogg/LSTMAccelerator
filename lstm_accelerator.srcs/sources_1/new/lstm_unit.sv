@@ -91,10 +91,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [QUANTIZE_SIZE-1:0]     forget_gate;
     logic   [QUANTIZE_SIZE-1:0]     output_gate;
     logic   [QUANTIZE_SIZE-1:0]     prev_cell_bf;
-    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
+//    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
     
     
-    logic   [OUT_BITWIDTH-1:0]      cell_state;  
+//    logic   [OUT_BITWIDTH-1:0]      cell_state;  
     logic   [QUANTIZE_SIZE-1:0]     hidden_state;
     
     logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf;
@@ -151,10 +151,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .data_out(sigmoid_bf)
     );
     
-    tanh_appr_16 #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
-        .data_in(cell_state[15:0]),
-        .data_out(tanh_cell_state_bf)
-    );
+//    tanh_appr_16 #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
+//        .data_in(cell_state[15:0]),
+//        .data_out(tanh_cell_state_bf)
+//    );
 //    tanh_16b #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
 //        .data_in(cell_state[15:0]),
 //        .data_out(tanh_cell_state_bf)
@@ -360,8 +360,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         state           <= STATE_HIDDEN;
                         cell_done       <= 1'b0;
 //                        done            <= 1'b1;
-                        cell_state      <= mac_result;
-                                       
+//                        cell_state      <= mac_result;
+                          accu_cell_bf  <= mac_result;                                       
                     end
                     else begin
                         mac_en          <= 1'b1;       
@@ -409,7 +409,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             weights_bf_0    <= output_gate;
                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                            data_in_bf_0    <= tanh_cell_state_bf;
+//                            data_in_bf_0    <= tanh_cell_state_bf;
+                            data_in_bf_0    <= cell_update_bf;
                             data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
                             data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
                             pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};

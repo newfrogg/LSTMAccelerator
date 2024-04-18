@@ -40,9 +40,10 @@ endclass
 
 module tb_controller_lstm_unit();
 
-    localparam      NO_UNITS = 2;
-    localparam      NO_FEATURES = 3;
-    localparam      NO_TIMESTEPS = 2;
+    localparam      NO_UNITS = 3;
+    localparam      MAX_NO_UNITS = 3;
+    localparam      NO_FEATURES = 2;
+    localparam      NO_TIMESTEPS = 1;
     localparam      NO_SAMPLES = 1;
     
     logic               clk;
@@ -56,7 +57,11 @@ module tb_controller_lstm_unit();
     logic [31:0]        out_data;
     logic [7:0]         o_lstm_unit_result [0:3];
     logic [7:0]         o_index;
-    logic [1:0]         o_current_timestep;
+    logic [4:0]         o_current_timestep;
+    logic [6:0]         current_no_units;
+    logic [6:0]         o_current_no_units;
+    logic [6:0]         o_remaining_no_units;
+    logic [6:0]         remaining_no_units;
     logic [2:0]         o_state;
     logic [2:0]         o_lstm_state;
     logic [1:0]         o_mac_state;
@@ -72,6 +77,7 @@ module tb_controller_lstm_unit();
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
+    logic               o_read_bias;
     logic               o_is_load_bias;
     logic               o_is_load_cell;
     logic               o_is_last_input;
@@ -81,10 +87,10 @@ module tb_controller_lstm_unit();
     logic [7:0]         o_tanh_cell_state;
     logic [31:0]        o_ht;
     
-    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
-    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
-    logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
-    logic [31:0]        expected_output_gate [0:NO_UNITS-1];
+//    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
+//    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
+//    logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
+//    logic [31:0]        expected_output_gate [0:NO_UNITS-1];
     logic [31:0]        input_gate;
     logic [31:0]        forget_gate;
     logic [31:0]        cell_gate;
@@ -149,7 +155,10 @@ module tb_controller_lstm_unit();
         .o_tanh_cell_state(o_tanh_cell_state),
         .o_ht(o_ht),
         .o_current_timestep(o_current_timestep),
-        .o_lstm_unit_result(o_lstm_unit_result)
+        .o_lstm_unit_result(o_lstm_unit_result),
+        .o_current_no_units(o_current_no_units),
+        .o_remaining_no_units(o_remaining_no_units),
+        .o_read_bias(o_read_bias)
     );
     
     always #5 begin 
@@ -168,16 +177,18 @@ module tb_controller_lstm_unit();
         wrong_flag   = 0;
         current_unit = 0;
         current_timestep = 0;
+        current_no_units = 0;
+        remaining_no_units = NO_UNITS;
         is_last_data_gate = 0;
         current_ht   = 0;
         index = 0;
         iter = 0;
-        for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
-            expected_input_gate[current_unit] = 0;
-            expected_forget_gate[current_unit] = 0;
-            expected_cell_gate[current_unit] = 0;
-            expected_output_gate[current_unit] = 0;
-        end
+//        for (current_unit = 0; current_unit < NO_UNITS; current_unit = current_unit + 1) begin
+//            expected_input_gate[current_unit] = 0;
+//            expected_forget_gate[current_unit] = 0;
+//            expected_cell_gate[current_unit] = 0;
+//            expected_output_gate[current_unit] = 0;
+//        end
 
         input_pkt       = new ();
         weight_pkt      = new ();
@@ -275,7 +286,7 @@ module tb_controller_lstm_unit();
         repeat(10)
             @(negedge clk);
     
-        r_valid = 1'b1;
+//        r_valid = 1'b1;
         current_timestep = 0;
         current_unit = 0;
         //////1st///////
@@ -285,225 +296,242 @@ module tb_controller_lstm_unit();
         
 //        NO_FEATURES = 28;
         current_sample = 0;
-        repeat(NO_SAMPLES) begin
-            repeat(NO_TIMESTEPS) begin
-        /////////////////////////////////////////////////////////////////////////
-        
-            index = 0;
-            repeat(NO_FEATURES) begin
-                r_valid = 1;
-            /*          load input weight               */
-                // load input input weight
-                current_unit = 0;
-                repeat(NO_UNITS) begin
+        repeat(NO_SAMPLES) begin   
+            remaining_no_units  = NO_UNITS;
+            while(remaining_no_units != 0) begin
+                repeat(3) begin
                     @(negedge clk);
-                    data_in = in_weight_matrix[current_unit][index];
-                    current_unit = current_unit + 1;
                 end
-                
-                //load input forget weight
-                current_unit = 0;
-                repeat(NO_UNITS) begin
-                    @(negedge clk);
-                    data_in = for_weight_matrix[current_unit][index];
-                    current_unit = current_unit + 1;
+                r_valid = 0; 
+                if (remaining_no_units >= MAX_NO_UNITS) begin
+                    current_no_units    = MAX_NO_UNITS;
+                    remaining_no_units  = remaining_no_units - MAX_NO_UNITS;
                 end
-                
-                //load input cell weight
-                current_unit = 0;
-                repeat(NO_UNITS) begin
-                    @(negedge clk);
-                    data_in = cell_weight_matrix[current_unit][index];
-                    current_unit = current_unit + 1;
+                else begin
+                    current_no_units    = remaining_no_units;
+                    remaining_no_units  = 0;
                 end
-                
-                //load input output weight
-                current_unit = 0;
-                repeat(NO_UNITS) begin
-                    @(negedge clk);
-                    data_in = out_weight_matrix[current_unit][index];
-                    current_unit = current_unit + 1;
-                end
-                
-            /*          load input               */
+                repeat(NO_TIMESTEPS) begin
+            /////////////////////////////////////////////////////////////////////////
             
-                @(negedge clk);
-                data_in = input_matrix[current_sample][current_timestep][index];
-                
-            /*          load bias               */    
-                current_unit = 0;
-                if (index == 0) begin
-                    // load input bias
-                    current_unit = 0;
-                    repeat(NO_UNITS) begin
-                        @(negedge clk);
-                        data_in = bias_matrix[current_unit][0];
-                        current_unit = current_unit + 1;
-                    end
-                    // load forget bias
-                    current_unit = 0;
-                    repeat(NO_UNITS) begin
-                        @(negedge clk);
-                        data_in = bias_matrix[current_unit][1];
-                        current_unit = current_unit + 1;
-                    end
-                    // load cell bias
-                    current_unit = 0;
-                    repeat(NO_UNITS) begin
-                        @(negedge clk);
-                        data_in = bias_matrix[current_unit][2];
-                        current_unit = current_unit + 1;
-                    end
-                    // load output bias
-                    current_unit = 0;
-                    repeat(NO_UNITS) begin
-                        @(negedge clk);
-                        data_in = bias_matrix[current_unit][3];
-                        current_unit = current_unit + 1;
-                    end
-                end
-                else if (index == NO_FEATURES - 1 && current_timestep == 0) begin
-                    current_unit = 0;
-                    repeat(NO_UNITS) begin
-                        @(negedge clk);
-                        if (current_timestep != 0) data_in = cell_state[current_unit];
-                        else data_in = 0;
-                        current_unit = current_unit + 1;
-                    end
-                end
-                else ;
-                
-                repeat(1) begin
-                    @(negedge clk);
-                    r_valid = 1'b0;
-                    data_in = 32'd0;
-                end
-                
-                if (index < NO_FEATURES-1) begin
-                    index = index + 1;
-                    is_last_data_gate = 1'b0;
-                    wait(r_data);
-                    @(negedge clk);
-                    r_valid = 1'b1;
-                end
-                else if (index == NO_FEATURES-1 && current_timestep !=0) begin
-                    wait(r_data);
-                    @(negedge clk);
-                    r_valid = 1'b1;
-                end 
-                
-                if (index == NO_FEATURES-1 && current_timestep == 0) begin
-                    is_last_data_gate = 1'b1;
-                end 
-                else is_last_data_gate = 1'b0;
-    
-            end 
-                        
-//            current_ht = 0;
-
-            
-            if (current_timestep != 0) begin
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////
                 index = 0;
-                repeat((NO_UNITS-1)/3 + 1) begin
+                repeat(NO_FEATURES) begin
                     r_valid = 1;
-                /*          load r weight               */
-                    // load r input weight
+                /*          load input weight               */
+                    // load input input weight
                     current_unit = 0;
-                    repeat(NO_UNITS) begin
+                    repeat(current_no_units) begin
                         @(negedge clk);
-                        data_in = r_in_weight_matrix[current_unit][index];
+                        data_in = in_weight_matrix[current_unit][index];
                         current_unit = current_unit + 1;
                     end
                     
-                    //load r forget weight
+                    //load input forget weight
                     current_unit = 0;
-                    repeat(NO_UNITS) begin
+                    repeat(current_no_units) begin
                         @(negedge clk);
-                        data_in = r_for_weight_matrix[current_unit][index];
+                        data_in = for_weight_matrix[current_unit][index];
                         current_unit = current_unit + 1;
                     end
                     
-                    //load r cell weight
+                    //load input cell weight
                     current_unit = 0;
-                    repeat(NO_UNITS) begin
+                    repeat(current_no_units) begin
                         @(negedge clk);
-                        data_in = r_cell_weight_matrix[current_unit][index];
+                        data_in = cell_weight_matrix[current_unit][index];
                         current_unit = current_unit + 1;
                     end
                     
-                    //load r output weight
+                    //load input output weight
                     current_unit = 0;
-                    repeat(NO_UNITS) begin
+                    repeat(current_no_units) begin
                         @(negedge clk);
-                        data_in = r_out_weight_matrix[current_unit][index];
+                        data_in = out_weight_matrix[current_unit][index];
                         current_unit = current_unit + 1;
                     end
                     
                 /*          load input               */
                 
                     @(negedge clk);
-                    data_in = ht_matrix[current_sample][current_timestep-1][index];
+                    data_in = input_matrix[current_sample][current_timestep][index];
+                    
+                /*          load bias               */    
+                    current_unit = 0;
+                    if (index == 0) begin
+                        // load input bias
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = bias_matrix[current_unit][0];
+                            current_unit = current_unit + 1;
+                        end
+                        // load forget bias
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = bias_matrix[current_unit][1];
+                            current_unit = current_unit + 1;
+                        end
+                        // load cell bias
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = bias_matrix[current_unit][2];
+                            current_unit = current_unit + 1;
+                        end
+                        // load output bias
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = bias_matrix[current_unit][3];
+                            current_unit = current_unit + 1;
+                        end
+                    end
+                    else if (index == NO_FEATURES - 1 && current_timestep == 0) begin
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            if (current_timestep != 0) data_in = cell_state[current_unit];
+                            else data_in = 0;
+                            current_unit = current_unit + 1;
+                        end
+                    end
+                    else ;
                     
                     repeat(1) begin
-                    @(negedge clk);
-                    r_valid = 1'b0;
-                    data_in = 32'd0;
+                        @(negedge clk);
+                        r_valid = 1'b0;
+                        data_in = 32'd0;
                     end
                     
-                    if (index < (NO_UNITS-1)/3) begin
+                    if (index < NO_FEATURES-1) begin
                         index = index + 1;
                         is_last_data_gate = 1'b0;
                         wait(r_data);
                         @(negedge clk);
                         r_valid = 1'b1;
                     end
-                    else ;
+                    else if (index == NO_FEATURES-1 && current_timestep !=0) begin
+                        wait(r_data);
+                        @(negedge clk);
+                        r_valid = 1'b1;
+                    end 
                     
-                    if (index == (NO_UNITS-1)/3) begin
+                    if (index == NO_FEATURES-1 && current_timestep == 0) begin
                         is_last_data_gate = 1'b1;
                     end 
-                    else is_last_data_gate = 1'b0;    
+                    else is_last_data_gate = 1'b0;
+        
+                end 
+                            
+    //            current_ht = 0;
+    
+                
+                if (current_timestep != 0) begin
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////
+                    index = 0;
+                    repeat((current_no_units-1)/3 + 1) begin
+                        r_valid = 1;
+                    /*          load r weight               */
+                        // load r input weight
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = r_in_weight_matrix[current_unit][index];
+                            current_unit = current_unit + 1;
+                        end
+                        
+                        //load r forget weight
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = r_for_weight_matrix[current_unit][index];
+                            current_unit = current_unit + 1;
+                        end
+                        
+                        //load r cell weight
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = r_cell_weight_matrix[current_unit][index];
+                            current_unit = current_unit + 1;
+                        end
+                        
+                        //load r output weight
+                        current_unit = 0;
+                        repeat(current_no_units) begin
+                            @(negedge clk);
+                            data_in = r_out_weight_matrix[current_unit][index];
+                            current_unit = current_unit + 1;
+                        end
+                        
+                    /*          load input               */
                     
-                end
-                
-                wait(w_valid);
-                while (w_valid) begin
-                    for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
                         @(negedge clk);
-                        ht_matrix[current_sample][current_timestep][current_ht] = out_data;
-                    end
-                    @(negedge clk);
-                end
-                
-                for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
-                    $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
-                end
-               
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////
-            end
-            else begin
-                wait(w_valid);
-                while (w_valid) begin
-                    for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
+                        data_in = ht_matrix[current_sample][current_timestep-1][index];
+                        
+                        repeat(1) begin
                         @(negedge clk);
-                        ht_matrix[current_sample][current_timestep][current_ht] = out_data;
+                        r_valid = 1'b0;
+                        data_in = 32'd0;
+                        end
+                        
+                        if (index < (current_no_units-1)/3) begin
+                            index = index + 1;
+                            is_last_data_gate = 1'b0;
+                            wait(r_data);
+                            @(negedge clk);
+                            r_valid = 1'b1;
+                        end
+                        else ;
+                        
+                        if (index == (current_no_units-1)/3) begin
+                            is_last_data_gate = 1'b1;
+                        end 
+                        else is_last_data_gate = 1'b0;    
+                        
                     end
-                    @(negedge clk);
+                    
+                    wait(w_valid);
+                    while (w_valid) begin
+                        for (current_ht = 0; current_ht < (current_no_units-1)/3 + 1; current_ht = current_ht + 1) begin
+                            @(negedge clk);
+                            ht_matrix[current_sample][current_timestep][current_ht] = out_data;
+                        end
+                        @(negedge clk);
+                    end
+                    
+                    for (current_ht = 0; current_ht < (current_no_units-1)/3 + 1; current_ht = current_ht + 1) begin
+                        $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
+                    end
+                   
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////
+                end
+                else begin
+                    wait(w_valid);
+                    while (w_valid) begin
+                        for (current_ht = 0; current_ht < (current_no_units-1)/3 + 1; current_ht = current_ht + 1) begin
+                            @(negedge clk);
+                            ht_matrix[current_sample][current_timestep][current_ht] = out_data;
+                        end
+                        @(negedge clk);
+                    end
+                    
+                    for (current_ht = 0; current_ht < (current_no_units-1)/3 + 1; current_ht = current_ht + 1) begin
+                        $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
+                    end
                 end
                 
-                for (current_ht = 0; current_ht < (NO_UNITS-1)/3 + 1; current_ht = current_ht + 1) begin
-                    $display("SAMPLE = %0d, Real result ht[%0d][%0d]= [%0h]", current_sample, current_timestep, current_ht, ht_matrix[current_sample][current_timestep][current_ht]);
-                end
-            end
-            
-            current_timestep = current_timestep + 1;
-            is_last_data_gate = 1'b0;
-            
-                    /////////////////////////////////////////////////////////////////////////
-            end    
-            
-            current_sample = current_sample + 1;
+                current_timestep = current_timestep + 1;
+                is_last_data_gate = 1'b0;
+                
+                        /////////////////////////////////////////////////////////////////////////
+                end    
+                
+//                current_sample = current_sample + 1;
+                current_timestep = 0;
+            end      
+            current_sample = current_sample + 1;   
             current_timestep = 0;
         end
          
