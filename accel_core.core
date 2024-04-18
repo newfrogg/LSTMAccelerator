@@ -5,9 +5,13 @@ description: "lstmAccel Components"
 filesets:
     files_rtl:
         depend: 
-            - lstmAccel:accel:accel_pkg
         files:
             - rtl/tanh.sv
+            - rtl/Mac.sv
+            - rtl/sigmoid.sv
+            - rtl/tanh_8b.sv
+            - rtl/lstm_unit.sv
+            - rtl/controller.sv
         file_type: systemVerilogSource
 
 targets:

@@ -21,13 +21,13 @@
 
 // tanh(Wx + Wh + b)
 // W: 8 bits, b: 32 bits
-module tanh #(parameter OUTPUT_BITWIDTH = 8,
-                         parameter INPUT_BITWIDTH = 32
+module tanh #(parameter OUTPUT_WIDTH = 8,
+                         parameter INPUT_WIDTH = 32
 )(
-        input   logic   [INPUT_BITWIDTH - 1:0]  data_in,    //  32 bits input
-        output  logic   [OUTPUT_BITWIDTH - 1:0] data_out    // 8 bits output
+        input   logic   [INPUT_WIDTH - 1:0]  data_in,    //  32 bits input
+        output  logic   [OUTPUT_WIDTH - 1:0] data_out    // 8 bits output
     );
-logic [OUTPUT_BITWIDTH - 1:0] out;
+//logic [OUTPUT_WIDTH - 1:0] out;
 
 //assign data_out = out;
 
@@ -410,7 +410,7 @@ always_comb begin
     else if ((data_in >= 32'hff46df76) && (data_in < 32'hffa3712e)) begin
         data_out <= 8'b11111110;
     end
-    else if ((data_in >= 32'hffa3712e) && (data_in < 32'hffffffff)) begin
+    else if ((data_in >= 32'hffa3712e) && (data_in <= 32'hffffffff)) begin
         data_out <= 8'b11111111;
     end
     else if ((data_in >= 32'h0) && (data_in < 32'h5c8ed2)) begin
@@ -799,4 +799,3 @@ always_comb begin
     end
 end
 endmodule
-
