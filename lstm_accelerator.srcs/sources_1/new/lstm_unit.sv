@@ -33,8 +33,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   is_last_sample,
                     input                                   is_continued,
                     input                                   is_load_bias,
-                    input                                   is_load_cell,
+//                    input                                   is_load_cell,
                     input  [1:0]                            type_gate,
+                    input  [1:0]                            current_layer,
                     input  [W_BITWIDTH*3-1:0]               weight,
                     input  [IN_BITWIDTH*3-1:0]              data_in,
                     input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
@@ -48,6 +49,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     localparam
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
+        
+        LSTM                = 1,
+        FC                  = 2,
         
         STATE_IDLE          = 3'b000,
         STATE_RECEIVE_DATA  = 3'b001,
@@ -94,7 +98,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
 //    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
     
     
-//    logic   [OUT_BITWIDTH-1:0]      cell_state;  
+    logic   [OUT_BITWIDTH-1:0]      cell_state;  
     logic   [QUANTIZE_SIZE-1:0]     hidden_state;
     
     logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf;
@@ -114,7 +118,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic                                   mac_done;
     logic  [OUT_BITWIDTH-1:0]               mac_result;
     
-//    assign o_lstm_state = state;
+    logic  [OUT_BITWIDTH-1:0]               fc_bf;
     
     MAC #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_mac (
         .clk(clk),
@@ -205,6 +209,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     accu_output_bf      <= 0;
                     accu_bf             <= {BUFFER_SIZE{1'b0}};
                     
+                    cell_state          <= {OUT_BITWIDTH{1'b0}};
+                    
                     remain_waiting_time <= LATENCY;
                     
                     if (en && !done) begin
@@ -230,15 +236,24 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 STATE_IRB: begin
                     if (irb_done) begin
                         if (is_last_data_gate && is_last_input) begin
-                            state           <= STATE_GATE;
-                            is_waiting      <= 1'b0;
-                            
-                            case(gate)
-                                INPUT_GATE:     accu_input_bf   <= mac_result;
-                                FORGET_GATE:    accu_forget_bf  <= mac_result;
-                                CELL_UPDATE:    accu_cell_bf    <= mac_result;
-                                OUTPUT_GATE:    accu_output_bf  <= mac_result;
-                            endcase
+                            if (current_layer == LSTM) begin
+                                state           <= STATE_GATE;
+                                is_waiting      <= 1'b0;
+                                irb_done        <= 1'b0;
+                                
+                                case(gate)
+                                    INPUT_GATE:     accu_input_bf   <= mac_result;
+                                    FORGET_GATE:    accu_forget_bf  <= mac_result;
+                                    CELL_UPDATE:    accu_cell_bf    <= mac_result;
+                                    OUTPUT_GATE:    accu_output_bf  <= mac_result;
+                                endcase
+                            end
+                            else begin
+                                state           <= STATE_FINISH;
+                                done            <= 1'b1;
+                                fc_bf           <= mac_result; 
+                                irb_done        <= 1'b0;     
+                            end
                         end
                         else begin
                             state           <= STATE_WAIT;
@@ -275,11 +290,12 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 1: pre_sum_bf       <= pre_sum;
                             endcase
                             
-                            case(is_load_cell)
-                                1: prev_cell_bf <= pre_sum[QUANTIZE_SIZE-1:0];
-                                0: prev_cell_bf <= {QUANTIZE_SIZE{1'b0}}; 
-                            endcase
+//                            case(is_load_cell)
+//                                1: prev_cell_bf <= pre_sum[QUANTIZE_SIZE-1:0];
+//                                0: prev_cell_bf <= {QUANTIZE_SIZE{1'b0}}; 
+//                            endcase
                             
+                            prev_cell_bf        <= cell_state[QUANTIZE_SIZE-1:0];
                             if (finish_step == 1'b1) begin
                                 finish_step         <= 1'b0;
                                 accu_input_bf       <= 0;
@@ -360,8 +376,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         state           <= STATE_HIDDEN;
                         cell_done       <= 1'b0;
 //                        done            <= 1'b1;
-//                        cell_state      <= mac_result;
-                          accu_cell_bf  <= mac_result;                                       
+                        cell_state      <= mac_result;
+                        accu_cell_bf    <= mac_result;                                       
                     end
                     else begin
                         mac_en          <= 1'b1;       
@@ -409,7 +425,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             weights_bf_0    <= output_gate;
                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-//                            data_in_bf_0    <= tanh_cell_state_bf;
                             data_in_bf_0    <= cell_update_bf;
                             data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
                             data_in_bf_2    <= {IN_BITWIDTH{1'b0}};

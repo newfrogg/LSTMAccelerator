@@ -36,8 +36,6 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                 output logic                            done,
                 output logic [OUT_BITWIDTH-1:0]         out
-//                output logic [2:0]                      o_index,
-//                output logic [IN_BITWIDTH+1:0]          o_sum_arr_bf    [0:IN_BITWIDTH-1]
     );
     
     localparam 
@@ -47,9 +45,6 @@ module MAC #(   parameter W_BITWIDTH = 8,
         
         LATENCY    = 1;
         
-//        LATENCY    = 7;
-    
-//    logic [2:0]                               t_delay;
     logic [1:0]                               state;
     logic [2:0]                               index;
     logic                                     flag_accu;
