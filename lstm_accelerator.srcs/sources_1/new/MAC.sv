@@ -99,8 +99,6 @@ module MAC #(   parameter W_BITWIDTH = 8,
 //                t_delay <= 3'b0;
                 
                     if(en && !done) begin
-                    // If en == 1 and done != 1, then running state.
-                    // And capture data_a, data_b, data_c to buffer
                         state <= STATE_MULT;
                         weights_bf_0 <= weights_0;
                         weights_bf_1 <= weights_1;

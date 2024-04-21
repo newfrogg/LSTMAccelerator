@@ -63,7 +63,7 @@ module controller(
 );
 
     localparam
-        MAX_NO_UNITS            = 8,
+        MAX_NO_UNITS            = 32,
         NO_UNITS_LSTM           = 96,
         NO_UNITS_FC             = 10,
         NO_FEATURES             = 10,
@@ -138,16 +138,13 @@ module controller(
     logic   [IN_BITWIDTH*3-1:0]             input_bf    ;
     logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_GATES*MAX_NO_UNITS-1];
 
-//    logic   [W_BITWIDTH*3-1:0]              weight_bf   [0:N_WEIGHTS-1];
-//    logic   [W_BITWIDTH*3-1:0]              input_bf    ;
-//    logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_BIASES-1];
     
     logic   [7:0]                           current_buffer_index;
     logic   [7:0]                           current_weight_index;
     logic   [7:0]                           current_input_index;
     logic   [7:0]                           current_bias_index;  
     
-    logic   [7:0]                           max_buffer_index;
+//    logic   [7:0]                           max_buffer_index;
     logic   [6:0]                           current_no_units;
     logic   [6:0]                           remaining_no_units;
     logic   [1:0]                           current_layer;
@@ -211,7 +208,6 @@ module controller(
                 .is_last_sample(is_last_sample),
                 .is_continued(is_continued),
                 .is_load_bias(is_load_bias),
-//                .is_load_cell(is_load_cell),
                 .type_gate(type_gate),
                 .current_layer(current_layer),
                 .weight(weight[i]),
@@ -225,8 +221,9 @@ module controller(
         end
     endgenerate
         
-    assign o_lstm_is_continued = is_continued;
-    assign o_lstm_is_waiting = lstm_is_waiting[MAX_NO_UNITS-1];
+        
+//    assign o_lstm_is_continued = is_continued;
+//    assign o_lstm_is_waiting = lstm_is_waiting[MAX_NO_UNITS-1];
 //    assign o_lstm_unit_done = lstm_unit_done[[NO_UNITS-1]];
 
     // implement FSM for controller
@@ -280,10 +277,7 @@ module controller(
                 end
                 
                 STATE_IDLE: begin
-//                    weight              <= {(W_BITWIDTH*3){1'b0}};
-//                    data_input          <= {(IN_BITWIDTH*3){1'b0}};
-//                    pre_sum             <= {OUT_BITWIDTH{1'b0}};
-                    
+                
                     is_last_timestep    <= 1'b0;
                     is_last_sample      <= 1'b0;
                     data_receive_done   <= 1'b0;
@@ -294,7 +288,6 @@ module controller(
                     counter             <= 2'b0;
                     t_valid             <= 1'b0;
                     is_load_bias        <= 1'b0;
-//                    is_load_cell        <= 1'b0;
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     
@@ -387,7 +380,7 @@ module controller(
                         
                         weight[current_buffer_index]    <= weight_bf[current_weight_index][W_BITWIDTH*3-1:0];
                         data_input                      <= input_bf[IN_BITWIDTH*3-1:0];
-                        pre_sum[current_buffer_index]   <= bias_bf[current_bias_index][OUT_BITWIDTH-1:0];
+                        pre_sum[current_buffer_index]   <= bias_bf[current_bias_index];
                         
                         if (current_buffer_index == current_no_units-1) begin
                             current_buffer_index    <= 0;                            

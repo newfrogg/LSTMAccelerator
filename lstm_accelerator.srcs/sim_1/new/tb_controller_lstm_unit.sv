@@ -40,7 +40,7 @@ endclass
 
 module tb_controller_lstm_unit();
     
-    localparam      MAX_NO_UNITS = 8;
+    localparam      MAX_NO_UNITS = 32;
     localparam      NO_UNITS_LSTM = 96;
     localparam      NO_UNITS_FC = 10;
     localparam      NO_FEATURES = 10;
@@ -173,7 +173,7 @@ module tb_controller_lstm_unit();
 //        .o_current_sample(o_current_sample)
     );
     
-    always #5 begin 
+    always #20 begin 
         clk = ~clk;
          
     end

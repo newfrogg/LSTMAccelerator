@@ -33,7 +33,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   is_last_sample,
                     input                                   is_continued,
                     input                                   is_load_bias,
-//                    input                                   is_load_cell,
                     input  [1:0]                            type_gate,
                     input  [1:0]                            current_layer,
                     input  [W_BITWIDTH*3-1:0]               weight,
@@ -43,7 +42,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     output logic                            finish_step,
                     output logic                            done,
                     output logic [7:0]                      out
-//                    output logic [2:0]                      o_lstm_state
     );
     
     localparam
@@ -54,27 +52,23 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         FC                  = 2,
         
         STATE_IDLE          = 3'b000,
-        STATE_RECEIVE_DATA  = 3'b001,
-        STATE_IRB           = 3'b010,
-        STATE_GATE          = 3'b011,
-        STATE_CELL          = 3'b100,
-        STATE_HIDDEN        = 3'b101,
-        STATE_WAIT          = 3'b110,
-        STATE_FINISH        = 3'b111,
+        STATE_IRB           = 3'b001,
+        STATE_GATE          = 3'b010,
+        STATE_CELL          = 3'b011,
+        STATE_HIDDEN        = 3'b100,
+        STATE_WAIT          = 3'b101,
+        STATE_FINISH        = 3'b110,
         
         INPUT_GATE          = 2'b00,
         FORGET_GATE         = 2'b01,
         CELL_UPDATE         = 2'b10,
         OUTPUT_GATE         = 2'b11,
         
-        TIMESTEPS_LATENCY   = 5,
         LATENCY             = 1;
         
         
     
     logic   [2:0]   state;
-    logic           receive_data_done;
-//    logic           run_done;
     logic           irb_done;
     logic           gate_done;
     logic           cell_done;
@@ -95,7 +89,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [QUANTIZE_SIZE-1:0]     forget_gate;
     logic   [QUANTIZE_SIZE-1:0]     output_gate;
     logic   [QUANTIZE_SIZE-1:0]     prev_cell_bf;
-//    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
     
     
     logic   [OUT_BITWIDTH-1:0]      cell_state;  
@@ -168,7 +161,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         if (!rstn) begin
             state       <= 3'b000;
             
-            receive_data_done   <= 1'b0;
             irb_done            <= 1'b0;
             gate_done           <= 1'b0;
             cell_done           <= 1'b0;
@@ -193,7 +185,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         else begin
             case(state) 
                 STATE_IDLE: begin
-                    receive_data_done   <= 1'b0;
                     irb_done            <= 1'b0;
                     gate_done           <= 1'b0;
                     cell_done           <= 1'b0;

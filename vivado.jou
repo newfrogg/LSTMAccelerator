@@ -3,179 +3,74 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Fri Apr 19 14:03:11 2024
-# Process ID: 7487
+# Start of session at: Sun Apr 21 19:40:02 2024
+# Process ID: 4552
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
 # Command line: vivado
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 4175.658 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 3500.504 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
 start_gui
 open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr
 update_compile_order -fileset sources_1
 launch_simulation
 source tb_controller_lstm_unit.tcl
+synth_design -top controller -part xc7z020clg400-1 -lint 
+synth_design -top controller -part xc7z020clg400-1 -lint 
+synth_design -top controller -part xc7z020clg400-1 -lint 
+synth_design -top controller -part xc7z020clg400-1 -lint 
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_design
+open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_run impl_1
+report_power -name {power_1}
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+copy_run -name synth_1_copy_1 [get_runs synth_1] 
+set_property part xc7a35ticsg324-1L [current_project]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_design; open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_run impl_1
+report_utilization -name utilization_1
+open_run synth_1 -name synth_1
+report_methodology -name ultrafast_methodology_1
+current_design impl_1
+report_utilization -name utilization_1
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {10000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {15000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {1500000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {2500000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {3500000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {10000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {20000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {2000000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {200000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {300000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
+copy_run -name impl_1_copy_1 [get_runs impl_1] -parent_run synth_1
+set_property part xc7z020clg400-1 [current_project]
+file mkdir /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1
+file mkdir /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1/new
+close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1/new/timing_constr.xdc w ]
+add_files -fileset constrs_1 /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1/new/timing_constr.xdc
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
@@ -183,112 +78,23 @@ set_property -name {xsim.simulate.runtime} -value {10000000ns} -objects [get_fil
 close_sim
 launch_simulation
 source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {2000000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {1500000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {2500000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-set_property -name {xsim.simulate.runtime} -value {4000000ns} -objects [get_filesets sim_1]
-set_property -name {xsim.simulate.runtime} -value {5000000ns} -objects [get_filesets sim_1]
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
-close_sim
-launch_simulation
-source tb_controller_lstm_unit.tcl
 synth_design -top controller -part xc7z020clg400-1 -lint 
 reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
-reset_run synth_1
 launch_runs impl_1 -jobs 8
 wait_on_run impl_1
+close_design; open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_design
 open_run impl_1
 reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
 launch_runs impl_1 -jobs 8
 wait_on_run impl_1
-refresh_design
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-launch_runs impl_1 -jobs 8
-wait_on_run impl_1
-refresh_design
