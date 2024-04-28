@@ -40,13 +40,13 @@ endclass
 
 module tb_controller_lstm_unit();
     
-    localparam      MAX_NO_UNITS = 32;
-    localparam      NO_UNITS_LSTM = 96;
-    localparam      NO_UNITS_FC = 10;
-    localparam      NO_FEATURES = 10;
-    localparam      NO_TIMESTEPS = 10;
-    localparam      NO_SAMPLES = 2;
-    localparam      NO_CLASSES = 10;
+    localparam      MAX_NO_UNITS = 4;
+    localparam      NO_UNITS_LSTM = 8;
+    localparam      NO_UNITS_FC = 2;
+    localparam      NO_FEATURES = 2;
+    localparam      NO_TIMESTEPS = 2;
+    localparam      NO_SAMPLES = 1;
+    localparam      NO_CLASSES = 2;
     
     logic               clk;
     logic               rstn;
@@ -140,37 +140,37 @@ module tb_controller_lstm_unit();
         .r_data(r_data),
         .w_valid(w_valid),
         .t_valid(t_valid),
-        .out_data(out_data)
-//        .o_state(o_state),
-//        .o_lstm_state(o_lstm_state),
-//        .o_lstm_finish_step(o_lstm_finish_step),
-//        .o_lstm_is_continued(o_lstm_is_continued),
-//        .o_lstm_is_waiting(o_lstm_is_waiting),
-//        .weights(weights),
-//        .inputs(inputs),
-//        .bias(bias),
-//        .o_is_load_bias(o_is_load_bias),
-//        .o_index(o_index),
-//        .o_mac_state(o_mac_state),
-//        .o_is_last_input(o_is_last_input),
-//        .o_lstm_accu_bf(o_lstm_accu_bf),
-//        .o_mac_result(o_mac_result),
-//        .o_type_gate(o_type_gate),
-//        .o_gate(o_gate),
-//        .o_value_gate(o_value_gate),
-//        .o_is_load_cell(o_is_load_cell),
-//        .o_r_state(o_r_state),
-//        .o_prev_cell_bf(o_prev_cell_bf),
-//        .o_cell_state(o_cell_state),
-//        .o_tanh_cell_state(o_tanh_cell_state),
-//        .o_ht(o_ht),
-//        .o_current_timestep(o_current_timestep),
-//        .o_lstm_unit_result(o_lstm_unit_result),
-//        .o_current_no_units(o_current_no_units),
-//        .o_remaining_no_units(o_remaining_no_units),
-//        .o_read_bias(o_read_bias),
-//        .o_current_layer(o_current_layer),
-//        .o_current_sample(o_current_sample)
+        .out_data(out_data),
+        .o_state(o_state),
+        .o_lstm_state(o_lstm_state),
+        .o_lstm_finish_step(o_lstm_finish_step),
+        .o_lstm_is_continued(o_lstm_is_continued),
+        .o_lstm_is_waiting(o_lstm_is_waiting),
+        .weights(weights),
+        .inputs(inputs),
+        .bias(bias),
+        .o_is_load_bias(o_is_load_bias),
+        .o_index(o_index),
+        .o_mac_state(o_mac_state),
+        .o_is_last_input(o_is_last_input),
+        .o_lstm_accu_bf(o_lstm_accu_bf),
+        .o_mac_result(o_mac_result),
+        .o_type_gate(o_type_gate),
+        .o_gate(o_gate),
+        .o_value_gate(o_value_gate),
+        .o_is_load_cell(o_is_load_cell),
+        .o_r_state(o_r_state),
+        .o_prev_cell_bf(o_prev_cell_bf),
+        .o_cell_state(o_cell_state),
+        .o_tanh_cell_state(o_tanh_cell_state),
+        .o_ht(o_ht),
+        .o_current_timestep(o_current_timestep),
+        .o_lstm_unit_result(o_lstm_unit_result),
+        .o_current_no_units(o_current_no_units),
+        .o_remaining_no_units(o_remaining_no_units),
+        .o_read_bias(o_read_bias),
+        .o_current_layer(o_current_layer),
+        .o_current_sample(o_current_sample)
     );
     
     always #20 begin 

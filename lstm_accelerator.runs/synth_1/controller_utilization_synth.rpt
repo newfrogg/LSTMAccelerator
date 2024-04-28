@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Sun Apr 21 23:56:59 2024
+| Date         : Mon Apr 22 14:39:04 2024
 | Host         : vanloi-laptop running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file controller_utilization_synth.rpt -pb controller_utilization_synth.pb
 | Design       : controller
@@ -31,14 +31,14 @@ Table of Contents
 +-------------------------+-------+-------+------------+-----------+-------+
 |        Site Type        |  Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+-------+-------+------------+-----------+-------+
-| Slice LUTs*             | 25801 |     0 |          0 |     53200 | 48.50 |
-|   LUT as Logic          | 25801 |     0 |          0 |     53200 | 48.50 |
+| Slice LUTs*             | 25484 |     0 |          0 |     53200 | 47.90 |
+|   LUT as Logic          | 25484 |     0 |          0 |     53200 | 47.90 |
 |   LUT as Memory         |     0 |     0 |          0 |     17400 |  0.00 |
-| Slice Registers         | 28158 |     0 |          0 |    106400 | 26.46 |
-|   Register as Flip Flop | 27678 |     0 |          0 |    106400 | 26.01 |
+| Slice Registers         | 28127 |     0 |          0 |    106400 | 26.44 |
+|   Register as Flip Flop | 27647 |     0 |          0 |    106400 | 25.98 |
 |   Register as Latch     |   480 |     0 |          0 |    106400 |  0.45 |
-| F7 Muxes                |  1703 |     0 |          0 |     26600 |  6.40 |
-| F8 Muxes                |   692 |     0 |          0 |     13300 |  5.20 |
+| F7 Muxes                |  1591 |     0 |          0 |     26600 |  5.98 |
+| F8 Muxes                |   528 |     0 |          0 |     13300 |  3.97 |
 +-------------------------+-------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 Warning! LUT value is adjusted to account for LUT combining.
@@ -57,9 +57,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 292   |          Yes |           - |          Set |
-| 7960  |          Yes |           - |        Reset |
+| 7928  |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 19906 |          Yes |       Reset |            - |
+| 19907 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,16 +148,16 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+-------+---------------------+
 | Ref Name |  Used | Functional Category |
 +----------+-------+---------------------+
-| FDRE     | 19906 |        Flop & Latch |
-| LUT6     | 14705 |                 LUT |
-| FDCE     |  7736 |        Flop & Latch |
-| LUT4     |  4660 |                 LUT |
-| LUT2     |  4165 |                 LUT |
-| LUT3     |  3456 |                 LUT |
-| LUT5     |  3163 |                 LUT |
+| FDRE     | 19907 |        Flop & Latch |
+| LUT6     | 14545 |                 LUT |
+| FDCE     |  7704 |        Flop & Latch |
+| LUT4     |  4574 |                 LUT |
+| LUT2     |  4023 |                 LUT |
+| LUT3     |  3389 |                 LUT |
+| LUT5     |  3199 |                 LUT |
 | CARRY4   |  1751 |          CarryLogic |
-| MUXF7    |  1703 |               MuxFx |
-| MUXF8    |   692 |               MuxFx |
+| MUXF7    |  1591 |               MuxFx |
+| MUXF8    |   528 |               MuxFx |
 | LDPE     |   256 |        Flop & Latch |
 | LDCE     |   224 |        Flop & Latch |
 | IBUF     |    36 |                  IO |
