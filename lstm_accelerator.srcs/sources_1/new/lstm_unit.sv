@@ -46,9 +46,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
-        MAX_NO_UNITS        = 4,
-        NO_UNITS_LSTM       = 8,
-        NO_UNITS_FC         = 2,
+        MAX_NO_UNITS        = 32,
+        NO_UNITS_LSTM       = 32,
+        NO_UNITS_FC         = 10,
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
         
@@ -91,19 +91,22 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [BUFFER_SIZE-1:0]       accu_cell_bf    [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_output_bf  [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_bf         [0:OUT_SIZE/8 - 1];
+    logic   [BUFFER_SIZE-1:0]       accu_fc_bf;
     
     logic   [QUANTIZE_SIZE-1:0]     cell_update     [0:OUT_SIZE/8 - 1];
     logic   [QUANTIZE_SIZE-1:0]     input_gate      [0:OUT_SIZE/8 - 1];
     logic   [QUANTIZE_SIZE-1:0]     forget_gate     [0:OUT_SIZE/8 - 1];
     logic   [QUANTIZE_SIZE-1:0]     output_gate     [0:OUT_SIZE/8 - 1];
-    logic   [QUANTIZE_SIZE-1:0]     prev_cell_bf    [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     prev_cell_state [0:OUT_SIZE/8 - 1];
     
     
     logic   [OUT_BITWIDTH-1:0]      cell_state      [0:OUT_SIZE/8 - 1];  
     logic   [QUANTIZE_SIZE-1:0]     hidden_state    [0:OUT_SIZE/8 - 1];
     
-    logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf      [0:OUT_SIZE/8 - 1];
-    logic   [QUANTIZE_SIZE-1:0]     cell_update_bf  [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     tanh_cell_state_bf;
+    
+//    logic   [QUANTIZE_SIZE-1:0]     sigmoid_bf      [0:OUT_SIZE/8 - 1];
+//    logic   [QUANTIZE_SIZE-1:0]     cell_update_bf  [0:OUT_SIZE/8 - 1];
     
     logic   [QUANTIZE_SIZE-1:0]     current_unit_cell_update_bf;
     logic   [QUANTIZE_SIZE-1:0]     current_unit_sigmoid_bf;
@@ -149,14 +152,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .data_out(current_unit_sigmoid_bf)
     );
     
-//    tanh_appr_16 #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
-//        .data_in(cell_state[15:0]),
-//        .data_out(tanh_cell_state_bf)
-//    );
-//    tanh_16b #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
-//        .data_in(cell_state[15:0]),
-//        .data_out(tanh_cell_state_bf)
-//    );
+    tanh_appr_16 #(.IN_BITWIDTH(16), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh_16b (
+        .data_in(cell_state[internal_current_unit][15:0]),
+        .data_out(tanh_cell_state_bf)
+    );
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -180,6 +179,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             data_in_bf_2           <= {IN_BITWIDTH{1'b0}};
             pre_sum_bf             <= {PREV_SUM_BITWIDTH{1'b0}};
 //            accu_bf                <= {BUFFER_SIZE{1'b0}};
+//            accu_fc_bf             <= {BUFFER_SIZE{1'b0}};
             internal_current_unit  <= 0;
             done                   <= 1'b0;
         end
@@ -213,8 +213,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
                         data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                         
-                        prev_cell_bf[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
-                        
+                        prev_cell_state[current_unit]       <= {QUANTIZE_SIZE{1'b0}};
+                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
                         case(is_load_bias)
                             0: pre_sum_bf     <= accu_bf[current_unit][PREV_SUM_BITWIDTH-1:0];
                             1: pre_sum_bf     <= pre_sum;
@@ -242,10 +242,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 endcase
                             end
                             else if (current_layer == FC) begin
-                                state           <= STATE_FINISH;
-                                done            <= 1'b1;
-                                fc_bf           <= mac_result; 
-                                irb_done        <= 1'b0;     
+                                state               <= STATE_FINISH;
+                                done                <= 1'b1;
+                                fc_bf               <= mac_result; 
+                                out[current_unit]   <= mac_result[QUANTIZE_SIZE-1:0];
+                                irb_done            <= 1'b0;     
                             end
                             else ;
                         end
@@ -284,7 +285,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 1: pre_sum_bf       <= pre_sum;
                             endcase
                             
-                            prev_cell_bf[current_unit]        <= cell_state[current_unit][QUANTIZE_SIZE-1:0];
+//                            prev_cell_state[current_unit]       <= cell_state[current_unit][QUANTIZE_SIZE-1:0];
                             if (finish_step == 1'b1) begin
                                 finish_step         <= 1'b0;
 //                                accu_input_bf       <= 0;
@@ -324,11 +325,13 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_GATE: begin
                     if (gate_done) begin
+                        gate_done       <= 1'b0;
+                        gate            <= type_gate;
                         state           <= STATE_CELL;
                         weights_bf_0    <= forget_gate[internal_current_unit];
                         weights_bf_1    <= input_gate[internal_current_unit];
                         weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                        data_in_bf_0    <= prev_cell_bf[internal_current_unit];
+                        data_in_bf_0    <= prev_cell_state[internal_current_unit];
                         data_in_bf_1    <= cell_update[internal_current_unit];
                         data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
                         pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
@@ -366,8 +369,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         state           <= STATE_HIDDEN;
                         cell_done       <= 1'b0;
 //                        done            <= 1'b1;
-                        cell_state[internal_current_unit]      <= mac_result;
-                        accu_cell_bf[internal_current_unit]    <= mac_result;                                       
+                        cell_state[internal_current_unit]       <= mac_result;
+                        prev_cell_state[internal_current_unit]  <= cell_state[internal_current_unit];
+                        accu_cell_bf[internal_current_unit]     <= mac_result;                                       
                     end
                     else begin
                         mac_en          <= 1'b1;       
@@ -403,7 +407,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             state                   <=  STATE_GATE;
                             internal_current_unit   <= internal_current_unit + 1;  
                         end
-                        out[internal_current_unit]               <= mac_result[QUANTIZE_SIZE-1:0];
+                        out[internal_current_unit]      <= mac_result[QUANTIZE_SIZE-1:0];
                         hidden_done                     <= 1'b0;     
 //                        hidden_state[current_unit]      <= mac_result[QUANTIZE_SIZE-1:0];
                     end
@@ -422,7 +426,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             weights_bf_0    <= output_gate[internal_current_unit];
                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                            data_in_bf_0    <= cell_update_bf[internal_current_unit];
+                            data_in_bf_0    <= tanh_cell_state_bf;
                             data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
                             data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
                             pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};

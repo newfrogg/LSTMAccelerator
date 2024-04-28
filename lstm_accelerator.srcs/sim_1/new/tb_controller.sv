@@ -40,13 +40,13 @@
 
 module tb_controller();
     
-    localparam      MAX_NO_UNITS = 4;
-    localparam      NO_UNITS_LSTM = 8;
-    localparam      NO_UNITS_FC = 2;
-    localparam      NO_FEATURES = 2;
-    localparam      NO_TIMESTEPS = 2;
+    localparam      MAX_NO_UNITS = 32;
+    localparam      NO_UNITS_LSTM = 32;
+    localparam      NO_UNITS_FC = 10;
+    localparam      NO_FEATURES = 10;
+    localparam      NO_TIMESTEPS = 28;
     localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 2;
+    localparam      NO_CLASSES = 10;
     
     logic               clk;
     logic               rstn;
@@ -59,6 +59,7 @@ module tb_controller();
     logic [31:0]        out_data;
     logic [7:0]         o_lstm_unit_result [0:3][0:1];
     logic [7:0]         o_index;
+    logic [1:0]         o_current_unit;
     logic [1:0]         o_current_layer;
     logic [4:0]         o_current_timestep;
     logic [6:0]         current_no_units;
@@ -76,6 +77,7 @@ module tb_controller();
     logic               o_lstm_is_waiting;
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
+    logic [1:0]         o_count_gate;
     logic [7:0]         o_value_gate [0:3][0:1];
     logic [31:0]        o_cell_state [0:1];
     logic [7:0]         weights [0:2];
@@ -116,8 +118,9 @@ module tb_controller();
     logic [31:0]        bias_matrix [0:NO_UNITS_LSTM-1][0:3];
     
     logic [7:0]         ht_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:(NO_UNITS_LSTM-1)];
+    logic [7:0]         ht_flatten [0:NO_SAMPLES-1][0:NO_TIMESTEPS*NO_UNITS_LSTM - 1];
     
-    logic [31:0]        fc_weight [0:NO_CLASSES-1][0:NO_TIMESTEPS*NO_UNITS_LSTM - 1];
+    logic [31:0]        fc_weight [0:NO_CLASSES-1][0:(NO_TIMESTEPS*NO_UNITS_LSTM - 1)/3];
     logic [31:0]        fc_bias [0:NO_CLASSES-1];
     logic [7:0]         fc_result [0:NO_SAMPLES-1][0:NO_CLASSES-1];
     
@@ -173,7 +176,9 @@ module tb_controller();
         .o_remaining_no_units(o_remaining_no_units),
         .o_read_bias(o_read_bias),
         .o_current_layer(o_current_layer),
-        .o_current_sample(o_current_sample)
+        .o_current_sample(o_current_sample),
+        .o_count_gate(o_count_gate),
+        .o_current_unit(o_current_unit)
     );
     
     always #20 begin 
@@ -289,7 +294,7 @@ module tb_controller();
         repeat(NO_CLASSES) begin
 //            NO_TIMESTEPS*(NO_UNITS_LSTM-1)/3 - 1
             index = 0;
-            repeat( NO_TIMESTEPS*((NO_UNITS_LSTM-1)/4 + 1) ) begin
+            repeat( (NO_TIMESTEPS*NO_UNITS_LSTM-1)/3 + 1 ) begin
                 weight_pkt.randomize();
                 fc_weight[current_class][index] = weight_pkt.weight_bf;
                 index = index + 1;
@@ -498,7 +503,12 @@ module tb_controller();
                             end                                                             // 5 tab
                             
                             @(negedge clk);
-                            data_in = {{8{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 1], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 2]};
+                            if (current_ht == (NO_UNITS_LSTM-1)/3) begin                // 5 tab
+                                if (NO_UNITS_LSTM % 3 == 0) data_in = {{8{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+2], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
+                                else if (NO_UNITS_LSTM % 3 == 1) data_in = {{16{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
+                                else data_in = {{24{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3]};
+                            end                                                             // 5 tab
+                            else data_in = {{8{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+2], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
                             
                             repeat(1) begin                                                     // 5 tab
                                 @(negedge clk);
@@ -538,7 +548,118 @@ module tb_controller();
             
 
             // ------------------- Load params for FC ------------------------------// 
+//            ht_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:(NO_UNITS_LSTM-1)];
+            last_fc_unit = 0;
+            r_valid = 0; 
+            remaining_no_units  = NO_UNITS_FC;
+            index = 0;
+
+            for (current_timestep = 0; current_timestep < NO_TIMESTEPS; current_timestep = current_timestep + 1) begin
+                for (current_ht = 0; current_ht < NO_UNITS_LSTM; current_ht = current_ht + 1) begin
+                    ht_flatten[current_sample][index] = ht_matrix[current_sample][current_timestep][current_ht];
+                    index = index + 1;
+                end
+            end
             
+            wait(r_data);
+            @(negedge clk);
+            current_ht = 0;
+            index = 0;
+            last_ht_unit = 0;
+            is_last_data_gate = 0;
+            repeat( (NO_TIMESTEPS*NO_UNITS_LSTM - 1)/3 + 1 ) begin                      // 1 tab
+                remaining_no_units  = NO_UNITS_FC;
+                last_ht_unit        = 0;
+                while (remaining_no_units != 0) begin                                   // 2 tab
+                    r_valid = 0; 
+                    if (remaining_no_units  > MAX_NO_UNITS) begin                       // 3 tab
+                        current_no_units    = MAX_NO_UNITS;
+                        remaining_no_units  = remaining_no_units - MAX_NO_UNITS;
+                    end                                                                 // 3 tab                
+                    else begin                                                          // 3 tab
+                        current_no_units    = remaining_no_units;
+                        remaining_no_units  = 0;
+                        if ( index == ((NO_TIMESTEPS*NO_UNITS_LSTM - 1)/3) ) is_last_data_gate = 1;
+                        else is_last_data_gate = 0;
+                    end                                                                 // 3 tab
+                    r_valid = 1;
+                    
+                    current_class = 0;
+                    repeat(current_no_units) begin                                      // 3 tab
+                        @(negedge clk);
+                        data_in = fc_weight[last_ht_unit+current_class][index];
+                        current_class = current_class + 1;
+                    end                                                                 // 3 tab
+                    
+                    repeat(1) begin                                                     // 3 tab
+                        @(negedge clk);
+                        if (index*3 == NO_TIMESTEPS*NO_UNITS_LSTM - 1) data_in = {{24{1'b0}}, ht_flatten[current_sample][index*3]};
+                        else if (index*3 == NO_TIMESTEPS*NO_UNITS_LSTM - 2) data_in = {{16{1'b0}}, ht_flatten[current_sample][index*3+1], ht_flatten[current_sample][index*3]};
+                        else data_in = {{8{1'b0}}, ht_flatten[current_sample][index*3+2], ht_flatten[current_sample][index*3+1], ht_flatten[current_sample][index*3]};                                                               
+                    end                                                                 // 3 tab 
+                    
+                    if (index == 0) begin                                          // 3 tab
+                        current_class = 0;
+                        repeat(current_no_units) begin                                  // 4 tab
+                            @(negedge clk);
+                            data_in = fc_bias[last_ht_unit+current_class];
+                            current_class = current_class + 1;
+                        end                                                             // 4 tab
+                    end                                                                 // 3 tab
+                    
+                    if (remaining_no_units == 0) index = index + 1;
+                    else ;
+                    
+                    repeat(1) begin
+                        @(negedge clk);
+                        r_valid = 1'b0;
+                        data_in = 32'd0;
+                    end
+                    
+                    if (index < (NO_TIMESTEPS*NO_UNITS_LSTM - 1)/3 + 1 || remaining_no_units != 0 ) begin
+                        is_last_data_gate = 1'b0;
+                        wait(r_data);
+                        @(negedge clk);
+//                        r_valid = 1'b1;
+                    end
+                    else ;                                         
+                end                                                                     // 2 tab
+                last_ht_unit = last_ht_unit + current_no_units;
+            end                                                                         // 1 tab
+            wait(w_valid);                                                                          
+            while (w_valid) begin                                                       // 1 tab                            
+                for (index = 0; index < (NO_UNITS_FC-1)/4 + 1; index = index + 1) begin    // 2 tab
+                    @(negedge clk);
+                    if (index == (NO_UNITS_FC-1)/4) begin                                   // 3 tab
+                        if (NO_UNITS_FC%4 == 0) begin                                       // 4 tab
+                            fc_result[current_sample][index*4]      = out_data[7:0];
+                            fc_result[current_sample][index*4+1]    = out_data[15:8];
+                            fc_result[current_sample][index*4+2]    = out_data[23:16];
+                            fc_result[current_sample][index*4+3]    = out_data[31:24];
+                        end                                                                 // 4 tab
+                        else if (NO_UNITS_FC%4 == 1) begin                                  // 4 tab
+                            fc_result[current_sample][index*4]      = out_data[7:0];
+                        end                                                                 // 4 tab
+                        else if (NO_UNITS_FC%4 == 2) begin                                  // 4 tab
+                            fc_result[current_sample][index*4]      = out_data[7:0];
+                            fc_result[current_sample][index*4+1]    = out_data[15:8];
+                        end                                                                 // 4 tab
+                        else begin                                                          // 4 tab
+                            fc_result[current_sample][index*4]      = out_data[7:0];
+                            fc_result[current_sample][index*4+1]    = out_data[15:8];
+                            fc_result[current_sample][index*4+2]    = out_data[23:16];
+                        end                                                                 // 4 tab
+                    end
+                    else begin                                                              // 3 tab
+                        fc_result[current_sample][index*4]      = out_data[7:0];
+                        fc_result[current_sample][index*4+1]    = out_data[15:8];
+                        fc_result[current_sample][index*4+2]    = out_data[23:16];
+                        fc_result[current_sample][index*4+3]    = out_data[31:24];
+                    end                                                                     // 3 tab
+//                        $display("SAMPLE = %0d, Timestep = %0d, Real result ht[%0d]= [%0h]", current_sample, current_timestep, {});
+                end                                                                                                 // 3 tab
+                @(negedge clk);
+            end                                                                         // 2 tab
             current_sample = current_sample + 1;
         end                 // end
            

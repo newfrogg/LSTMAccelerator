@@ -59,15 +59,17 @@ module controller(
     output logic [6:0]  o_remaining_no_units,
     output logic        o_read_bias,
     output logic [1:0]  o_current_layer,
-    output logic [4:0]  o_current_sample
+    output logic [4:0]  o_current_sample,
+    output logic [1:0]  o_count_gate,
+    output logic [1:0]  o_current_unit
 );
 
     localparam
-        MAX_NO_UNITS            = 4,
-        NO_UNITS_LSTM           = 8,
-        NO_UNITS_FC             = 2,
-        NO_FEATURES             = 2,
-        NO_TIMESTEPS            = 2,
+        MAX_NO_UNITS            = 32,
+        NO_UNITS_LSTM           = 32,
+        NO_UNITS_FC             = 10,
+        NO_FEATURES             = 10,
+        NO_TIMESTEPS            = 28,
         NO_SAMPLES              = 1,
         
         INIT                    = 0,
@@ -182,7 +184,7 @@ module controller(
     assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate;
     assign o_is_load_cell = is_load_cell;
     assign o_r_state = r_state;
-    assign o_prev_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.prev_cell_bf;
+    assign o_prev_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.prev_cell_state;
     assign o_ht = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state;
     assign o_lstm_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.state;
     assign o_lstm_finish_step = genblk1[MAX_NO_UNITS-1].u_lstm_unit.finish_step;
@@ -196,6 +198,8 @@ module controller(
     assign o_read_bias = read_bias;
     assign o_current_layer = current_layer;
     assign o_current_sample = current_sample;
+    assign o_count_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.count_gate;
+    assign o_current_unit = current_unit;
     
     genvar i;
     
@@ -248,7 +252,10 @@ module controller(
                 STATE_CONFIG: begin
                     if (config_done) begin
                         if (current_layer == LSTM)  state   <= STATE_IDLE;
-                        else                        state   <= STATE_WAIT;
+                        else begin
+                            state   <= STATE_WAIT;
+                            r_data  <= 1'b1;
+                        end
                         read_bias   <= 1'b0;
                         config_done <= 1'b0;
                     end
@@ -267,18 +274,19 @@ module controller(
                                     remaining_no_units  <= 0;
                                 end
                             end
-//                            LSTM: begin
-//                                current_layer           <= FC;
+                            LSTM: begin
+                                current_layer           <= FC;
 //                                if (NO_UNITS_FC > MAX_NO_UNITS) begin
 //                                    current_no_units    <= MAX_NO_UNITS;
-//                                    remaining_no_units  <= NO_UNITS_FC - MAX_NO_UNITS;
-                                    
+//                                    remaining_no_units  <= NO_UNITS_FC - MAX_NO_UNITS;    
 //                                end
 //                                else begin
 //                                    current_no_units    <= NO_UNITS_FC;
 //                                    remaining_no_units  <= 0;
 //                                end
-//                            end
+                                remaining_no_units      <= 0;
+                                
+                            end
                         endcase
                         config_done     <= 1'b1;
                     end
@@ -373,6 +381,7 @@ module controller(
                                         current_buffer_index    <= 0;
                                         r_state                 <= LOAD;
                                         data_receive_done       <= 1'b1;
+                                        r_data                  <= 1'b0;
                                         if (remaining_no_units == 0) read_bias <= 1'b1;
                                         else read_bias = 1'b0;
                                     end 
@@ -413,6 +422,7 @@ module controller(
                             state           <= STATE_WBACK;
                             lstm_unit_en    <= 1'b0;
 //                            w_valid         <= 1'b1;
+                            current_unit    <= 0;
                             case(current_layer)
                                 LSTM:   remaining_no_units      <= NO_UNITS_LSTM;
                                 FC:     remaining_no_units      <= NO_UNITS_FC;
@@ -538,15 +548,16 @@ module controller(
                 
                 STATE_WBACK: begin
                     if (wb_done) begin
-                        w_valid <= 0;
-                        wb_done <= 0;
-                        read_bias <= 0;
+                        w_valid         <= 0;
+                        wb_done         <= 0;
+                        read_bias       <= 0;
+                        current_unit    <= 0;
                         if (current_layer == LSTM) begin
                             if (current_timestep == NO_TIMESTEPS-1) begin
                                 if (current_sample == NO_SAMPLES - 1) begin
                                     current_sample      <= 0;
-//                                    state               <= STATE_CONFIG;
-                                    state               <= STATE_FINISH;
+                                    state               <= STATE_CONFIG;
+//                                    state               <= STATE_FINISH;
                                 end
                                 else begin
                                     current_sample      <= current_sample + 1;
@@ -554,8 +565,6 @@ module controller(
                                     remaining_no_units  <= NO_UNITS_LSTM;
                                     current_feature     <= 0;
                                     current_timestep    <= 0;
-//                                    if (current_sample == NO_SAMPLES - 2) is_last_sample    <= 1;
-//                                    else  is_last_sample <= 0;
                                 end
                             end
                             else begin
@@ -563,8 +572,6 @@ module controller(
                                 current_feature         <= 0;
                                 state                   <= STATE_WAIT;
                                 remaining_no_units      <= NO_UNITS_LSTM;
-//                                if (current_timestep == NO_TIMESTEPS - 2) is_last_timestep <= 1;
-//                                else is_last_timestep <= 0;
                             end
                         end
                         else begin
@@ -590,19 +597,20 @@ module controller(
                             end
                             else current_buffer_index <= current_buffer_index + 4;
                             
-                            remaining_no_units      <= remaining_no_units - 4;
+                            if (remaining_no_units >= 4) remaining_no_units      <= remaining_no_units - 4;
+                            else remaining_no_units = 0;
                             
                             if (current_buffer_index == current_no_units - 1) begin
-                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_unit][current_buffer_index]};
+                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else if (current_buffer_index == current_no_units - 2) begin
-                                out_data    <= {{16{1'b0}}, lstm_unit_result[current_unit][current_buffer_index+1], lstm_unit_result[current_unit][current_buffer_index]};
+                                out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else if (current_buffer_index == current_no_units - 3) begin
-                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_unit][current_buffer_index+2], lstm_unit_result[current_unit][current_buffer_index+1], lstm_unit_result[current_unit][current_buffer_index]};
+                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2][current_unit], lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else if (current_buffer_index <= current_no_units - 4) begin
-                                out_data    <= {lstm_unit_result[current_unit][current_buffer_index+3], lstm_unit_result[current_unit][current_buffer_index+2], lstm_unit_result[current_unit][current_buffer_index+1], lstm_unit_result[current_unit][current_buffer_index]};
+                                out_data    <= {lstm_unit_result[current_buffer_index+3][current_unit], lstm_unit_result[current_buffer_index+2][current_unit], lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             
 //                            if (current_layer == LSTM) begin
@@ -617,43 +625,6 @@ module controller(
                             wb_done <= 1;
                             out_data    <= {32{1'b0}};
                         end
-//                        if (current_layer == LSTM) begin
-//                            if (current_buffer_index > current_no_units - 1) begin
-//                                current_buffer_index    <= 0;
-//                                w_valid <= 0;
-//                                wb_done <= 1;
-//                                out_data    <= {32{1'b0}};
-//                            end
-//                            else begin
-//                                w_valid         <= 1'b1;
-//                                current_buffer_index <= current_buffer_index + 4;
-//                                if (current_buffer_index == current_no_units - 1) begin
-//                                    out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index]};
-//                                end
-//                                else if (current_buffer_index == current_no_units - 2) begin
-//                                    out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
-//                                end
-//                                else if (current_buffer_index == current_no_units - 3) begin
-//                                    out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
-//                                end
-//                                else if (current_buffer_index <= current_no_units - 4) begin
-//                                    out_data    <= {lstm_unit_result[current_buffer_index+3], lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
-//                                end
-//                            end
-//                        end
-//                        else begin
-//                            if (current_buffer_index > current_no_units - 1) begin
-//                                current_buffer_index    <= 0;
-//                                w_valid <= 0;
-//                                wb_done <= 1;
-//                                out_data    <= {32{1'b0}};
-//                            end
-//                            else begin
-//                                w_valid                 <= 1'b1;
-//                                current_buffer_index    <= current_buffer_index + 1;
-//                                out_data[7:0]           <= lstm_unit_result[current_buffer_index];
-//                            end
-//                        end
                     end
                 end
                 
