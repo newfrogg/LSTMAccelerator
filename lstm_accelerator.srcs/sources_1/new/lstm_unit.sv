@@ -46,9 +46,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
-        MAX_NO_UNITS        = 4,
-        NO_UNITS_LSTM       = 4,
-        NO_UNITS_FC         = 2,
+        MAX_NO_UNITS        = 32,
+        NO_UNITS_LSTM       = 32,
+        NO_UNITS_FC         = 10,
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
         
@@ -179,7 +179,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             data_in_bf_2           <= {IN_BITWIDTH{1'b0}};
             pre_sum_bf             <= {PREV_SUM_BITWIDTH{1'b0}};
 //            accu_bf                <= {BUFFER_SIZE{1'b0}};
-//            accu_fc_bf             <= {BUFFER_SIZE{1'b0}};
+            accu_fc_bf             <= {BUFFER_SIZE{1'b0}};
             internal_current_unit  <= 0;
             done                   <= 1'b0;
         end
@@ -242,8 +242,14 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 endcase
                             end
                             else if (current_layer == FC) begin
-                                state               <= STATE_FINISH;
-                                done                <= 1'b1;
+                                if (is_last_sample) begin
+                                    state           <= STATE_FINISH;
+                                    done            <= 1'b1;
+                                end
+                                else begin  
+                                    state           <= STATE_IDLE;
+                                    is_waiting      <= 1'b1;
+                                end
                                 fc_bf               <= mac_result; 
                                 out[current_unit]   <= mac_result[QUANTIZE_SIZE-1:0];
                                 irb_done            <= 1'b0;     
@@ -268,7 +274,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 end
                
                 STATE_WAIT: begin
-                    is_waiting          <= 1'b0;
+                    is_waiting          <= 1'b0;                  
                     if (remain_waiting_time == 0) begin
                         finish_step     <= 1'b0;
                         if (is_continued == 1) begin
@@ -288,11 +294,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
 //                            prev_cell_state[current_unit]       <= cell_state[current_unit][QUANTIZE_SIZE-1:0];
                             if (finish_step == 1'b1) begin
                                 finish_step         <= 1'b0;
-//                                accu_input_bf       <= 0;
-//                                accu_forget_bf      <= 0;
-//                                accu_cell_bf        <= 0;
-//                                accu_output_bf      <= 0;
-//                                accu_bf             <= {BUFFER_SIZE{1'b0}};
                             end
                             else ;
                             
@@ -387,21 +388,23 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 STATE_HIDDEN: begin
                     if (hidden_done) begin
                         if (internal_current_unit == NO_UNITS-1) begin
-                            if (is_last_timestep) begin
-                                if (!is_last_sample) begin
-                                    state           <= STATE_IDLE;
-                                end
-                                else begin
-                                    state           <= STATE_FINISH;
-                                    done            <= 1'b1;
-                                end 
-                            end
-                            else begin
-                                state           <= STATE_WAIT;
-                                is_waiting      <= 1'b1;
-                                finish_step     <= 1'b1;
-//                                out[]             <= mac_result[QUANTIZE_SIZE-1:0];
-                            end
+//                            if (is_last_timestep) begin
+//                                if (!is_last_sample) begin
+//                                    state           <= STATE_IDLE;
+//                                end
+//                                else begin
+//                                    state           <= STATE_FINISH;
+//                                    done            <= 1'b1;
+//                                end 
+//                            end
+//                            else begin
+//                                state           <= STATE_WAIT;
+//                                is_waiting      <= 1'b1;
+//                                finish_step     <= 1'b1;
+//                            end
+                            state           <= STATE_IDLE;
+                            is_waiting      <= 1'b1;
+                            finish_step     <= 1'b1;
                         end
                         else begin
                             state                   <=  STATE_GATE;

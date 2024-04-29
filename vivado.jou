@@ -20,3 +20,121 @@ source tb_controller.tcl
 close_sim
 launch_simulation
 source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {200000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {20000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {200000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {1000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {10000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {1000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {2000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {10000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+set_property -name {xsim.simulate.runtime} -value {50000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl
+close_sim
+launch_simulation
+source tb_controller.tcl

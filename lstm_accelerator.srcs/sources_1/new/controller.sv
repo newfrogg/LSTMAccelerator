@@ -61,16 +61,17 @@ module controller(
     output logic [1:0]  o_current_layer,
     output logic [4:0]  o_current_sample,
     output logic [1:0]  o_count_gate,
-    output logic [1:0]  o_current_unit
+    output logic [1:0]  o_current_unit,
+    output logic        o_is_last_sample
 );
 
     localparam
-        MAX_NO_UNITS            = 4,
-        NO_UNITS_LSTM           = 4,
-        NO_UNITS_FC             = 2,
-        NO_FEATURES             = 2,
-        NO_TIMESTEPS            = 2,
-        NO_SAMPLES              = 1,
+        MAX_NO_UNITS            = 32,
+        NO_UNITS_LSTM           = 32,
+        NO_UNITS_FC             = 10,
+        NO_FEATURES             = 10,
+        NO_TIMESTEPS            = 28,
+        NO_SAMPLES              = 4,
         
         INIT                    = 0,
         LSTM                    = 1,
@@ -200,7 +201,7 @@ module controller(
     assign o_current_sample = current_sample;
     assign o_count_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.count_gate;
     assign o_current_unit = current_unit;
-    
+    assign o_is_last_sample = is_last_sample;
     genvar i;
     
     generate
@@ -246,6 +247,7 @@ module controller(
             current_no_units    <= 0;
             remaining_no_units  <= NO_UNITS_LSTM;
             current_sample      <= 0;
+            is_last_sample      <= 1'b0;
         end
         else begin
             case(state)
@@ -260,6 +262,8 @@ module controller(
                         config_done <= 1'b0;
                     end
                     else begin
+                        if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
+                        else is_last_sample = 1'b0;
                         case(current_layer)
                             INIT: begin
                                 current_layer           <= LSTM;
@@ -276,16 +280,15 @@ module controller(
                             end
                             LSTM: begin
                                 current_layer           <= FC;
-//                                if (NO_UNITS_FC > MAX_NO_UNITS) begin
-//                                    current_no_units    <= MAX_NO_UNITS;
-//                                    remaining_no_units  <= NO_UNITS_FC - MAX_NO_UNITS;    
-//                                end
-//                                else begin
-//                                    current_no_units    <= NO_UNITS_FC;
-//                                    remaining_no_units  <= 0;
-//                                end
-                                remaining_no_units      <= 0;
-                                
+                                if (NO_UNITS_FC > MAX_NO_UNITS) begin
+                                    current_no_units    <= MAX_NO_UNITS;
+                                    remaining_no_units  <= NO_UNITS_FC - MAX_NO_UNITS;    
+                                end
+                                else begin
+                                    current_no_units    <= NO_UNITS_FC;
+                                    remaining_no_units  <= 0;
+                                end
+//                                remaining_no_units      <= 0;   
                             end
                         endcase
                         config_done     <= 1'b1;
@@ -295,7 +298,7 @@ module controller(
                 STATE_IDLE: begin
                 
                     is_last_timestep    <= 1'b0;
-                    is_last_sample      <= 1'b0;
+//                    is_last_sample      <= 1'b0;
                     data_receive_done   <= 1'b0;
                     data_load_done      <= 1'b0;
                     wb_done             <= 1'b0;
@@ -514,8 +517,8 @@ module controller(
                                 if (current_timestep == NO_TIMESTEPS - 1) is_last_timestep = 1'b1;
                                 else is_last_timestep = 1'b1;
                                 
-                                if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
-                                else is_last_sample = 1'b0;
+//                                if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
+//                                else is_last_sample = 1'b0;
                             end
                             FC: begin
                                 if (remaining_no_units == 0) begin
@@ -539,8 +542,8 @@ module controller(
                                     current_unit        <= current_unit + 1;
                                     remaining_no_units  <= 0;
                                 end
-                                if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
-                                else is_last_sample = 1'b0;
+//                                if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
+//                                else is_last_sample = 1'b0;
                             end
                         endcase
                     end
@@ -554,18 +557,8 @@ module controller(
                         current_unit    <= 0;
                         if (current_layer == LSTM) begin
                             if (current_timestep == NO_TIMESTEPS-1) begin
-                                if (current_sample == NO_SAMPLES - 1) begin
-                                    current_sample      <= 0;
-                                    state               <= STATE_CONFIG;
-//                                    state               <= STATE_FINISH;
-                                end
-                                else begin
-                                    current_sample      <= current_sample + 1;
-                                    state               <= STATE_WAIT;
-                                    remaining_no_units  <= NO_UNITS_LSTM;
-                                    current_feature     <= 0;
-                                    current_timestep    <= 0;
-                                end
+                                state               <= STATE_CONFIG;
+                                current_layer       <= LSTM;
                             end
                             else begin
                                 current_timestep        <= current_timestep + 1;
@@ -581,9 +574,9 @@ module controller(
                             end
                             else begin
                                 current_sample      <= current_sample + 1;
-                                remaining_no_units  <= NO_UNITS_FC;
-//                                 if (current_sample == NO_SAMPLES - 2) is_last_sample    <= 1;
-//                                 else  is_last_sample <= 0;
+                                state               <= STATE_CONFIG;
+                                current_layer       <= INIT;
+                                remaining_no_units  <= NO_UNITS_LSTM;
                             end
                         end 
                     end

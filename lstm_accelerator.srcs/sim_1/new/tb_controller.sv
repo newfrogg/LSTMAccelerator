@@ -40,13 +40,13 @@
 
 module tb_controller();
     
-    localparam      MAX_NO_UNITS = 4;
-    localparam      NO_UNITS_LSTM = 4;
-    localparam      NO_UNITS_FC = 2;
-    localparam      NO_FEATURES = 2;
-    localparam      NO_TIMESTEPS = 2;
-    localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 2;
+    localparam      MAX_NO_UNITS = 32;
+    localparam      NO_UNITS_LSTM = 32;
+    localparam      NO_UNITS_FC = 10;
+    localparam      NO_FEATURES = 10;
+    localparam      NO_TIMESTEPS = 28;
+    localparam      NO_SAMPLES = 4;
+    localparam      NO_CLASSES = 10;
     
     logic               clk;
     logic               rstn;
@@ -56,6 +56,7 @@ module tb_controller();
     logic               r_data;
     logic               w_valid;
     logic               t_valid;
+    logic               o_is_last_sample;
     logic [31:0]        out_data;
     logic [7:0]         o_lstm_unit_result [0:3][0:1];
     logic [7:0]         o_index;
@@ -178,7 +179,8 @@ module tb_controller();
         .o_current_layer(o_current_layer),
         .o_current_sample(o_current_sample),
         .o_count_gate(o_count_gate),
-        .o_current_unit(o_current_unit)
+        .o_current_unit(o_current_unit),
+        .o_is_last_sample(o_is_last_sample)
     );
     
     always #20 begin 
@@ -541,7 +543,7 @@ module tb_controller();
                         ht_matrix[current_sample][current_timestep][current_ht*4+3]= out_data[31:24];
 //                        $display("SAMPLE = %0d, Timestep = %0d, Real result ht[%0d]= [%0h]", current_sample, current_timestep, {});
                     end                                                                                                 // 3 tab
-                    @(negedge clk);
+//                    @(negedge clk);
                 end                                                                         // 2 tab
                 current_timestep = current_timestep + 1;
             end                                                                             // 1 tab
@@ -561,8 +563,8 @@ module tb_controller();
                 end
             end
             
-            wait(r_data);
-            @(negedge clk);
+//            wait(r_data);
+            repeat(3) @(negedge clk);
             current_ht = 0;
             index = 0;
             last_ht_unit = 0;
@@ -626,6 +628,7 @@ module tb_controller();
                 end                                                                     // 2 tab
                 last_ht_unit = last_ht_unit + current_no_units;
             end                                                                         // 1 tab
+            
             wait(w_valid);                                                                          
             while (w_valid) begin                                                       // 1 tab                            
                 for (index = 0; index < (NO_UNITS_FC-1)/4 + 1; index = index + 1) begin    // 2 tab
@@ -657,10 +660,11 @@ module tb_controller();
                         fc_result[current_sample][index*4+3]    = out_data[31:24];
                     end                                                                     // 3 tab
 //                        $display("SAMPLE = %0d, Timestep = %0d, Real result ht[%0d]= [%0h]", current_sample, current_timestep, {});
-                end                                                                                                 // 3 tab
-                @(negedge clk);
-            end                                                                         // 2 tab
+                end                                                                // 2 tab
+//                @(negedge clk);
+            end                                                                         // 1 tab
             current_sample = current_sample + 1;
+            is_last_data_gate   = 0;
         end                 // end
            
         wait(t_valid);
@@ -682,5 +686,5 @@ module tb_controller();
             
             $display("\n---------------------- END ------------------------");
     
-        end 
+    end 
 endmodule
