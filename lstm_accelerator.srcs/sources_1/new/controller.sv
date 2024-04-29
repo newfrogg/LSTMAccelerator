@@ -65,11 +65,11 @@ module controller(
 );
 
     localparam
-        MAX_NO_UNITS            = 32,
-        NO_UNITS_LSTM           = 32,
-        NO_UNITS_FC             = 10,
-        NO_FEATURES             = 10,
-        NO_TIMESTEPS            = 28,
+        MAX_NO_UNITS            = 4,
+        NO_UNITS_LSTM           = 4,
+        NO_UNITS_FC             = 2,
+        NO_FEATURES             = 2,
+        NO_TIMESTEPS            = 2,
         NO_SAMPLES              = 1,
         
         INIT                    = 0,

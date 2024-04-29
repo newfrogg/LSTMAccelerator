@@ -40,13 +40,13 @@
 
 module tb_controller();
     
-    localparam      MAX_NO_UNITS = 32;
-    localparam      NO_UNITS_LSTM = 32;
-    localparam      NO_UNITS_FC = 10;
-    localparam      NO_FEATURES = 10;
-    localparam      NO_TIMESTEPS = 28;
+    localparam      MAX_NO_UNITS = 4;
+    localparam      NO_UNITS_LSTM = 4;
+    localparam      NO_UNITS_FC = 2;
+    localparam      NO_FEATURES = 2;
+    localparam      NO_TIMESTEPS = 2;
     localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 10;
+    localparam      NO_CLASSES = 2;
     
     logic               clk;
     logic               rstn;
@@ -505,7 +505,7 @@ module tb_controller();
                             @(negedge clk);
                             if (current_ht == (NO_UNITS_LSTM-1)/3) begin                // 5 tab
                                 if (NO_UNITS_LSTM % 3 == 0) data_in = {{8{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+2], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
-                                else if (NO_UNITS_LSTM % 3 == 1) data_in = {{16{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
+                                else if (NO_UNITS_LSTM % 3 == 2) data_in = {{16{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
                                 else data_in = {{24{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3]};
                             end                                                             // 5 tab
                             else data_in = {{8{1'b0}}, ht_matrix[current_sample][current_timestep-1][current_ht*3+2], ht_matrix[current_sample][current_timestep-1][current_ht*3 + 1], ht_matrix[current_sample][current_timestep-1][current_ht*3]};
