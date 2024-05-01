@@ -46,9 +46,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
-        MAX_NO_UNITS        = 32,
-        NO_UNITS_LSTM       = 32,
-        NO_UNITS_FC         = 10,
+        MAX_NO_UNITS        = 4,
+        NO_UNITS_LSTM       = 4,
+        NO_UNITS_FC         = 2,
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
         

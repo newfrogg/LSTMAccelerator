@@ -40,13 +40,13 @@
 
 module tb_controller();
     
-    localparam      MAX_NO_UNITS = 32;
-    localparam      NO_UNITS_LSTM = 32;
-    localparam      NO_UNITS_FC = 10;
-    localparam      NO_FEATURES = 10;
-    localparam      NO_TIMESTEPS = 28;
-    localparam      NO_SAMPLES = 4;
-    localparam      NO_CLASSES = 10;
+    localparam      MAX_NO_UNITS = 4;
+    localparam      NO_UNITS_LSTM = 4;
+    localparam      NO_UNITS_FC = 2;
+    localparam      NO_FEATURES = 2;
+    localparam      NO_TIMESTEPS = 3;
+    localparam      NO_SAMPLES = 1;
+    localparam      NO_CLASSES = 2;
     
     logic               clk;
     logic               rstn;

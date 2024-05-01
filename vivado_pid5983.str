@@ -1,0 +1,2941 @@
+/*
+
+AMD Vivado v2023.1 (64-bit) [Major: 2023, Minor: 1]
+SW Build: 3865809 on Sun May  7 15:04:56 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+
+Process ID (PID): 5983
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed May 01 13:53:45 ICT 2024
+Time zone: 	Indochina Time (Asia/Ho_Chi_Minh)
+
+OS: Ubuntu
+OS Version: 6.5.0-28-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 1
+Screen size: 3072x1920
+Screen resolution (DPI): 250
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=30
+Scale size: 75
+OS font scaling: 250%
+
+Java version: 	17.0.3 64-bit
+JavaFX version: 17.0.1
+Java home: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64/jre17.0.3_7
+Java executable: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64/jre17.0.3_7/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	vanloi
+User home directory: /home/vanloi
+User working directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado
+HDI_APPROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+RDI_DATADIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data
+RDI_BINDIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin
+
+Vivado preferences file: /home/vanloi/.Xilinx/Vivado/2023.1/vivado.xml
+Vivado preferences directory: /home/vanloi/.Xilinx/Vivado/2023.1/
+Vivado layouts directory: /home/vanloi/.Xilinx/Vivado/2023.1/data/layouts
+PlanAhead jar file: 	/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
+Vivado journal file: 	/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-5983-vanloi-laptop
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+GNOME_SHELL_SESSION_MODE: ubuntu
+RDI_APPROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+RDI_BASEROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado
+RDI_BINROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin
+RDI_BUILD: yes
+RDI_DATADIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data
+RDI_INSTALLROOT: /home/vanloi/Documents/Loi_study/Vivado
+RDI_INSTALLVER: 2023.1
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 17.0.3_7
+RDI_LIBDIR: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/lnx64.o/Ubuntu:/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE/bin/lin64
+RDI_PROG: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator:vanloi-laptop_1714546411_5942
+RDI_SHARED_DATA: /home/vanloi/Documents/Loi_study/Vivado/SharedData/2023.1/data
+RDI_TPS_ROOT: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/lnx64
+RDI_USE_JDK17: True
+SHELL: /bin/bash
+XILINX: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE
+XILINX_DSP: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/ids_lite/ISE
+XILINX_HLS: /home/vanloi/Documents/Loi_study/Vivado/Vitis_HLS/2023.1
+XILINX_PLANAHEAD: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+XILINX_VITIS: 
+XILINX_VIVADO: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+XILINX_VIVADO_HLS: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,527 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // u
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+setFileChooser("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr");
+// Opening Vivado Project: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr. Version: Vivado v2023.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,569 MB. GUI used memory: 93 MB. Current time: 5/1/24, 1:53:46 PM ICT
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 122 MB (+125730kb) [00:00:12]
+// [Engine Memory]: 1,660 MB (+1589221kb) [00:00:12]
+// [GUI Memory]: 170 MB (+43759kb) [00:00:13]
+// [Engine Memory]: 1,845 MB (+106442kb) [00:00:13]
+// [Engine Memory]: 2,012 MB (+79109kb) [00:00:14]
+// WARNING: HEventQueue.dispatchEvent() is taking  1745 ms.
+// Tcl Message: open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr 
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 7897.262 ; gain = 344.523 ; free physical = 4820 ; free virtual = 13086 
+// Project name: lstm_accelerator; location: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator; part: xc7z020clg400-1
+dismissDialog("Open Project"); // bq
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv)]", 2, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv)]", 2, true, false, false, false, false, true); // E - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv), genblk1[0].u_lstm_unit : lstm_unit (lstm_unit.sv)]", 3, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, controller (controller.sv), genblk1[0].u_lstm_unit : lstm_unit (lstm_unit.sv)]", 3, true, false, false, false, false, true); // E - Double Click - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 13); // E
+// HMemoryUtils.trashcanNow. Engine heap size: 2,117 MB. GUI used memory: 104 MB. Current time: 5/1/24, 1:54:01 PM ICT
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 14); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_controller (tb_controller.sv)]", 16, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_controller (tb_controller.sv)]", 16, true, false, false, false, false, true); // E - Double Click - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files]", 15); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files]", 15); // E
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // t
+// HMemoryUtils.trashcanNow. Engine heap size: 1,996 MB. GUI used memory: 104 MB. Current time: 5/1/24, 2:24:01 PM ICT
+// [GUI Memory]: 180 MB (+1870kb) [00:43:11]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,997 MB. GUI used memory: 104 MB. Current time: 5/1/24, 2:54:01 PM ICT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,997 MB. GUI used memory: 84 MB. Current time: 5/1/24, 3:24:01 PM ICT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,997 MB. GUI used memory: 84 MB. Current time: 5/1/24, 3:54:01 PM ICT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,997 MB. GUI used memory: 84 MB. Current time: 5/1/24, 4:24:01 PM ICT
+// Elapsed time: 9458 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 1); // o
+selectCodeEditor("lstm_unit.sv", 1292, 841); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:38m:03s
+selectCodeEditor("lstm_unit.sv", 1373, 734); // ad
+// Elapsed Time for: 'L.f': 02h:38m:05s
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "out", true); // d.c
+// Elapsed time: 19 seconds
+selectCodeEditor("lstm_unit.sv", 903, 485); // ad
+selectCodeEditor("lstm_unit.sv", 1150, 473); // ad
+selectCodeEditor("lstm_unit.sv", 1724, 517); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("lstm_unit.sv", 1123, 568); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:38m:47s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 2); // o
+// Elapsed Time for: 'L.f': 02h:38m:49s
+// Elapsed time: 546 seconds
+selectCodeEditor("tb_controller.sv", 385, 223); // ad
+selectCodeEditor("tb_controller.sv", 369, 292); // ad
+selectCodeEditor("tb_controller.sv", 594, 233); // ad
+selectCodeEditor("tb_controller.sv", 564, 196); // ad
+typeControlKey((HResource) null, "tb_controller.sv", 'c'); // ad
+selectCodeEditor("tb_controller.sv", 410, 242); // ad
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files]", 15, true); // E - Node
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_controller (tb_controller.sv)]", 16); // E
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a
+selectComboBox(PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, "SystemVerilog", 2); // bd
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "tb_accelerator_real_data"); // Q
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Source File"); // m
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 21 seconds
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_1] 
+// Tcl Message: close [ open /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset sim_1 /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "Yes"); // JButton
+dismissDialog("Define Module"); // p
+// Elapsed Time for: 'L.f': 02h:48m:35s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:48m:37s
+// Tcl Message: update_compile_order -fileset sim_1 
+// Elapsed Time for: 'L.f': 02h:48m:39s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_accelerator_real_data (tb_accelerator_real_data.sv)]", 18, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_accelerator_real_data (tb_accelerator_real_data.sv)]", 18, false, false, false, false, true, false); // E - Popup Trigger
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top tb_accelerator_real_data [get_filesets sim_1] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property top_lib xil_defaultlib [get_filesets sim_1] 
+// Elapsed Time for: 'L.f': 02h:48m:45s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:48m:47s
+// Tcl Message: update_compile_order -fileset sim_1 
+// Elapsed Time for: 'L.f': 02h:48m:49s
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_accelerator_real_data (tb_accelerator_real_data.sv)]", 18, false); // E
+// Elapsed Time for: 'L.f': 02h:48m:51s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_accelerator_real_data (tb_accelerator_real_data.sv)]", 18, false, false, false, false, false, true); // E - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 762, 295); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// [Engine Memory]: 2,120 MB (+7025kb) [02:49:10]
+selectCodeEditor("tb_accelerator_real_data.sv", 266, 328); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 266, 328, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 701, 194); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 828, 159); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1212, 241); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 630, 240); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:49m:21s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 2); // o
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:49m:23s
+// Tcl Message: update_compile_order -fileset sim_1 
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 0); // o
+// Elapsed Time for: 'L.f': 02h:49m:25s
+// Elapsed Time for: 'L.f': 02h:49m:27s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 1); // o
+selectCodeEditor("controller.sv", 628, 414); // ad
+// Elapsed time: 293 seconds
+selectCodeEditor("controller.sv", 640, 457); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 0); // o
+// Elapsed Time for: 'L.f': 02h:54m:29s
+// Elapsed Time for: 'L.f': 02h:54m:31s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 656, 329); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,150 MB. GUI used memory: 89 MB. Current time: 5/1/24, 4:48:31 PM ICT
+// Elapsed Time for: 'L.f': 02h:54m:43s
+// Elapsed Time for: 'L.f': 02h:54m:45s
+// [Engine Memory]: 2,250 MB (+25084kb) [02:56:06]
+// Elapsed time: 496 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 943, 385); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 670, 227); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 670, 227, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 768, 217); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 675, 229); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 675, 229, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 823, 225); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 680, 235); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 680, 235, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 832, 229); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 666, 237); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 666, 237, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 888, 238); // ad
+// Elapsed time: 532 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1766, 273); // ad
+// Elapsed time: 40 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 322, 334); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 482, 390); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 482, 390, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 419, 471); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 448, 364); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 448, 364, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 405, 567); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 495, 381); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 495, 381, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 259 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1143, 265); // ad
+// Elapsed time: 21 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 435, 868); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 370, 709); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 330, 768); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 373, 745); // ad
+// Elapsed time: 46 seconds
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 2035, 745); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1715, 838); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 185, 260); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 715, 380); // ad
+// Elapsed time: 17 seconds
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 40 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 2017, 583); // ad
+// Elapsed time: 23 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1960, 592); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 2059, 576); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 231, 629); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1955, 701); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 208, 755); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 220, 731); // ad
+// Elapsed time: 22 seconds
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 233, 873); // ad
+// Elapsed time: 42 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 2053, 986); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 210, 1022); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1710, 913); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1880, 926); // ad
+// Elapsed time: 22 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1403, 593); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1785, 917); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1785, 917, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 1739, 815); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:22m:01s
+// Elapsed Time for: 'L.f': 03h:22m:03s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,252 MB. GUI used memory: 90 MB. Current time: 5/1/24, 5:18:32 PM ICT
+// Elapsed time: 223 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 2029, 730); // ad
+// Elapsed time: 108 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 795, 668); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:27m:35s
+selectCodeEditor("tb_accelerator_real_data.sv", 1465, 528); // ad
+// Elapsed Time for: 'L.f': 03h:27m:37s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:27m:39s
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// Elapsed Time for: 'L.f': 03h:27m:41s
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "controller.sv", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lstm_unit.sv", 0); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,265 MB. GUI used memory: 100 MB. Current time: 5/1/24, 5:22:00 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 500000ns 
+// Tcl Message: -------------FILE OPENED FAIL---------------- /////////////////////////////////////////////////////////// //////////////////// Test No[3] Start ///////////////////// ///////////////////////////////////////////////////////////   ##################################################### -----------------------------------------------------  !!!!!!!!!!!!!!!!   TESTCASE PASS   !!!!!!!!!!!!!!!!!!  ----------------------------------------------------- #####################################################  ---------------------- END ------------------------ 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 8292.438 ; gain = 109.270 ; free physical = 1778 ; free virtual = 10943 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,256 MB. GUI used memory: 105 MB. Current time: 5/1/24, 5:22:13 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,256 MB. GUI used memory: 153 MB. Current time: 5/1/24, 5:22:15 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 15 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,257 MB. GUI used memory: 211 MB. Current time: 5/1/24, 5:22:16 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 1632, 359); // ad
+// Elapsed time: 31 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1893, 410); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 2043, 159); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:29m:29s
+// Elapsed Time for: 'L.f': 03h:29m:31s
+// Elapsed time: 172 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1682, 745); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// [GUI Memory]: 192 MB (+2352kb) [03:32:41]
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,279 MB. GUI used memory: 172 MB. Current time: 5/1/24, 5:26:18 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: File was opened successfully /////////////////////////////////////////////////////////// //////////////////// Test No[3] Start ///////////////////// ///////////////////////////////////////////////////////////   ##################################################### -----------------------------------------------------  !!!!!!!!!!!!!!!!   TESTCASE PASS   !!!!!!!!!!!!!!!!!!  ----------------------------------------------------- #####################################################  ---------------------- END ------------------------ 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 519, 140); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 488, 293); // cD
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,270 MB. GUI used memory: 112 MB. Current time: 5/1/24, 5:26:24 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,270 MB. GUI used memory: 157 MB. Current time: 5/1/24, 5:26:25 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,270 MB. GUI used memory: 178 MB. Current time: 5/1/24, 5:26:26 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 48 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 449, 554); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 792, 481); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 756, 521); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1425, 888); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1108, 454); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 778, 493); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1442, 879); // ad
+// Elapsed time: 12 seconds
+typeControlKey(null, null, 'z');
+// Elapsed time: 503 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 440, 853); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 624, 727); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 401, 776); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 360, 736); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 826, 742); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 308, 705); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 759, 706); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 527, 352); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 527, 352, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 277, 338); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 333, 346); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 739, 694); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1564, 693); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 361, 729); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 16 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1608, 776); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1592, 775); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 351, 841); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 785, 839); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 948, 694); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 534, 844); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1614, 807); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1704, 815); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 550, 768); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 778, 773); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 762, 813); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 762, 813, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 846, 766); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 846, 766, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 831, 806); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 831, 806, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 786, 840); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 786, 840, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 789, 910); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 842, 907); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 842, 907, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 802, 952); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 802, 952, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 796, 972); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 795, 972, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1380, 716); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1478, 449); // ad
+// Elapsed time: 15 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 739, 559); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 535, 588); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 577, 631); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1046, 597); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1334, 429); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1300, 584); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1637, 745); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1626, 913); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1640, 992); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 352, 662); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 502, 404); // ad
+// Elapsed time: 57 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 380, 161); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 380, 161, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 288, 126); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 288, 126, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 422, 858); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 428, 871); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 834, 165); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 834, 165, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 383, 915); // ad
+// Elapsed time: 19 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 746, 165); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 600, 917); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1330, 1021); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 771, 954); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 842, 899); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1598, 713); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1584, 746); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1674, 557); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1730, 356); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:47m:31s
+// Elapsed Time for: 'L.f': 03h:47m:33s
+selectCodeEditor("tb_accelerator_real_data.sv", 947, 276); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/xvlog.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/xvlog.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+// Elapsed time: 13 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 465, 207); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 465, 207, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 428, 624); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 428, 624, false, false, false, false, true); // ad - Double Click
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+// Elapsed time: 60 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, (String) null); // h.b
+// Elapsed time: 183 seconds
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("tb_accelerator_real_data.sv", 1085, 360); // ad
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/xvlog.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/xvlog.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 3 seconds
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// Elapsed time: 19 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 196, 955); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 481, 248); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:52m:49s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03h:52m:51s
+// Tcl Message: update_compile_order -fileset sim_1 
+// Elapsed Time for: 'L.f': 03h:52m:53s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module tb_accelerator_real_data Waiting for jobs to finish... No pending jobs, compilation finished. 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,305 MB. GUI used memory: 106 MB. Current time: 5/1/24, 5:46:49 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 4 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 03h:53m:01s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,296 MB. GUI used memory: 105 MB. Current time: 5/1/24, 5:47:09 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,296 MB. GUI used memory: 142 MB. Current time: 5/1/24, 5:47:10 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 21 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,296 MB. GUI used memory: 171 MB. Current time: 5/1/24, 5:47:11 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 390 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 719, 156); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 687, 166); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 827, 114); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed Time for: 'L.f': 04h:00m:03s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,314 MB. GUI used memory: 108 MB. Current time: 5/1/24, 5:54:01 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8329.453 ; gain = 7.004 ; free physical = 1270 ; free virtual = 9783 
+// 'd' command handler elapsed time: 7 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Elapsed Time for: 'L.f': 04h:00m:13s
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,314 MB. GUI used memory: 109 MB. Current time: 5/1/24, 5:54:05 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,304 MB. GUI used memory: 177 MB. Current time: 5/1/24, 5:54:07 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 315 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 400, 393); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 400, 393, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 799, 277); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 681, 379); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 502, 380); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 502, 380, false, false, false, false, true); // ad - Double Click
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_accelerator_real_data.sv", 1225, 380); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 483, 422); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 483, 422, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 1218, 408); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 518, 452); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 518, 452, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 1240, 456); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1459, 409); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+// Elapsed Time for: 'L.f': 04h:06m:29s
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,325 MB. GUI used memory: 112 MB. Current time: 5/1/24, 6:00:25 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 04h:06m:37s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,325 MB. GUI used memory: 131 MB. Current time: 5/1/24, 6:00:29 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,325 MB. GUI used memory: 179 MB. Current time: 5/1/24, 6:00:31 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 622, 372); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 622, 372, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 1536, 450); // ad
+// Elapsed time: 821 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 414, 387); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 414, 387, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+// Elapsed time: 20 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1421, 374); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1462, 453); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1426, 446); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1076, 253); // ad
+// Elapsed time: 217 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 623, 664); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1151, 434); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:24m:33s
+// Elapsed Time for: 'L.f': 04h:24m:35s
+selectCodeEditor("tb_accelerator_real_data.sv", 595, 671); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 986, 460); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:24m:39s
+// Elapsed Time for: 'L.f': 04h:24m:41s
+selectCodeEditor("tb_accelerator_real_data.sv", 634, 668); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_accelerator_real_data.sv", 923, 554); // ad
+// Elapsed time: 18 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 277, 344); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 303, 335); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 303, 334, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1432, 622); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1490, 602); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1424, 627); // ad
+// Elapsed time: 47 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 505, 425); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:26m:15s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// HMemoryUtils.trashcanNow. Engine heap size: 2,350 MB. GUI used memory: 117 MB. Current time: 5/1/24, 6:20:07 PM ICT
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-99] Step results log file:'/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 5 seconds
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// Elapsed Time for: 'L.f': 04h:26m:23s
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+selectCodeEditor("tb_accelerator_real_data.sv", 336, 570); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 701, 428); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:26m:37s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,360 MB. GUI used memory: 114 MB. Current time: 5/1/24, 6:20:32 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 4 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 04h:26m:43s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,351 MB. GUI used memory: 115 MB. Current time: 5/1/24, 6:20:42 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,351 MB. GUI used memory: 153 MB. Current time: 5/1/24, 6:20:43 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 683, 568); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 754, 571); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 734, 597); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1035, 444); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:27m:11s
+// Elapsed Time for: 'L.f': 04h:27m:13s
+// Elapsed time: 40 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 702, 333); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_accelerator_real_data.sv", 497, 567); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 497, 567, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 243, 344); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 709, 315); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,369 MB (+6963kb) [04:28:15]
+// Elapsed Time for: 'L.f': 04h:28m:01s
+// Elapsed Time for: 'L.f': 04h:28m:03s
+selectCodeEditor("tb_accelerator_real_data.sv", 784, 455); // ad
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,375 MB. GUI used memory: 117 MB. Current time: 5/1/24, 6:22:01 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,375 MB. GUI used memory: 118 MB. Current time: 5/1/24, 6:22:04 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,375 MB. GUI used memory: 166 MB. Current time: 5/1/24, 6:22:05 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 484, 454); // ad
+// Elapsed time: 108 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 281, 154); // ad
+// [GUI Memory]: 203 MB (+2231kb) [04:30:28]
+// Elapsed time: 15 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 469, 852); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 188, 882); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 428, 958); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 168, 993); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 357, 882); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 386, 916); // ad
+// Elapsed time: 13 seconds
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 450, 1119); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 376, 1019); // ad
+// Elapsed time: 26 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 623, 691); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:31m:29s
+// Elapsed Time for: 'L.f': 04h:31m:31s
+// Elapsed time: 650 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 656, 330); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 753, 403); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1111, 413); // ad
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,386 MB. GUI used memory: 167 MB. Current time: 5/1/24, 6:36:31 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,386 MB. GUI used memory: 214 MB. Current time: 5/1/24, 6:36:38 PM ICT
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,389 MB. GUI used memory: 190 MB. Current time: 5/1/24, 6:36:39 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 49 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1018, 147); // ad
+// Elapsed time: 108 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1448, 266); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 743, 198); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1325, 412); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1589, 355); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1640, 378); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1435, 200); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 550, 122); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 806, 121); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 825, 302); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1743, 376); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:46m:09s
+selectCodeEditor("tb_accelerator_real_data.sv", 863, 497); // ad
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// [GUI Memory]: 216 MB (+2135kb) [04:46:25]
+// Elapsed Time for: 'L.f': 04h:46m:11s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,398 MB. GUI used memory: 124 MB. Current time: 5/1/24, 6:40:08 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,398 MB. GUI used memory: 124 MB. Current time: 5/1/24, 6:40:12 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,388 MB. GUI used memory: 174 MB. Current time: 5/1/24, 6:40:13 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,388 MB. GUI used memory: 190 MB. Current time: 5/1/24, 6:40:14 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 51 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1465, 561); // ad
+// Elapsed time: 152 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1000, 430); // ad
+// Elapsed time: 53 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1437, 992); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1396, 916); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 324, 948); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1686, 881); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1642, 905); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed Time for: 'L.f': 04h:50m:57s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,410 MB. GUI used memory: 126 MB. Current time: 5/1/24, 6:44:54 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8424.480 ; gain = 11.000 ; free physical = 2389 ; free virtual = 9860 
+// 'd' command handler elapsed time: 6 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 04h:51m:05s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,410 MB. GUI used memory: 123 MB. Current time: 5/1/24, 6:44:58 PM ICT
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 688, 162); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 613, 197); // cD
+// Elapsed time: 53 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 456, 220); // cD
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,400 MB. GUI used memory: 124 MB. Current time: 5/1/24, 6:46:02 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,401 MB. GUI used memory: 174 MB. Current time: 5/1/24, 6:46:03 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 16 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 689, 152); // cD
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 248, 157, false, false, false, true, false); // cD - Popup Trigger
+selectMenuItem(RDIResource.TclConsoleView_COPY, "Copy"); // ao
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 678, 258); // cD
+// Elapsed time: 10 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 532, 182); // cD
+selectCodeEditor("tb_accelerator_real_data.sv", 616, 999); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1631, 550); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:52m:51s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,416 MB. GUI used memory: 133 MB. Current time: 5/1/24, 6:46:48 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: File was opened successfully wxi = 0058f1f3 wxi = 00e7f6e4 wxi = 0013d5e2 wxi = 00104b29 wxi = 00050704 wxi = 001f4111 wxi = 001d01fb wxi = 000b1822 /////////////////////////////////////////////////////////// //////////////////// Test No[3] Start ///////////////////// ///////////////////////////////////////////////////////////   ##################################################### -----------------------------------------------------  !!!!!!!!!!!!!!!!   TESTCASE PASS   !!!!!!!!!!!!!!!!!!  ----------------------------------------------------- #####################################################  ---------------------- END ------------------------ 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 8429.488 ; gain = 5.008 ; free physical = 2396 ; free virtual = 9898 
+// 'd' command handler elapsed time: 6 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 04h:52m:59s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,406 MB. GUI used memory: 130 MB. Current time: 5/1/24, 6:49:01 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,406 MB. GUI used memory: 191 MB. Current time: 5/1/24, 6:49:02 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 134 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,406 MB. GUI used memory: 196 MB. Current time: 5/1/24, 6:49:03 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 1502, 555); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 573, 325); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1404, 808); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 788, 861); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 609, 842); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 695, 761); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:55m:35s
+// Elapsed Time for: 'L.f': 04h:55m:37s
+selectCodeEditor("tb_accelerator_real_data.sv", 619, 883); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 299, 376); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 285, 381); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1294, 916); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 217, 361); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 249, 345); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 256, 378); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 257, 450); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 257, 481); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 255, 519); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 258, 552); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 259, 639); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 258, 666); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 259, 697); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 255, 731); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 248, 812); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 253, 846); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 253, 886); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 256, 918); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 514, 271); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 302, 386); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 706, 276); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 295, 369); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 711, 450); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 706, 481); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 713, 505); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 285, 558); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 704, 631); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 706, 669); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 707, 697); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 291, 736); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 706, 812); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 705, 839); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 703, 877); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 296, 918); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 671, 993); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1381, 728); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:56m:43s
+// Elapsed Time for: 'L.f': 04h:56m:45s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,433 MB. GUI used memory: 138 MB. Current time: 5/1/24, 6:50:37 PM ICT
+// Elapsed time: 210 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1094, 806); // ad
+// Elapsed time: 26 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 797, 663); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 385, 772); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 275, 75); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 244, 776); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 469, 769); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 547, 421); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 547, 421, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 818, 231); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 818, 231, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1296, 241); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 05h:01m:26s
+// Elapsed Time for: 'L.f': 05h:01m:27s
+// Elapsed time: 11 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_controller (tb_controller.sv)]", 17, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_controller (tb_controller.sv)]", 17, true, false, false, false, false, true); // E - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,462 MB. GUI used memory: 139 MB. Current time: 5/1/24, 6:55:27 PM ICT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1,  (tb_accelerator_real_data.sv)]", 20, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1,  (tb_accelerator_real_data.sv)]", 20, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1,  (tb_accelerator_real_data.sv)]", 20, false, false, false, false, false, true); // E - Double Click
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 4); // o
+// Elapsed time: 30 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+selectCodeEditor("tb_accelerator_real_data.sv", 1302, 228); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1302, 228); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 302, 284); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1121, 280); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1228, 248); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1083, 283); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed Time for: 'L.f': 05h:02m:39s
+// [Engine Memory]: 2,493 MB (+6001kb) [05:02:54]
+// Elapsed Time for: 'L.f': 05h:02m:41s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,499 MB. GUI used memory: 139 MB. Current time: 5/1/24, 6:56:32 PM ICT
+selectCodeEditor("tb_accelerator_real_data.sv", 758, 501); // ad
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Disabled Sources]", 28); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Disabled Sources]", 28); // E
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 390 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 883, 392); // ad
+// Elapsed time: 24 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 231, 123); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 985, 705); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 425, 668); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1141, 519); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 487, 567); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 487, 567, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 753, 494); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 753, 494, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1063, 697); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1175, 643); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 979, 561); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 979, 561, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 979, 692); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1149, 587); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1186, 573); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1284, 550); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1342, 555); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1380, 562); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_accelerator_real_data.sv", 1079, 738); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 373, 577); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 492, 591); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 816, 500); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1226, 710); // ad
+// Elapsed time: 11 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 604, 585); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1108, 596); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1256, 587); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1294, 595); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1241, 611); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1124, 616); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1324, 599); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 662, 712); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1315, 551); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 374, 628); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 393, 565); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 393, 565, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 781, 597); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 781, 597, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 800, 634); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 800, 634, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 799, 667); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 799, 667, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1291, 536); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1329, 554); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 967, 414); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1327, 603); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1318, 557); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 289, 355); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 289, 355, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 419, 595); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 16 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 363, 485); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1279, 604); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 482, 565); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 482, 565, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 707, 551); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1128, 800); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 700, 663); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 437, 633); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 19 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 795, 631); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1131, 524); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 427, 705); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 356, 629); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 391, 704); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 906, 690); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1304, 499); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 05h:13m:14s
+// Elapsed Time for: 'L.f': 05h:13m:16s
+// Elapsed time: 61 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 927, 384); // ad
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 136 MB. Current time: 5/1/24, 7:08:11 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 135 MB. Current time: 5/1/24, 7:08:13 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 191 MB. Current time: 5/1/24, 7:08:14 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 211 MB. Current time: 5/1/24, 7:08:15 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_controller.sv", 3); // o
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// [GUI Memory]: 238 MB (+11926kb) [05:14:43]
+// Elapsed time: 111 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 511, 779); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 511, 779, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 542, 670); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 542, 670, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 120 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 910, 361); // ad
+unMinimizeFrame(PAResourceOtoP.PAViews_TCL_CONSOLE, "Tcl Console"); // R
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 507, 1); // cD
+selectButton(RDIResource.TclConsoleView_CLEAR_ALL_OUTPUT_IN_TCL_CONSOLE, "Tcl Console_remove"); // B
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("tb_accelerator_real_data.sv", 1135, 500); // ad
+// Elapsed time: 22 seconds
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: Waiting for jobs to finish... No pending jobs, compilation finished. 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,473 MB. GUI used memory: 137 MB. Current time: 5/1/24, 7:12:44 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 4 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,475 MB. GUI used memory: 138 MB. Current time: 5/1/24, 7:12:46 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,475 MB. GUI used memory: 187 MB. Current time: 5/1/24, 7:12:48 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 100 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 943, 500); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 366, 590); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1292, 601); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+// Elapsed Time for: 'L.f': 05h:20m:50s
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,487 MB. GUI used memory: 174 MB. Current time: 5/1/24, 7:14:44 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 4 seconds
+dismissDialog("Run Simulation"); // e
+// Elapsed Time for: 'L.f': 05h:20m:56s
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,486 MB. GUI used memory: 142 MB. Current time: 5/1/24, 7:14:53 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,486 MB. GUI used memory: 187 MB. Current time: 5/1/24, 7:14:55 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 10 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,486 MB. GUI used memory: 206 MB. Current time: 5/1/24, 7:14:55 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 101 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1088, 126); // ad
+// Elapsed time: 54 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 497, 1022); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1613, 725); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 05h:23m:46s
+// Elapsed Time for: 'L.f': 05h:23m:48s
+// Elapsed time: 163 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1676, 194); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 785, 221); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1592, 380); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 416, 259); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 282, 310); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 326, 376); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 500, 391); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 460, 425); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 770, 276); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 406, 412); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1604, 569); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1607, 737); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 454, 625); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 282, 666); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 315, 728); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 364, 412); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 373, 771); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 435, 781); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1618, 917); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1630, 883); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 412, 769); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 286, 806); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 301, 886); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1207, 725); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 511, 576); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 511, 576, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 511, 576); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 531, 558); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 531, 558, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 531, 558); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 364, 898); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 364, 898, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 350, 934); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 359, 925); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 361, 923, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 449, 802); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1232, 712); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1642, 852); // ad
+// Elapsed time: 10 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1620, 913); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 456, 689); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 289, 735); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 378, 865); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 422, 486); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 422, 486, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("tb_accelerator_real_data.sv", 422, 486); // ad
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'c'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 378, 837); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 378, 837, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "tb_accelerator_real_data.sv", 'v'); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 465, 840); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 936, 729); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1752, 643); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 385, 807); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 1644, 276); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 05h:28m:32s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed Time for: 'L.f': 05h:28m:34s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,504 MB. GUI used memory: 214 MB. Current time: 5/1/24, 7:22:29 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 167 MB. Current time: 5/1/24, 7:22:34 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 233 MB. Current time: 5/1/24, 7:22:36 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,502 MB. GUI used memory: 209 MB. Current time: 5/1/24, 7:22:37 PM ICT
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
+// Elapsed time: 30 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1612, 839); // ad
+// Elapsed time: 202 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 1780, 235); // ad
+// Elapsed time: 25 seconds
+selectCodeEditor("tb_accelerator_real_data.sv", 499, 459); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 552, 701); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("tb_accelerator_real_data.sv", 496, 343); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 489, 733); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 497, 889); // ad
+selectCodeEditor("tb_accelerator_real_data.sv", 670, 709); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 05h:33m:30s
+selectButton(PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, "Flow Navigator"); // A
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // f
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ao
+// Elapsed Time for: 'L.f': 05h:33m:32s
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+selectButton("OptionPane.button", "Yes"); // JButton
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+dismissDialog("Close"); // bq
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 256 MB (+6228kb) [05:33:47]
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_accelerator_real_data_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,513 MB. GUI used memory: 186 MB. Current time: 5/1/24, 7:27:26 PM ICT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_OBJECT_TREE_REFRESHING
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_MOVE_CURSOR
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_accelerator_real_data.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// Tcl Message: # run 500000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 500000ns 
+// 'd' command handler elapsed time: 5 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,513 MB. GUI used memory: 257 MB. Current time: 5/1/24, 7:27:29 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,513 MB. GUI used memory: 246 MB. Current time: 5/1/24, 7:27:30 PM ICT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 2,513 MB. GUI used memory: 226 MB. Current time: 5/1/24, 7:27:31 PM ICT
+selectButton(RDIResource.QuickHelp_HELP, (String) null); // j
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // j
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "tb_accelerator_real_data.sv", 2); // o
