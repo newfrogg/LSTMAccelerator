@@ -35,7 +35,7 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 input  [IN_BITWIDTH-1:0]                data_in_2,
                 input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
                 output logic                            done,
-                output logic [OUT_BITWIDTH-1:0]         out
+                output logic signed [OUT_BITWIDTH-1:0]        out
     );
     
     localparam 
@@ -52,28 +52,17 @@ module MAC #(   parameter W_BITWIDTH = 8,
     
     logic signed [OUT_BITWIDTH-1:0]           out_temp;
 
-    logic  [W_BITWIDTH-1:0]             weights_bf_0;
-    logic  [W_BITWIDTH-1:0]             weights_bf_1;
-    logic  [W_BITWIDTH-1:0]             weights_bf_2;
-    logic  [IN_BITWIDTH-1:0]            data_in_bf_0;
-    logic  [IN_BITWIDTH-1:0]            data_in_bf_1;
-    logic  [IN_BITWIDTH-1:0]            data_in_bf_2;
-    logic  [PREV_SUM_BITWIDTH-1:0]      prev_sum_bf;
-    
-    logic  [OUT_BITWIDTH-1:0]            sum_arr_bf    [0:IN_BITWIDTH-1];
-    logic  [OUT_BITWIDTH-1:0]            accu_bf       [0:6];
-    
+    logic signed [W_BITWIDTH-1:0]             weights_bf_0;
+    logic signed [W_BITWIDTH-1:0]             weights_bf_1;
+    logic signed [W_BITWIDTH-1:0]             weights_bf_2;
+    logic signed [IN_BITWIDTH-1:0]            data_in_bf_0;
+    logic signed [IN_BITWIDTH-1:0]            data_in_bf_1;
+    logic signed [IN_BITWIDTH-1:0]            data_in_bf_2;
+    logic signed [PREV_SUM_BITWIDTH-1:0]      prev_sum_bf;
+       
+    logic signed  [OUT_BITWIDTH-1:0]           accu_bf;
     assign out = out_temp;
-    always @(*) begin
-        accu_bf[0] <= sum_arr_bf[0] + sum_arr_bf[1];
-        accu_bf[1] <= sum_arr_bf[2] + sum_arr_bf[3];
-        accu_bf[2] <= sum_arr_bf[4] + sum_arr_bf[5];
-        accu_bf[3] <= sum_arr_bf[6] + sum_arr_bf[7];
-        accu_bf[4] <= accu_bf[0] + accu_bf[1];
-        accu_bf[5] <= accu_bf[2] + accu_bf[3];
-        accu_bf[6] <= accu_bf[4] + accu_bf[5];
-    end
-    
+  
     always @ (posedge clk or negedge rstn) begin
         if(!rstn) begin
             state <= STATE_IDLE;
@@ -100,14 +89,43 @@ module MAC #(   parameter W_BITWIDTH = 8,
                 
                     if(en && !done) begin
                         state <= STATE_MULT;
-                        weights_bf_0 <= weights_0;
-                        weights_bf_1 <= weights_1;
-                        weights_bf_2 <= weights_2;
-                        data_in_bf_0 <= data_in_0;
-                        data_in_bf_1 <= data_in_1;
-                        data_in_bf_2 <= data_in_2;
+//                        weights_bf_0 <= weights_0;
+//                        weights_bf_1 <= weights_1;
+//                        weights_bf_2 <= weights_2;
+//                        data_in_bf_0 <= data_in_0;
+//                        data_in_bf_1 <= data_in_1;
+//                        data_in_bf_2 <= data_in_2;
+                        
+                        if (data_in_0[7]) begin
+                            weights_bf_0 <= ~weights_0 + 1;
+                            data_in_bf_0 <= ~data_in_0 + 1;
+                        end
+                        else begin
+                            weights_bf_0 <= weights_0;
+                            data_in_bf_0 <= data_in_0;
+                        end
+                        
+                        if (data_in_1[7]) begin
+                            weights_bf_1 <= ~weights_1 + 1;
+                            data_in_bf_1 <= ~data_in_1 + 1;
+                        end
+                        else begin
+                            weights_bf_1 <= weights_1;
+                            data_in_bf_1 <= data_in_1;
+                        end
+                        
+                        if (data_in_2[7]) begin
+                            weights_bf_2 <= ~weights_2 + 1;
+                            data_in_bf_2 <= ~data_in_2 + 1;
+                        end
+                        else begin
+                            weights_bf_2 <= weights_2;
+                            data_in_bf_2 <= data_in_2;
+                        end
+                        
                         prev_sum_bf  <= pre_sum;
                         flag_accu    <= 0;
+                        accu_bf      <= {OUT_BITWIDTH{1'b0}};
                         
                         time_remaining <= LATENCY;
                     end
@@ -129,35 +147,43 @@ module MAC #(   parameter W_BITWIDTH = 8,
                         else ;
                         case({data_in_bf_2[index], data_in_bf_1[index], data_in_bf_0[index]})
                             3'b001: begin
-                                sum_arr_bf[index]   <= weights_bf_0 <<< index;
+//                                sum_arr_bf[index]   <= weights_bf_0 <<< index;
+                                accu_bf     <= accu_bf + (weights_bf_0 <<< index);                             
                             end
                             
                             3'b010: begin
-                                sum_arr_bf[index]   <= weights_bf_1 <<< index;
+//                                sum_arr_bf[index]   <= weights_bf_1 <<< index;
+                                accu_bf     <= accu_bf + (weights_bf_1 <<< index);
                             end
                             
                             3'b011: begin
-                                sum_arr_bf[index]   <= (weights_bf_1 + weights_bf_0) <<< index;
+//                                sum_arr_bf[index]   <= (weights_bf_1 + weights_bf_0) <<< index;
+                                accu_bf     <= accu_bf + ((weights_bf_1 + weights_bf_0) <<< index);
                             end
                             
                             3'b100: begin
-                                sum_arr_bf[index]   <= weights_bf_2 <<< index;
+//                                sum_arr_bf[index]   <= weights_bf_2 <<< index;
+                                accu_bf     <= accu_bf + (weights_bf_2 <<< index);
                             end
                             
                             3'b101: begin
-                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_0) <<< index;
+//                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_0) <<< index;
+                                accu_bf     <= accu_bf + ((weights_bf_2 + weights_bf_0) <<< index);                                
                             end
                             
                             3'b110: begin
-                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_1) <<< index;
+//                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_1) <<< index;
+                                accu_bf     <= accu_bf + ((weights_bf_2 + weights_bf_1) <<< index);
                             end
                             
                             3'b111: begin
-                                sum_arr_bf[index]   <= (weights_bf_0 + weights_bf_1 + weights_bf_2) <<< index;
+//                                sum_arr_bf[index]   <= (weights_bf_0 + weights_bf_1 + weights_bf_2) <<< index;
+                                accu_bf     <= accu_bf + ((weights_bf_2+ weights_bf_1 + weights_bf_0) <<< index);
                             end
                                 
                             default: begin
-                                sum_arr_bf[index]   <= 0;
+//                                sum_arr_bf[index]   <= 0;
+                                accu_bf     <= accu_bf;
                             end
                          endcase
                      end
@@ -169,8 +195,9 @@ module MAC #(   parameter W_BITWIDTH = 8,
 //                    done <= 1;
                     if (time_remaining == 0) state <= STATE_IDLE;
                     else begin 
-                        time_remaining <= time_remaining - 1;;
-                        out_temp <= accu_bf[6] + prev_sum_bf;
+                        time_remaining <= time_remaining - 1;
+//                        out_temp <= accu_bf[6] + prev_sum_bf;
+                        out_temp    <= accu_bf + prev_sum_bf;
                     end
                 end
                 default:;

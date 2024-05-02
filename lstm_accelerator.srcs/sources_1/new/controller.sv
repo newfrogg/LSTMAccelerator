@@ -42,19 +42,19 @@ module controller(
     output logic [7:0]  o_index,
     output logic [1:0]  o_mac_state,
     output logic        o_is_last_input,
-    output logic [31:0] o_lstm_accu_bf[0:1],
+    output logic [31:0] o_lstm_accu_bf,
     output logic [31:0] o_mac_result,
     output logic [1:0]  o_type_gate,
     output logic [1:0]  o_gate,
-    output logic [7:0]  o_value_gate [0:3][0:1],
+    output logic [7:0]  o_value_gate [0:3],
     output logic        o_is_load_cell,
     output logic [2:0]  o_r_state,
-    output logic [7:0]  o_prev_cell_bf [0:1],
-    output logic [31:0] o_cell_state [0:1],
-    output logic [7:0]  o_tanh_cell_state [0:1],
-    output logic [7:0]  o_ht [0:1],
+    output logic [7:0]  o_prev_cell_bf,
+    output logic [31:0] o_cell_state,
+    output logic [7:0]  o_tanh_cell_state,
+    output logic [7:0]  o_ht,
     output logic [4:0]  o_current_timestep,
-    output logic [7:0]  o_lstm_unit_result [0:3][0:1],
+    output logic [7:0]  o_lstm_unit_result [0:3],
     output logic [6:0]  o_current_no_units,
     output logic [6:0]  o_remaining_no_units,
     output logic        o_read_bias,
@@ -62,12 +62,19 @@ module controller(
     output logic [4:0]  o_current_sample,
     output logic [1:0]  o_count_gate,
     output logic [1:0]  o_current_unit,
-    output logic        o_is_last_sample
+    output logic        o_is_last_sample,
+    output logic [31:0] o_accu_input_bf,
+    output logic [31:0] o_accu_forget_bf,
+    output logic [31:0] o_accu_cell_bf,
+    output logic [31:0] o_accu_output_bf,
+    output logic [31:0] o_mac_accu_bf,
+    output logic [2:0]  o_mac_index,
+    output logic [31:0] o_mac_prev_sum_bf
 );
 
     localparam
         MAX_NO_UNITS            = 4,
-        NO_UNITS_LSTM           = 2,
+        NO_UNITS_LSTM           = 4,
         NO_UNITS_FC             = 2,
         NO_FEATURES             = 2,
         NO_TIMESTEPS            = 2,
@@ -160,7 +167,7 @@ module controller(
     logic  [OUT_BITWIDTH-1:0]               pre_sum     [0:MAX_NO_UNITS-1];
     logic                                   lstm_finish_step [0:MAX_NO_UNITS-1];
     logic                                   lstm_unit_done  [0:MAX_NO_UNITS-1];
-    logic  [7:0]                            lstm_unit_result [0:MAX_NO_UNITS-1][0:1];
+    logic  [7:0]                            lstm_unit_result [0:MAX_NO_UNITS-1];
     
     
     assign o_state = state;
@@ -175,18 +182,18 @@ module controller(
     assign o_index    = current_buffer_index;
     assign o_mac_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.state;
     assign o_is_last_input = is_last_input;
-    assign o_lstm_accu_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_bf;
+    assign o_lstm_accu_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_bf[0];
     assign o_mac_result = genblk1[MAX_NO_UNITS-1].u_lstm_unit.mac_result;    
     assign o_type_gate  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.type_gate;
     assign o_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.gate;
-    assign o_value_gate[0] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.input_gate;
-    assign o_value_gate[1] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.forget_gate;
-    assign o_value_gate[2] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_update;
-    assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate;
+    assign o_value_gate[0] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.input_gate[0];
+    assign o_value_gate[1] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.forget_gate[0];
+    assign o_value_gate[2] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_update[0];
+    assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate[0];
     assign o_is_load_cell = is_load_cell;
     assign o_r_state = r_state;
-    assign o_prev_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.prev_cell_state;
-    assign o_ht = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state;
+    assign o_prev_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.prev_cell_state[0];
+    assign o_ht = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state[0];
     assign o_lstm_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.state;
     assign o_lstm_finish_step = genblk1[MAX_NO_UNITS-1].u_lstm_unit.finish_step;
     assign o_current_timestep = current_timestep;
@@ -202,6 +209,13 @@ module controller(
     assign o_count_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.count_gate;
     assign o_current_unit = current_unit;
     assign o_is_last_sample = is_last_sample;
+    assign o_accu_input_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_input_bf[0];
+    assign o_accu_forget_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_forget_bf[0];
+    assign o_accu_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_cell_bf[0];
+    assign o_accu_output_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_output_bf[0];
+    assign o_mac_accu_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.accu_bf;
+    assign o_mac_index = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.index;
+    assign o_mac_prev_sum_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.prev_sum_bf;
     genvar i;
     
     generate

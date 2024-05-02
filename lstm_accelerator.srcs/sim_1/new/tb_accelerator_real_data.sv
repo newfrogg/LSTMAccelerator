@@ -58,7 +58,7 @@ module tb_accelerator_real_data();
     logic               t_valid;
     logic               o_is_last_sample;
     logic [31:0]        out_data;
-    logic [7:0]         o_lstm_unit_result [0:3][0:1];
+    logic [7:0]         o_lstm_unit_result [0:3];
     logic [7:0]         o_index;
     logic [1:0]         o_current_unit;
     logic [1:0]         o_current_layer;
@@ -79,20 +79,27 @@ module tb_accelerator_real_data();
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
     logic [1:0]         o_count_gate;
-    logic [7:0]         o_value_gate [0:3][0:1];
-    logic [31:0]        o_cell_state [0:1];
+    logic [7:0]         o_value_gate [0:3];
+    logic [31:0]        o_cell_state;
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
+    logic [31:0]        o_mac_prev_sum_bf;
+    logic [2:0]         o_mac_index;
+    logic [31:0]        o_mac_accu_bf;
+    logic [31:0]        o_mac_result;
+    logic [31:0]        o_lstm_accu_bf;
+    logic [31:0]        o_accu_input_bf;
+    logic [31:0]        o_accu_forget_bf;
+    logic [31:0]        o_accu_cell_bf;
+    logic [31:0]        o_accu_output_bf;
     logic               o_read_bias;
     logic               o_is_load_bias;
     logic               o_is_load_cell;
     logic               o_is_last_input;
-    logic [31:0]        o_lstm_accu_bf[0:1];
-    logic [31:0]        o_mac_result;
-    logic [7:0]         o_prev_cell_bf [0:1];
-    logic [7:0]         o_tanh_cell_state [0:1];
-    logic [7:0]         o_ht [0:1];
+    logic [7:0]         o_prev_cell_bf;
+    logic [7:0]         o_tanh_cell_state;
+    logic [7:0]         o_ht;
     
     
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
@@ -181,7 +188,14 @@ module tb_accelerator_real_data();
         .o_current_sample(o_current_sample),
         .o_count_gate(o_count_gate),
         .o_current_unit(o_current_unit),
-        .o_is_last_sample(o_is_last_sample)
+        .o_is_last_sample(o_is_last_sample),
+        .o_accu_input_bf(o_accu_input_bf),
+        .o_accu_forget_bf(o_accu_forget_bf),
+        .o_accu_cell_bf(o_accu_cell_bf),
+        .o_accu_output_bf(o_accu_output_bf),
+        .o_mac_accu_bf(o_mac_accu_bf),
+        .o_mac_index(o_mac_index),
+        .o_mac_prev_sum_bf(o_mac_prev_sum_bf)
     );
     
     always #20 begin 
@@ -247,6 +261,12 @@ module tb_accelerator_real_data();
             current_sample = current_sample + 1;
             current_timestep = 0;
         end
+        
+        input_matrix[0][0][0] = 32'h00bdf1e8;
+        input_matrix[0][0][1] = 32'h00f3dffc;
+        input_matrix[0][1][0] = 32'h00d6e509;
+        input_matrix[0][1][1] = 32'h00f309ab;
+      
         // generate input weight matrix [units, features] [4, 6]
         current_unit = 0;
         repeat(NO_UNITS_LSTM) begin
@@ -751,6 +771,7 @@ module tb_accelerator_real_data();
         end
             
             $display("\n---------------------- END ------------------------");
-    
+            
+        $display("shift value = %b, %d, %h", (-4<<<6), (-4<<<6), (-4<<<6));
     end 
 endmodule

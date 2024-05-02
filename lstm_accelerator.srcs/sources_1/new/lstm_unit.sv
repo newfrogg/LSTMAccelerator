@@ -42,7 +42,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     output logic                            is_waiting,
                     output logic                            finish_step,
                     output logic                            done,
-                    output logic [7:0]                      out [0:1]
+                    output logic [7:0]                      out
     );
     
     localparam
@@ -214,7 +214,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                         
                         prev_cell_state[current_unit]       <= {QUANTIZE_SIZE{1'b0}};
-                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
+//                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
                         case(is_load_bias)
                             0: pre_sum_bf     <= accu_bf[current_unit][PREV_SUM_BITWIDTH-1:0];
                             1: pre_sum_bf     <= pre_sum;

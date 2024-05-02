@@ -77,3 +77,85 @@ source tb_accelerator_real_data.tcl
 close_sim
 launch_simulation
 source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_accelerator_real_data.tcl
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+source tb_accelerator_real_data.tcl
