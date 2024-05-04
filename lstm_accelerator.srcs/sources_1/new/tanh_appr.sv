@@ -23,7 +23,7 @@
 module tanh_appr #( parameter OUT_BITWIDTH = 8,
                     parameter IN_BITWIDTH = 32) (
                     input   logic   [31:0]  data_in,    //  32 bits input
-                    output  logic   [7:0]   data_out    // 8 bits output
+                    output  logic   [31:0]  data_out    // 8 bits output
         );
                     
             // (1, 7, 24)
@@ -62,7 +62,7 @@ module tanh_appr #( parameter OUT_BITWIDTH = 8,
             RANGE7  = 32'h0000AE57,     // 1.91
             RANGE8  = 32'h000111D5;     // 3
             
-     logic  [31:0]  temp;
+     logic signed [31:0]  temp;
      always @(*) begin
         if (data_in >= 32'h80000000 && data_in < RANGE1) begin
             data_out    = -1;
@@ -80,10 +80,10 @@ module tanh_appr #( parameter OUT_BITWIDTH = 8,
             data_out    = temp + COEF3;
         end
         else if (data_in >= RANGE4 && data_in <= 32'hFFFFFFFF) begin
-            data_out    = data_in[7:0];
+            data_out    = data_in;
         end
         else if (data_in >= 32'h00_00_00_00 && data_in < RANGE5) begin
-            data_out    = data_in[7:0];
+            data_out    = data_in;
         end
         else if (data_in >= RANGE5 && data_in < RANGE6) begin
             temp        = data_in - (data_in >>> 2);

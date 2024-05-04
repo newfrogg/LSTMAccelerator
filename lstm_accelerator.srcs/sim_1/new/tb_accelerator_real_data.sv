@@ -40,13 +40,13 @@ endclass
 
 module tb_accelerator_real_data();
     
-    localparam      MAX_NO_UNITS = 4;
-    localparam      NO_UNITS_LSTM = 4;
-    localparam      NO_UNITS_FC = 2;
-    localparam      NO_FEATURES = 2;
-    localparam      NO_TIMESTEPS = 2;
+    localparam      MAX_NO_UNITS = 32;
+    localparam      NO_UNITS_LSTM = 32;
+    localparam      NO_UNITS_FC = 10;
+    localparam      NO_FEATURES = 10;
+    localparam      NO_TIMESTEPS = 28;
     localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 2;
+    localparam      NO_CLASSES = 10;
     
     logic               clk;
     logic               rstn;
@@ -76,11 +76,11 @@ module tb_accelerator_real_data();
     logic               o_lstm_finish_step;
     logic               o_lstm_is_continued;
     logic               o_lstm_is_waiting;
+    logic               o_is_last_timestep;
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
     logic [1:0]         o_count_gate;
-    logic [7:0]         o_value_gate [0:3];
-    logic [31:0]        o_cell_state;
+    logic [31:0]        o_value_gate [0:3];
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
@@ -97,19 +97,30 @@ module tb_accelerator_real_data();
     logic               o_is_load_bias;
     logic               o_is_load_cell;
     logic               o_is_last_input;
-    logic [7:0]         o_prev_cell_bf;
-    logic [7:0]         o_tanh_cell_state;
-    logic [7:0]         o_ht;
+    
+    logic [31:0]        o_lstm_cell_state_bf;
+    logic [31:0]        o_lstm_hidden_state_bf;
+    logic [7:0]         o_lstm_cell_state;
+    logic [7:0]         o_lstm_hidden_state;
+    logic [31:0]        o_lstm_q_di_lstm_state;
+    logic [7:0]         o_lstm_q_do_lstm_state;
+    logic               o_lstm_type_state;
+    logic [31:0]        o_lstm_q_di_fc;
+    logic [7:0]         o_lstm_q_do_fc;
+    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
+    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
+    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
+    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
     
     
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_output_gate [0:NO_UNITS-1];
-    logic [31:0]        input_gate;
-    logic [31:0]        forget_gate;
-    logic [31:0]        cell_gate;
-    logic [31:0]        output_gate;
+//    logic [31:0]        input_gate;
+//    logic [31:0]        forget_gate;
+//    logic [31:0]        cell_gate;
+//    logic [31:0]        output_gate;
     
     logic [31:0]        input_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:NO_FEATURES-1];
     
@@ -155,47 +166,57 @@ module tb_accelerator_real_data();
         .r_data(r_data),
         .w_valid(w_valid),
         .t_valid(t_valid),
-        .out_data(out_data),
-        .o_state(o_state),
-        .o_lstm_state(o_lstm_state),
-        .o_lstm_finish_step(o_lstm_finish_step),
-        .o_lstm_is_continued(o_lstm_is_continued),
-        .o_lstm_is_waiting(o_lstm_is_waiting),
-        .weights(weights),
-        .inputs(inputs),
-        .bias(bias),
-        .o_is_load_bias(o_is_load_bias),
-        .o_index(o_index),
-        .o_mac_state(o_mac_state),
-        .o_is_last_input(o_is_last_input),
-        .o_lstm_accu_bf(o_lstm_accu_bf),
-        .o_mac_result(o_mac_result),
-        .o_type_gate(o_type_gate),
-        .o_gate(o_gate),
-        .o_value_gate(o_value_gate),
-        .o_is_load_cell(o_is_load_cell),
-        .o_r_state(o_r_state),
-        .o_prev_cell_bf(o_prev_cell_bf),
-        .o_cell_state(o_cell_state),
-        .o_tanh_cell_state(o_tanh_cell_state),
-        .o_ht(o_ht),
-        .o_current_timestep(o_current_timestep),
-        .o_lstm_unit_result(o_lstm_unit_result),
-        .o_current_no_units(o_current_no_units),
-        .o_remaining_no_units(o_remaining_no_units),
-        .o_read_bias(o_read_bias),
-        .o_current_layer(o_current_layer),
-        .o_current_sample(o_current_sample),
-        .o_count_gate(o_count_gate),
-        .o_current_unit(o_current_unit),
-        .o_is_last_sample(o_is_last_sample),
-        .o_accu_input_bf(o_accu_input_bf),
-        .o_accu_forget_bf(o_accu_forget_bf),
-        .o_accu_cell_bf(o_accu_cell_bf),
-        .o_accu_output_bf(o_accu_output_bf),
-        .o_mac_accu_bf(o_mac_accu_bf),
-        .o_mac_index(o_mac_index),
-        .o_mac_prev_sum_bf(o_mac_prev_sum_bf)
+        .out_data(out_data)
+//        .o_state(o_state),
+//        .o_lstm_state(o_lstm_state),
+//        .o_lstm_finish_step(o_lstm_finish_step),
+//        .o_lstm_is_continued(o_lstm_is_continued),
+//        .o_lstm_is_waiting(o_lstm_is_waiting),
+//        .weights(weights),
+//        .inputs(inputs),
+//        .bias(bias),
+//        .o_is_load_bias(o_is_load_bias),
+//        .o_is_last_timestep(o_is_last_timestep),
+//        .o_index(o_index),
+//        .o_mac_state(o_mac_state),
+//        .o_is_last_input(o_is_last_input),
+//        .o_lstm_accu_bf(o_lstm_accu_bf),
+//        .o_mac_result(o_mac_result),
+//        .o_type_gate(o_type_gate),
+//        .o_gate(o_gate),
+//        .o_value_gate(o_value_gate),
+//        .o_is_load_cell(o_is_load_cell),
+//        .o_r_state(o_r_state),
+//        .o_current_timestep(o_current_timestep),
+//        .o_lstm_unit_result(o_lstm_unit_result),
+//        .o_current_no_units(o_current_no_units),
+//        .o_remaining_no_units(o_remaining_no_units),
+//        .o_read_bias(o_read_bias),
+//        .o_current_layer(o_current_layer),
+//        .o_current_sample(o_current_sample),
+//        .o_count_gate(o_count_gate),
+//        .o_current_unit(o_current_unit),
+//        .o_is_last_sample(o_is_last_sample),
+//        .o_accu_input_bf(o_accu_input_bf),
+//        .o_accu_forget_bf(o_accu_forget_bf),
+//        .o_accu_cell_bf(o_accu_cell_bf),
+//        .o_accu_output_bf(o_accu_output_bf),
+//        .o_mac_accu_bf(o_mac_accu_bf),
+//        .o_mac_index(o_mac_index),
+//        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
+//        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
+//        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
+//        .o_lstm_cell_state(o_lstm_cell_state),
+//        .o_lstm_hidden_state(o_lstm_hidden_state),
+//        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
+//        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
+//        .o_lstm_type_state(o_lstm_type_state),
+//        .o_lstm_q_di_fc(o_lstm_q_di_fc),
+//        .o_lstm_q_do_fc(o_lstm_q_do_fc),
+//        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
+//        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
+//        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
+//        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf)
     );
     
     always #20 begin 
@@ -628,8 +649,9 @@ module tb_accelerator_real_data();
                         ht_matrix[current_sample][current_timestep][current_ht*4+2]= out_data[23:16];
                         ht_matrix[current_sample][current_timestep][current_ht*4+3]= out_data[31:24];
 //                        $display("SAMPLE = %0d, Timestep = %0d, Real result ht[%0d]= [%0h]", current_sample, current_timestep, {});
+//                        @(negedge clk);
                     end                                                                                                 // 3 tab
-//                    @(negedge clk);
+                    @(negedge clk);
                 end                                                                         // 2 tab
                 current_timestep = current_timestep + 1;
             end                                                                             // 1 tab
@@ -747,7 +769,7 @@ module tb_accelerator_real_data();
                     end                                                                     // 3 tab
 //                        $display("SAMPLE = %0d, Timestep = %0d, Real result ht[%0d]= [%0h]", current_sample, current_timestep, {});
                 end                                                                // 2 tab
-//                @(negedge clk);
+                @(negedge clk);
             end                                                                         // 1 tab
             current_sample = current_sample + 1;
             is_last_data_gate   = 0;
