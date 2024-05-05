@@ -46,8 +46,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
-        MAX_NO_UNITS        = 32,
-        NO_UNITS_LSTM       = 32,
+        MAX_NO_UNITS        = 16,
+        NO_UNITS_LSTM       = 16,
         NO_UNITS_FC         = 10,
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
@@ -99,6 +99,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic           update_hidden_state_bf;
     logic   [2:0]   current_mult_shift;
     
+    // add signal for quantization -----------------------------------------
     logic   [BUFFER_SIZE-1:0]       accu_input_bf   [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_forget_bf  [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_cell_bf    [0:OUT_SIZE/8 - 1];
@@ -134,8 +135,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic  [1:0]                            gate;
     logic  [1:0]                            count_gate;
     logic  [1:0]                            count_cell;
-    logic  [BUFFER_SIZE-1:0]                f_prev_cell_bf;
-    logic  [BUFFER_SIZE-1:0]                i_cell_update_bf;
+    
+    logic  [BUFFER_SIZE-1:0]                tanh_cell_bf;
+//    logic  [BUFFER_SIZE-1:0]                i_cell_update_bf;
     
     logic                                   mac_en;
     logic  [W_BITWIDTH-1:0]                 weights_bf_0;
@@ -149,6 +151,16 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic  [OUT_BITWIDTH-1:0]               mac_result;
     
     logic  [OUT_BITWIDTH-1:0]               fc_bf;
+    
+    logic   tanh_en;
+    logic   sigmoid_en;
+    logic   q_lstm_en;
+    logic   q_fc_en;
+    
+    logic   tanh_done;
+    logic   sigmoid_done;
+    logic   q_lstm_done;
+    logic   q_fc_done;
     
     MAC #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_mac (
         .clk(clk),
@@ -165,24 +177,40 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .out(mac_result)
     );
         
-    tanh_appr #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_tanh (
+    tanh_appr u_tanh (
+        .clk(clk),
+        .rstn(rstn),
+        .en(tanh_en),
         .data_in(di_current_unit_tanh_bf),
+        .done(tanh_done),
         .data_out(do_current_unit_tanh_bf)
     );
     
-    sigmoid_appro #(.IN_BITWIDTH(IN_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_sigmoid (
+    sigmoid_appro u_sigmoid (
+        .clk(clk),
+        .rstn(rstn),
+        .en(sigmoid_en),
         .data_in(di_current_unit_sigmoid_bf),
+        .done(sigmoid_done),
         .data_out(do_current_unit_sigmoid_bf)
     );
     
     quantization_lstm q1 (
-        .data_in(q_di_lstm_state), 
+        .clk(clk),
+        .rstn(rstn),
+        .en(q_lstm_en),
         .type_state(type_state), 
+        .data_in(q_di_lstm_state),
+        .done(q_lstm_done), 
         .data_out(q_do_lstm_state)
     ); 
 
-    quantization_fc q2( 
+    quantization_fc q2(
+        .clk(clk),
+        .rstn(rstn),
+        .en(q_fc_en), 
         .data_in(q_di_fc),
+        .done(q_fc_done),
         .data_out(q_do_fc)
     );
     
@@ -225,6 +253,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     finish_step         <= 1'b0;
                     done                <= 1'b0;
                     
+                    tanh_en                 <= 1'b0;
+                    sigmoid_en              <= 1'b0;
+                    q_lstm_en               <= 1'b0;
+                    q_fc_en                 <= 1'b0;
+                    
                     accu_input_bf[current_unit]       <= 0;
                     accu_forget_bf[current_unit]      <= 0;
                     accu_cell_bf[current_unit]        <= 0;
@@ -246,7 +279,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
 //                        cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
 //                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
                         case(is_load_bias)
-                            0: pre_sum_bf     <= accu_bf[current_unit][PREV_SUM_BITWIDTH-1:0];
+                            0: pre_sum_bf     <= accu_bf[current_unit];
                             1: pre_sum_bf     <= pre_sum;
                         endcase
                         gate            <= type_gate;
@@ -266,9 +299,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 is_waiting              <= 1'b0;
                                 irb_done                <= 1'b0;
                                 current_mult_shift      <= 3'b000;
-//                                remain_waiting_time     <= LATENCY;
-//                                f_prev_cell_bf_done     <= 1'b0;
-//                                i_cell_update_bf_done   <= 1'b0;
+                                tanh_en                 <= 1'b0;
+                                sigmoid_en              <= 1'b0;
+                                q_lstm_en               <= 1'b0;
+                                q_fc_en                 <= 1'b0;
                                 
                                 case(gate)
                                     INPUT_GATE:     accu_input_bf[current_unit]   <= mac_result;
@@ -292,6 +326,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 irb_done            <= 1'b0;     
                             end
                             else ;
+                            remain_waiting_time     <= LATENCY;
                         end
                         else begin
                             state                   <= STATE_WAIT;
@@ -303,12 +338,21 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     else begin
                         mac_en          <= 1'b1;       
                         if (mac_done) begin
-                            irb_done    <= 1'b1;
-                            mac_en      <= 1'b0;
                             if (current_layer == FC) begin
+                                q_fc_en     <= 1'b1;
+                                if (q_fc_done) begin
+                                    q_fc_en     <= 1'b0;
+                                    irb_done    <= 1'b1;
+                                end
+                                else ;
                                 q_di_fc     <= mac_result;
+                                mac_en      <= 1'b0;
                             end
-                            else ;
+                            else begin
+                                irb_done    <= 1'b1;
+                                mac_en      <= 1'b0;
+                            end 
+                             
                         end
                         else ;
                     end
@@ -328,7 +372,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                             
                             case(is_load_bias)
-                                0: pre_sum_bf       <= accu_bf[current_unit][PREV_SUM_BITWIDTH-1:0];
+                                0: pre_sum_bf       <= accu_bf[current_unit];
                                 1: pre_sum_bf       <= pre_sum;
                             endcase
                             
@@ -370,6 +414,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         gate_done       <= 1'b0;
                         gate            <= type_gate;
                         state           <= STATE_CELL;
+                        
 //                        weights_bf_0    <= forget_gate[internal_current_unit];
 //                        weights_bf_1    <= input_gate[internal_current_unit];
 //                        weights_bf_2    <= {W_BITWIDTH{1'b0}};
@@ -381,53 +426,105 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         remain_waiting_time                 <= MULT_LATENCY;
                         current_mult_shift                  <= 3'b000;
                         cell_state_bf                       <= 32'h0;
-                        cell_update[internal_current_unit]  <= do_current_unit_tanh_bf;
+//                        cell_update[internal_current_unit]  <= do_current_unit_tanh_bf;
                         /////////////////////////////////////////////////////////
                     end
                     else begin
                         if (count_gate == 2'b11) begin
-                            gate_done       <= 1'b1;
-//                            output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;
+                            
+//                            gate_done       <= 1'b1;
+//                            output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;                    
+//                            count_gate      <= 2'b00;
+                            tanh_en     <= 1'b1;
+                            if (tanh_done) begin
+                                if (remain_waiting_time == 0) begin
+                                    count_gate          <= 2'b00;
+                                    gate_done           <= 1'b1;
+                                    remain_waiting_time <= LATENCY;
+                                end
+                                else remain_waiting_time <= remain_waiting_time - 1;
+                                tanh_en         <= 1'b0;
+                                cell_update[internal_current_unit]  <= do_current_unit_tanh_bf;
+                            end
+                            else ;
                             di_current_unit_tanh_bf             <= accu_cell_bf[internal_current_unit];
-                            count_gate      <= 2'b00;
                         end
-                        else count_gate  <= count_gate + 1;
-                        
-                        case(gate)
-                            INPUT_GATE: begin
-                                output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;    
-                                di_current_unit_sigmoid_bf          <= accu_input_bf[internal_current_unit];
-                                gate                                <= FORGET_GATE;
-                            end
-                            FORGET_GATE: begin
-                                input_gate[internal_current_unit]   <= do_current_unit_sigmoid_bf;
-                                di_current_unit_sigmoid_bf          <= accu_forget_bf[internal_current_unit];
-                                gate                                <= OUTPUT_GATE;
-                            end
-                            OUTPUT_GATE: begin
-                                forget_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;
-                                di_current_unit_sigmoid_bf          <= accu_output_bf[internal_current_unit];
-                                gate                                <= INPUT_GATE;
-                            end
-                        endcase
+                        else begin
+                            case(gate)
+                                INPUT_GATE: begin
+                                    sigmoid_en      <= 1'b1;
+                                    if (sigmoid_done) begin
+                                        sigmoid_en                          <= 1'b0;
+                                        output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf; 
+                                        
+                                        if (remain_waiting_time == 0) begin
+//                                            output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf; 
+                                            gate                                <= FORGET_GATE;
+                                            count_gate                          <= count_gate + 1;
+                                            remain_waiting_time                 <= LATENCY;
+                                        end
+                                        else remain_waiting_time <= remain_waiting_time - 1;
+                                    end
+                                    else ;
+                                    di_current_unit_sigmoid_bf          <= accu_input_bf[internal_current_unit];
+                                end
+                                FORGET_GATE: begin
+                                    sigmoid_en      <= 1'b1;
+                                    if (sigmoid_done) begin
+                                        if (remain_waiting_time == 0) begin
+                                            gate                                <= OUTPUT_GATE;
+                                            count_gate                          <= count_gate + 1;
+                                            remain_waiting_time                 <= LATENCY;
+                                        end
+                                        else remain_waiting_time <= remain_waiting_time - 1;
+                                        
+                                        input_gate[internal_current_unit]   <= do_current_unit_sigmoid_bf;
+                                        sigmoid_en                          <= 1'b0;
+                                    end
+                                    di_current_unit_sigmoid_bf          <= accu_forget_bf[internal_current_unit];   
+                                end
+                                OUTPUT_GATE: begin
+                                    sigmoid_en      <= 1'b1;
+                                    if (sigmoid_done) begin
+                                        if (remain_waiting_time == 0) begin
+                                            gate                                <= INPUT_GATE;
+                                            count_gate                          <= count_gate + 1;
+                                            remain_waiting_time                 <= LATENCY;
+                                        end
+                                        else remain_waiting_time <= remain_waiting_time - 1;
+                                        forget_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;
+                                        sigmoid_en                          <= 1'b0;
+                                    end
+                                    di_current_unit_sigmoid_bf          <= accu_output_bf[internal_current_unit];
+                                end
+                            endcase
+                        end
                     end
                 end
                 
                 STATE_CELL: begin
                     if (cell_done) begin
-                        state           <= STATE_HIDDEN;
-                        cell_done       <= 1'b0;
-//                        done            <= 1'b1;
-//                        cell_state[internal_current_unit]       <= mac_result;
-//                        current_unit_tanh_bf    <= cell_state[internal_current_unit];
-                        q_di_lstm_state         <= cell_state_bf;
-                        current_mult_shift      <= 0;
-                        update_cell_state_bf    <= 1'b0;
-                        quantized_ht            <= 1'b0;
-                        is_quantized_ct         <= 1'b0;
-                        type_state              <= 1;  
-                        remain_waiting_time     <= LATENCY;  
-//                        accu_cell_bf[internal_current_unit]     <= mac_result;                                       
+                        q_lstm_en   <= 1'b1;
+                        tanh_en     <= 1'b1;
+                        if (q_lstm_done && tanh_done) begin
+                            state           <= STATE_HIDDEN;
+                            cell_done       <= 1'b0;
+                            q_lstm_en       <= 1'b1;
+                            cell_state[internal_current_unit]   <= q_do_lstm_state;
+                            
+                            tanh_cell_bf            <= do_current_unit_tanh_bf;
+                            current_mult_shift      <= 0;
+                            update_cell_state_bf    <= 1'b0;
+                            
+//                            quantized_ht            <= 1'b0;
+//                            is_quantized_ct         <= 1'b0;
+                            type_state              <= 1;  
+                            remain_waiting_time     <= MULT_LATENCY;  
+                            hidden_state_bf         <= 32'h00000000;
+    //                        accu_cell_bf[internal_current_unit]     <= mac_result;
+                        end
+                        di_current_unit_tanh_bf     <= cell_state_bf;
+                        q_di_lstm_state             <= cell_state_bf;                                       
                     end
                     else begin
                         
@@ -542,10 +639,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                         MULT_S2: begin
                                             weights_bf_0    <= input_gate[internal_current_unit][23:16];
                                             weights_bf_1    <= input_gate[internal_current_unit][15:8];
-                                            weights_bf_1    <= input_gate[internal_current_unit][7:0];
+                                            weights_bf_2    <= input_gate[internal_current_unit][7:0];
                                             data_in_bf_0    <= cell_update[internal_current_unit][7:0];
                                             data_in_bf_1    <= cell_update[internal_current_unit][15:8];
-                                            data_in_bf_1    <= cell_update[internal_current_unit][23:16];
+                                            data_in_bf_2    <= cell_update[internal_current_unit][23:16];
                                             pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
                                         end
                                         MULT_S3: begin
@@ -576,126 +673,101 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_HIDDEN: begin
                     if (hidden_done) begin
-                        if (internal_current_unit == NO_UNITS-1) begin
-//                            if (is_last_timestep) begin
-//                                if (!is_last_sample) begin
-//                                    state           <= STATE_IDLE;
-//                                end
-//                                else begin
-//                                    state           <= STATE_FINISH;
-//                                    done            <= 1'b1;
-//                                end 
-//                            end
-//                            else begin
-//                                state           <= STATE_WAIT;
-//                                is_waiting      <= 1'b1;
-//                                finish_step     <= 1'b1;
-//                            end
-                            if (is_last_timestep) cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
-                            else ;
-                            state           <= STATE_IDLE;
-                            is_waiting      <= 1'b1;
-                            finish_step     <= 1'b1;
-                        end
-                        else begin
-                            state                   <= STATE_GATE;
-                            internal_current_unit   <= internal_current_unit + 1;  
-                        end
-//                        out[internal_current_unit]      <= mac_result[QUANTIZE_SIZE-1:0];
-                        hidden_done                             <= 1'b0;
-                        hidden_state[internal_current_unit]     <= q_do_lstm_state;
-                        out                                     <= q_do_lstm_state;
-//                        hidden_state[current_unit]      <= mac_result[QUANTIZE_SIZE-1:0];
-                    end
-                    else begin
-                        if (!is_quantized_ct) begin
-                            cell_state[internal_current_unit]       <= q_do_lstm_state;
-                            di_current_unit_tanh_bf                 <= cell_state_bf;
-                            is_quantized_ct                         <= 1'b1;             
-                        end
-                        else begin
-                            if (!quantized_ht) begin
-                                if (remain_waiting_time == 0) begin
-                                    mac_en                  <= 1'b1;
-                                                                        
-                                    if (mac_done) begin
-                                        mac_en              <= 1'b0;
-                                        if (!update_hidden_state_bf) update_hidden_state_bf <= 1'b1;
-                                        else begin
-                                            current_mult_shift      <= current_mult_shift + 1;
-                                            update_hidden_state_bf  <= 1'b0;
-                                            case(current_mult_shift)
-                                                MULT_S0: hidden_state_bf  <= hidden_state_bf + mac_result;
-                                                MULT_S1: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 8);
-                                                MULT_S2: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 16);
-                                                MULT_S3: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 24);
-                                                MULT_S4: begin
-                                                    hidden_state_bf     <= hidden_state_bf + (mac_result <<< 32);
-                                                    quantized_ht        <= 1'b1;
-                                                end
-                                            endcase
-//                                            current_mult_shift  <= current_mult_shift + 1;
-                                            remain_waiting_time <= MULT_LATENCY;
-                                        end    
-                                    end
-                                end
-                                else begin
-                                    remain_waiting_time <= remain_waiting_time - 1;
-                                    case(current_mult_shift)
-                                        MULT_S0: begin
-                                            weights_bf_0    <= output_gate[internal_current_unit][7:0];
-                                            weights_bf_1    <= {W_BITWIDTH{1'b0}};
-                                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= do_current_unit_tanh_bf[7:0];
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S1: begin
-                                            weights_bf_0    <= output_gate[internal_current_unit][15:8];
-                                            weights_bf_1    <= output_gate[internal_current_unit][7:0];
-                                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= do_current_unit_tanh_bf[7:0];
-                                            data_in_bf_1    <= do_current_unit_tanh_bf[15:8];
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S2: begin
-                                            weights_bf_0    <= output_gate[internal_current_unit][23:16];
-                                            weights_bf_1    <= output_gate[internal_current_unit][15:8];
-                                            weights_bf_1    <= output_gate[internal_current_unit][7:0];
-                                            data_in_bf_0    <= do_current_unit_tanh_bf[7:0];
-                                            data_in_bf_1    <= do_current_unit_tanh_bf[15:8];
-                                            data_in_bf_1    <= do_current_unit_tanh_bf[23:16];
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S3: begin
-                                            weights_bf_0    <= output_gate[internal_current_unit][23:16];
-                                            weights_bf_1    <= output_gate[internal_current_unit][15:8];
-                                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= do_current_unit_tanh_bf[15:8];
-                                            data_in_bf_1    <= do_current_unit_tanh_bf[23:16];
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S4: begin
-                                            weights_bf_0    <= output_gate[internal_current_unit][23:16];
-                                            weights_bf_1    <= {W_BITWIDTH{1'b0}};
-                                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= do_current_unit_tanh_bf[23:16];
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                    endcase
-                                end
+                        q_lstm_en   <= 1'b1;
+                        if (q_lstm_done) begin
+                            if (internal_current_unit == NO_UNITS-1) begin
+                                if (is_last_timestep) cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
+                                else ;
+                                state           <= STATE_IDLE;
+                                is_waiting      <= 1'b1;
+                                finish_step     <= 1'b1;
                             end
                             else begin
-                                q_di_lstm_state     <= hidden_state_bf;
-                                type_state          <= 0;    
-                                remain_waiting_time <= LATENCY;
-                                hidden_done         <= 1'b1;
-                            end   
+                                state                   <= STATE_GATE;
+                                internal_current_unit   <= internal_current_unit + 1;  
+                            end
+                            hidden_done                             <= 1'b0;
+//                            hidden_state[internal_current_unit]     <= q_do_lstm_state;
+                            out                                     <= q_do_lstm_state;
+                            q_lstm_en   <= 1'b0;
+                        end
+                        else ;
+                       
+                    end
+                    else begin
+                        if (remain_waiting_time == 0) begin
+                            mac_en                  <= 1'b1;
+                            if (mac_done) begin
+                                mac_en              <= 1'b0;
+                                if (!update_cell_state_bf) update_cell_state_bf <= 1'b1;
+                                else begin
+                                    current_mult_shift  <= current_mult_shift + 1;
+                                    update_cell_state_bf <= 1'b0;
+                                    case(current_mult_shift)
+                                        MULT_S0: hidden_state_bf  <= hidden_state_bf + mac_result;
+                                        MULT_S1: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 8);
+                                        MULT_S2: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 16);
+                                        MULT_S3: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 24);
+                                        MULT_S4: begin
+                                            hidden_state_bf   <= hidden_state_bf + (mac_result <<< 32);
+                                            hidden_done       <= 1'b1;
+                                            count_cell        <= 2'b00; 
+                                        end
+                                    endcase   
+                                    remain_waiting_time     <= MULT_LATENCY;
+//                                            update_cell_state_bf    <= 1'b0; 
+                                end
+                            end
+                        end
+                        else begin
+                            remain_waiting_time <= remain_waiting_time - 1;
+                            case(current_mult_shift)
+                                MULT_S0: begin
+                                    weights_bf_0    <= output_gate[internal_current_unit][7:0];
+                                    weights_bf_1    <= {W_BITWIDTH{1'b0}};
+                                    weights_bf_2    <= {W_BITWIDTH{1'b0}};
+                                    data_in_bf_0    <= tanh_cell_bf[7:0];
+                                    data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
+                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                end
+                                MULT_S1: begin
+                                    weights_bf_0    <= output_gate[internal_current_unit][15:8];
+                                    weights_bf_1    <= output_gate[internal_current_unit][7:0];
+                                    weights_bf_2    <= {W_BITWIDTH{1'b0}};
+                                    data_in_bf_0    <= tanh_cell_bf[7:0];
+                                    data_in_bf_1    <= tanh_cell_bf[15:0];
+                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                end
+                                MULT_S2: begin
+                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
+                                    weights_bf_1    <= output_gate[internal_current_unit][15:8];
+                                    weights_bf_2    <= output_gate[internal_current_unit][7:0];
+                                    data_in_bf_0    <= tanh_cell_bf[7:0];
+                                    data_in_bf_1    <= tanh_cell_bf[15:8];
+                                    data_in_bf_2    <= tanh_cell_bf[23:16];
+                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                end
+                                MULT_S3: begin
+                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
+                                    weights_bf_1    <= output_gate[internal_current_unit][15:8];
+                                    weights_bf_2    <= {W_BITWIDTH{1'b0}};
+                                    data_in_bf_0    <= tanh_cell_bf[15:8];
+                                    data_in_bf_1    <= tanh_cell_bf[23:16];
+                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                end
+                                MULT_S4: begin
+                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
+                                    weights_bf_1    <= {W_BITWIDTH{1'b0}};
+                                    weights_bf_2    <= {W_BITWIDTH{1'b0}};
+                                    data_in_bf_0    <= tanh_cell_bf[23:16];
+                                    data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
+                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                end
+                            endcase
                         end  
                     end
                 end

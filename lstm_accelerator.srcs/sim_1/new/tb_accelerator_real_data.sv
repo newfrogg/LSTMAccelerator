@@ -40,13 +40,13 @@ endclass
 
 module tb_accelerator_real_data();
     
-    localparam      MAX_NO_UNITS = 32;
-    localparam      NO_UNITS_LSTM = 32;
-    localparam      NO_UNITS_FC = 10;
-    localparam      NO_FEATURES = 10;
-    localparam      NO_TIMESTEPS = 28;
+    localparam      MAX_NO_UNITS = 4;
+    localparam      NO_UNITS_LSTM = 4;
+    localparam      NO_UNITS_FC = 2;
+    localparam      NO_FEATURES = 2;
+    localparam      NO_TIMESTEPS = 2;
     localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 10;
+    localparam      NO_CLASSES = 2;
     
     logic               clk;
     logic               rstn;
@@ -81,6 +81,9 @@ module tb_accelerator_real_data();
     logic [1:0]         o_gate;
     logic [1:0]         o_count_gate;
     logic [31:0]        o_value_gate [0:3];
+    logic [1:0]         o_sigmoid_count;
+    logic               o_sigmoid_en;
+    logic               o_sigmoid_done;
     logic [7:0]         weights [0:2];
     logic [7:0]         inputs [0:2];
     logic [31:0]        bias;
@@ -166,57 +169,60 @@ module tb_accelerator_real_data();
         .r_data(r_data),
         .w_valid(w_valid),
         .t_valid(t_valid),
-        .out_data(out_data)
-//        .o_state(o_state),
-//        .o_lstm_state(o_lstm_state),
-//        .o_lstm_finish_step(o_lstm_finish_step),
-//        .o_lstm_is_continued(o_lstm_is_continued),
-//        .o_lstm_is_waiting(o_lstm_is_waiting),
-//        .weights(weights),
-//        .inputs(inputs),
-//        .bias(bias),
-//        .o_is_load_bias(o_is_load_bias),
-//        .o_is_last_timestep(o_is_last_timestep),
-//        .o_index(o_index),
-//        .o_mac_state(o_mac_state),
-//        .o_is_last_input(o_is_last_input),
-//        .o_lstm_accu_bf(o_lstm_accu_bf),
-//        .o_mac_result(o_mac_result),
-//        .o_type_gate(o_type_gate),
-//        .o_gate(o_gate),
-//        .o_value_gate(o_value_gate),
-//        .o_is_load_cell(o_is_load_cell),
-//        .o_r_state(o_r_state),
-//        .o_current_timestep(o_current_timestep),
-//        .o_lstm_unit_result(o_lstm_unit_result),
-//        .o_current_no_units(o_current_no_units),
-//        .o_remaining_no_units(o_remaining_no_units),
-//        .o_read_bias(o_read_bias),
-//        .o_current_layer(o_current_layer),
-//        .o_current_sample(o_current_sample),
-//        .o_count_gate(o_count_gate),
-//        .o_current_unit(o_current_unit),
-//        .o_is_last_sample(o_is_last_sample),
-//        .o_accu_input_bf(o_accu_input_bf),
-//        .o_accu_forget_bf(o_accu_forget_bf),
-//        .o_accu_cell_bf(o_accu_cell_bf),
-//        .o_accu_output_bf(o_accu_output_bf),
-//        .o_mac_accu_bf(o_mac_accu_bf),
-//        .o_mac_index(o_mac_index),
-//        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
-//        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
-//        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
-//        .o_lstm_cell_state(o_lstm_cell_state),
-//        .o_lstm_hidden_state(o_lstm_hidden_state),
-//        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
-//        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
-//        .o_lstm_type_state(o_lstm_type_state),
-//        .o_lstm_q_di_fc(o_lstm_q_di_fc),
-//        .o_lstm_q_do_fc(o_lstm_q_do_fc),
-//        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
-//        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
-//        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
-//        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf)
+        .out_data(out_data),
+        .o_state(o_state),
+        .o_lstm_state(o_lstm_state),
+        .o_lstm_finish_step(o_lstm_finish_step),
+        .o_lstm_is_continued(o_lstm_is_continued),
+        .o_lstm_is_waiting(o_lstm_is_waiting),
+        .weights(weights),
+        .inputs(inputs),
+        .bias(bias),
+        .o_is_load_bias(o_is_load_bias),
+        .o_is_last_timestep(o_is_last_timestep),
+        .o_index(o_index),
+        .o_mac_state(o_mac_state),
+        .o_is_last_input(o_is_last_input),
+        .o_lstm_accu_bf(o_lstm_accu_bf),
+        .o_mac_result(o_mac_result),
+        .o_type_gate(o_type_gate),
+        .o_gate(o_gate),
+        .o_value_gate(o_value_gate),
+        .o_is_load_cell(o_is_load_cell),
+        .o_r_state(o_r_state),
+        .o_current_timestep(o_current_timestep),
+        .o_lstm_unit_result(o_lstm_unit_result),
+        .o_current_no_units(o_current_no_units),
+        .o_remaining_no_units(o_remaining_no_units),
+        .o_read_bias(o_read_bias),
+        .o_current_layer(o_current_layer),
+        .o_current_sample(o_current_sample),
+        .o_count_gate(o_count_gate),
+        .o_current_unit(o_current_unit),
+        .o_is_last_sample(o_is_last_sample),
+        .o_accu_input_bf(o_accu_input_bf),
+        .o_accu_forget_bf(o_accu_forget_bf),
+        .o_accu_cell_bf(o_accu_cell_bf),
+        .o_accu_output_bf(o_accu_output_bf),
+        .o_mac_accu_bf(o_mac_accu_bf),
+        .o_mac_index(o_mac_index),
+        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
+        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
+        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
+        .o_lstm_cell_state(o_lstm_cell_state),
+        .o_lstm_hidden_state(o_lstm_hidden_state),
+        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
+        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
+        .o_lstm_type_state(o_lstm_type_state),
+        .o_lstm_q_di_fc(o_lstm_q_di_fc),
+        .o_lstm_q_do_fc(o_lstm_q_do_fc),
+        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
+        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
+        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
+        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
+        .o_sigmoid_en(o_sigmoid_en),
+        .o_sigmoid_done(o_sigmoid_done),
+        .o_sigmoid_count(o_sigmoid_count)
     );
     
     always #20 begin 

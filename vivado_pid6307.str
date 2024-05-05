@@ -23087,3 +23087,10 @@ selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "quantiz
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "quantization_fc.sv", 7); // o
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 8); // o
 selectTab(PAResourceOtoP.ProjectSummaryPowerPanel_TABBED_PANE, PAResourceOtoP.ProjectSummaryPowerPanel_ON_CHIP, "On-Chip", 1); // d
+// Elapsed time: 95 seconds
+closeMainWindow("lstm_accelerator - [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr] - Vivado 2023.1"); // aK
+// Run Command: PAResourceCommand.PACommandNames_EXIT
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: WAVEFORM_CLOSE_WCFG
+dismissDialog("Exit Vivado"); // u
+// TclEventType: SIMULATION_CLOSE_SIMULATION

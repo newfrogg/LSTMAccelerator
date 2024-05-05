@@ -20,10 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module sigmoid_appro #( parameter OUT_BITWIDTH = 8,
-                        parameter IN_BITWIDTH = 32) (
-                        input   logic   [31:0]  data_in,    //  32 bits input
-                        output  logic   [31:0]  data_out    // 8 bits output
+module sigmoid_appro (
+                    input                   clk,
+                    input                   rstn,
+                    input                   en,
+                    input   logic   [31:0]  data_in,    
+                    output  logic           done,
+                    output  logic   [31:0]  data_out  
     );
     
             // IEEE
@@ -44,7 +47,75 @@ module sigmoid_appro #( parameter OUT_BITWIDTH = 8,
 //            RANGE6  = 32'h0001BB11;             // 5
         
         logic signed [31:0] temp;
-            
+        logic [1:0]         count;
+        
+        always @ (posedge clk or negedge rstn) begin
+            if (!rstn) begin
+                data_out    <= 32'h0;
+                count       <= 0;
+                done        <= 0;
+            end
+            else begin
+                if (!en) begin
+                    count       <= 0;
+                    done        <= 0;
+                end
+                else begin
+                    count <= count + 1'b1;
+                    if (data_in >= 32'h80000000 && data_in < RANGE2) begin
+                        if (count == 0) begin 
+                            data_out  <= 0;
+                            done <= 1'b1;
+                        end 
+                        else ;
+                    end
+                    else if (data_in >= RANGE2 && data_in < RANGE3) begin                    
+                        if (count == 0) temp <= data_in >>> 3;
+                        else if (count == 2'b01) temp <= temp + COEF2; 
+                        else if (count == 2'b10) begin
+                            data_out = {{8'h00}, temp[23:0]};
+                            done        <= 1'b1;
+                        end
+                        else ;
+                    end
+                    else if (data_in >= RANGE3 && data_in <= 32'hffffffff) begin
+                        if (count == 0) temp = data_in >>> 2;
+                        else if (count == 2'b01) temp    <= temp + COEF3;
+                        else if (count == 2'b10) begin
+                            data_out = {{8'h00}, temp[23:0]};
+                            done        <= 1'b1;
+                        end
+                        else ;
+                    end
+                    else if (data_in >= 32'h00_00_00_00 && data_in < RANGE4) begin
+                        if (count == 0) temp = data_in >>> 2;
+                        else if (count == 2'b01) temp    <= temp + COEF3;
+                        else if (count == 2'b10) begin
+                            data_out    <= {{8'h00}, temp[23:0]};
+                            done        <= 1'b1;
+                        end
+                        else ;
+                    end
+                    else if (data_in >= RANGE4 && data_in < RANGE5) begin
+                        if (count == 0) temp = data_in >>> 3;
+                        else if (count == 2'b01) temp    <= temp + COEF4;
+                        else if (count == 2'b10) begin
+                            data_out    <= {{8'h00}, temp[23:0]};
+                            done        <= 1'b1;
+                        end
+                        else ;
+                    end
+                    else if (data_in >= RANGE5 && data_in <= 32'h7f_ff_ff_ff) begin
+                        if (count == 0) begin
+                            data_out    <= data_in;
+                            done        <= 1'b1;
+                        end
+                        else ;
+                    end
+                end
+            end
+         end
+        /* 
         always @(*) begin
 //            if (data_in >= 32'h80000000 && data_in < RANGE1) begin    // <= -5
 //                data_out    <= 0;
@@ -84,5 +155,5 @@ module sigmoid_appro #( parameter OUT_BITWIDTH = 8,
 //            end
             else data_out = 1;
         end 
-        
+        */
 endmodule
