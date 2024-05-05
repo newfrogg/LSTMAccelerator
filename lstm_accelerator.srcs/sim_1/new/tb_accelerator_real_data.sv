@@ -40,13 +40,13 @@ endclass
 
 module tb_accelerator_real_data();
     
-    localparam      MAX_NO_UNITS = 4;
-    localparam      NO_UNITS_LSTM = 4;
-    localparam      NO_UNITS_FC = 2;
-    localparam      NO_FEATURES = 2;
-    localparam      NO_TIMESTEPS = 2;
+    localparam      MAX_NO_UNITS = 16;
+    localparam      NO_UNITS_LSTM = 16;
+    localparam      NO_UNITS_FC = 10;
+    localparam      NO_FEATURES = 10;
+    localparam      NO_TIMESTEPS = 28;
     localparam      NO_SAMPLES = 1;
-    localparam      NO_CLASSES = 2;
+    localparam      NO_CLASSES = 10;
     
     logic               clk;
     logic               rstn;
