@@ -40,11 +40,11 @@ endclass
 
 module tb_accelerator_real_data();
     
-    localparam      MAX_NO_UNITS = 2;
-    localparam      NO_UNITS_LSTM = 4;
-    localparam      NO_UNITS_FC = 2;
-    localparam      NO_FEATURES = 2;
-    localparam      NO_TIMESTEPS = 2;
+    localparam      MAX_NO_UNITS = 16;
+    localparam      NO_UNITS_LSTM = 32;
+    localparam      NO_UNITS_FC = 10;
+    localparam      NO_FEATURES = 10;
+    localparam      NO_TIMESTEPS = 28;
     localparam      NO_SAMPLES = 1;
     localparam      NO_CLASSES = 10;
     
@@ -56,64 +56,66 @@ module tb_accelerator_real_data();
     logic               r_data;
     logic               w_valid;
     logic               t_valid;
-    logic               o_is_last_sample;
     logic [31:0]        out_data;
-    logic [7:0]         o_lstm_unit_result [0:1][0:1];
-    logic [7:0]         o_index;
-    logic [1:0]         o_current_unit;
-    logic [1:0]         o_current_layer;
-    logic [4:0]         o_current_timestep;
+//    logic               o_is_last_sample;
+//    logic [7:0]         o_lstm_unit_result [0:1][0:1];
+//    logic [7:0]         o_index;
+//    logic [1:0]         o_current_unit;
+//    logic [1:0]         o_current_layer;
+//    logic [4:0]         o_current_timestep;
     logic [6:0]         current_no_units;
-    logic [6:0]         o_current_no_units;
-    logic [6:0]         o_remaining_no_units;
+//    logic [6:0]         o_current_no_units;
+//    logic [6:0]         o_remaining_no_units;
     logic [6:0]         remaining_no_units;
-    logic [4:0]         o_current_sample;
-    logic [2:0]         o_state;
-    logic [2:0]         o_lstm_state;
-    logic [1:0]         o_mac_state;
-    logic [2:0]         o_r_state;
-//    logic               o_lstm_unit_done;
-    logic               o_lstm_finish_step;
-    logic               o_lstm_is_continued;
-    logic               o_lstm_is_waiting;
-    logic               o_is_last_timestep;
-    logic [1:0]         o_type_gate;
-    logic [1:0]         o_gate;
-    logic [1:0]         o_count_gate;
-    logic [31:0]        o_value_gate [0:3][0:1];
-    logic [1:0]         o_sigmoid_count;
-    logic               o_sigmoid_en;
-    logic               o_sigmoid_done;
-    logic [7:0]         weights [0:2];
-    logic [7:0]         inputs [0:2];
-    logic [31:0]        bias;
-    logic [31:0]        o_mac_prev_sum_bf;
-    logic [2:0]         o_mac_index;
-    logic [31:0]        o_mac_accu_bf;
-    logic [31:0]        o_mac_result;
-    logic [31:0]        o_lstm_accu_bf [0:1]; 
-    logic [31:0]        o_accu_input_bf [0:1];
-    logic [31:0]        o_accu_forget_bf [0:1];
-    logic [31:0]        o_accu_cell_bf [0:1];
-    logic [31:0]        o_accu_output_bf [0:1];
-    logic               o_read_bias;
-    logic               o_is_load_bias;
-    logic               o_is_load_cell;
-    logic               o_is_last_input;
+//    logic [4:0]         o_current_sample;
+//    logic [2:0]         o_state;
+//    logic [2:0]         o_lstm_state;
+//    logic [1:0]         o_mac_state;
+//    logic [2:0]         o_r_state;
+////    logic               o_lstm_unit_done;
+//    logic               o_lstm_finish_step;
+//    logic               o_lstm_is_continued;
+//    logic               o_lstm_is_waiting;
+//    logic               o_is_last_timestep;
+//    logic [1:0]         o_type_gate;
+//    logic [1:0]         o_gate;
+//    logic [1:0]         o_count_gate;
+//    logic [31:0]        o_value_gate [0:3][0:1];
+//    logic [1:0]         o_sigmoid_count;
+//    logic               o_sigmoid_en;
+//    logic               o_sigmoid_done;
+//    logic [7:0]         weights [0:2];
+//    logic [7:0]         inputs [0:2];
+//    logic [31:0]        bias;
+//    logic [31:0]        o_mac_prev_sum_bf;
+//    logic [2:0]         o_mac_index;
+//    logic [31:0]        o_mac_accu_bf;
+//    logic [31:0]        o_mac_result;
+//    logic [31:0]        o_lstm_accu_bf [0:1]; 
+//    logic [31:0]        o_accu_input_bf [0:1];
+//    logic [31:0]        o_accu_forget_bf [0:1];
+//    logic [31:0]        o_accu_cell_bf [0:1];
+//    logic [31:0]        o_accu_output_bf [0:1];
+//    logic               o_read_bias;
+//    logic               o_is_load_bias;
+//    logic               o_is_load_cell;
+//    logic               o_is_last_input;
+//    logic [1:0]         o_waiting_time_before_to_idle;
     
-    logic [31:0]        o_lstm_cell_state_bf;
-    logic [31:0]        o_lstm_hidden_state_bf;
-    logic [7:0]         o_lstm_cell_state [0:1];
-    logic [7:0]         o_lstm_hidden_state [0:1];
-    logic [31:0]        o_lstm_q_di_lstm_state;
-    logic [7:0]         o_lstm_q_do_lstm_state;
-    logic               o_lstm_type_state;
-    logic [31:0]        o_lstm_q_di_fc;
-    logic [7:0]         o_lstm_q_do_fc;
-    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
-    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
-    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
-    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
+//    logic [31:0]        o_lstm_cell_state_bf;
+//    logic [31:0]        o_lstm_hidden_state_bf;
+//    logic [7:0]         o_lstm_cell_state [0:1];
+//    logic [7:0]         o_lstm_hidden_state [0:1];
+//    logic [31:0]        o_lstm_q_di_lstm_state;
+//    logic [7:0]         o_lstm_q_do_lstm_state;
+//    logic               o_lstm_type_state;
+//    logic [31:0]        o_lstm_q_di_fc;
+//    logic [7:0]         o_lstm_q_do_fc;
+//    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
+//    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
+//    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
+//    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
+//    logic [1:0]         o_waiting_time_before_to_idle;
     
     
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
@@ -154,7 +156,7 @@ module tb_accelerator_real_data();
     integer         current_timestep;
     integer         current_sample;
     integer         current_feature;
-    integer         f_wxi, f_wxf, f_wxc, f_wxo, f_whi, f_whf, f_whc, f_who, f_bi, f_bf, f_bc, f_bo, f_wfc, f_bfc;
+    integer         f_x, f_wxi, f_wxf, f_wxc, f_wxo, f_whi, f_whf, f_whc, f_who, f_bi, f_bf, f_bc, f_bo, f_wfc, f_bfc;
     logic [7:0]     current_ht;
     logic [7:0]     last_ht_unit;
     logic [7:0]     last_fc_unit;
@@ -169,60 +171,61 @@ module tb_accelerator_real_data();
         .r_data(r_data),
         .w_valid(w_valid),
         .t_valid(t_valid),
-        .out_data(out_data),
-        .o_state(o_state),
-        .o_lstm_state(o_lstm_state),
-        .o_lstm_finish_step(o_lstm_finish_step),
-        .o_lstm_is_continued(o_lstm_is_continued),
-        .o_lstm_is_waiting(o_lstm_is_waiting),
-        .weights(weights),
-        .inputs(inputs),
-        .bias(bias),
-        .o_is_load_bias(o_is_load_bias),
-        .o_is_last_timestep(o_is_last_timestep),
-        .o_index(o_index),
-        .o_mac_state(o_mac_state),
-        .o_is_last_input(o_is_last_input),
-        .o_lstm_accu_bf(o_lstm_accu_bf),
-        .o_mac_result(o_mac_result),
-        .o_type_gate(o_type_gate),
-        .o_gate(o_gate),
-        .o_value_gate(o_value_gate),
-        .o_is_load_cell(o_is_load_cell),
-        .o_r_state(o_r_state),
-        .o_current_timestep(o_current_timestep),
-        .o_lstm_unit_result(o_lstm_unit_result),
-        .o_current_no_units(o_current_no_units),
-        .o_remaining_no_units(o_remaining_no_units),
-        .o_read_bias(o_read_bias),
-        .o_current_layer(o_current_layer),
-        .o_current_sample(o_current_sample),
-        .o_count_gate(o_count_gate),
-        .o_current_unit(o_current_unit),
-        .o_is_last_sample(o_is_last_sample),
-        .o_accu_input_bf(o_accu_input_bf),
-        .o_accu_forget_bf(o_accu_forget_bf),
-        .o_accu_cell_bf(o_accu_cell_bf),
-        .o_accu_output_bf(o_accu_output_bf),
-        .o_mac_accu_bf(o_mac_accu_bf),
-        .o_mac_index(o_mac_index),
-        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
-        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
-        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
-        .o_lstm_cell_state(o_lstm_cell_state),
-        .o_lstm_hidden_state(o_lstm_hidden_state),
-        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
-        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
-        .o_lstm_type_state(o_lstm_type_state),
-        .o_lstm_q_di_fc(o_lstm_q_di_fc),
-        .o_lstm_q_do_fc(o_lstm_q_do_fc),
-        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
-        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
-        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
-        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
-        .o_sigmoid_en(o_sigmoid_en),
-        .o_sigmoid_done(o_sigmoid_done),
-        .o_sigmoid_count(o_sigmoid_count)
+        .out_data(out_data)
+//        .o_state(o_state),
+//        .o_lstm_state(o_lstm_state),
+//        .o_lstm_finish_step(o_lstm_finish_step),
+//        .o_lstm_is_continued(o_lstm_is_continued),
+//        .o_lstm_is_waiting(o_lstm_is_waiting),
+//        .weights(weights),
+//        .inputs(inputs),
+//        .bias(bias),
+//        .o_is_load_bias(o_is_load_bias),
+//        .o_is_last_timestep(o_is_last_timestep),
+//        .o_index(o_index),
+//        .o_mac_state(o_mac_state),
+//        .o_is_last_input(o_is_last_input),
+//        .o_lstm_accu_bf(o_lstm_accu_bf),
+//        .o_mac_result(o_mac_result),
+//        .o_type_gate(o_type_gate),
+//        .o_gate(o_gate),
+//        .o_value_gate(o_value_gate),
+//        .o_is_load_cell(o_is_load_cell),
+//        .o_r_state(o_r_state),
+//        .o_current_timestep(o_current_timestep),
+//        .o_lstm_unit_result(o_lstm_unit_result),
+//        .o_current_no_units(o_current_no_units),
+//        .o_remaining_no_units(o_remaining_no_units),
+//        .o_read_bias(o_read_bias),
+//        .o_current_layer(o_current_layer),
+//        .o_current_sample(o_current_sample),
+//        .o_count_gate(o_count_gate),
+//        .o_current_unit(o_current_unit),
+//        .o_is_last_sample(o_is_last_sample),
+//        .o_accu_input_bf(o_accu_input_bf),
+//        .o_accu_forget_bf(o_accu_forget_bf),
+//        .o_accu_cell_bf(o_accu_cell_bf),
+//        .o_accu_output_bf(o_accu_output_bf),
+//        .o_mac_accu_bf(o_mac_accu_bf),
+//        .o_mac_index(o_mac_index),
+//        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
+//        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
+//        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
+//        .o_lstm_cell_state(o_lstm_cell_state),
+//        .o_lstm_hidden_state(o_lstm_hidden_state),
+//        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
+//        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
+//        .o_lstm_type_state(o_lstm_type_state),
+//        .o_lstm_q_di_fc(o_lstm_q_di_fc),
+//        .o_lstm_q_do_fc(o_lstm_q_do_fc),
+//        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
+//        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
+//        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
+//        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
+//        .o_sigmoid_en(o_sigmoid_en),
+//        .o_sigmoid_done(o_sigmoid_done),
+//        .o_sigmoid_count(o_sigmoid_count),
+//        .o_waiting_time_before_to_idle(o_waiting_time_before_to_idle)
     );
     
     always #20 begin 
@@ -255,22 +258,24 @@ module tb_accelerator_real_data();
         bias_pkt        = new ();
         cell_pkt        = new ();
         
-        f_wxi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/wxi.txt", "r");
-        f_wxf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/wxf.txt", "r");
-        f_wxc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/wxc.txt", "r");
-        f_wxo = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/wxo.txt", "r");
-        f_whi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/whi.txt", "r");
-        f_whf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/whf.txt", "r");
-        f_whc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/whc.txt", "r");
-        f_who = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/who.txt", "r");
-        f_bi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/bias_input.txt", "r");
-        f_bf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/bias_forget.txt", "r");
-        f_bc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/bias_cell.txt", "r");
-        f_bo = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1/bias_output.txt", "r");
-        f_wfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense/weights.txt", "r");
-        f_bfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense/bias.txt", "r");
+        f_x = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_input_cp/x_test.txt", "r");
         
-        if (f_wxi & f_whi & f_bi & f_wfc) $display("File was opened successfully");
+        f_wxi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxi.txt", "r");
+        f_wxf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxf.txt", "r");
+        f_wxc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxc.txt", "r");
+        f_wxo = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxo.txt", "r");
+        f_whi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/whi.txt", "r");
+        f_whf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/whf.txt", "r");
+        f_whc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/whc.txt", "r");
+        f_who = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/who.txt", "r");
+        f_bi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/bias_input.txt", "r");
+        f_bf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/bias_forget.txt", "r");
+        f_bc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/bias_cell.txt", "r");
+        f_bo = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/bias_output.txt", "r");
+        f_wfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense_cp/weights.txt", "r");
+        f_bfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense_cp/bias.txt", "r");
+        
+        if (f_x & f_wxi & f_whi & f_bi & f_wfc) $display("File was opened successfully");
         else $display("-------------FILE OPENED FAIL----------------");  
         // generate input matrix [timesteps, features]
         current_timestep = 0;
@@ -279,8 +284,9 @@ module tb_accelerator_real_data();
             repeat(NO_TIMESTEPS) begin
                 index = 0;
                 repeat(NO_FEATURES) begin
-                    input_pkt.randomize();
-                    input_matrix[current_sample][current_timestep][index] = input_pkt.input_bf;
+//                    input_pkt.randomize();
+                    $fscanf(f_x, "%b\n", input_matrix[current_sample][current_timestep][index]);
+//                    input_matrix[current_sample][current_timestep][index] = input_pkt.input_bf;
                     index = index + 1;
                 end
                 current_timestep = current_timestep + 1;
@@ -289,10 +295,10 @@ module tb_accelerator_real_data();
             current_timestep = 0;
         end
         
-        input_matrix[0][0][0] = 32'h00bdf1e8;
-        input_matrix[0][0][1] = 32'h00f3dffc;
-        input_matrix[0][1][0] = 32'h00d6e509;
-        input_matrix[0][1][1] = 32'h00f309ab;
+//        input_matrix[0][0][0] = 32'h00bdf1e8;
+//        input_matrix[0][0][1] = 32'h00f3dffc;
+//        input_matrix[0][1][0] = 32'h00d6e509;
+//        input_matrix[0][1][1] = 32'h00f309ab;
       
         // generate input weight matrix [units, features] [4, 6]
         current_unit = 0;
@@ -300,25 +306,25 @@ module tb_accelerator_real_data();
             // generate input weight
             index = 0;
             repeat(NO_FEATURES) begin
-                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][7:0]);
-                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][15:8]);
-                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][23:16]);
-                  in_weight_matrix[current_unit][index][31:24] = 8'b0;
+                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index]);
+//                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][15:8]);
+//                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][23:16]);
+//                  in_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
-                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][7:0]);
-                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][15:8]);
-                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][23:16]);
-                  for_weight_matrix[current_unit][index][31:24] = 8'b0;
+                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index]);
+//                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][15:8]);
+//                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][23:16]);
+//                  for_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
-                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][7:0]);
-                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][15:8]);
-                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][23:16]);
-                  cell_weight_matrix[current_unit][index][31:24] = 8'b0;
+                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index]);
+//                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][15:8]);
+//                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][23:16]);
+//                  cell_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
-                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][7:0]);
-                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][15:8]);
-                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][23:16]);
-                  out_weight_matrix[current_unit][index][31:24] = 8'b0;
+                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index]);
+//                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][15:8]);
+//                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][23:16]);
+//                  out_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                 $display("wxi = %h", in_weight_matrix[current_unit][index]);
                 index = index + 1;
@@ -331,45 +337,45 @@ module tb_accelerator_real_data();
         repeat(NO_UNITS_LSTM) begin
             index = 0;
             repeat((NO_UNITS_LSTM-1)/3 + 1) begin
-                $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][7:0]);
-                if (index != 1) begin
-                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][15:8]);
-                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][23:16]);
-                end
-                else begin
-                    r_in_weight_matrix[current_unit][index][23:8] = 16'b0;
-                end
-                r_in_weight_matrix[current_unit][index][31:24] = 8'b0;
+                $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index]);
+//                if (index != 1) begin
+//                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][15:8]);
+//                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][23:16]);
+//                end
+//                else begin
+//                    r_in_weight_matrix[current_unit][index][23:8] = 16'b0;
+//                end
+//                r_in_weight_matrix[current_unit][index][31:24] = 8'b0;
               
-                $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][7:0]);
-                if (index != 1) begin
-                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][15:8]);
-                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][23:16]);
-                end
-                else begin
-                    r_for_weight_matrix[current_unit][index][23:8] = 16'b0;
-                end
-                r_for_weight_matrix[current_unit][index][31:24] = 8'b0;
+                $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index]);
+//                if (index != 1) begin
+//                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][15:8]);
+//                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][23:16]);
+//                end
+//                else begin
+//                    r_for_weight_matrix[current_unit][index][23:8] = 16'b0;
+//                end
+//                r_for_weight_matrix[current_unit][index][31:24] = 8'b0;
               
-                $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][7:0]);
-                if (index != 1) begin
-                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][15:8]);
-                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][23:16]);
-                end
-                else begin
-                    r_cell_weight_matrix[current_unit][index][23:8] = 16'b0;
-                end
-                r_cell_weight_matrix[current_unit][index][31:24] = 8'b0;
+                $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index]);
+//                if (index != 1) begin
+//                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][15:8]);
+//                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][23:16]);
+//                end
+//                else begin
+//                    r_cell_weight_matrix[current_unit][index][23:8] = 16'b0;
+//                end
+//                r_cell_weight_matrix[current_unit][index][31:24] = 8'b0;
               
-                $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][7:0]);
-                if (index != 1) begin
-                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][15:8]);
-                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][23:16]);
-                end
-                else begin
-                    r_out_weight_matrix[current_unit][index][23:8] = 16'b0;
-                end
-                r_out_weight_matrix[current_unit][index][31:24] = 8'b0;
+                $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index]);
+//                if (index != 1) begin
+//                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][15:8]);
+//                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][23:16]);
+//                end
+//                else begin
+//                    r_out_weight_matrix[current_unit][index][23:8] = 16'b0;
+//                end
+//                r_out_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                 $display("whi = %h", r_in_weight_matrix[current_unit][index]);
                 index = index + 1;
@@ -393,12 +399,12 @@ module tb_accelerator_real_data();
 //            NO_TIMESTEPS*(NO_UNITS_LSTM-1)/3 - 1
             index = 0;
             repeat( (NO_TIMESTEPS*NO_UNITS_LSTM-1)/3 + 1 ) begin
-                $fscanf(f_wfc, "%b\n", fc_weight[current_class][index][7:0]);
-                $fscanf(f_wfc, "%b\n", fc_weight[current_class][index][15:8]);
-                if (index == (NO_TIMESTEPS*NO_UNITS_LSTM-1)/3)
-                    fc_weight[current_class][index][23:16] = 8'b0;
-                else $fscanf(f_wfc, "%b\n", fc_weight[current_class][index][23:16]);
-                fc_weight[current_class][index][31:24] = 8'b0;
+                $fscanf(f_wfc, "%b\n", fc_weight[current_class][index]);
+//                $fscanf(f_wfc, "%b\n", fc_weight[current_class][index][15:8]);
+//                if (index == (NO_TIMESTEPS*NO_UNITS_LSTM-1)/3)
+//                    fc_weight[current_class][index][23:16] = 8'b0;
+//                else $fscanf(f_wfc, "%b\n", fc_weight[current_class][index][23:16]);
+//                fc_weight[current_class][index][31:24] = 8'b0;
                 index = index + 1;
             end
             
@@ -407,6 +413,7 @@ module tb_accelerator_real_data();
             current_class = current_class + 1;
         end
         
+        $fclose(f_x);
         $fclose(f_wxi);
         $fclose(f_wxf);
         $fclose(f_wxc);
