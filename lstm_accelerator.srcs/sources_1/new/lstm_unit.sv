@@ -42,13 +42,13 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     output logic                            is_waiting,
                     output logic                            finish_step,
                     output logic                            done,
-                    output logic [7:0]                      out
+                    output logic [7:0]                      out [0:1]
     );
     
     localparam
-        MAX_NO_UNITS        = 16,
-        NO_UNITS_LSTM       = 16,
-        NO_UNITS_FC         = 10,
+        MAX_NO_UNITS        = 2,
+        NO_UNITS_LSTM       = 4,
+        NO_UNITS_FC         = 2,
         QUANTIZE_SIZE       = 8,
         BUFFER_SIZE         = 32,
         
@@ -237,7 +237,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             pre_sum_bf             <= {PREV_SUM_BITWIDTH{1'b0}};
 //            accu_bf                <= {BUFFER_SIZE{1'b0}};
             accu_fc_bf             <= {BUFFER_SIZE{1'b0}};
-            cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
+//            cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
             internal_current_unit  <= 0;
             done                   <= 1'b0;
         end
@@ -276,7 +276,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
                         data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
                         
-//                        cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
+                        cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
+                        cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
 //                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
                         case(is_load_bias)
                             0: pre_sum_bf     <= accu_bf[current_unit];
@@ -303,6 +304,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 sigmoid_en              <= 1'b0;
                                 q_lstm_en               <= 1'b0;
                                 q_fc_en                 <= 1'b0;
+                                internal_current_unit   <= 0;
                                 
                                 case(gate)
                                     INPUT_GATE:     accu_input_bf[current_unit]   <= mac_result;
@@ -322,7 +324,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 end
                                 fc_bf               <= mac_result; 
 //                                out                 <= mac_result[QUANTIZE_SIZE-1:0];
-                                out                 <= q_do_fc;
+                                out[current_unit]   <= q_do_fc;
                                 irb_done            <= 1'b0;     
                             end
                             else ;
@@ -688,7 +690,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             end
                             hidden_done                             <= 1'b0;
 //                            hidden_state[internal_current_unit]     <= q_do_lstm_state;
-                            out                                     <= q_do_lstm_state;
+                            out[internal_current_unit]              <= q_do_lstm_state;
                             q_lstm_en   <= 1'b0;
                         end
                         else ;

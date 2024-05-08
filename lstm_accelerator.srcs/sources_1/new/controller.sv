@@ -29,68 +29,68 @@ module controller(
     output logic        r_data,
     output logic        w_valid,
     output logic        t_valid,
-    output logic [31:0] out_data
-//    output logic [2:0]  o_state,
-//    output logic [2:0]  o_lstm_state,
-//    output logic        o_lstm_finish_step,
-//    output logic        o_lstm_is_continued,
-//    output logic        o_lstm_is_waiting,
-//    output logic [7:0]  weights [0:2],
-//    output logic [7:0]  inputs  [0:2],
-//    output logic [31:0] bias,
-//    output logic        o_is_load_bias,
-//    output logic        o_is_last_timestep,
-//    output logic [7:0]  o_index,
-//    output logic [1:0]  o_mac_state,
-//    output logic        o_is_last_input,
-//    output logic [31:0] o_lstm_accu_bf,
-//    output logic [31:0] o_mac_result,
-//    output logic [1:0]  o_type_gate,
-//    output logic [1:0]  o_gate,
-//    output logic [31:0] o_value_gate [0:3],
-//    output logic        o_is_load_cell,
-//    output logic [2:0]  o_r_state,
-//    output logic [4:0]  o_current_timestep,
-//    output logic [7:0]  o_lstm_unit_result [0:3],
-//    output logic [6:0]  o_current_no_units,
-//    output logic [6:0]  o_remaining_no_units,
-//    output logic        o_read_bias,
-//    output logic [1:0]  o_current_layer,
-//    output logic [4:0]  o_current_sample,
-//    output logic [1:0]  o_count_gate,
-//    output logic [1:0]  o_current_unit,
-//    output logic        o_is_last_sample,
-//    output logic [31:0] o_accu_input_bf,
-//    output logic [31:0] o_accu_forget_bf,
-//    output logic [31:0] o_accu_cell_bf,
-//    output logic [31:0] o_accu_output_bf,
-//    output logic [31:0] o_mac_accu_bf,
-//    output logic [2:0]  o_mac_index,
-//    output logic [31:0] o_mac_prev_sum_bf,
-//    output logic [31:0] o_lstm_cell_state_bf,
-//    output logic [31:0] o_lstm_hidden_state_bf,
-//    output logic [7:0]  o_lstm_cell_state,
-//    output logic [7:0]  o_lstm_hidden_state,
-//    output logic [31:0] o_lstm_q_di_lstm_state,
-//    output logic [7:0]  o_lstm_q_do_lstm_state,
-//    output logic        o_lstm_type_state,
-//    output logic [31:0] o_lstm_q_di_fc,
-//    output logic [7:0]  o_lstm_q_do_fc,
-//    output logic [31:0] o_lstm_di_current_unit_tanh_bf,
-//    output logic [31:0] o_lstm_do_current_unit_tanh_bf,
-//    output logic [31:0] o_lstm_di_current_unit_sigmoid_bf,
-//    output logic [31:0] o_lstm_do_current_unit_sigmoid_bf,
-//    output logic o_sigmoid_en,
-//    output logic o_sigmoid_done,
-//    output logic [1:0]  o_sigmoid_count
+    output logic [31:0] out_data,
+    output logic [2:0]  o_state,
+    output logic [2:0]  o_lstm_state,
+    output logic        o_lstm_finish_step,
+    output logic        o_lstm_is_continued,
+    output logic        o_lstm_is_waiting,
+    output logic [7:0]  weights [0:2],
+    output logic [7:0]  inputs  [0:2],
+    output logic [31:0] bias,
+    output logic        o_is_load_bias,
+    output logic        o_is_last_timestep,
+    output logic [7:0]  o_index,
+    output logic [1:0]  o_mac_state,
+    output logic        o_is_last_input,
+    output logic [31:0] o_lstm_accu_bf [0:1],
+    output logic [31:0] o_mac_result,
+    output logic [1:0]  o_type_gate,
+    output logic [1:0]  o_gate,
+    output logic [31:0] o_value_gate [0:3][0:1],
+    output logic        o_is_load_cell,
+    output logic [2:0]  o_r_state,
+    output logic [4:0]  o_current_timestep,
+    output logic [7:0]  o_lstm_unit_result [0:1][0:1],
+    output logic [6:0]  o_current_no_units,
+    output logic [6:0]  o_remaining_no_units,
+    output logic        o_read_bias,
+    output logic [1:0]  o_current_layer,
+    output logic [4:0]  o_current_sample,
+    output logic [1:0]  o_count_gate,
+    output logic [1:0]  o_current_unit,
+    output logic        o_is_last_sample,
+    output logic [31:0] o_accu_input_bf [0:1],
+    output logic [31:0] o_accu_forget_bf [0:1],
+    output logic [31:0] o_accu_cell_bf [0:1],
+    output logic [31:0] o_accu_output_bf [0:1],
+    output logic [31:0] o_mac_accu_bf,
+    output logic [2:0]  o_mac_index,
+    output logic [31:0] o_mac_prev_sum_bf,
+    output logic [31:0] o_lstm_cell_state_bf ,
+    output logic [31:0] o_lstm_hidden_state_bf,
+    output logic [7:0]  o_lstm_cell_state [0:1],
+    output logic [7:0]  o_lstm_hidden_state [0:1],
+    output logic [31:0] o_lstm_q_di_lstm_state,
+    output logic [7:0]  o_lstm_q_do_lstm_state,
+    output logic        o_lstm_type_state,
+    output logic [31:0] o_lstm_q_di_fc,
+    output logic [7:0]  o_lstm_q_do_fc,
+    output logic [31:0] o_lstm_di_current_unit_tanh_bf,
+    output logic [31:0] o_lstm_do_current_unit_tanh_bf,
+    output logic [31:0] o_lstm_di_current_unit_sigmoid_bf,
+    output logic [31:0] o_lstm_do_current_unit_sigmoid_bf,
+    output logic o_sigmoid_en,
+    output logic o_sigmoid_done,
+    output logic [1:0]  o_sigmoid_count
 );
 
     localparam
-        MAX_NO_UNITS            = 16,
-        NO_UNITS_LSTM           = 16,
-        NO_UNITS_FC             = 10,
-        NO_FEATURES             = 10,
-        NO_TIMESTEPS            = 28,
+        MAX_NO_UNITS            = 2,
+        NO_UNITS_LSTM           = 4,
+        NO_UNITS_FC             = 2,
+        NO_FEATURES             = 2,
+        NO_TIMESTEPS            = 2,
         NO_SAMPLES              = 1,
         
         INIT                    = 0,
@@ -180,73 +180,73 @@ module controller(
     logic  [OUT_BITWIDTH-1:0]               pre_sum     [0:MAX_NO_UNITS-1];
     logic                                   lstm_finish_step [0:MAX_NO_UNITS-1];
     logic                                   lstm_unit_done  [0:MAX_NO_UNITS-1];
-    logic  [7:0]                            lstm_unit_result [0:MAX_NO_UNITS-1];
+    logic  [7:0]                            lstm_unit_result [0:MAX_NO_UNITS-1][0:1];
     
     
-//    assign o_state = state;
-//    assign weights[0] = genblk1[2].u_lstm_unit.u_mac.weights_0;
-//    assign weights[1] = genblk1[2].u_lstm_unit.u_mac.weights_1;
-//    assign weights[2] = genblk1[2].u_lstm_unit.u_mac.weights_2;
-//    assign inputs[0]  = genblk1[2].u_lstm_unit.u_mac.data_in_0;
-//    assign inputs[1]  = genblk1[2].u_lstm_unit.u_mac.data_in_1;
-//    assign inputs[2]  = genblk1[2].u_lstm_unit.u_mac.data_in_2;
-//    assign bias       = genblk1[2].u_lstm_unit.u_mac.pre_sum;
-//    assign o_is_load_bias = is_load_bias;
-//    assign o_is_last_timestep = is_last_timestep;
-//    assign o_index    = current_buffer_index;
-//    assign o_mac_state = genblk1[2].u_lstm_unit.u_mac.state;
-//    assign o_is_last_input = is_last_input;
-//    assign o_lstm_accu_bf = genblk1[2].u_lstm_unit.accu_bf[0];
-//    assign o_mac_result = genblk1[2].u_lstm_unit.mac_result;    
-//    assign o_type_gate  = genblk1[2].u_lstm_unit.type_gate;
-//    assign o_gate = genblk1[2].u_lstm_unit.gate;
-//    assign o_value_gate[0] = genblk1[2].u_lstm_unit.input_gate[0];
-//    assign o_value_gate[1] = genblk1[2].u_lstm_unit.forget_gate[0];
-//    assign o_value_gate[2] = genblk1[2].u_lstm_unit.cell_update[0];
-//    assign o_value_gate[3] = genblk1[2].u_lstm_unit.output_gate[0];
-//    assign o_is_load_cell = is_load_cell;
-//    assign o_r_state = r_state;
-////    assign o_ht = genblk1[2].u_lstm_unit.hidden_state[0];
-//    assign o_lstm_state = genblk1[2].u_lstm_unit.state;
-//    assign o_lstm_finish_step = genblk1[2].u_lstm_unit.finish_step;
-//    assign o_current_timestep = current_timestep;
-//    assign o_lstm_unit_result[0] = lstm_unit_result[0];
-//    assign o_lstm_unit_result[1] = lstm_unit_result[1];
+    assign o_state = state;
+    assign weights[0] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.weights_0;
+    assign weights[1] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.weights_1;
+    assign weights[2] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.weights_2;
+    assign inputs[0]  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.data_in_0;
+    assign inputs[1]  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.data_in_1;
+    assign inputs[2]  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.data_in_2;
+    assign bias       = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.pre_sum;
+    assign o_is_load_bias = is_load_bias;
+    assign o_is_last_timestep = is_last_timestep;
+    assign o_index    = current_buffer_index;
+    assign o_mac_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.state;
+    assign o_is_last_input = is_last_input;
+    assign o_lstm_accu_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_bf;
+    assign o_mac_result = genblk1[MAX_NO_UNITS-1].u_lstm_unit.mac_result;    
+    assign o_type_gate  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.type_gate;
+    assign o_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.gate;
+    assign o_value_gate[0] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.input_gate;
+    assign o_value_gate[1] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.forget_gate;
+    assign o_value_gate[2] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_update;
+    assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate;
+    assign o_is_load_cell = is_load_cell;
+    assign o_r_state = r_state;
+//    assign o_ht = genblk1[2].u_lstm_unit.hidden_state[0];
+    assign o_lstm_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.state;
+    assign o_lstm_finish_step = genblk1[MAX_NO_UNITS-1].u_lstm_unit.finish_step;
+    assign o_current_timestep = current_timestep;
+    assign o_lstm_unit_result[0] = lstm_unit_result[0];
+    assign o_lstm_unit_result[1] = lstm_unit_result[1];
 //    assign o_lstm_unit_result[2] = lstm_unit_result[2];
 //    assign o_lstm_unit_result[3] = lstm_unit_result[3];
-//    assign o_current_no_units = current_no_units;
-//    assign o_remaining_no_units = remaining_no_units;
-//    assign o_read_bias = read_bias;
-//    assign o_current_layer = current_layer;
-//    assign o_current_sample = current_sample;
-//    assign o_count_gate = genblk1[2].u_lstm_unit.count_gate;
-//    assign o_current_unit = current_unit;
-//    assign o_is_last_sample = is_last_sample;
+    assign o_current_no_units = current_no_units;
+    assign o_remaining_no_units = remaining_no_units;
+    assign o_read_bias = read_bias;
+    assign o_current_layer = current_layer;
+    assign o_current_sample = current_sample;
+    assign o_count_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.count_gate;
+    assign o_current_unit = current_unit;
+    assign o_is_last_sample = is_last_sample;
     
-//    assign o_accu_input_bf = genblk1[2].u_lstm_unit.accu_input_bf[0];
-//    assign o_accu_forget_bf = genblk1[2].u_lstm_unit.accu_forget_bf[0];
-//    assign o_accu_cell_bf = genblk1[2].u_lstm_unit.accu_cell_bf[0];
-//    assign o_accu_output_bf = genblk1[2].u_lstm_unit.accu_output_bf[0];
-//    assign o_mac_accu_bf = genblk1[2].u_lstm_unit.u_mac.accu_bf;
-//    assign o_mac_index = genblk1[2].u_lstm_unit.u_mac.index;
-//    assign o_mac_prev_sum_bf = genblk1[2].u_lstm_unit.u_mac.prev_sum_bf;
+    assign o_accu_input_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_input_bf;
+    assign o_accu_forget_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_forget_bf;
+    assign o_accu_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_cell_bf;
+    assign o_accu_output_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.accu_output_bf;
+    assign o_mac_accu_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.accu_bf;
+    assign o_mac_index = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.index;
+    assign o_mac_prev_sum_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_mac.prev_sum_bf;
 
-//    assign o_lstm_cell_state_bf = genblk1[2].u_lstm_unit.cell_state_bf;
-//    assign o_lstm_hidden_state_bf = genblk1[2].u_lstm_unit.hidden_state_bf;
-//    assign o_lstm_cell_state = genblk1[2].u_lstm_unit.cell_state[0];
-//    assign o_lstm_hidden_state = genblk1[2].u_lstm_unit.hidden_state[0];
-//    assign o_lstm_q_di_lstm_state   = genblk1[2].u_lstm_unit.q_di_lstm_state;
-//    assign o_lstm_q_do_lstm_state   = genblk1[2].u_lstm_unit.q_do_lstm_state;
-//    assign o_lstm_type_state   = genblk1[2].u_lstm_unit.type_state;
-//    assign o_lstm_q_di_fc   = genblk1[2].u_lstm_unit.q_di_fc;
-//    assign o_lstm_q_do_fc   = genblk1[2].u_lstm_unit.q_do_fc;
-//    assign o_lstm_di_current_unit_tanh_bf = genblk1[2].u_lstm_unit.di_current_unit_tanh_bf;
-//    assign o_lstm_do_current_unit_tanh_bf = genblk1[2].u_lstm_unit.do_current_unit_tanh_bf;
-//    assign o_lstm_di_current_unit_sigmoid_bf = genblk1[2].u_lstm_unit.di_current_unit_sigmoid_bf;
-//    assign o_lstm_do_current_unit_sigmoid_bf = genblk1[2].u_lstm_unit.do_current_unit_sigmoid_bf;
-//    assign o_sigmoid_done = genblk1[2].u_lstm_unit.u_sigmoid.done;
-//    assign o_sigmoid_en = genblk1[2].u_lstm_unit.u_sigmoid.en;
-//    assign o_sigmoid_count = genblk1[2].u_lstm_unit.u_sigmoid.count;
+    assign o_lstm_cell_state_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_state_bf;
+    assign o_lstm_hidden_state_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state_bf;
+    assign o_lstm_cell_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_state;
+    assign o_lstm_hidden_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state;
+    assign o_lstm_q_di_lstm_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_di_lstm_state;
+    assign o_lstm_q_do_lstm_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_do_lstm_state;
+    assign o_lstm_type_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.type_state;
+    assign o_lstm_q_di_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_di_fc;
+    assign o_lstm_q_do_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_do_fc;
+    assign o_lstm_di_current_unit_tanh_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.di_current_unit_tanh_bf;
+    assign o_lstm_do_current_unit_tanh_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.do_current_unit_tanh_bf;
+    assign o_lstm_di_current_unit_sigmoid_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.di_current_unit_sigmoid_bf;
+    assign o_lstm_do_current_unit_sigmoid_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.do_current_unit_sigmoid_bf;
+    assign o_sigmoid_done = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.done;
+    assign o_sigmoid_en = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.en;
+    assign o_sigmoid_count = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.count;
     
     genvar i;
     
@@ -640,16 +640,16 @@ module controller(
                             else remaining_no_units = 0;
                             
                             if (current_buffer_index == current_no_units - 1) begin
-                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index]};
+                                out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else if (current_buffer_index == current_no_units - 2) begin
-                                out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                                out_data    <= {{16{1'b0}}, lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else if (current_buffer_index == current_no_units - 3) begin
-                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                                out_data    <= {{8{1'b0}}, lstm_unit_result[current_buffer_index+2][current_unit], lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             else begin
-                                out_data    <= {lstm_unit_result[current_buffer_index+3], lstm_unit_result[current_buffer_index+2], lstm_unit_result[current_buffer_index+1], lstm_unit_result[current_buffer_index]};
+                                out_data    <= {lstm_unit_result[current_buffer_index+3][current_unit], lstm_unit_result[current_buffer_index+2][current_unit], lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                             end
                             
 //                            if (current_layer == LSTM) begin
