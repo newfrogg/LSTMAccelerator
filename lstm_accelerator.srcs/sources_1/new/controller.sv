@@ -80,10 +80,26 @@ module controller(
 //    output logic [31:0] o_lstm_do_current_unit_tanh_bf,
 //    output logic [31:0] o_lstm_di_current_unit_sigmoid_bf,
 //    output logic [31:0] o_lstm_do_current_unit_sigmoid_bf,
+//    output logic [1:0]  o_sigmoid_count,
+//    output logic [1:0]  o_lstm_remain_waiting_time,
+//    output logic        o_lstm_ht_flag,
 //    output logic o_sigmoid_en,
 //    output logic o_sigmoid_done,
-//    output logic [1:0]  o_sigmoid_count,
-//    output logic [1:0]  o_waiting_time_before_to_idle
+//    output logic o_lstm_fc_flag,
+//    output logic o_lstm_inv_input_gate,
+//    output logic o_lstm_inv_forget_gate,
+//    output logic o_lstm_inv_cell_update,
+//    output logic o_lstm_inv_output_gate,
+//    output logic o_lstm_inv_cell_state,
+//    output logic o_lstm_inv_tanh_cell_bf,
+//    output logic [31:0] o_lstm_inv_input_gate_bf,
+//    output logic [31:0] o_lstm_inv_forget_gate_bf,
+//    output logic [31:0] o_lstm_inv_cell_update_bf,
+//    output logic [31:0] o_lstm_inv_output_gate_bf,
+//    output logic [7:0]  o_lstm_inv_cell_state_bf,
+//    output logic [31:0] o_lstm_f_prev_cell_bf,
+//    output logic [31:0] o_lstm_i_cell_update_bf,
+//    output logic [31:0] o_lstm_tanh_cell_bf
 );
 
     localparam
@@ -155,7 +171,7 @@ module controller(
     logic                                   is_last_timestep;
     logic                                   is_last_sample;
     logic                                   is_load_bias;
-    logic                                   is_load_cell;
+//    logic                                   is_load_cell;
     logic                                   lstm_is_waiting [0:MAX_NO_UNITS-1];
     logic                                   read_bias;
     // Signals for lstm unit
@@ -170,7 +186,6 @@ module controller(
     logic   [7:0]                           current_input_index;
     logic   [7:0]                           current_bias_index;  
     
-//    logic   [7:0]                           max_buffer_index;
     logic   [6:0]                           current_no_units;
     logic   [6:0]                           remaining_no_units;
     logic   [1:0]                           current_layer;
@@ -207,7 +222,8 @@ module controller(
 //    assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate;
 //    assign o_is_load_cell = is_load_cell;
 //    assign o_r_state = r_state;
-////    assign o_ht = genblk1[2].u_lstm_unit.hidden_state[0];
+//    assign o_lstm_is_continued = is_continued;
+//    assign o_lstm_is_waiting = lstm_is_waiting[MAX_NO_UNITS-1];
 //    assign o_lstm_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.state;
 //    assign o_lstm_finish_step = genblk1[MAX_NO_UNITS-1].u_lstm_unit.finish_step;
 //    assign o_current_timestep = current_timestep;
@@ -248,7 +264,25 @@ module controller(
 //    assign o_sigmoid_done = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.done;
 //    assign o_sigmoid_en = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.en;
 //    assign o_sigmoid_count = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_sigmoid.count;
-//    assign o_waiting_time_before_to_idle = genblk1[MAX_NO_UNITS-1].u_lstm_unit.waiting_time_before_to_idle;
+//    assign o_lstm_remain_waiting_time = genblk1[MAX_NO_UNITS-1].u_lstm_unit.remain_waiting_time;
+//    assign o_lstm_ht_flag = genblk1[MAX_NO_UNITS-1].u_lstm_unit.ht_flag;
+//    assign o_lstm_fc_flag = genblk1[MAX_NO_UNITS-1].u_lstm_unit.fc_flag;
+//    assign o_lstm_inv_input_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_input_gate;
+//    assign o_lstm_inv_forget_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_forget_gate;
+//    assign o_lstm_inv_cell_update = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_update;
+//    assign o_lstm_inv_output_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_output_gate;
+//    assign o_lstm_inv_cell_state  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_state;
+//    assign o_lstm_inv_tanh_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_tanh_cell_bf;
+    
+//    assign o_lstm_inv_input_gate_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_input_gate_bf;
+//    assign o_lstm_inv_forget_gate_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_forget_gate_bf;
+//    assign o_lstm_inv_cell_update_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_update_bf;
+//    assign o_lstm_inv_output_gate_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_output_gate_bf;
+//    assign o_lstm_inv_cell_state_bf  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_state_bf;
+//    assign o_lstm_inv_output_gate_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_output_gate_bf;
+//    assign o_lstm_i_cell_update_bf  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.i_cell_update_bf;
+//    assign o_lstm_f_prev_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.f_prev_cell_bf;
+//    assign o_lstm_tanh_cell_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.tanh_cell_bf;
     
     genvar i;
     
@@ -516,7 +550,7 @@ module controller(
                     current_unit        <= 2'b0;
                     t_valid             <= 1'b0;
                     is_load_bias        <= 1'b0;
-                    is_load_cell        <= 1'b0;
+//                    is_load_cell        <= 1'b0;
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     

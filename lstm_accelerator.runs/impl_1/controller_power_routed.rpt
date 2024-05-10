@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Sun May  5 21:28:06 2024
+| Date             : Fri May 10 19:17:27 2024
 | Host             : vanloi-laptop running 64-bit Ubuntu 22.04.4 LTS
 | Command          : report_power -file controller_power_routed.rpt -pb controller_power_summary_routed.pb -rpx controller_power_routed.rpx
 | Design           : controller
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.329        |
+| Total On-Chip Power (W)  | 0.630        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.221        |
-| Device Static (W)        | 0.108        |
+| Dynamic (W)              | 0.517        |
+| Device Static (W)        | 0.113        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 81.2         |
-| Junction Temperature (C) | 28.8         |
+| Max Ambient (C)          | 77.7         |
+| Junction Temperature (C) | 32.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.053 |        3 |       --- |             --- |
-| Slice Logic    |     0.071 |    46981 |       --- |             --- |
-|   LUT as Logic |     0.062 |    23688 |     53200 |           44.53 |
-|   CARRY4       |     0.006 |     1823 |     13300 |           13.71 |
-|   F7/F8 Muxes  |     0.001 |     1162 |     53200 |            2.18 |
-|   Register     |    <0.001 |    17715 |    106400 |           16.65 |
-|   Others       |     0.000 |      194 |       --- |             --- |
-| Signals        |     0.095 |    38234 |       --- |             --- |
-| I/O            |     0.002 |       71 |       125 |           56.80 |
-| Static Power   |     0.108 |          |           |                 |
-| Total          |     0.329 |          |           |                 |
+| Clocks         |     0.066 |        3 |       --- |             --- |
+| Slice Logic    |     0.166 |    82167 |       --- |             --- |
+|   LUT as Logic |     0.149 |    44351 |     53200 |           83.37 |
+|   CARRY4       |     0.015 |     4015 |     13300 |           30.19 |
+|   Register     |     0.002 |    27569 |    106400 |           25.91 |
+|   F7/F8 Muxes  |    <0.001 |      378 |     53200 |            0.71 |
+|   Others       |     0.000 |      258 |       --- |             --- |
+| Signals        |     0.210 |    78945 |       --- |             --- |
+| DSPs           |     0.075 |      128 |       220 |           58.18 |
+| I/O            |    <0.001 |       71 |       125 |           56.80 |
+| Static Power   |     0.113 |          |           |                 |
+| Total          |     0.630 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,20 +73,20 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.227 |       0.219 |      0.008 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.526 |       0.516 |      0.009 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.012 |       0.000 |      0.012 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18    |       1.800 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -135,7 +136,7 @@ Table of Contents
 +-------+--------+-----------------+
 | Clock | Domain | Constraint (ns) |
 +-------+--------+-----------------+
-| clk   | clk    |             8.0 |
+| clk   | clk    |            10.0 |
 +-------+--------+-----------------+
 
 
@@ -148,55 +149,103 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| controller                |     0.221 |
-|   genblk1[0].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[10].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[11].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[12].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[13].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[14].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[15].u_lstm_unit |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[1].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[2].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[3].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[4].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[5].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[6].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[7].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[8].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
-|   genblk1[9].u_lstm_unit  |     0.010 |
-|     u_mac                 |     0.004 |
-|     u_sigmoid             |     0.001 |
+| controller                |     0.517 |
+|   genblk1[0].u_lstm_unit  |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[10].u_lstm_unit |     0.028 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[11].u_lstm_unit |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.008 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[12].u_lstm_unit |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[13].u_lstm_unit |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[14].u_lstm_unit |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[15].u_lstm_unit |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[1].u_lstm_unit  |     0.031 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.008 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[2].u_lstm_unit  |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[3].u_lstm_unit  |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[4].u_lstm_unit  |     0.029 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[5].u_lstm_unit  |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.008 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[6].u_lstm_unit  |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[7].u_lstm_unit  |     0.031 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.008 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[8].u_lstm_unit  |     0.028 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.007 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
+|   genblk1[9].u_lstm_unit  |     0.030 |
+|     q1                    |     0.005 |
+|     q2                    |     0.003 |
+|     u_mac                 |     0.008 |
+|     u_sigmoid             |     0.002 |
+|     u_tanh                |     0.003 |
 +---------------------------+-----------+
 
 

@@ -51,9 +51,10 @@ module quantization_fc(
                 count       <= 0;
             end
             else begin
-                if (count == 0) out_temp = (data_in + Q_ZERO);
+                count   <= count + 1;
+                if (count == 0) out_temp <= (data_in + Q_ZERO);
                 else if (count == 1) out_temp <= out_temp * Q_STEP;
-                else if (count == 2) begin
+                else if (count == 2'b10) begin
                     out_temp    <= out_temp >>> 24;
                     done        <= 1'b1;
                 end

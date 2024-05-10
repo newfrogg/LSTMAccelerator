@@ -43,7 +43,7 @@ module quantization_lstm(
     logic [63:0]    out_temp;
     logic [1:0]     count;
     
-//    assign data_out = out_temp[7:0];
+    assign data_out = out_temp[7:0];
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -63,7 +63,7 @@ module quantization_lstm(
                     if (count == 0) out_temp <= (data_in + O_Q_ZERO);
                     else if (count == 1) out_temp <= out_temp * O_Q_STEP;
                     else if (count == 2) begin
-                        data_out    <= out_temp >>> O_Q_RSHIFT;
+                        out_temp    <= out_temp >>> O_Q_RSHIFT;
                         done        <= 1;
                     end
                     else ;    
@@ -72,8 +72,8 @@ module quantization_lstm(
                     if (count == 0) begin
                         out_temp    <= data_in >>> 11;
                     end
-                    else if (count == 1) begin
-                        data_out    <= out_temp;
+                    else if (count == 2'b10) begin
+                        out_temp    <= out_temp;
                         done        <= 1'b1;
                     end
                     else ;

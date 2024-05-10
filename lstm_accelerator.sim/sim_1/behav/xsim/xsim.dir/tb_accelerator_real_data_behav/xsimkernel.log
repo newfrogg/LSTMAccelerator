@@ -1,4 +1,4 @@
-Running: xsim.dir/tb_accelerator_real_data_behav/xsimk -simmode gui -wdb tb_accelerator_real_data_behav.wdb -simrunnum 0 -socket 37777
+Running: xsim.dir/tb_accelerator_real_data_behav/xsimk -simmode gui -wdb tb_accelerator_real_data_behav.wdb -simrunnum 0 -socket 48641
 Design successfully loaded
-Design Loading Memory Usage: 24788 KB (Peak: 24788 KB)
+Design Loading Memory Usage: 24928 KB (Peak: 24928 KB)
 Design Loading CPU Usage: 20 ms

@@ -68,9 +68,11 @@ module tanh_appr (
      logic signed [31:0]    temp;
      logic [1:0]            count;
      
+     assign data_out = temp;
+     
      always @ (posedge clk or negedge rstn) begin
         if (!rstn) begin
-            data_out    <= 32'h0;
+            temp    <= 32'h0;
             count       <= 0;
             done        <= 0;
         end
@@ -82,45 +84,54 @@ module tanh_appr (
             else begin
                 count <= count + 1;
                 if (data_in >= 32'h80000000 && data_in < RANGE1) begin
-                    if (count == 0) data_out <= -1;
-                    else if (count == 1) done <= 1'b1;
+                    if (count == 0) temp <= COEF0;
+                    else if (count == 2'b10) done <= 1'b1;
                     else ;
                 end
                 else if (data_in >= RANGE1 && data_in < RANGE2) begin       
-                    if (count == 0) temp <= data_in >>> 5;
-                    else if (count == 1) begin
-                        data_out    <= temp + COEF1;
+                    if (count == 0) begin
+                        temp        <= data_in >>> 5;
+                        temp[31:27] <= 5'b11111;
+                    end
+                    else if (count == 2'b10) begin
+                        temp    <= temp + COEF1;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE2 && data_in < RANGE3) begin
-                    if (count == 0) temp <= data_in >>> 2;
-                    else if (count == 1) begin
-                        data_out    <= temp + COEF2;
+                    if (count == 0) begin
+                        temp        <= data_in >>> 2;
+                        temp[31:30] <= 2'b11;
+                    end
+                    else if (count == 2'b10) begin
+                        temp    <= temp + COEF2;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE3 && data_in < RANGE4) begin
-                    if (count == 0) temp <= (data_in >>> 2);
+                    if (count == 0) begin
+                        temp        <= (data_in >>> 2);
+                        temp[31:30] <= 2'b11;   
+                    end
                     if (count == 2'b01) temp <= data_in - temp;
                     else if (count == 2'b10)begin
-                        data_out    <= temp + COEF3;
+                        temp    <= temp + COEF3;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE4 && data_in <= 32'hFFFFFFFF) begin
-                    if (count == 0) data_out <= data_in;
-                    else if (count == 1) begin
+                    if (count == 0) temp <= data_in;
+                    else if (count == 2'b10) begin
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= 32'h00_00_00_00 && data_in < RANGE5) begin
-                    if (count == 0) data_out <= data_in;
-                    else if (count == 1) begin
+                    if (count == 0) temp <= data_in;
+                    else if (count == 2'b10) begin
                         done        <= 1;
                     end
                     else ;
@@ -129,72 +140,34 @@ module tanh_appr (
                     if (count == 0) temp <= (data_in >>> 2);
                     else if (count == 2'b01) temp <= data_in - temp;
                     else if (count == 2'b10) begin
-                        data_out    <= temp + COEF4;
+                        temp    <= temp + COEF4;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE6 && data_in < RANGE7) begin
                     if (count == 0) temp <= data_in >>> 2;
-                    else if (count == 1) begin
-                        data_out    <= temp + COEF5;
+                    else if (count == 2'b10) begin
+                        temp    <= temp + COEF5;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE7 && data_in < RANGE8) begin
                     if (count == 0) temp <= data_in >>> 5;
-                    else if (count == 1) begin
-                        data_out    <= temp + COEF6;
+                    else if (count == 2'b10) begin
+                        temp    <= temp + COEF6;
                         done        <= 1;
                     end
                     else ;
                 end
                 else if (data_in >= RANGE8 && data_in < 32'h7f_ff_ff_ff) begin
-                    if (count == 0) data_out    <= 1;
-                    else if (count == 1) done <= 1;
+                    if (count == 0) temp    <= COEF7;
+                    else if (count == 2'b10) done <= 1;
                     else ;
                 end
             end
         end
      end
-     
-//     always @(*) begin
-//        if (data_in >= 32'h80000000 && data_in < RANGE1) begin
-//            data_out    = -1;
-//        end
-//        else if (data_in >= RANGE1 && data_in < RANGE2) begin
-//            temp        = data_in >>> 5;
-//            data_out    = temp + COEF1;
-//        end
-//        else if (data_in >= RANGE2 && data_in < RANGE3) begin
-//            temp        = data_in >>> 2;
-//            data_out    = temp + COEF2;
-//        end
-//        else if (data_in >= RANGE3 && data_in < RANGE4) begin
-//            temp        = data_in - (data_in >>> 2);
-//            data_out    = temp + COEF3;
-//        end
-//        else if (data_in >= RANGE4 && data_in <= 32'hFFFFFFFF) begin
-//            data_out    = data_in;
-//        end
-//        else if (data_in >= 32'h00_00_00_00 && data_in < RANGE5) begin
-//            data_out    = data_in;
-//        end
-//        else if (data_in >= RANGE5 && data_in < RANGE6) begin
-//            temp        = data_in - (data_in >>> 2);
-//            data_out    = temp + COEF4;
-//        end
-//        else if (data_in >= RANGE6 && data_in < RANGE7) begin
-//            temp        = data_in >>> 2;
-//            data_out    = temp + COEF5;
-//        end
-//        else if (data_in >= RANGE7 && data_in < RANGE8) begin
-//            temp        = data_in >>> 5;
-//            data_out    = temp + COEF6;
-//        end
-//        else if (data_in >= RANGE8 && data_in < 32'h7f_ff_ff_ff) begin
-//            data_out    = 1;
-//        end
-//     end
+
 endmodule

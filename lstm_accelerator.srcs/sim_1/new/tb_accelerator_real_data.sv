@@ -57,75 +57,91 @@ module tb_accelerator_real_data();
     logic               w_valid;
     logic               t_valid;
     logic [31:0]        out_data;
-//    logic               o_is_last_sample;
-//    logic [7:0]         o_lstm_unit_result [0:1][0:1];
-//    logic [7:0]         o_index;
-//    logic [1:0]         o_current_unit;
-//    logic [1:0]         o_current_layer;
-//    logic [4:0]         o_current_timestep;
+    logic               o_is_last_sample;
+    logic [7:0]         o_lstm_unit_result [0:1][0:1];
+    logic [7:0]         o_index;
+    logic [1:0]         o_current_unit;
+    logic [1:0]         o_current_layer;
+    logic [4:0]         o_current_timestep;
     logic [6:0]         current_no_units;
-//    logic [6:0]         o_current_no_units;
-//    logic [6:0]         o_remaining_no_units;
+    logic [6:0]         o_current_no_units;
+    logic [6:0]         o_remaining_no_units;
     logic [6:0]         remaining_no_units;
-//    logic [4:0]         o_current_sample;
-//    logic [2:0]         o_state;
-//    logic [2:0]         o_lstm_state;
-//    logic [1:0]         o_mac_state;
-//    logic [2:0]         o_r_state;
-////    logic               o_lstm_unit_done;
-//    logic               o_lstm_finish_step;
-//    logic               o_lstm_is_continued;
-//    logic               o_lstm_is_waiting;
-//    logic               o_is_last_timestep;
-//    logic [1:0]         o_type_gate;
-//    logic [1:0]         o_gate;
-//    logic [1:0]         o_count_gate;
-//    logic [31:0]        o_value_gate [0:3][0:1];
-//    logic [1:0]         o_sigmoid_count;
-//    logic               o_sigmoid_en;
-//    logic               o_sigmoid_done;
-//    logic [7:0]         weights [0:2];
-//    logic [7:0]         inputs [0:2];
-//    logic [31:0]        bias;
-//    logic [31:0]        o_mac_prev_sum_bf;
-//    logic [2:0]         o_mac_index;
-//    logic [31:0]        o_mac_accu_bf;
-//    logic [31:0]        o_mac_result;
-//    logic [31:0]        o_lstm_accu_bf [0:1]; 
-//    logic [31:0]        o_accu_input_bf [0:1];
-//    logic [31:0]        o_accu_forget_bf [0:1];
-//    logic [31:0]        o_accu_cell_bf [0:1];
-//    logic [31:0]        o_accu_output_bf [0:1];
-//    logic               o_read_bias;
-//    logic               o_is_load_bias;
-//    logic               o_is_load_cell;
-//    logic               o_is_last_input;
-//    logic [1:0]         o_waiting_time_before_to_idle;
+    logic [4:0]         o_current_sample;
+    logic [2:0]         o_state;
+    logic [2:0]         o_lstm_state;
+    logic [1:0]         o_mac_state;
+    logic [2:0]         o_r_state;
+    logic               o_lstm_unit_done;
+    logic               o_lstm_finish_step;
+    logic               o_lstm_is_continued;
+    logic               o_lstm_is_waiting;
+    logic               o_is_last_timestep;
+    logic [1:0]         o_type_gate;
+    logic [1:0]         o_gate;
+    logic [1:0]         o_count_gate;
+    logic [31:0]        o_value_gate [0:3][0:1];
+    logic [1:0]         o_sigmoid_count;
+    logic               o_sigmoid_en;
+    logic               o_sigmoid_done;
+    logic [7:0]         weights [0:2];
+    logic [7:0]         inputs [0:2];
+    logic [31:0]        bias;
+    logic [31:0]        o_mac_prev_sum_bf;
+    logic [2:0]         o_mac_index;
+    logic [31:0]        o_mac_accu_bf;
+    logic [31:0]        o_mac_result;
+    logic [31:0]        o_lstm_accu_bf [0:1]; 
+    logic [31:0]        o_accu_input_bf [0:1];
+    logic [31:0]        o_accu_forget_bf [0:1];
+    logic [31:0]        o_accu_cell_bf [0:1];
+    logic [31:0]        o_accu_output_bf [0:1];
+    logic               o_read_bias;
+    logic               o_is_load_bias;
+    logic               o_is_load_cell;
+    logic               o_is_last_input;
     
-//    logic [31:0]        o_lstm_cell_state_bf;
-//    logic [31:0]        o_lstm_hidden_state_bf;
-//    logic [7:0]         o_lstm_cell_state [0:1];
-//    logic [7:0]         o_lstm_hidden_state [0:1];
-//    logic [31:0]        o_lstm_q_di_lstm_state;
-//    logic [7:0]         o_lstm_q_do_lstm_state;
-//    logic               o_lstm_type_state;
-//    logic [31:0]        o_lstm_q_di_fc;
-//    logic [7:0]         o_lstm_q_do_fc;
-//    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
-//    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
-//    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
-//    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
-//    logic [1:0]         o_waiting_time_before_to_idle;
+    logic [31:0]        o_lstm_cell_state_bf;
+    logic [31:0]        o_lstm_hidden_state_bf;
+    logic [7:0]         o_lstm_cell_state [0:1];
+    logic [7:0]         o_lstm_hidden_state [0:1];
+    logic [1:0]         o_waiting_time_before_to_idle;
+    logic [31:0]        o_lstm_q_di_lstm_state;
+    logic [7:0]         o_lstm_q_do_lstm_state;
+    logic               o_lstm_type_state;
+    logic [31:0]        o_lstm_q_di_fc;
+    logic [7:0]         o_lstm_q_do_fc;
+    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
+    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
+    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
+    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
+    logic [1:0]         o_lstm_remain_waiting_time;
+    logic               o_lstm_fc_flag;
     
-    
+     logic o_lstm_inv_input_gate;
+     logic o_lstm_inv_forget_gate;
+     logic o_lstm_inv_cell_update;
+     logic o_lstm_inv_output_gate;
+     logic o_lstm_inv_cell_state;
+     logic o_lstm_inv_tanh_cell_bf;
+     logic [31:0] o_lstm_inv_input_gate_bf;
+     logic [31:0] o_lstm_inv_forget_gate_bf;
+     logic [31:0] o_lstm_inv_cell_update_bf;
+     logic [31:0] o_lstm_inv_output_gate_bf;
+     logic [7:0] o_lstm_inv_cell_state_bf;
+     logic [31:0] o_lstm_f_prev_cell_bf;
+     logic [31:0] o_lstm_i_cell_update_bf;
+     logic [31:0] o_lstm_tanh_cell_bf;
+     
+//     logic [31:0] o_tanh_appr_temp;
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_cell_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_output_gate [0:NO_UNITS-1];
-//    logic [31:0]        input_gate;
-//    logic [31:0]        forget_gate;
-//    logic [31:0]        cell_gate;
-//    logic [31:0]        output_gate;
+    logic [31:0]        input_gate;
+    logic [31:0]        forget_gate;
+    logic [31:0]        cell_gate;
+    logic [31:0]        output_gate;
     
     logic [31:0]        input_matrix [0:NO_SAMPLES-1][0:NO_TIMESTEPS-1][0:NO_FEATURES-1];
     
@@ -222,10 +238,26 @@ module tb_accelerator_real_data();
 //        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
 //        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
 //        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
+//        .o_sigmoid_count(o_sigmoid_count),
+//        .o_lstm_remain_waiting_time(o_lstm_remain_waiting_time),
+//        .o_lstm_ht_flag(o_lstm_ht_flag),
 //        .o_sigmoid_en(o_sigmoid_en),
 //        .o_sigmoid_done(o_sigmoid_done),
-//        .o_sigmoid_count(o_sigmoid_count),
-//        .o_waiting_time_before_to_idle(o_waiting_time_before_to_idle)
+//        .o_lstm_fc_flag(o_lstm_fc_flag),
+//        .o_lstm_inv_input_gate(o_lstm_inv_input_gate),
+//        .o_lstm_inv_forget_gate(o_lstm_inv_forget_gate),
+//        .o_lstm_inv_cell_update(o_lstm_inv_cell_update),
+//        .o_lstm_inv_output_gate(o_lstm_inv_output_gate),
+//        .o_lstm_inv_cell_state(o_lstm_inv_cell_state),
+//        .o_lstm_inv_tanh_cell_bf(o_lstm_inv_tanh_cell_bf),
+//        .o_lstm_inv_input_gate_bf(o_lstm_inv_input_gate_bf),
+//        .o_lstm_inv_forget_gate_bf(o_lstm_inv_forget_gate_bf),
+//        .o_lstm_inv_cell_update_bf(o_lstm_inv_cell_update_bf),
+//        .o_lstm_inv_output_gate_bf(o_lstm_inv_output_gate_bf),
+//        .o_lstm_inv_cell_state_bf(o_lstm_inv_cell_state_bf),
+//        .o_lstm_f_prev_cell_bf(o_lstm_f_prev_cell_bf),
+//        .o_lstm_i_cell_update_bf(o_lstm_i_cell_update_bf),
+//        .o_lstm_tanh_cell_bf(o_lstm_tanh_cell_bf)
     );
     
     always #20 begin 
@@ -289,6 +321,7 @@ module tb_accelerator_real_data();
 //                    input_matrix[current_sample][current_timestep][index] = input_pkt.input_bf;
                     index = index + 1;
                 end
+//                index = 0;
                 current_timestep = current_timestep + 1;
             end
             current_sample = current_sample + 1;

@@ -48,10 +48,11 @@ module sigmoid_appro (
         
         logic signed [31:0] temp;
         logic [1:0]         count;
+        assign data_out = temp;
         
         always @ (posedge clk or negedge rstn) begin
             if (!rstn) begin
-                data_out    <= 32'h0;
+                temp    <= 32'h0;
                 count       <= 0;
                 done        <= 0;
             end
@@ -64,16 +65,19 @@ module sigmoid_appro (
                     count <= count + 1'b1;
                     if (data_in >= 32'h80000000 && data_in < RANGE2) begin
                         if (count == 0) begin 
-                            data_out  <= 0;
-                            done <= 1'b1;
+                            temp  <= 0;
+//                            done <= 1'b1;
                         end 
+                        else if (count == 2'b10) begin
+                            done <= 1'b1;
+                        end
                         else ;
                     end
                     else if (data_in >= RANGE2 && data_in < RANGE3) begin                    
                         if (count == 0) temp <= data_in >>> 3;
                         else if (count == 2'b01) temp <= temp + COEF2; 
                         else if (count == 2'b10) begin
-                            data_out = {{8'h00}, temp[23:0]};
+                            temp = {{8'h00}, temp[23:0]};
                             done        <= 1'b1;
                         end
                         else ;
@@ -82,7 +86,7 @@ module sigmoid_appro (
                         if (count == 0) temp = data_in >>> 2;
                         else if (count == 2'b01) temp    <= temp + COEF3;
                         else if (count == 2'b10) begin
-                            data_out = {{8'h00}, temp[23:0]};
+                            temp = {{8'h00}, temp[23:0]};
                             done        <= 1'b1;
                         end
                         else ;
@@ -91,7 +95,7 @@ module sigmoid_appro (
                         if (count == 0) temp = data_in >>> 2;
                         else if (count == 2'b01) temp    <= temp + COEF3;
                         else if (count == 2'b10) begin
-                            data_out    <= {{8'h00}, temp[23:0]};
+                            temp    <= {{8'h00}, temp[23:0]};
                             done        <= 1'b1;
                         end
                         else ;
@@ -100,14 +104,17 @@ module sigmoid_appro (
                         if (count == 0) temp = data_in >>> 3;
                         else if (count == 2'b01) temp    <= temp + COEF4;
                         else if (count == 2'b10) begin
-                            data_out    <= {{8'h00}, temp[23:0]};
+                            temp    <= {{8'h00}, temp[23:0]};
                             done        <= 1'b1;
                         end
                         else ;
                     end
                     else if (data_in >= RANGE5 && data_in <= 32'h7f_ff_ff_ff) begin
                         if (count == 0) begin
-                            data_out    <= data_in;
+                            temp    <= data_in;
+                            done        <= 1'b1;
+                        end
+                        else if (count == 2'b10) begin
                             done        <= 1'b1;
                         end
                         else ;

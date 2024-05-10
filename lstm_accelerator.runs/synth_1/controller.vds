@@ -3,13 +3,13 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sun May  5 21:23:27 2024
-# Process ID: 207344
+# Start of session at: Fri May 10 19:10:19 2024
+# Process ID: 342042
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1
 # Command line: vivado -log controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source controller.tcl
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/controller.vds
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 1556.944 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 1878.838 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
 source controller.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/utils_1/imports/synth_1/controller.dcp
@@ -24,9 +24,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 207362
+INFO: [Synth 8-7075] Helper process launched with PID 342071
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2023.965 ; gain = 377.801 ; free physical = 1373 ; free virtual = 8099
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2023.699 ; gain = 378.770 ; free physical = 840 ; free virtual = 8631
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'controller' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'lstm_unit' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:23]
@@ -44,170 +44,166 @@ INFO: [Synth 8-6157] synthesizing module 'quantization_lstm' [/home/vanloi/Docum
 INFO: [Synth 8-6155] done synthesizing module 'quantization_lstm' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'quantization_fc' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_fc.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'quantization_fc' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_fc.sv:23]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:453]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:544]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:559]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:602]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:620]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:531]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:706]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:724]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:245]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:533]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:646]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:661]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:705]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:728]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:632]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:890]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:910]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:264]
 INFO: [Synth 8-6155] done synthesizing module 'lstm_unit' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:23]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:313]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:383]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:475]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:530]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:299]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:349]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:419]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:511]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:568]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:335]
 INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
-WARNING: [Synth 8-7137] Register index_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:87]
-WARNING: [Synth 8-7137] Register flag_accu_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:127]
-WARNING: [Synth 8-7137] Register accu_bf_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:128]
-WARNING: [Synth 8-7137] Register time_remaining_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:130]
-WARNING: [Synth 8-7137] Register temp_reg in module tanh_appr has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/tanh_appr.sv:90]
-WARNING: [Synth 8-7137] Register temp_reg in module sigmoid_appro has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv:73]
-WARNING: [Synth 8-7137] Register data_out_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:66]
-WARNING: [Synth 8-6014] Unused sequential element wait_done_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:225]
-WARNING: [Synth 8-6014] Unused sequential element accu_fc_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:239]
-WARNING: [Synth 8-6014] Unused sequential element is_quantized_ct_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:288]
-WARNING: [Synth 8-6014] Unused sequential element fc_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:323]
-WARNING: [Synth 8-6014] Unused sequential element hidden_state_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:523]
-WARNING: [Synth 8-7137] Register cell_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register finish_step_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:253]
-WARNING: [Synth 8-7137] Register tanh_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:183]
-WARNING: [Synth 8-7137] Register sigmoid_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:192]
-WARNING: [Synth 8-7137] Register q_lstm_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:201]
-WARNING: [Synth 8-7137] Register q_fc_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:211]
+WARNING: [Synth 8-7137] Register index_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:89]
+WARNING: [Synth 8-7137] Register flag_accu_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:139]
+WARNING: [Synth 8-7137] Register accu_bf_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:140]
+WARNING: [Synth 8-7137] Register u_accu_bf_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:141]
+WARNING: [Synth 8-7137] Register time_remaining_reg in module MAC has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv:143]
+WARNING: [Synth 8-6014] Unused sequential element wait_done_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:244]
+WARNING: [Synth 8-6014] Unused sequential element accu_fc_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:258]
+WARNING: [Synth 8-6014] Unused sequential element fc_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:346]
+WARNING: [Synth 8-6014] Unused sequential element inv_output_gate_bf_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:605]
+WARNING: [Synth 8-7137] Register finish_step_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:272]
+WARNING: [Synth 8-7137] Register tanh_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:202]
+WARNING: [Synth 8-7137] Register sigmoid_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:211]
+WARNING: [Synth 8-7137] Register q_lstm_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:220]
+WARNING: [Synth 8-7137] Register q_fc_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:230]
+WARNING: [Synth 8-7137] Register fc_flag_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:279]
 WARNING: [Synth 8-7137] Register accu_input_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
 WARNING: [Synth 8-7137] Register accu_forget_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
 WARNING: [Synth 8-7137] Register accu_cell_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
 WARNING: [Synth 8-7137] Register accu_output_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
 WARNING: [Synth 8-7137] Register accu_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:285]
-WARNING: [Synth 8-7137] Register is_waiting_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:287]
-WARNING: [Synth 8-7137] Register count_cell_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:290]
-WARNING: [Synth 8-7137] Register current_mult_shift_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:301]
-WARNING: [Synth 8-7137] Register out_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:325]
-WARNING: [Synth 8-7137] Register mac_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:168]
-WARNING: [Synth 8-7137] Register q_di_fc_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:212]
-WARNING: [Synth 8-7137] Register update_cell_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:425]
-WARNING: [Synth 8-7137] Register cell_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:428]
+WARNING: [Synth 8-7137] Register cell_state_reg[0] in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:299]
+WARNING: [Synth 8-7137] Register cell_state_reg[1] in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:299]
+WARNING: [Synth 8-7137] Register gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:306]
+WARNING: [Synth 8-7137] Register is_waiting_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:308]
+WARNING: [Synth 8-7137] Register mac_is_signed_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:187]
+WARNING: [Synth 8-7137] Register count_cell_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:312]
+WARNING: [Synth 8-7137] Register current_mult_shift_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:323]
+WARNING: [Synth 8-7137] Register out_reg[0] in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:348]
+WARNING: [Synth 8-7137] Register out_reg[1] in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:348]
+WARNING: [Synth 8-7137] Register q_di_fc_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:231]
+WARNING: [Synth 8-7137] Register mac_en_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:186]
+WARNING: [Synth 8-7137] Register update_cell_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:466]
+WARNING: [Synth 8-7137] Register cell_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:469]
+WARNING: [Synth 8-7137] Register f_prev_cell_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:471]
+WARNING: [Synth 8-7137] Register i_cell_update_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:472]
+WARNING: [Synth 8-7137] Register inv_input_gate_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:475]
+WARNING: [Synth 8-7137] Register inv_input_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:476]
+WARNING: [Synth 8-7137] Register inv_forget_gate_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:484]
+WARNING: [Synth 8-7137] Register inv_forget_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:485]
+WARNING: [Synth 8-7137] Register inv_cell_update_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:493]
+WARNING: [Synth 8-7137] Register inv_cell_update_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:494]
+WARNING: [Synth 8-7137] Register inv_cell_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:502]
+WARNING: [Synth 8-7137] Register inv_cell_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:503]
 WARNING: [Synth 8-7137] Register cell_update_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register di_current_unit_tanh_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:184]
-WARNING: [Synth 8-7137] Register output_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register di_current_unit_sigmoid_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:193]
+WARNING: [Synth 8-7137] Register di_current_unit_tanh_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:203]
 WARNING: [Synth 8-7137] Register input_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-7137] Register di_current_unit_sigmoid_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:212]
 WARNING: [Synth 8-7137] Register forget_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register tanh_cell_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:515]
-WARNING: [Synth 8-7137] Register type_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:202]
-WARNING: [Synth 8-7137] Register q_di_lstm_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:203]
-WARNING: [Synth 8-4767] Trying to implement RAM 'cell_state_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
-Reason is one or more of the following :
-	1: Invalid write to RAM. 
-	2: Unable to determine number of words or word size in RAM. 
-	3: No valid read/write found for RAM. 
-RAM "cell_state_reg" dissolved into registers
+WARNING: [Synth 8-7137] Register output_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-7137] Register type_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:221]
+WARNING: [Synth 8-7137] Register hidden_state_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:602]
+WARNING: [Synth 8-7137] Register inv_output_gate_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:606]
+WARNING: [Synth 8-7137] Register tanh_cell_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:614]
+WARNING: [Synth 8-7137] Register inv_tanh_cell_bf_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:615]
+WARNING: [Synth 8-7137] Register q_di_lstm_state_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:222]
+WARNING: [Synth 8-7137] Register ht_flag_reg in module lstm_unit has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:811]
 WARNING: [Synth 8-4767] Trying to implement RAM 'accu_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "accu_bf_reg" dissolved into registers
-WARNING: [Synth 8-4767] Trying to implement RAM 'forget_gate_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
-Reason is one or more of the following :
-	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
-RAM "forget_gate_reg" dissolved into registers
-WARNING: [Synth 8-4767] Trying to implement RAM 'input_gate_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
-Reason is one or more of the following :
-	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
-RAM "input_gate_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'output_gate_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "output_gate_reg" dissolved into registers
+WARNING: [Synth 8-4767] Trying to implement RAM 'input_gate_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "input_gate_reg" dissolved into registers
+WARNING: [Synth 8-4767] Trying to implement RAM 'forget_gate_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "forget_gate_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'cell_update_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "cell_update_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'accu_cell_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "accu_cell_bf_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'accu_input_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "accu_input_bf_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'accu_forget_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "accu_forget_bf_reg" dissolved into registers
 WARNING: [Synth 8-4767] Trying to implement RAM 'accu_output_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
-	2: Only 1 word in RAM 
 RAM "accu_output_bf_reg" dissolved into registers
-WARNING: [Synth 8-6014] Unused sequential element current_feature_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:317]
-WARNING: [Synth 8-6014] Unused sequential element current_input_index_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:360]
-WARNING: [Synth 8-6014] Unused sequential element w_state_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:371]
-WARNING: [Synth 8-6014] Unused sequential element is_load_cell_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:515]
-WARNING: [Synth 8-7137] Register r_data_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:305]
-WARNING: [Synth 8-7137] Register read_bias_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:307]
-WARNING: [Synth 8-7137] Register is_last_timestep_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:261]
-WARNING: [Synth 8-7137] Register data_load_done_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:349]
-WARNING: [Synth 8-7137] Register t_valid_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:354]
-WARNING: [Synth 8-7137] Register is_load_bias_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:264]
-WARNING: [Synth 8-7137] Register is_last_input_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:259]
-WARNING: [Synth 8-7137] Register current_weight_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:359]
-WARNING: [Synth 8-7137] Register current_buffer_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:361]
-WARNING: [Synth 8-7137] Register current_bias_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:362]
-WARNING: [Synth 8-7137] Register type_gate_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:265]
-WARNING: [Synth 8-7137] Register r_state_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:370]
+WARNING: [Synth 8-6014] Unused sequential element current_feature_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:353]
+WARNING: [Synth 8-6014] Unused sequential element current_input_index_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:396]
+WARNING: [Synth 8-6014] Unused sequential element w_state_reg was removed.  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:407]
+WARNING: [Synth 8-7137] Register r_data_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:341]
+WARNING: [Synth 8-7137] Register read_bias_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:343]
+WARNING: [Synth 8-7137] Register is_last_timestep_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:297]
+WARNING: [Synth 8-7137] Register data_load_done_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:385]
+WARNING: [Synth 8-7137] Register t_valid_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:390]
+WARNING: [Synth 8-7137] Register is_load_bias_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:300]
+WARNING: [Synth 8-7137] Register is_last_input_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:295]
+WARNING: [Synth 8-7137] Register current_weight_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:395]
+WARNING: [Synth 8-7137] Register current_buffer_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:397]
+WARNING: [Synth 8-7137] Register current_bias_index_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:398]
+WARNING: [Synth 8-7137] Register type_gate_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:301]
+WARNING: [Synth 8-7137] Register r_state_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:406]
 WARNING: [Synth 8-7137] Register weight_bf_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register input_bf_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:402]
+WARNING: [Synth 8-7137] Register input_bf_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:438]
 WARNING: [Synth 8-7137] Register bias_bf_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
-WARNING: [Synth 8-7137] Register weight_reg[0] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[1] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[2] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[3] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[4] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[5] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[6] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[7] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[8] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[9] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[10] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[11] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[12] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[13] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[14] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register weight_reg[15] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:268]
-WARNING: [Synth 8-7137] Register data_input_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:269]
-WARNING: [Synth 8-7137] Register pre_sum_reg[0] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[1] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[2] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[3] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[4] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[5] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[6] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[7] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[8] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[9] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[10] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[11] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[12] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[13] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[14] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register pre_sum_reg[15] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:270]
-WARNING: [Synth 8-7137] Register is_continued_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:263]
-WARNING: [Synth 8-7137] Register lstm_unit_en_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:258]
-WARNING: [Synth 8-7137] Register w_valid_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:600]
-WARNING: [Synth 8-7137] Register out_data_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:643]
+WARNING: [Synth 8-7137] Register weight_reg[0] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[1] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[2] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[3] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[4] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[5] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[6] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[7] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[8] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[9] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[10] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[11] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[12] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[13] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[14] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register weight_reg[15] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:304]
+WARNING: [Synth 8-7137] Register data_input_reg in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:305]
+WARNING: [Synth 8-7137] Register pre_sum_reg[0] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[1] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[2] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[3] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[4] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[5] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[6] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[7] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[8] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[9] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[10] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[11] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[12] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[13] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[14] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+WARNING: [Synth 8-7137] Register pre_sum_reg[15] in module controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:306]
+INFO: [Common 17-14] Message 'Synth 8-7137' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-4767] Trying to implement RAM 'weight_bf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
 Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
@@ -217,18 +213,18 @@ Reason is one or more of the following :
 	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
 RAM "bias_bf_reg" dissolved into registers
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2131.902 ; gain = 485.738 ; free physical = 1235 ; free virtual = 7961
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2138.637 ; gain = 493.707 ; free physical = 794 ; free virtual = 8503
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2149.715 ; gain = 503.551 ; free physical = 1235 ; free virtual = 7961
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2153.480 ; gain = 508.551 ; free physical = 792 ; free virtual = 8501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2149.715 ; gain = 503.551 ; free physical = 1235 ; free virtual = 7961
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2153.480 ; gain = 508.551 ; free physical = 792 ; free virtual = 8501
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.2 . Memory (MB): peak = 2149.715 ; gain = 0.000 ; free physical = 1240 ; free virtual = 7960
+Netlist sorting complete. Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.35 . Memory (MB): peak = 2153.480 ; gain = 0.000 ; free physical = 826 ; free virtual = 8508
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -237,28 +233,28 @@ Parsing XDC File [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_acceler
 Finished Parsing XDC File [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1/new/timing_constr.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2332.465 ; gain = 0.000 ; free physical = 1239 ; free virtual = 7922
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2342.230 ; gain = 0.000 ; free physical = 819 ; free virtual = 8442
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.58 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2332.465 ; gain = 0.000 ; free physical = 1237 ; free virtual = 7920
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2342.230 ; gain = 0.000 ; free physical = 815 ; free virtual = 8438
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1286 ; free virtual = 7924
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 815 ; free virtual = 8426
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1286 ; free virtual = 7924
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 815 ; free virtual = 8426
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1286 ; free virtual = 7924
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 815 ; free virtual = 8426
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lstm_unit'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'controller'
@@ -287,7 +283,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1273 ; free virtual = 7915
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 852 ; free virtual = 8419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -295,64 +291,65 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   33 Bit       Adders := 32    
-	   2 Input   32 Bit       Adders := 275   
-	   3 Input   32 Bit       Adders := 16    
-	   2 Input    9 Bit       Adders := 32    
-	   2 Input    8 Bit       Adders := 99    
+	   2 Input   32 Bit       Adders := 419   
+	   3 Input   32 Bit       Adders := 32    
+	   2 Input   10 Bit       Adders := 16    
+	   2 Input    9 Bit       Adders := 80    
+	   2 Input    8 Bit       Adders := 131   
 	   2 Input    7 Bit       Adders := 2     
 	   2 Input    5 Bit       Adders := 2     
 	   2 Input    4 Bit       Adders := 1     
-	   2 Input    3 Bit       Adders := 48    
-	   2 Input    2 Bit       Adders := 98    
+	   2 Input    3 Bit       Adders := 32    
+	   2 Input    2 Bit       Adders := 130   
 +---Registers : 
 	               64 Bit    Registers := 32    
-	               32 Bit    Registers := 449   
+	               32 Bit    Registers := 673   
 	               24 Bit    Registers := 82    
-	                8 Bit    Registers := 243   
+	                8 Bit    Registers := 275   
 	                7 Bit    Registers := 2     
 	                5 Bit    Registers := 2     
-	                3 Bit    Registers := 49    
-	                2 Bit    Registers := 163   
-	                1 Bit    Registers := 352   
+	                3 Bit    Registers := 33    
+	                2 Bit    Registers := 179   
+	                1 Bit    Registers := 496   
 +---Multipliers : 
 	              22x64  Multipliers := 16    
 	              23x64  Multipliers := 16    
 +---Muxes : 
-	   2 Input   64 Bit        Muxes := 64    
-	   4 Input   64 Bit        Muxes := 16    
-	   4 Input   32 Bit        Muxes := 64    
-	   2 Input   32 Bit        Muxes := 513   
-	   6 Input   32 Bit        Muxes := 16    
-	   7 Input   32 Bit        Muxes := 80    
-	   2 Input   24 Bit        Muxes := 32    
-	   4 Input   24 Bit        Muxes := 16    
-	   2 Input    8 Bit        Muxes := 406   
-	   4 Input    8 Bit        Muxes := 17    
+	   2 Input   64 Bit        Muxes := 112   
+	   4 Input   32 Bit        Muxes := 160   
+	   8 Input   32 Bit        Muxes := 32    
+	   2 Input   32 Bit        Muxes := 1217  
+	   3 Input   32 Bit        Muxes := 48    
+	   7 Input   32 Bit        Muxes := 192   
+	   3 Input    8 Bit        Muxes := 144   
+	   2 Input    8 Bit        Muxes := 90    
+	   4 Input    8 Bit        Muxes := 113   
 	   6 Input    8 Bit        Muxes := 192   
-	   7 Input    8 Bit        Muxes := 131   
-	   2 Input    7 Bit        Muxes := 14    
+	   7 Input    8 Bit        Muxes := 147   
+	   2 Input    7 Bit        Muxes := 13    
 	   3 Input    7 Bit        Muxes := 2     
 	   7 Input    7 Bit        Muxes := 2     
-	   2 Input    5 Bit        Muxes := 6     
-	   3 Input    5 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 5     
+	   3 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 4     
 	   7 Input    5 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 1     
-	   4 Input    3 Bit        Muxes := 17    
-	   2 Input    3 Bit        Muxes := 227   
-	   7 Input    3 Bit        Muxes := 50    
-	   4 Input    2 Bit        Muxes := 48    
-	   2 Input    2 Bit        Muxes := 117   
-	   7 Input    2 Bit        Muxes := 67    
+	   4 Input    3 Bit        Muxes := 33    
+	   2 Input    3 Bit        Muxes := 147   
+	   7 Input    3 Bit        Muxes := 34    
+	   4 Input    2 Bit        Muxes := 64    
+	   2 Input    2 Bit        Muxes := 245   
+	   7 Input    2 Bit        Muxes := 83    
 	   8 Input    2 Bit        Muxes := 2     
 	   3 Input    2 Bit        Muxes := 1     
-	   4 Input    1 Bit        Muxes := 412   
-	   2 Input    1 Bit        Muxes := 2484  
-	   8 Input    1 Bit        Muxes := 16    
+	   4 Input    1 Bit        Muxes := 524   
+	   2 Input    1 Bit        Muxes := 2116  
+	   8 Input    1 Bit        Muxes := 32    
 	  10 Input    1 Bit        Muxes := 32    
-	   6 Input    1 Bit        Muxes := 64    
-	   3 Input    1 Bit        Muxes := 67    
-	   5 Input    1 Bit        Muxes := 16    
-	   7 Input    1 Bit        Muxes := 918   
+	   3 Input    1 Bit        Muxes := 115   
+	   6 Input    1 Bit        Muxes := 80    
+	   5 Input    1 Bit        Muxes := 32    
+	   7 Input    1 Bit        Muxes := 1206  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -393,104 +390,8 @@ DSP Report: operator out_temp0 is absorbed into DSP out_temp0.
 DSP Report: Generating DSP out_temp0, operation Mode is: (PCIN>>17)+(A:0x447ee7)*B.
 DSP Report: operator out_temp0 is absorbed into DSP out_temp0.
 DSP Report: operator out_temp0 is absorbed into DSP out_temp0.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[23]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[23]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[22]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[22]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[21]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[21]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[20]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[20]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[19]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[19]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[18]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[18]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[17]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[17]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[16]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[16]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[15]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[15]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[14]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[14]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[13]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[13]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[12]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[12]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[11]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[11]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[10]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[10]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[9]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[9]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[8]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[8]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[7]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[7]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[6]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[6]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[5]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[5]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[4]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[4]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[3]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[3]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[2]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[2]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[1]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[1]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[0]_LDC) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[0]_C) is unused and will be removed from module sigmoid_appro.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[23]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[23]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[22]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[22]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[21]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[21]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[20]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[20]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[19]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[19]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[18]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[18]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[17]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[17]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[16]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[16]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[15]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[15]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[14]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[14]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[13]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[13]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[12]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[12]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[11]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[11]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[10]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[10]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[9]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[9]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[8]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[8]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[7]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[7]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[6]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[6]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[5]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[5]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[4]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[4]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[3]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[3]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[2]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[2]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[1]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[1]_C) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[0]_LDC) is unused and will be removed from module sigmoid_appro__1.
-WARNING: [Synth 8-3332] Sequential element (temp_reg[0]_C) is unused and will be removed from module sigmoid_appro__1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:22 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1235 ; free virtual = 7886
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:41 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 863 ; free virtual = 8426
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -518,19 +419,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:25 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1232 ; free virtual = 7884
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:45 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 815 ; free virtual = 8413
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:26 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1231 ; free virtual = 7883
+Finished Timing Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:47 . Memory (MB): peak = 2342.230 ; gain = 697.301 ; free physical = 821 ; free virtual = 8419
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:30 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1269 ; free virtual = 7859
+Finished Technology Mapping : Time (s): cpu = 00:01:01 ; elapsed = 00:00:59 . Memory (MB): peak = 2363.277 ; gain = 718.348 ; free physical = 774 ; free virtual = 8346
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -548,41 +449,176 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:32 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1251 ; free virtual = 7852
+Finished IO Insertion : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 723 ; free virtual = 8272
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:33 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1251 ; free virtual = 7852
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 724 ; free virtual = 8273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:35 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1279 ; free virtual = 7840
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:12 ; elapsed = 00:01:10 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 713 ; free virtual = 8262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:35 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1279 ; free virtual = 7840
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:12 ; elapsed = 00:01:10 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 713 ; free virtual = 8261
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:35 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1257 ; free virtual = 7839
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:14 ; elapsed = 00:01:12 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 713 ; free virtual = 8262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:35 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1257 ; free virtual = 7839
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:14 ; elapsed = 00:01:12 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 713 ; free virtual = 8262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | A*B          | 22     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_lstm | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | A*B          | 23     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|quantization_fc   | PCIN>>17+A*B | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -591,50 +627,49 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |  1823|
-|3     |LUT1   |  1577|
-|4     |LUT2   |  3779|
-|5     |LUT3   |  1663|
-|6     |LUT4   |  3694|
-|7     |LUT5   |  3443|
-|8     |LUT6   | 11931|
-|9     |MUXF7  |   866|
-|10    |MUXF8  |   296|
-|11    |FDCE   |  4705|
-|12    |FDPE   |   146|
-|13    |FDRE   | 12735|
-|14    |LDC    |   128|
-|15    |IBUF   |    36|
-|16    |OBUF   |    35|
-+------+-------+------+
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |  4015|
+|3     |DSP48E1 |   128|
+|4     |LUT1    |  2618|
+|5     |LUT2    |  5695|
+|6     |LUT3    |  5203|
+|7     |LUT4    |  6244|
+|8     |LUT5    | 10332|
+|9     |LUT6    | 19871|
+|10    |MUXF7   |   338|
+|11    |MUXF8   |    40|
+|12    |FDCE    |  6784|
+|13    |FDPE    |    18|
+|14    |FDRE    | 20767|
+|15    |IBUF    |    36|
+|16    |OBUF    |    35|
++------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:36 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1259 ; free virtual = 7840
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:14 ; elapsed = 00:01:12 . Memory (MB): peak = 2423.480 ; gain = 778.551 ; free physical = 713 ; free virtual = 8262
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2332.465 ; gain = 503.551 ; free physical = 1259 ; free virtual = 7840
-Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:36 . Memory (MB): peak = 2332.465 ; gain = 686.301 ; free physical = 1259 ; free virtual = 7840
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 2423.480 ; gain = 589.801 ; free physical = 712 ; free virtual = 8260
+Synthesis Optimization Complete : Time (s): cpu = 00:01:14 ; elapsed = 00:01:12 . Memory (MB): peak = 2423.488 ; gain = 778.551 ; free physical = 712 ; free virtual = 8260
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2332.465 ; gain = 0.000 ; free physical = 1577 ; free virtual = 8124
-INFO: [Netlist 29-17] Analyzing 3113 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2423.488 ; gain = 0.000 ; free physical = 997 ; free virtual = 8553
+INFO: [Netlist 29-17] Analyzing 4521 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2340.465 ; gain = 0.000 ; free physical = 1607 ; free virtual = 8122
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2462.434 ; gain = 0.000 ; free physical = 894 ; free virtual = 8539
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 128 instances were transformed.
-  LDC => LDCE: 128 instances
+No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 8ad2b61b
+Synth Design complete | Checksum: 8510865d
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 206 Warnings, 0 Critical Warnings and 0 Errors encountered.
+53 Infos, 119 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:41 . Memory (MB): peak = 2340.465 ; gain = 998.863 ; free physical = 1609 ; free virtual = 8123
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1912.097; main = 1598.136; forked = 374.919
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3294.992; main = 2340.469; forked = 986.539
+synth_design: Time (s): cpu = 00:01:27 ; elapsed = 00:01:22 . Memory (MB): peak = 2462.434 ; gain = 1166.004 ; free physical = 923 ; free virtual = 8541
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2065.169; main = 1742.528; forked = 375.879
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3410.125; main = 2462.438; forked = 986.641
 INFO: [Common 17-1381] The checkpoint '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/controller.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file controller_utilization_synth.rpt -pb controller_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May  5 21:24:17 2024...
+INFO: [Common 17-206] Exiting Vivado at Fri May 10 19:11:49 2024...
