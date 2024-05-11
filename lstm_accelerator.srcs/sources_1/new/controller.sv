@@ -150,7 +150,7 @@ module controller(
     
     logic [4:0]                             current_timestep;
     logic [4:0]                             current_feature;
-    logic [4:0]                             current_sample;
+    logic [9:0]                             current_sample;
     
     logic [2:0]                             r_state;
     logic                                   w_state;

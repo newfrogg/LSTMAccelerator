@@ -12,12 +12,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="20,420.834 ns"></ZoomStartTime>
-      <ZoomEndTime time="31,215.835 ns"></ZoomEndTime>
-      <Cursor1Time time="25,405.834 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="41.300000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.025405834 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="526"></NameColumnWidth>
+      <NameColumnWidth column_width="516"></NameColumnWidth>
       <ValueColumnWidth column_width="160"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="97" />
@@ -435,64 +435,64 @@
       <obj_property name="ObjectShortName">o_lstm_do_current_unit_sigmoid_bf[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/input_matrix">
-      <obj_property name="ElementShortName">input_matrix[0:0][0:1][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">input_matrix[0:0][0:1][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">input_matrix[0:0][0:27][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_matrix[0:0][0:27][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/in_weight_matrix">
-      <obj_property name="ElementShortName">in_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">in_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">in_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/for_weight_matrix">
-      <obj_property name="ElementShortName">for_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">for_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">for_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">for_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/cell_weight_matrix">
-      <obj_property name="ElementShortName">cell_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">cell_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">cell_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">cell_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/out_weight_matrix">
-      <obj_property name="ElementShortName">out_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">out_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_in_weight_matrix">
-      <obj_property name="ElementShortName">r_in_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_in_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_in_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_in_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_for_weight_matrix">
-      <obj_property name="ElementShortName">r_for_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_for_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_for_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_for_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_cell_weight_matrix">
-      <obj_property name="ElementShortName">r_cell_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_cell_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_cell_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_cell_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_out_weight_matrix">
-      <obj_property name="ElementShortName">r_out_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_out_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_out_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_out_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/bias_matrix">
-      <obj_property name="ElementShortName">bias_matrix[0:3][0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">bias_matrix[0:3][0:3][31:0]</obj_property>
+      <obj_property name="ElementShortName">bias_matrix[0:31][0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">bias_matrix[0:31][0:3][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/ht_matrix">
-      <obj_property name="ElementShortName">ht_matrix[0:0][0:1][0:3][7:0]</obj_property>
-      <obj_property name="ObjectShortName">ht_matrix[0:0][0:1][0:3][7:0]</obj_property>
+      <obj_property name="ElementShortName">ht_matrix[0:0][0:27][0:31][7:0]</obj_property>
+      <obj_property name="ObjectShortName">ht_matrix[0:0][0:27][0:31][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/ht_flatten">
-      <obj_property name="ElementShortName">ht_flatten[0:0][0:7][7:0]</obj_property>
-      <obj_property name="ObjectShortName">ht_flatten[0:0][0:7][7:0]</obj_property>
+      <obj_property name="ElementShortName">ht_flatten[0:0][0:895][7:0]</obj_property>
+      <obj_property name="ObjectShortName">ht_flatten[0:0][0:895][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_weight">
-      <obj_property name="ElementShortName">fc_weight[0:1][0:2][31:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_weight[0:1][0:2][31:0]</obj_property>
+      <obj_property name="ElementShortName">fc_weight[0:9][0:298][31:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_weight[0:9][0:298][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_bias">
-      <obj_property name="ElementShortName">fc_bias[0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_bias[0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">fc_bias[0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_bias[0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_result">
-      <obj_property name="ElementShortName">fc_result[0:0][0:1][7:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_result[0:0][0:1][7:0]</obj_property>
+      <obj_property name="ElementShortName">fc_result[0:0][0:9][7:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_result[0:0][0:9][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/cell_state">
       <obj_property name="ElementShortName">cell_state[31:0]</obj_property>

@@ -67,7 +67,7 @@ module tb_accelerator_real_data();
     logic [6:0]         o_current_no_units;
     logic [6:0]         o_remaining_no_units;
     logic [6:0]         remaining_no_units;
-    logic [4:0]         o_current_sample;
+    logic [9:0]         o_current_sample;
     logic [2:0]         o_state;
     logic [2:0]         o_lstm_state;
     logic [1:0]         o_mac_state;
@@ -172,7 +172,9 @@ module tb_accelerator_real_data();
     integer         current_timestep;
     integer         current_sample;
     integer         current_feature;
-    integer         f_x, f_wxi, f_wxf, f_wxc, f_wxo, f_whi, f_whf, f_whc, f_who, f_bi, f_bf, f_bc, f_bo, f_wfc, f_bfc;
+    integer         label;
+    integer         value_label;
+    integer         f_result, f_x, f_wxi, f_wxf, f_wxc, f_wxo, f_whi, f_whf, f_whc, f_who, f_bi, f_bf, f_bc, f_bo, f_wfc, f_bfc;
     logic [7:0]     current_ht;
     logic [7:0]     last_ht_unit;
     logic [7:0]     last_fc_unit;
@@ -290,7 +292,8 @@ module tb_accelerator_real_data();
         bias_pkt        = new ();
         cell_pkt        = new ();
         
-        f_x = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_input_cp/x_test.txt", "r");
+        f_result = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_result/test_result.txt", "a");
+        f_x = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_input_cp/x_test0.txt", "r");
         
         f_wxi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxi.txt", "r");
         f_wxf = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxf.txt", "r");
@@ -307,7 +310,7 @@ module tb_accelerator_real_data();
         f_wfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense_cp/weights.txt", "r");
         f_bfc = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_dense_cp/bias.txt", "r");
         
-        if (f_x & f_wxi & f_whi & f_bi & f_wfc) $display("File was opened successfully");
+        if (f_x & f_wxi & f_whi & f_bi & f_wfc & f_result) $display("File was opened successfully");
         else $display("-------------FILE OPENED FAIL----------------");  
         // generate input matrix [timesteps, features]
         current_timestep = 0;
@@ -840,6 +843,21 @@ module tb_accelerator_real_data();
             
             $display("\n---------------------- END ------------------------");
             
-        $display("shift value = %b, %d, %h", (-4<<<6), (-4<<<6), (-4<<<6));
+        current_sample = 0;
+        for (current_sample = 0; current_sample < NO_SAMPLES; current_sample = current_sample + 1) begin
+            label = 0;
+            value_label = 0;
+            for (index = 0; index < NO_UNITS_FC; index = index + 1) begin
+                if (!fc_result[current_sample][index][7]) begin
+                    if (fc_result[current_sample][index] - 4 > value_label) begin
+                        value_label = fc_result[current_sample][index] - 4;
+                        label = index;
+                    end
+                end
+                else ;
+            end  
+            $fwrite(f_result, "%0d\n", label);          
+        end
+        $fclose(f_result);
     end 
 endmodule
