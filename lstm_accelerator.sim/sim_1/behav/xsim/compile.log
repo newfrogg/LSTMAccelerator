@@ -4,8 +4,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_st
 INFO: [VRFC 10-311] analyzing module controller
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module lstm_unit
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_fc.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module quantization_fc
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module quantization_lstm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv" into library xil_defaultlib

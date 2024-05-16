@@ -47,8 +47,7 @@ module controller(
 //    output logic [31:0] o_mac_result,
 //    output logic [1:0]  o_type_gate,
 //    output logic [1:0]  o_gate,
-//    output logic [31:0] o_value_gate [0:3][0:1],
-//    output logic        o_is_load_cell,
+//    output logic [15:0] o_value_gate [0:3][0:1],
 //    output logic [2:0]  o_r_state,
 //    output logic [4:0]  o_current_timestep,
 //    output logic [7:0]  o_lstm_unit_result [0:1][0:1],
@@ -69,17 +68,17 @@ module controller(
 //    output logic [31:0] o_mac_prev_sum_bf,
 //    output logic [31:0] o_lstm_cell_state_bf ,
 //    output logic [31:0] o_lstm_hidden_state_bf,
-//    output logic [7:0]  o_lstm_cell_state [0:1],
+//    output logic [15:0] o_lstm_cell_state [0:1],
 //    output logic [7:0]  o_lstm_hidden_state [0:1],
 //    output logic [31:0] o_lstm_q_di_lstm_state,
-//    output logic [7:0]  o_lstm_q_do_lstm_state,
+//    output logic [15:0] o_lstm_q_do_lstm_state,
 //    output logic        o_lstm_type_state,
-//    output logic [31:0] o_lstm_q_di_fc,
-//    output logic [7:0]  o_lstm_q_do_fc,
-//    output logic [31:0] o_lstm_di_current_unit_tanh_bf,
-//    output logic [31:0] o_lstm_do_current_unit_tanh_bf,
-//    output logic [31:0] o_lstm_di_current_unit_sigmoid_bf,
-//    output logic [31:0] o_lstm_do_current_unit_sigmoid_bf,
+////    output logic [31:0] o_lstm_q_di_fc,
+////    output logic [7:0]  o_lstm_q_do_fc,
+//    output logic [15:0] o_lstm_di_current_unit_tanh_bf,
+//    output logic [15:0] o_lstm_do_current_unit_tanh_bf,
+//    output logic [15:0] o_lstm_di_current_unit_sigmoid_bf,
+//    output logic [15:0] o_lstm_do_current_unit_sigmoid_bf,
 //    output logic [1:0]  o_sigmoid_count,
 //    output logic [1:0]  o_lstm_remain_waiting_time,
 //    output logic        o_lstm_ht_flag,
@@ -92,35 +91,36 @@ module controller(
 //    output logic o_lstm_inv_output_gate,
 //    output logic o_lstm_inv_cell_state,
 //    output logic o_lstm_inv_tanh_cell_bf,
-//    output logic [31:0] o_lstm_inv_input_gate_bf,
-//    output logic [31:0] o_lstm_inv_forget_gate_bf,
+////    output logic [31:0] o_lstm_inv_input_gate_bf,
+////    output logic [31:0] o_lstm_inv_forget_gate_bf,
 //    output logic [31:0] o_lstm_inv_cell_update_bf,
-//    output logic [31:0] o_lstm_inv_output_gate_bf,
-//    output logic [7:0]  o_lstm_inv_cell_state_bf,
+////    output logic [31:0] o_lstm_inv_output_gate_bf,
+//    output logic [15:0]  o_lstm_inv_cell_state_bf,
 //    output logic [31:0] o_lstm_f_prev_cell_bf,
 //    output logic [31:0] o_lstm_i_cell_update_bf,
-//    output logic [31:0] o_lstm_tanh_cell_bf
+//    output logic [31:0] o_lstm_tanh_cell_bf,
+//    output logic o_lstm_q_en,
+//    output logic o_lstm_q_done,
+//    output logic [2:0] o_q_count,
+//    output logic o_tanh_en,
+//    output logic o_tanh_done,
+//    output logic [1:0] o_tanh_count
 );
 
     localparam
-        MAX_NO_UNITS            = 16,
-        NO_UNITS_LSTM           = 32,
-        NO_UNITS_FC             = 10,
-        NO_FEATURES             = 10,
-        NO_TIMESTEPS            = 28,
-        NO_SAMPLES              = 1,
+        MAX_NO_UNITS            = 5'd16,
+        NO_UNITS_LSTM           = 6'd32,
+        NO_UNITS_FC             = 4'd10,
+//        NO_FEATURES             = 10,
+        NO_TIMESTEPS            = 5'd28,
+        NO_SAMPLES              = 1'd1,
         
-        INIT                    = 0,
-        LSTM                    = 1,
-        FC                      = 2,
+        INIT                    = 2'b00,
+        LSTM                    = 2'b01,
+        FC                      = 2'b10,
         
         W_BITWIDTH              = 8,
-        IN_BITWIDTH             = 8,
         OUT_BITWIDTH            = 32,
-        B_BITWIDTH              = 32,
-        SIZE_BUFFER             = 10,
-        N_WEIGHTS               = 4,
-        N_BIASES                = 4,
         N_INPUTS                = 1,
         N_GATES                 = 4,
         
@@ -133,31 +133,23 @@ module controller(
         STATE_WAIT              = 3'd6,
         
         
-        WREAD                   = 3'd0,
-        IREAD                   = 3'd1,
-        BREAD                   = 3'd2,
-        CREAD                   = 3'd3,
-        LOAD                    = 3'd4,
+        WREAD                   = 2'd0,
+        IREAD                   = 2'd1,
+        BREAD                   = 2'd2,
+        LOAD                    = 2'd3,
         
-        IGATE                   = 2'd0,
-        FGATE                   = 2'd1,
-        CGATE                   = 2'd2,
-        OGATE                   = 2'd3,
-        
-        LDATA                   = 1'd0,
-        WDATA                   = 1'd1;
+        IGATE                   = 2'd0;
     
     
     logic [4:0]                             current_timestep;
-    logic [4:0]                             current_feature;
-    logic [9:0]                             current_sample;
+//    logic [3:0]                             current_feature;
+    logic [7:0]                             current_sample;
     
     logic [2:0]                             r_state;
-    logic                                   w_state;
     logic [2:0]                             state;
     logic [1:0]                             type_gate;
     
-    logic [1:0]                             current_unit;
+    logic                                   current_unit;
     
     logic                                   data_receive_done;
     logic                                   data_load_done;
@@ -171,28 +163,27 @@ module controller(
     logic                                   is_last_timestep;
     logic                                   is_last_sample;
     logic                                   is_load_bias;
-//    logic                                   is_load_cell;
+
     logic                                   lstm_is_waiting [0:MAX_NO_UNITS-1];
     logic                                   read_bias;
     // Signals for lstm unit
     
     logic   [W_BITWIDTH*3-1:0]              weight_bf   [0:N_GATES*MAX_NO_UNITS-1];
-    logic   [IN_BITWIDTH*3-1:0]             input_bf    ;
-    logic   [B_BITWIDTH-1:0]                bias_bf     [0:N_GATES*MAX_NO_UNITS-1];
+    logic   [W_BITWIDTH*3-1:0]              input_bf    ;
+    logic   [OUT_BITWIDTH-1:0]              bias_bf     [0:N_GATES*MAX_NO_UNITS-1];
 
     
-    logic   [7:0]                           current_buffer_index;
-    logic   [7:0]                           current_weight_index;
-    logic   [7:0]                           current_input_index;
-    logic   [7:0]                           current_bias_index;  
+    logic   [5:0]                           current_buffer_index;
+    logic   [5:0]                           current_weight_index;
+    logic   [5:0]                           current_bias_index;  
     
-    logic   [6:0]                           current_no_units;
-    logic   [6:0]                           remaining_no_units;
+    logic   [5:0]                           current_no_units;
+    logic   [5:0]                           remaining_no_units;
     logic   [1:0]                           current_layer;
     
     logic                                   lstm_unit_en;
     logic  [W_BITWIDTH*3-1:0]               weight      [0:MAX_NO_UNITS-1]; 
-    logic  [IN_BITWIDTH*3-1:0]              data_input;
+    logic  [W_BITWIDTH*3-1:0]               data_input;
     logic  [OUT_BITWIDTH-1:0]               pre_sum     [0:MAX_NO_UNITS-1];
     logic                                   lstm_finish_step [0:MAX_NO_UNITS-1];
     logic                                   lstm_unit_done  [0:MAX_NO_UNITS-1];
@@ -220,7 +211,6 @@ module controller(
 //    assign o_value_gate[1] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.forget_gate;
 //    assign o_value_gate[2] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_update;
 //    assign o_value_gate[3] = genblk1[MAX_NO_UNITS-1].u_lstm_unit.output_gate;
-//    assign o_is_load_cell = is_load_cell;
 //    assign o_r_state = r_state;
 //    assign o_lstm_is_continued = is_continued;
 //    assign o_lstm_is_waiting = lstm_is_waiting[MAX_NO_UNITS-1];
@@ -251,12 +241,11 @@ module controller(
 //    assign o_lstm_cell_state_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_state_bf;
 //    assign o_lstm_hidden_state_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state_bf;
 //    assign o_lstm_cell_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.cell_state;
-//    assign o_lstm_hidden_state = genblk1[MAX_NO_UNITS-1].u_lstm_unit.hidden_state;
 //    assign o_lstm_q_di_lstm_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_di_lstm_state;
 //    assign o_lstm_q_do_lstm_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_do_lstm_state;
 //    assign o_lstm_type_state   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.type_state;
-//    assign o_lstm_q_di_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_di_fc;
-//    assign o_lstm_q_do_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_do_fc;
+////    assign o_lstm_q_di_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_di_fc;
+////    assign o_lstm_q_do_fc   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_do_fc;
 //    assign o_lstm_di_current_unit_tanh_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.di_current_unit_tanh_bf;
 //    assign o_lstm_do_current_unit_tanh_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.do_current_unit_tanh_bf;
 //    assign o_lstm_di_current_unit_sigmoid_bf = genblk1[MAX_NO_UNITS-1].u_lstm_unit.di_current_unit_sigmoid_bf;
@@ -267,6 +256,14 @@ module controller(
 //    assign o_lstm_remain_waiting_time = genblk1[MAX_NO_UNITS-1].u_lstm_unit.remain_waiting_time;
 //    assign o_lstm_ht_flag = genblk1[MAX_NO_UNITS-1].u_lstm_unit.ht_flag;
 //    assign o_lstm_fc_flag = genblk1[MAX_NO_UNITS-1].u_lstm_unit.fc_flag;
+//    assign o_lstm_q_en = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_lstm_en;
+//    assign o_lstm_q_done = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q_lstm_done;
+//    assign o_q_count = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q1.count;
+//    assign o_tanh_en = genblk1[MAX_NO_UNITS-1].u_lstm_unit.tanh_en;
+//    assign o_tanh_done = genblk1[MAX_NO_UNITS-1].u_lstm_unit.tanh_done;
+//    assign o_tanh_count = genblk1[MAX_NO_UNITS-1].u_lstm_unit.u_tanh.count;
+    
+    
 //    assign o_lstm_inv_input_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_input_gate;
 //    assign o_lstm_inv_forget_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_forget_gate;
 //    assign o_lstm_inv_cell_update = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_update;
@@ -323,13 +320,39 @@ module controller(
             config_done         <= 1'b0;
             wb_done             <= 1'b0;
             finish_done         <= 1'b0;
-            current_unit        <= 2'b0;
+            current_unit        <= 1'b0;
             current_timestep    <= 0;
             current_layer       <= INIT;
             current_no_units    <= 0;
             remaining_no_units  <= NO_UNITS_LSTM;
             current_sample      <= 0;
             is_last_sample      <= 1'b0;
+            
+            r_data              <= 1'b0;
+            read_bias           <= 1'b0;
+            is_last_timestep    <= 1'b0;
+            data_load_done      <= 1'b0;
+            t_valid             <= 1'b0;
+            is_load_bias        <= 1'b0;
+            is_last_input       <= 1'b0;
+            type_gate           <= 2'b00;
+            r_state             <= WREAD;
+//            weight_bf           <= '{default: {24{1'b0}}};
+//            input_bf            <= '{default: {24{1'b0}}};
+//            bias_bf             <= '{default: {32{1'b0}}};
+//            weight              <= '{default: {24{1'b0}}};
+//            data_input          <= {24{1'b0}};
+//            pre_sum             <= '{default: {32{1'b0}}};
+//            is_continued        <= 1'b0;
+//            lstm_unit_en        <= 1'b0;
+//            w_valid             <= 1'b0;
+//            out_data            <= {32{1'b0}};
+//            current_feature     <= {4{1'b0}};
+            
+//            current_buffer_index    <= {6{1'b0}};
+//            current_weight_index    <= {6{1'b0}};
+//            current_bias_index      <= {6{1'b0}};
+            
         end
         else begin
             case(state)
@@ -344,13 +367,13 @@ module controller(
                         config_done <= 1'b0;
                     end
                     else begin
-                        if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
-                        else is_last_sample = 1'b0;
+                        if (current_sample == NO_SAMPLES - 1) is_last_sample <= 1'b1;
+                        else is_last_sample <= 1'b0;
                         case(current_layer)
                             INIT: begin
                                 current_layer           <= LSTM;
                                 current_timestep        <= 0;
-                                current_feature         <= 0;
+//                                current_feature         <= 0;
                                 if (NO_UNITS_LSTM > MAX_NO_UNITS) begin
                                     current_no_units    <= MAX_NO_UNITS;
                                     remaining_no_units  <= NO_UNITS_LSTM - MAX_NO_UNITS;
@@ -392,10 +415,9 @@ module controller(
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     
-                    current_weight_index    <= 8'b0;
-                    current_input_index     <= 8'b0;
-                    current_buffer_index    <= 8'b0;
-                    current_bias_index      <= 8'b0;
+                    current_weight_index    <= 6'b0;
+                    current_buffer_index    <= 6'b0;
+                    current_bias_index      <= 6'b0;
 //                      current_sample          <= 0;
 //                    if (current_layer == LSTM) current_timestep        <= 0;
 //                    else ;
@@ -404,7 +426,7 @@ module controller(
                         type_gate   <= IGATE;
                         state       <= STATE_RDATA;
                         r_state     <= WREAD;
-                        w_state     <= LDATA;
+//                        w_state     <= LDATA;
                     end
                 end
              
@@ -435,7 +457,7 @@ module controller(
                                 end
                             end
                             IREAD: begin
-                                input_bf                    <= data_in[IN_BITWIDTH*3-1:0];
+                                input_bf                    <= data_in[W_BITWIDTH*3-1:0];
                                 if (current_buffer_index == N_INPUTS-1) begin
                                     current_buffer_index    <= 0;
                                     if (read_bias) begin
@@ -457,7 +479,7 @@ module controller(
                                         data_receive_done       <= 1'b1;
                                         r_data                  <= 1'b0;
                                         if (remaining_no_units == 0) read_bias <= 1'b1;
-                                        else read_bias = 1'b0;
+                                        else read_bias <= 1'b0;
                                     end 
                                     else current_buffer_index   <= current_buffer_index + 1; 
                                 end
@@ -481,9 +503,9 @@ module controller(
                         current_bias_index      <= current_bias_index + 1;
                         current_buffer_index    <= current_buffer_index + 1;
                         
-                        weight[current_buffer_index]    <= weight_bf[current_weight_index][W_BITWIDTH*3-1:0];
-                        data_input                      <= input_bf[IN_BITWIDTH*3-1:0];
-                        pre_sum[current_buffer_index]   <= bias_bf[current_bias_index];
+                        weight[current_buffer_index[3:0]]   <= weight_bf[current_weight_index][W_BITWIDTH*3-1:0];
+                        data_input                          <= input_bf[W_BITWIDTH*3-1:0];
+                        pre_sum[current_buffer_index[3:0]]  <= bias_bf[current_bias_index];
                         
                         if (current_buffer_index == current_no_units-1) begin
                             current_buffer_index    <= 0;                            
@@ -554,29 +576,28 @@ module controller(
                     is_last_input       <= 1'b0;
 //                    read_bias           <= 1'b0;
                     
-                    current_weight_index    <= 8'b0;
-                    current_input_index     <= 8'b0;
-                    current_buffer_index    <= 8'b0;
-                    current_bias_index      <= 8'b0;
+                    current_weight_index    <= 6'b0;
+                    current_buffer_index    <= 6'b0;
+                    current_bias_index      <= 6'b0;
                       
                     if (r_valid) begin
                         type_gate   <= IGATE;
                         state       <= STATE_RDATA;
                         r_state     <= WREAD;
-                        w_state     <= LDATA;
+//                        w_state     <= LDATA;
                         
                         case(current_layer)
                             LSTM: begin
                                 if (remaining_no_units == 0) begin
-                                    if (current_feature == NO_FEATURES - 1) begin
-                                        current_feature     <= 0;
-                                        current_unit        <= 0;
-                                    end
-                                    else begin
-                                        current_feature <= current_feature + 1;
-                                        current_unit    <= 0;
-                                    end
-                                    
+//                                    if (current_feature == NO_FEATURES - 1) begin
+//                                        current_feature     <= 0;
+//                                        current_unit        <= 0;
+//                                    end
+//                                    else begin
+//                                        current_feature <= current_feature + 1;
+//                                        current_unit    <= 0;
+//                                    end
+                           
                                     if (NO_UNITS_LSTM > MAX_NO_UNITS) begin
                                         current_no_units    <= MAX_NO_UNITS;
                                         remaining_no_units  <= NO_UNITS_LSTM - MAX_NO_UNITS;
@@ -585,6 +606,7 @@ module controller(
                                         current_no_units    <= NO_UNITS_LSTM;
                                         remaining_no_units  <= 0;
                                     end
+                                    
                                     current_unit            <= 0;
                                 end
                                 else if (remaining_no_units > MAX_NO_UNITS) begin
@@ -598,11 +620,11 @@ module controller(
                                     current_unit        <= current_unit + 1;
                                 end
                                 
-                                if (current_timestep == NO_TIMESTEPS - 1) is_last_timestep = 1'b1;
-                                else is_last_timestep = 1'b0;
+                                if (current_timestep == NO_TIMESTEPS - 1) is_last_timestep <= 1'b1;
+                                else is_last_timestep <= 1'b0;
                                 
-//                                if (current_sample == NO_SAMPLES - 1) is_last_sample = 1'b1;
-//                                else is_last_sample = 1'b0;
+//                                if (current_sample == NO_SAMPLES - 1) is_last_sample <= 1'b1;
+//                                else is_last_sample <= 1'b0;
                             end
                             FC: begin
                                 if (remaining_no_units == 0) begin
@@ -646,7 +668,7 @@ module controller(
                             end
                             else begin
                                 current_timestep        <= current_timestep + 1;
-                                current_feature         <= 0;
+//                                current_feature         <= 0;
                                 state                   <= STATE_WAIT;
                                 remaining_no_units      <= NO_UNITS_LSTM;
                             end
@@ -675,7 +697,7 @@ module controller(
                             else current_buffer_index <= current_buffer_index + 4;
                             
                             if (remaining_no_units >= 4) remaining_no_units      <= remaining_no_units - 4;
-                            else remaining_no_units = 0;
+                            else remaining_no_units <= 0;
                             
                             if (current_buffer_index == current_no_units - 1) begin
                                 out_data    <= {{24{1'b0}}, lstm_unit_result[current_buffer_index][current_unit]};

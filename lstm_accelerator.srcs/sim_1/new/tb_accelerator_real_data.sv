@@ -80,7 +80,7 @@ module tb_accelerator_real_data();
     logic [1:0]         o_type_gate;
     logic [1:0]         o_gate;
     logic [1:0]         o_count_gate;
-    logic [31:0]        o_value_gate [0:3][0:1];
+    logic [15:0]        o_value_gate [0:3][0:1];
     logic [1:0]         o_sigmoid_count;
     logic               o_sigmoid_en;
     logic               o_sigmoid_done;
@@ -103,36 +103,42 @@ module tb_accelerator_real_data();
     
     logic [31:0]        o_lstm_cell_state_bf;
     logic [31:0]        o_lstm_hidden_state_bf;
-    logic [7:0]         o_lstm_cell_state [0:1];
+    logic [15:0]        o_lstm_cell_state [0:1];
     logic [7:0]         o_lstm_hidden_state [0:1];
     logic [1:0]         o_waiting_time_before_to_idle;
     logic [31:0]        o_lstm_q_di_lstm_state;
-    logic [7:0]         o_lstm_q_do_lstm_state;
+    logic [15:0]         o_lstm_q_do_lstm_state;
     logic               o_lstm_type_state;
-    logic [31:0]        o_lstm_q_di_fc;
-    logic [7:0]         o_lstm_q_do_fc;
-    logic [31:0]        o_lstm_di_current_unit_tanh_bf;
-    logic [31:0]        o_lstm_do_current_unit_tanh_bf;
-    logic [31:0]        o_lstm_di_current_unit_sigmoid_bf;
-    logic [31:0]        o_lstm_do_current_unit_sigmoid_bf;
+//    logic [31:0]        o_lstm_q_di_fc;
+//    logic [7:0]         o_lstm_q_do_fc;
+    logic [15:0]        o_lstm_di_current_unit_tanh_bf;
+    logic [15:0]        o_lstm_do_current_unit_tanh_bf;
+    logic [15:0]        o_lstm_di_current_unit_sigmoid_bf;
+    logic [15:0]        o_lstm_do_current_unit_sigmoid_bf;
     logic [1:0]         o_lstm_remain_waiting_time;
     logic               o_lstm_fc_flag;
     
-     logic o_lstm_inv_input_gate;
-     logic o_lstm_inv_forget_gate;
+//     logic o_lstm_inv_input_gate;
+//     logic o_lstm_inv_forget_gate;
      logic o_lstm_inv_cell_update;
-     logic o_lstm_inv_output_gate;
+//     logic o_lstm_inv_output_gate;
      logic o_lstm_inv_cell_state;
      logic o_lstm_inv_tanh_cell_bf;
-     logic [31:0] o_lstm_inv_input_gate_bf;
-     logic [31:0] o_lstm_inv_forget_gate_bf;
-     logic [31:0] o_lstm_inv_cell_update_bf;
-     logic [31:0] o_lstm_inv_output_gate_bf;
-     logic [7:0] o_lstm_inv_cell_state_bf;
+//     logic [31:0] o_lstm_inv_input_gate_bf;
+//     logic [31:0] o_lstm_inv_forget_gate_bf;
+     logic [15:0] o_lstm_inv_cell_update_bf;
+//     logic [31:0] o_lstm_inv_output_gate_bf;
+     logic [15:0] o_lstm_inv_cell_state_bf;
      logic [31:0] o_lstm_f_prev_cell_bf;
      logic [31:0] o_lstm_i_cell_update_bf;
-     logic [31:0] o_lstm_tanh_cell_bf;
+     logic [15:0] o_lstm_tanh_cell_bf;
      
+     logic o_lstm_q_en;
+     logic o_lstm_q_done;
+     logic [2:0] o_q_count;
+     logic o_tanh_en;
+     logic o_tanh_done;
+     logic [1:0] o_tanh_count;
 //     logic [31:0] o_tanh_appr_temp;
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
 //    logic [31:0]        expected_forget_gate [0:NO_UNITS-1];
@@ -208,7 +214,6 @@ module tb_accelerator_real_data();
 //        .o_type_gate(o_type_gate),
 //        .o_gate(o_gate),
 //        .o_value_gate(o_value_gate),
-//        .o_is_load_cell(o_is_load_cell),
 //        .o_r_state(o_r_state),
 //        .o_current_timestep(o_current_timestep),
 //        .o_lstm_unit_result(o_lstm_unit_result),
@@ -234,8 +239,8 @@ module tb_accelerator_real_data();
 //        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
 //        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
 //        .o_lstm_type_state(o_lstm_type_state),
-//        .o_lstm_q_di_fc(o_lstm_q_di_fc),
-//        .o_lstm_q_do_fc(o_lstm_q_do_fc),
+////        .o_lstm_q_di_fc(o_lstm_q_di_fc),
+////        .o_lstm_q_do_fc(o_lstm_q_do_fc),
 //        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
 //        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
 //        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
@@ -252,14 +257,20 @@ module tb_accelerator_real_data();
 //        .o_lstm_inv_output_gate(o_lstm_inv_output_gate),
 //        .o_lstm_inv_cell_state(o_lstm_inv_cell_state),
 //        .o_lstm_inv_tanh_cell_bf(o_lstm_inv_tanh_cell_bf),
-//        .o_lstm_inv_input_gate_bf(o_lstm_inv_input_gate_bf),
-//        .o_lstm_inv_forget_gate_bf(o_lstm_inv_forget_gate_bf),
+////        .o_lstm_inv_input_gate_bf(o_lstm_inv_input_gate_bf),
+////        .o_lstm_inv_forget_gate_bf(o_lstm_inv_forget_gate_bf),
 //        .o_lstm_inv_cell_update_bf(o_lstm_inv_cell_update_bf),
-//        .o_lstm_inv_output_gate_bf(o_lstm_inv_output_gate_bf),
+////        .o_lstm_inv_output_gate_bf(o_lstm_inv_output_gate_bf),
 //        .o_lstm_inv_cell_state_bf(o_lstm_inv_cell_state_bf),
 //        .o_lstm_f_prev_cell_bf(o_lstm_f_prev_cell_bf),
 //        .o_lstm_i_cell_update_bf(o_lstm_i_cell_update_bf),
-//        .o_lstm_tanh_cell_bf(o_lstm_tanh_cell_bf)
+//        .o_lstm_tanh_cell_bf(o_lstm_tanh_cell_bf),
+//        .o_lstm_q_en(o_lstm_q_en),
+//        .o_lstm_q_done(o_lstm_q_done),
+//        .o_q_count(o_q_count),
+//        .o_tanh_en(o_tanh_en),
+//        .o_tanh_done(o_tanh_done),
+//        .o_tanh_count(o_tanh_count)
     );
     
     always #20 begin 
@@ -292,7 +303,7 @@ module tb_accelerator_real_data();
         bias_pkt        = new ();
         cell_pkt        = new ();
         
-        f_result = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_result/test_result.txt", "a");
+        f_result = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_result/test_result_new.txt", "a");
         f_x = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_input_cp/x_test0.txt", "r");
         
         f_wxi = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_layer1_cp/wxi.txt", "r");

@@ -19,11 +19,14 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+// down scale the accum from 32 bit to 16 bit (3 integer bits) 
+// fromraw gate input before apply activation
+// activation (SaturationAdd for cell and rescale)
+// down-scale output to 8 bit saturating, and store back to memory.
+// RoundingDivideByPOT output 
 
 module lstm_unit #( parameter W_BITWIDTH = 8,
-                    parameter IN_BITWIDTH = W_BITWIDTH,
-                    parameter OUT_BITWIDTH = 32,
-                    parameter PREV_SUM_BITWIDTH = OUT_BITWIDTH)(
+                    parameter OUT_BITWIDTH = 32)(
                     input                                   clk,
                     input                                   rstn,
                     input                                   en,
@@ -34,11 +37,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     input                                   is_continued,
                     input                                   is_load_bias,
                     input  [1:0]                            type_gate,
-                    input  [1:0]                            current_unit,
+                    input                                   current_unit,
                     input  [1:0]                            current_layer,
                     input  [W_BITWIDTH*3-1:0]               weight,
-                    input  [IN_BITWIDTH*3-1:0]              data_in,
-                    input  [PREV_SUM_BITWIDTH-1:0]          pre_sum,
+                    input  [W_BITWIDTH*3-1:0]               data_in,
+                    input  [OUT_BITWIDTH-1:0]               pre_sum,
                     output logic                            is_waiting,
                     output logic                            finish_step,
                     output logic                            done,
@@ -46,23 +49,20 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     );
     
     localparam
-        MAX_NO_UNITS        = 16,
-        NO_UNITS_LSTM       = 32,
-        NO_UNITS_FC         = 10,
-        QUANTIZE_SIZE       = 8,
+        QUANTIZE_SIZE       = 16,
         BUFFER_SIZE         = 32,
         
-        NO_UNITS            = NO_UNITS_LSTM/MAX_NO_UNITS,
-        OUT_SIZE            = NO_UNITS*8,
+        NO_UNITS            = 2,
+        OUT_SIZE            = 16,
         LSTM                = 1,
         FC                  = 2,
         
         STATE_IDLE          = 3'b000,
         STATE_IRB           = 3'b001,
-        STATE_GATE          = 3'b010,
-        STATE_CELL          = 3'b011,
-        STATE_HIDDEN        = 3'b100,
-        STATE_QUANTIZATION  = 3'b101,
+        STATE_Q             = 3'b010,
+        STATE_GATE          = 3'b011,
+        STATE_CELL          = 3'b100,
+        STATE_HIDDEN        = 3'b101,
         STATE_WAIT          = 3'b110,
         STATE_FINISH        = 3'b111,
         
@@ -87,15 +87,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic           gate_done;
     logic           cell_done;
     logic           hidden_done;
-    logic           wait_done;
     logic           finish_done;
-    logic           is_quantized_ct;
-    logic           quantized_ht;
-    logic   [1:0]   remain_waiting_time;
-//    logic   [1:0]   waiting_time_before_to_idle;
-    logic   [1:0]   internal_current_unit;
+    logic   [2:0]   remain_waiting_time;
+    logic           internal_current_unit;
     logic           update_cell_state_bf;
-    logic           update_hidden_state_bf;
     logic   [2:0]   current_mult_shift;
     
     // add signal for quantization -----------------------------------------
@@ -104,24 +99,16 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [BUFFER_SIZE-1:0]       accu_cell_bf    [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_output_bf  [0:OUT_SIZE/8 - 1];
     logic   [BUFFER_SIZE-1:0]       accu_bf         [0:OUT_SIZE/8 - 1];
-    logic   [BUFFER_SIZE-1:0]       accu_fc_bf;
+//    logic   [BUFFER_SIZE-1:0]       accu_fc_bf;
     
-    logic   [BUFFER_SIZE-1:0]       cell_update     [0:OUT_SIZE/8 - 1];
-    logic   [BUFFER_SIZE-1:0]       input_gate      [0:OUT_SIZE/8 - 1];
-    logic   [BUFFER_SIZE-1:0]       forget_gate     [0:OUT_SIZE/8 - 1];
-    logic   [BUFFER_SIZE-1:0]       output_gate     [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     cell_update     [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     input_gate      [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     forget_gate     [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     output_gate     [0:OUT_SIZE/8 - 1];
     
-    logic   [BUFFER_SIZE-1:0]       inv_input_gate_bf;
-    logic   [BUFFER_SIZE-1:0]       inv_forget_gate_bf;
-    logic   [BUFFER_SIZE-1:0]       inv_cell_update_bf;
-    logic   [BUFFER_SIZE-1:0]       inv_output_gate_bf;
-    logic   [QUANTIZE_SIZE-1:0]     inv_cell_state_bf;
+    logic   [QUANTIZE_SIZE-1:0]     inv_cell_update_bf;
     
-    
-    logic                           inv_input_gate;
-    logic                           inv_forget_gate;
     logic                           inv_cell_update;
-    logic                           inv_output_gate;
     logic                           inv_cell_state;   
     logic                           inv_tanh_cell_bf;
     
@@ -129,58 +116,56 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     logic   [BUFFER_SIZE-1:0]       cell_state_bf   ;
     logic   [BUFFER_SIZE-1:0]       hidden_state_bf ;
     
-    logic   [QUANTIZE_SIZE-1:0]     cell_state      [0:OUT_SIZE/8 - 1];  
-    logic   [QUANTIZE_SIZE-1:0]     hidden_state    [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     cell_state      [0:OUT_SIZE/8 - 1];
+    logic   [QUANTIZE_SIZE-1:0]     inv_cell_state_bf;
+      
     logic                           ht_flag;
     logic                           fc_flag;
     
     logic   [BUFFER_SIZE-1:0]       q_di_lstm_state ;
     logic   [QUANTIZE_SIZE-1:0]     q_do_lstm_state ;
-    logic                           type_state      ;
+    logic   [1:0]                   type_state      ;
     
     logic   [BUFFER_SIZE-1:0]       f_prev_cell_bf;
     logic   [BUFFER_SIZE-1:0]       i_cell_update_bf;
-    
-    logic   [BUFFER_SIZE-1:0]       q_di_fc;
-    logic   [QUANTIZE_SIZE-1:0]     q_do_fc;
         
-    logic   [BUFFER_SIZE-1:0]      di_current_unit_tanh_bf;
-    logic   [BUFFER_SIZE-1:0]      di_current_unit_sigmoid_bf;
-    logic   [BUFFER_SIZE-1:0]      do_current_unit_tanh_bf;
-    logic   [BUFFER_SIZE-1:0]      do_current_unit_sigmoid_bf;
+    logic   [QUANTIZE_SIZE-1:0]      di_current_unit_tanh_bf;
+    logic   [QUANTIZE_SIZE-1:0]      di_current_unit_sigmoid_bf;
+    logic   [QUANTIZE_SIZE-1:0]      do_current_unit_tanh_bf;
+    logic   [QUANTIZE_SIZE-1:0]      do_current_unit_sigmoid_bf;
     
      
     logic  [1:0]                            gate;
     logic  [1:0]                            count_gate;
     logic  [1:0]                            count_cell;
     
-    logic  [BUFFER_SIZE-1:0]                tanh_cell_bf;
+    logic  [QUANTIZE_SIZE-1:0]              tanh_cell_bf;
     
     logic                                   mac_en;
     logic                                   mac_is_signed;
     logic  [W_BITWIDTH-1:0]                 weights_bf_0;
     logic  [W_BITWIDTH-1:0]                 weights_bf_1; 
     logic  [W_BITWIDTH-1:0]                 weights_bf_2;  
-    logic  [IN_BITWIDTH-1:0]                data_in_bf_0;
-    logic  [IN_BITWIDTH-1:0]                data_in_bf_1;
-    logic  [IN_BITWIDTH-1:0]                data_in_bf_2;
+    logic  [W_BITWIDTH-1:0]                 data_in_bf_0;
+    logic  [W_BITWIDTH-1:0]                 data_in_bf_1;
+    logic  [W_BITWIDTH-1:0]                 data_in_bf_2;
     logic  [OUT_BITWIDTH-1:0]               pre_sum_bf;
     logic                                   mac_done;
     logic  [OUT_BITWIDTH-1:0]               mac_result;
     
-    logic  [OUT_BITWIDTH-1:0]               fc_bf;
+//    logic  [OUT_BITWIDTH-1:0]               fc_bf;
     
     logic   tanh_en;
     logic   sigmoid_en;
     logic   q_lstm_en;
-    logic   q_fc_en;
+//    logic   q_fc_en;
     
     logic   tanh_done;
     logic   sigmoid_done;
     logic   q_lstm_done;
     logic   q_fc_done;
     
-    MAC #(.W_BITWIDTH(W_BITWIDTH), .OUT_BITWIDTH(OUT_BITWIDTH)) u_mac (
+    MAC u_mac (
         .clk(clk),
         .rstn(rstn),
         .en(mac_en),
@@ -224,14 +209,14 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
         .data_out(q_do_lstm_state)
     ); 
 
-    quantization_fc q2(
-        .clk(clk),
-        .rstn(rstn),
-        .en(q_fc_en), 
-        .data_in(q_di_fc),
-        .done(q_fc_done),
-        .data_out(q_do_fc)
-    );
+//    quantization_fc q2(
+//        .clk(clk),
+//        .rstn(rstn),
+//        .en(q_fc_en), 
+//        .data_in(q_di_fc),
+//        .done(q_fc_done),
+//        .data_out(q_do_fc)
+//    );
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -241,7 +226,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             gate_done           <= 1'b0;
             cell_done           <= 1'b0;
             hidden_done         <= 1'b0;
-            wait_done           <= 1'b0;
             finish_done         <= 1'b0;
             count_gate          <= 2'b00;
             
@@ -250,13 +234,70 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             weights_bf_0           <= {W_BITWIDTH{1'b0}};
             weights_bf_1           <= {W_BITWIDTH{1'b0}};
             weights_bf_2           <= {W_BITWIDTH{1'b0}};
-            data_in_bf_0           <= {IN_BITWIDTH{1'b0}};
-            data_in_bf_1           <= {IN_BITWIDTH{1'b0}};
-            data_in_bf_2           <= {IN_BITWIDTH{1'b0}};
-            pre_sum_bf             <= {PREV_SUM_BITWIDTH{1'b0}};
-//            accu_bf                <= {BUFFER_SIZE{1'b0}};
-            accu_fc_bf             <= {BUFFER_SIZE{1'b0}};
-//            cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
+            data_in_bf_0           <= {W_BITWIDTH{1'b0}};
+            data_in_bf_1           <= {W_BITWIDTH{1'b0}};
+            data_in_bf_2           <= {W_BITWIDTH{1'b0}};
+            pre_sum_bf             <= {OUT_BITWIDTH{1'b0}};
+            
+//            tanh_en             <= 1'b0;
+//            sigmoid_en          <= 1'b0;
+//            q_lstm_en           <= 1'b0;
+//            fc_flag             <= 1'b0;
+//            finish_step         <= 1'b0;
+//            tanh_en             <= 1'b0;
+//            sigmoid_en          <= 1'b0;
+//            q_lstm_en           <= 1'b0;
+//            fc_flag             <= 1'b0;
+//            accu_bf[0]          <= {32{1'b0}};
+//            accu_bf[1]          <= {32{1'b0}};
+//            accu_input_bf[0]    <= {32{1'b0}};
+//            accu_input_bf[1]    <= {32{1'b0}};
+//            accu_forget_bf[0]   <= {32{1'b0}};
+//            accu_forget_bf[1]   <= {32{1'b0}};
+//            accu_cell_bf[0]     <= {32{1'b0}};
+//            accu_cell_bf[1]     <= {32{1'b0}};
+//            accu_output_bf[0]   <= {32{1'b0}};
+//            accu_output_bf[1]   <= {32{1'b0}};
+//            gate                <= 2'b00;
+//            is_waiting          <= 1'b0;
+//            mac_is_signed       <= 1'b0;
+//            count_gate          <= 2'b00;
+//            current_mult_shift  <= MULT_S0;
+//            type_state          <= 2'b00;
+//            out[0]              <= {8{1'b0}};
+//            out[1]              <= {8{1'b0}};
+//            q_di_lstm_state     <= {BUFFER_SIZE{1'b0}};
+//            mac_en              <= 1'b0;
+//            cell_state_bf       <= {BUFFER_SIZE{1'b0}};
+//            f_prev_cell_bf      <= {BUFFER_SIZE{1'b0}};
+//            i_cell_update_bf    <= {BUFFER_SIZE{1'b0}};
+//            inv_cell_update_bf  <= {BUFFER_SIZE{1'b0}};
+//            inv_cell_update     <= 1'b0;
+//            inv_cell_state_bf   <= {QUANTIZE_SIZE{1'b0}};
+//            inv_cell_state      <= 1'b0;
+//            cell_update[0]      <= {QUANTIZE_SIZE{1'b0}};
+//            cell_update[1]      <= {QUANTIZE_SIZE{1'b0}};
+//            input_gate[0]       <= {QUANTIZE_SIZE{1'b0}};
+//            input_gate[1]       <= {QUANTIZE_SIZE{1'b0}};
+//            forget_gate[0]      <= {QUANTIZE_SIZE{1'b0}};
+//            forget_gate[1]      <= {QUANTIZE_SIZE{1'b0}};
+//            output_gate[0]      <= {QUANTIZE_SIZE{1'b0}};
+//            output_gate[1]      <= {QUANTIZE_SIZE{1'b0}};
+//            hidden_state_bf     <= {BUFFER_SIZE{1'b0}};
+//            tanh_cell_bf        <= {BUFFER_SIZE{1'b0}};
+//            inv_tanh_cell_bf    <= {QUANTIZE_SIZE{1'b0}};
+            
+            
+//            ht_flag             <= 1'b0;
+//            count_cell          <= 2'b00;
+            
+//            di_current_unit_tanh_bf     <= {QUANTIZE_SIZE{1'b0}};
+//            di_current_unit_sigmoid_bf  <= {QUANTIZE_SIZE{1'b0}};
+//            update_cell_state_bf        <= 1'b0;   
+            
+//            cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
+//            cell_state[1]   <= {QUANTIZE_SIZE{1'b0}};
+            
             internal_current_unit  <= 0;
             done                   <= 1'b0;
         end
@@ -267,16 +308,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     gate_done           <= 1'b0;
                     cell_done           <= 1'b0;
                     hidden_done         <= 1'b0;
-                    wait_done           <= 1'b0;
                     finish_done         <= 1'b0;
                     finish_step         <= 1'b0;
                     done                <= 1'b0;
-                    
-                    tanh_en                 <= 1'b0;
-                    sigmoid_en              <= 1'b0;
-                    q_lstm_en               <= 1'b0;
-                    q_fc_en                 <= 1'b0;
-                    fc_flag                 <= 1'b0;
                     
                     accu_input_bf[current_unit]       <= 0;
                     accu_forget_bf[current_unit]      <= 0;
@@ -292,9 +326,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         weights_bf_0    <= weight[W_BITWIDTH-1:0];
                         weights_bf_1    <= weight[W_BITWIDTH*2-1:W_BITWIDTH];
                         weights_bf_2    <= weight[W_BITWIDTH*3-1:W_BITWIDTH*2];
-                        data_in_bf_0    <= data_in[IN_BITWIDTH-1:0];
-                        data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
-                        data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
+                        data_in_bf_0    <= data_in[W_BITWIDTH-1:0];
+                        data_in_bf_1    <= data_in[W_BITWIDTH*2-1:W_BITWIDTH];
+                        data_in_bf_2    <= data_in[W_BITWIDTH*3-1:W_BITWIDTH*2];
                         
                         cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
                         cell_state[1]   <= {QUANTIZE_SIZE{1'b0}};
@@ -306,10 +340,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         gate            <= type_gate;
                         state           <= STATE_IRB;
                         is_waiting      <= 1'b0;
-//                        is_quantized_ct <= 1'b0;
                         mac_is_signed   <= 1'b1;
                         count_gate      <= 2'b00;
                         count_cell      <= 2'b00;
+                        
                     end
                 end
                 
@@ -317,15 +351,15 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     if (irb_done) begin
                         if (is_last_data_gate && is_last_input) begin
                             if (current_layer == LSTM) begin
-                                state                   <= STATE_GATE;
+                                state                   <= STATE_Q;
                                 is_waiting              <= 1'b0;
                                 irb_done                <= 1'b0;
                                 current_mult_shift      <= 3'b000;
                                 tanh_en                 <= 1'b0;
                                 sigmoid_en              <= 1'b0;
                                 q_lstm_en               <= 1'b0;
-                                q_fc_en                 <= 1'b0;
                                 internal_current_unit   <= 0;
+                                type_state              <= 0;
                                 
                                 case(gate)
                                     INPUT_GATE:     accu_input_bf[current_unit]   <= mac_result;
@@ -343,9 +377,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     state           <= STATE_IDLE;
                                     is_waiting      <= 1'b1;
                                 end
-                                fc_bf               <= mac_result; 
-//                                out                 <= mac_result[QUANTIZE_SIZE-1:0];
-                                out[current_unit]   <= q_do_fc;
+//                                fc_bf               <= mac_result; 
+                                out[current_unit]   <= q_do_lstm_state[7:0];
                                 irb_done            <= 1'b0;     
                             end
                             else ;
@@ -361,15 +394,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     else begin      
                         if (mac_done) begin
                             if (current_layer == FC && is_last_data_gate && is_last_input) begin
-                                q_fc_en     <= 1'b1;
-//                                if (q_fc_done) begin
-//                                    q_fc_en     <= 1'b0;
-//                                    irb_done    <= 1'b1;
-//                                end
-//                                else ;
-                                fc_flag     <= 1'b1;
-                                q_di_fc     <= mac_result;
-                                mac_en      <= 1'b0;
+                                q_lstm_en           <= 1'b1;
+                                type_state          <= 2'b10;
+                                fc_flag             <= 1'b1;
+                                q_di_lstm_state     <= mac_result;
+                                mac_en              <= 1'b0;
                             end
                             else begin
                                 irb_done    <= 1'b1;
@@ -378,9 +407,9 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         end
                         else begin
                             if (fc_flag) begin
-                                q_fc_en     <= 1'b1;
-                                if (q_fc_done) begin
-                                    q_fc_en     <= 1'b0;
+                                q_lstm_en     <= 1'b1;
+                                if (q_lstm_done) begin
+                                    q_lstm_en   <= 1'b0;
                                     irb_done    <= 1'b1;
                                     fc_flag     <= 1'b0;
                                 end
@@ -400,16 +429,15 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             weights_bf_0    <= weight[W_BITWIDTH-1:0];
                             weights_bf_1    <= weight[W_BITWIDTH*2-1:W_BITWIDTH];
                             weights_bf_2    <= weight[W_BITWIDTH*3-1:W_BITWIDTH*2];
-                            data_in_bf_0    <= data_in[IN_BITWIDTH-1:0];
-                            data_in_bf_1    <= data_in[IN_BITWIDTH*2-1:IN_BITWIDTH];
-                            data_in_bf_2    <= data_in[IN_BITWIDTH*3-1:IN_BITWIDTH*2];
+                            data_in_bf_0    <= data_in[W_BITWIDTH-1:0];
+                            data_in_bf_1    <= data_in[W_BITWIDTH*2-1:W_BITWIDTH];
+                            data_in_bf_2    <= data_in[W_BITWIDTH*3-1:W_BITWIDTH*2];
                             
                             case(is_load_bias)
                                 0: pre_sum_bf       <= accu_bf[current_unit];
                                 1: pre_sum_bf       <= pre_sum;
                             endcase
-                            
-//                            prev_cell_state[current_unit]       <= cell_state[current_unit][QUANTIZE_SIZE-1:0];
+
                             if (finish_step == 1'b1) begin
                                 finish_step         <= 1'b0;
                             end
@@ -419,14 +447,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         end
                         else begin
                             state      <= STATE_WAIT;
-                            if (gate != type_gate) begin
-//                                case(gate)
-//                                    INPUT_GATE:     accu_input_bf[current_unit]   <= accu_bf[current_unit];
-//                                    FORGET_GATE:    accu_forget_bf[current_unit]  <= accu_bf[current_unit];
-//                                    CELL_UPDATE:    accu_cell_bf[current_unit]    <= accu_bf[current_unit];
-//                                    OUTPUT_GATE:    accu_output_bf[current_unit]  <= accu_bf[current_unit];
-//                                endcase
-                                
+                            if (gate != type_gate) begin                                
                                 case(type_gate)
                                     INPUT_GATE:     accu_bf[current_unit] <= accu_input_bf[current_unit];
                                     FORGET_GATE:    accu_bf[current_unit] <= accu_forget_bf[current_unit];
@@ -450,19 +471,83 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                    end
                 end
                 
+                STATE_Q: begin
+                    case(count_gate) 
+                        2'b00: begin
+                            
+                            if (q_lstm_done) begin
+                                accu_input_bf[internal_current_unit]    <=  { {16{1'b0}}, q_do_lstm_state};
+                                q_lstm_en                               <= 1'b0;
+//                                count_gate                              <= count_gate + 1;
+                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                else remain_waiting_time = remain_waiting_time - 1;
+                            end
+                            else begin 
+                                q_lstm_en           <= 1'b1;
+                                remain_waiting_time <= LATENCY;
+                                q_di_lstm_state     <= accu_input_bf[internal_current_unit];
+                            end
+                        end
+                        
+                        2'b01: begin
+                            
+                            if (q_lstm_done) begin
+                                accu_forget_bf[internal_current_unit]   <=  { {16{1'b0}}, q_do_lstm_state};
+                                q_lstm_en                               <= 1'b0;
+//                                count_gate                              <= count_gate + 1;
+                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                else remain_waiting_time = remain_waiting_time - 1;
+                            end
+                            else begin
+                                q_lstm_en           <= 1'b1;
+                                remain_waiting_time <= LATENCY;
+                                q_di_lstm_state     <= accu_forget_bf[internal_current_unit];
+                            end
+                        end
+                        
+                        2'b10: begin
+                             
+                            if (q_lstm_done) begin
+                                accu_cell_bf[internal_current_unit]     <=  { {16{1'b0}}, q_do_lstm_state};
+                                q_lstm_en                               <= 1'b0;
+//                                count_gate                              <= count_gate + 1;
+                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                else remain_waiting_time = remain_waiting_time - 1;
+                            end
+                            else begin
+                                q_lstm_en           <= 1'b1;
+                                remain_waiting_time <= LATENCY;
+                                q_di_lstm_state     <= accu_cell_bf[internal_current_unit];
+                            end
+                        end
+                        
+                        2'b11: begin
+                              
+                            if (q_lstm_done) begin
+                                accu_output_bf[internal_current_unit]   <=  { {16{1'b0}}, q_do_lstm_state};
+                                q_lstm_en                               <= 1'b0;
+//                                count_gate                              <= 0;
+                                if (remain_waiting_time == 0) begin
+                                    count_gate    <= 0;
+                                    state         <= STATE_GATE;
+                                end
+                                else remain_waiting_time = remain_waiting_time - 1;
+                            end
+                            else begin
+                                q_lstm_en           <= 1'b1;
+                                remain_waiting_time <= LATENCY;
+                                q_di_lstm_state     <= accu_output_bf[internal_current_unit];
+                            end
+                        end
+                    endcase
+                end
+                
                 STATE_GATE: begin
                     if (gate_done) begin
                         gate_done       <= 1'b0;
                         gate            <= type_gate;
                         state           <= STATE_CELL;
                         
-//                        weights_bf_0    <= forget_gate[internal_current_unit];
-//                        weights_bf_1    <= input_gate[internal_current_unit];
-//                        weights_bf_2    <= {W_BITWIDTH{1'b0}};
-//                        data_in_bf_0    <= prev_cell_state[internal_current_unit];
-//                        data_in_bf_1    <= cell_update[internal_current_unit];
-//                        data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-//                        pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
                         update_cell_state_bf    <= 1'b0;
                         remain_waiting_time     <= MULT_LATENCY;
                         current_mult_shift      <= 3'b000;
@@ -471,25 +556,25 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         f_prev_cell_bf          <= 0;
                         i_cell_update_bf        <= 0;            
                         
-                        if (input_gate[internal_current_unit][31]) begin
-                            inv_input_gate_bf   <= ~input_gate[internal_current_unit] + 1;
-                            inv_input_gate      <= 1'b1;
-                        end
-                        else begin 
-                            inv_input_gate     <= 1'b0;
-                            inv_input_gate_bf  <= input_gate[internal_current_unit];
-                        end
+//                        if (input_gate[internal_current_unit][31]) begin
+//                            inv_input_gate_bf   <= ~input_gate[internal_current_unit] + 1;
+//                            inv_input_gate      <= 1'b1;
+//                        end
+//                        else begin 
+//                            inv_input_gate     <= 1'b0;
+//                            inv_input_gate_bf  <= input_gate[internal_current_unit];
+//                        end
                         
-                        if (forget_gate[internal_current_unit][31]) begin
-                            inv_forget_gate_bf  <= ~forget_gate[internal_current_unit] + 1;
-                            inv_forget_gate     <= 1'b1;
-                        end
-                        else begin
-                            inv_forget_gate    <= 1'b0;
-                            inv_forget_gate_bf <= forget_gate[internal_current_unit];
-                        end
+//                        if (forget_gate[internal_current_unit][31]) begin
+//                            inv_forget_gate_bf  <= ~forget_gate[internal_current_unit] + 1;
+//                            inv_forget_gate     <= 1'b1;
+//                        end
+//                        else begin
+//                            inv_forget_gate    <= 1'b0;
+//                            inv_forget_gate_bf <= forget_gate[internal_current_unit];
+//                        end
                         
-                        if (cell_update[internal_current_unit][31]) begin
+                        if (cell_update[internal_current_unit][15]) begin
                             inv_cell_update_bf  <= ~cell_update[internal_current_unit] + 1;
                             inv_cell_update     <= 1'b1;
                         end
@@ -498,7 +583,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             inv_cell_update_bf <= cell_update[internal_current_unit];
                         end
                         
-                        if (cell_state[internal_current_unit][7]) begin
+                        if (cell_state[internal_current_unit][15]) begin
                             inv_cell_state_bf   <= ~cell_state[internal_current_unit] + 1;
                             inv_cell_state      <= 1'b1;
                         end
@@ -511,11 +596,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                     end
                     else begin
                         if (count_gate == 2'b11) begin
-                            
-//                            gate_done       <= 1'b1;
-//                            output_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;                    
-//                            count_gate      <= 2'b00;
-                            tanh_en     <= 1'b1;
                             if (tanh_done) begin
                                 if (remain_waiting_time == 0) begin
                                     count_gate          <= 2'b00;
@@ -526,8 +606,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 tanh_en         <= 1'b0;
                                 cell_update[internal_current_unit]  <= do_current_unit_tanh_bf;
                             end
-                            else ;
-                            di_current_unit_tanh_bf             <= accu_cell_bf[internal_current_unit];
+                            else tanh_en    <= 1'b1;
+                            di_current_unit_tanh_bf             <= accu_cell_bf[internal_current_unit][15:0];
                         end
                         else begin
                             case(gate)
@@ -558,7 +638,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                         end
                                         else remain_waiting_time <= remain_waiting_time - 1;
                                         
-                                        forget_gate[internal_current_unit]   <= do_current_unit_sigmoid_bf;
+                                        forget_gate[internal_current_unit]  <= do_current_unit_sigmoid_bf;
                                         sigmoid_en                          <= 1'b0;
                                     end
                                     di_current_unit_sigmoid_bf          <= accu_forget_bf[internal_current_unit];   
@@ -584,8 +664,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 
                 STATE_CELL: begin
                     if (cell_done) begin
-//                        q_lstm_en   <= 1'b1;
-//                        tanh_en     <= 1'b1;
                         if (q_lstm_done && tanh_done) begin
                             state           <= STATE_HIDDEN;
                             cell_done       <= 1'b0;
@@ -600,17 +678,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             type_state              <= 1;  
                             remain_waiting_time     <= MULT_LATENCY;  
                             hidden_state_bf         <= 32'h00000000;
-                            
-                            if (output_gate[internal_current_unit][31]) begin
-                                inv_output_gate_bf  <= ~output_gate[internal_current_unit] + 1;
-                                inv_output_gate     <= 1'b1;
-                            end
-                            else begin
-                                inv_output_gate    <= 1'b0;
-                                inv_output_gate_bf <= output_gate[internal_current_unit];
-                            end
-                            
-                            if (do_current_unit_tanh_bf[31]) begin
+                                                        
+                            if (do_current_unit_tanh_bf[15]) begin
                                 tanh_cell_bf       <= ~do_current_unit_tanh_bf + 1;
                                 inv_tanh_cell_bf   <= 1'b1; 
                             end
@@ -644,10 +713,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                             else current_mult_shift  <= current_mult_shift + 1;
     
                                             case(current_mult_shift)
-                                                MULT_S0: f_prev_cell_bf <= f_prev_cell_bf + mac_result;
-                                                MULT_S1: f_prev_cell_bf <= f_prev_cell_bf + (mac_result <<< 8);
+                                                MULT_S0: f_prev_cell_bf <= f_prev_cell_bf + mac_result[15:0];
+                                                MULT_S1: f_prev_cell_bf <= f_prev_cell_bf + (mac_result[15:0] <<< 8);
                                                 MULT_S2: begin 
-                                                    f_prev_cell_bf   <= f_prev_cell_bf + (mac_result <<< 16);
+                                                    f_prev_cell_bf   <= f_prev_cell_bf + (mac_result[15:0] <<< 16);
                                                     count_cell      <= count_cell + 1;
                                                 end
                                             endcase 
@@ -660,31 +729,31 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     remain_waiting_time <= remain_waiting_time - 1;
                                     case(current_mult_shift)
                                         MULT_S0: begin
-                                            weights_bf_0    <= inv_forget_gate_bf[7:0];
+                                            weights_bf_0    <= forget_gate[internal_current_unit][7:0];
                                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= inv_cell_state_bf;
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_0    <= inv_cell_state_bf[7:0];
+                                            data_in_bf_1    <= {W_BITWIDTH{1'b0}};
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                         MULT_S1: begin
-                                            weights_bf_0    <= inv_forget_gate_bf[15:8];
-                                            weights_bf_1    <= {W_BITWIDTH{1'b0}};
+                                            weights_bf_0    <= forget_gate[internal_current_unit][15:8];
+                                            weights_bf_1    <= forget_gate[internal_current_unit][7:0];
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= inv_cell_state_bf;
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_0    <= inv_cell_state_bf[7:0];
+                                            data_in_bf_1    <= inv_cell_state_bf[15:8];
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                         MULT_S2: begin
-                                            weights_bf_0    <= inv_forget_gate_bf[23:16];
+                                            weights_bf_0    <= forget_gate[internal_current_unit][15:8];
                                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= inv_cell_state_bf;
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_0    <= inv_cell_state_bf[15:8];
+                                            data_in_bf_1    <= {W_BITWIDTH{1'b0}};
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                     endcase
                                 end 
@@ -703,16 +772,14 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                             current_mult_shift  <= current_mult_shift + 1;
                                             update_cell_state_bf <= 1'b0;
                                             case(current_mult_shift)
-                                                MULT_S0: i_cell_update_bf  <= i_cell_update_bf + mac_result;
-                                                MULT_S1: i_cell_update_bf  <= i_cell_update_bf + (mac_result <<< 8);
-                                                MULT_S2: i_cell_update_bf  <= i_cell_update_bf + (mac_result <<< 16);
-                                                MULT_S3: i_cell_update_bf  <= i_cell_update_bf + (mac_result <<< 24);
-                                                MULT_S4: begin
-                                                    i_cell_update_bf   <= i_cell_update_bf + (mac_result <<< 32);
+                                                MULT_S0: i_cell_update_bf  <= i_cell_update_bf + mac_result[15:0];
+                                                MULT_S1: i_cell_update_bf  <= i_cell_update_bf + (mac_result[15:0] <<< 8);
+                                                MULT_S2: begin
+                                                    i_cell_update_bf   <= i_cell_update_bf + (mac_result[15:0] <<< 16);
 //                                                    cell_done       <= 1'b1;
 //                                                    count_cell      <= 2'b00; 
                                                     count_cell          <= count_cell + 1;
-                                                    if ( (inv_forget_gate && inv_cell_state) || (!inv_forget_gate && !inv_cell_state) ) begin
+                                                    if ( !inv_cell_state ) begin
                                                         f_prev_cell_bf  <= f_prev_cell_bf;    
                                                     end
                                                     else f_prev_cell_bf <= ~f_prev_cell_bf + 1;
@@ -727,49 +794,31 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     remain_waiting_time <= remain_waiting_time - 1;
                                     case(current_mult_shift)
                                         MULT_S0: begin
-                                            weights_bf_0    <= inv_input_gate_bf[7:0];
+                                            weights_bf_0    <= input_gate[internal_current_unit][7:0];
                                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
                                             data_in_bf_0    <= inv_cell_update_bf[7:0];
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_1    <= {W_BITWIDTH{1'b0}};
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                         MULT_S1: begin
-                                            weights_bf_0    <= inv_input_gate_bf[15:8];
-                                            weights_bf_1    <= inv_input_gate_bf[7:0];
+                                            weights_bf_0    <= input_gate[internal_current_unit][15:8];
+                                            weights_bf_1    <= input_gate[internal_current_unit][7:0];
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
                                             data_in_bf_0    <= inv_cell_update_bf[7:0];
                                             data_in_bf_1    <= inv_cell_update_bf[15:8];
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                         MULT_S2: begin
-                                            weights_bf_0    <= inv_input_gate_bf[23:16];
-                                            weights_bf_1    <= inv_input_gate_bf[15:8];
-                                            weights_bf_2    <= inv_input_gate_bf[7:0];
-                                            data_in_bf_0    <= inv_cell_update_bf[7:0];
-                                            data_in_bf_1    <= inv_cell_update_bf[15:8];
-                                            data_in_bf_2    <= inv_cell_update_bf[23:16];
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S3: begin
-                                            weights_bf_0    <= inv_input_gate_bf[23:16];
-                                            weights_bf_1    <= inv_input_gate_bf[15:8];
-                                            weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= inv_cell_update_bf[15:8];
-                                            data_in_bf_1    <= inv_cell_update_bf[23:16];
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                        end
-                                        MULT_S4: begin
-                                            weights_bf_0    <= inv_input_gate_bf[23:16];
+                                            weights_bf_0    <= input_gate[internal_current_unit][15:8];
                                             weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                             weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                            data_in_bf_0    <= inv_cell_update_bf[23:16];
-                                            data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                            data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                            pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                            data_in_bf_0    <= inv_cell_update_bf[15:8];
+                                            data_in_bf_1    <= {W_BITWIDTH{1'b0}};
+                                            data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                            pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                         end
                                     endcase
                                 end 
@@ -780,7 +829,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
 //                                count_cell      <= count_cell + 1;
                                 cell_done       <= 1'b1;
                                 count_cell      <= 2'b00;
-                                if ( (inv_input_gate && inv_cell_update) || (!inv_input_gate && !inv_cell_update) ) begin
+                                if ( !inv_cell_update ) begin
                                     cell_state_bf   <= i_cell_update_bf + f_prev_cell_bf;
                                     f_prev_cell_bf  <= f_prev_cell_bf;    
                                 end
@@ -802,7 +851,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                 STATE_HIDDEN: begin
                     if (hidden_done) begin 
                         if (q_lstm_done && q_lstm_en) begin
-                            if (internal_current_unit == NO_UNITS-1) begin
+                            if (internal_current_unit == 1) begin
                                 if (is_last_timestep) cell_state[current_unit]    <= {QUANTIZE_SIZE{1'b0}};
                                 else ;
                                 is_waiting      <= 1'b1;
@@ -812,55 +861,22 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 remain_waiting_time <= 2'b11;
                             end
                             else begin
-                                state                   <= STATE_GATE;
+                                state                   <= STATE_Q;
+                                type_state              <= 2'b00;
                                 internal_current_unit   <= internal_current_unit + 1;
                                 remain_waiting_time     <= LATENCY;
-                                hidden_done             <= 1'b0;
-                                if (input_gate[internal_current_unit+1][31]) begin
-                                    inv_input_gate_bf   <= ~input_gate[internal_current_unit+1] + 1;
-                                    inv_input_gate      <= 1'b1;
-                                end
-                                else begin 
-                                    inv_input_gate     <= 1'b0;
-                                    inv_input_gate_bf  <= input_gate[internal_current_unit+1];
-                                end
-                                
-                                if (forget_gate[internal_current_unit+1][31]) begin
-                                    inv_forget_gate_bf  <= ~forget_gate[internal_current_unit+1] + 1;
-                                    inv_forget_gate     <= 1'b1;
-                                end
-                                else begin
-                                    inv_forget_gate    <= 1'b0;
-                                    inv_forget_gate_bf <= forget_gate[internal_current_unit+1];
-                                end
-                                
-                                if (cell_update[internal_current_unit+1][31]) begin
-                                    inv_cell_update_bf  <= ~cell_update[internal_current_unit+1] + 1;
-                                    inv_cell_update     <= 1'b1;
-                                end
-                                else begin 
-                                    inv_cell_update    <= 1'b0;
-                                    inv_cell_update_bf <= cell_update[internal_current_unit+1];
-                                end
-                                
-                                if (cell_state[internal_current_unit+1][7]) begin
-                                    inv_cell_state_bf   <= ~cell_state[internal_current_unit+1] + 1;
-                                    inv_cell_state      <= 1'b1;
-                                end
-                                else begin
-                                    inv_cell_state     <= 1'b0;
-                                    inv_cell_state_bf  <= cell_state[internal_current_unit+1];
-                                end  
+                                hidden_done             <= 1'b0;       
                             end
 //                            hidden_done                             <= 1'b0;
 //                            hidden_state[internal_current_unit]     <= q_do_lstm_state;
                             out[internal_current_unit]              <= q_do_lstm_state;
                             q_lstm_en   <= 1'b0;
+                            type_state  <= 2'b01;
                         end
                         else begin
                             q_lstm_en   <= 1'b1;
                             type_state  <= 1'b0;
-                            if ( (inv_tanh_cell_bf && inv_output_gate) || (!inv_tanh_cell_bf && !inv_output_gate) ) begin
+                            if ( !inv_tanh_cell_bf ) begin
                                 q_di_lstm_state <= hidden_state_bf;
                             end
                             else q_di_lstm_state <= ~hidden_state_bf + 1;
@@ -888,12 +904,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     current_mult_shift  <= current_mult_shift + 1;
                                     update_cell_state_bf <= 1'b0;
                                     case(current_mult_shift)
-                                        MULT_S0: hidden_state_bf  <= hidden_state_bf + mac_result;
-                                        MULT_S1: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 8);
-                                        MULT_S2: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 16);
-                                        MULT_S3: hidden_state_bf  <= hidden_state_bf + (mac_result <<< 24);
-                                        MULT_S4: begin
-                                            hidden_state_bf   <= hidden_state_bf + (mac_result <<< 32);
+                                        MULT_S0: hidden_state_bf  <= hidden_state_bf + mac_result[15:0];
+                                        MULT_S1: hidden_state_bf  <= hidden_state_bf + (mac_result[15:0] <<< 8);
+                                        MULT_S2: begin
+                                            hidden_state_bf   <= hidden_state_bf + (mac_result[15:0] <<< 16);
                                             hidden_done       <= 1'b1;
                                             ht_flag           <= 1'b0;  
                                             count_cell        <= 2'b00;
@@ -913,45 +927,27 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                     weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                     weights_bf_2    <= {W_BITWIDTH{1'b0}};
                                     data_in_bf_0    <= tanh_cell_bf[7:0];
-                                    data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                    data_in_bf_1    <= {OUT_BITWIDTH{1'b0}};
+                                    data_in_bf_2    <= {OUT_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                 end
                                 MULT_S1: begin
                                     weights_bf_0    <= output_gate[internal_current_unit][15:8];
                                     weights_bf_1    <= output_gate[internal_current_unit][7:0];
                                     weights_bf_2    <= {W_BITWIDTH{1'b0}};
                                     data_in_bf_0    <= tanh_cell_bf[7:0];
-                                    data_in_bf_1    <= tanh_cell_bf[15:0];
-                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                    data_in_bf_1    <= tanh_cell_bf[15:8];
+                                    data_in_bf_2    <= {OUT_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                 end
                                 MULT_S2: begin
-                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
-                                    weights_bf_1    <= output_gate[internal_current_unit][15:8];
-                                    weights_bf_2    <= output_gate[internal_current_unit][7:0];
-                                    data_in_bf_0    <= tanh_cell_bf[7:0];
-                                    data_in_bf_1    <= tanh_cell_bf[15:8];
-                                    data_in_bf_2    <= tanh_cell_bf[23:16];
-                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                end
-                                MULT_S3: begin
-                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
-                                    weights_bf_1    <= output_gate[internal_current_unit][15:8];
-                                    weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                    data_in_bf_0    <= tanh_cell_bf[15:8];
-                                    data_in_bf_1    <= tanh_cell_bf[23:16];
-                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
-                                end
-                                MULT_S4: begin
-                                    weights_bf_0    <= output_gate[internal_current_unit][23:16];
+                                    weights_bf_0    <= output_gate[internal_current_unit][15:8];
                                     weights_bf_1    <= {W_BITWIDTH{1'b0}};
                                     weights_bf_2    <= {W_BITWIDTH{1'b0}};
-                                    data_in_bf_0    <= tanh_cell_bf[23:16];
-                                    data_in_bf_1    <= {IN_BITWIDTH{1'b0}};
-                                    data_in_bf_2    <= {IN_BITWIDTH{1'b0}};
-                                    pre_sum_bf      <= {PREV_SUM_BITWIDTH{1'b0}};
+                                    data_in_bf_0    <= tanh_cell_bf[15:8];
+                                    data_in_bf_1    <= {W_BITWIDTH{1'b0}};
+                                    data_in_bf_2    <= {W_BITWIDTH{1'b0}};
+                                    pre_sum_bf      <= {OUT_BITWIDTH{1'b0}};
                                 end
                             endcase
                         end  

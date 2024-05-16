@@ -1,6 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/synth/func/xsim/tb_controller_lstm_unit_func_synth.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MAC
-INFO: [VRFC 10-311] analyzing module controller
-INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_controller_lstm_unit.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_controller_lstm_unit

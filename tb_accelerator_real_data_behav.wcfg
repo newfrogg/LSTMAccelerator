@@ -12,12 +12,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="41.300000001 ms"></ZoomEndTime>
-      <Cursor1Time time="0.025405834 ms"></Cursor1Time>
+      <ZoomStartTime time="2,715,236.750 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,715,456.651 ns"></ZoomEndTime>
+      <Cursor1Time time="2,715,420.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="516"></NameColumnWidth>
+      <NameColumnWidth column_width="486"></NameColumnWidth>
       <ValueColumnWidth column_width="160"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="97" />
@@ -98,8 +98,8 @@
       <obj_property name="ObjectShortName">remaining_no_units[6:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/o_current_sample">
-      <obj_property name="ElementShortName">o_current_sample[4:0]</obj_property>
-      <obj_property name="ObjectShortName">o_current_sample[4:0]</obj_property>
+      <obj_property name="ElementShortName">o_current_sample[9:0]</obj_property>
+      <obj_property name="ObjectShortName">o_current_sample[9:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/o_r_state">
       <obj_property name="ElementShortName">o_r_state[2:0]</obj_property>
@@ -243,6 +243,7 @@
    <wvobject type="group" fp_name="group1125">
       <obj_property name="label">cell_state</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_output_gate_bf">
          <obj_property name="ElementShortName">o_lstm_inv_output_gate_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_output_gate_bf[31:0]</obj_property>
@@ -275,18 +276,22 @@
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_cell_state_bf">
          <obj_property name="ElementShortName">o_lstm_inv_cell_state_bf[7:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_cell_state_bf[7:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_input_gate_bf">
          <obj_property name="ElementShortName">o_lstm_inv_input_gate_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_input_gate_bf[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_forget_gate_bf">
          <obj_property name="ElementShortName">o_lstm_inv_forget_gate_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_forget_gate_bf[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_cell_update_bf">
          <obj_property name="ElementShortName">o_lstm_inv_cell_update_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_cell_update_bf[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/weights">
          <obj_property name="ElementShortName">weights[0:2][7:0]</obj_property>
@@ -320,7 +325,7 @@
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_cell_state_bf">
          <obj_property name="ElementShortName">o_lstm_cell_state_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_cell_state_bf[31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_cell_state">
          <obj_property name="ElementShortName">o_lstm_cell_state[0:1][7:0]</obj_property>
@@ -330,7 +335,6 @@
    <wvobject type="group" fp_name="group3710">
       <obj_property name="label">hidden_state</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_inv_output_gate_bf">
          <obj_property name="ElementShortName">o_lstm_inv_output_gate_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_inv_output_gate_bf[31:0]</obj_property>

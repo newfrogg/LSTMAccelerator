@@ -3,13 +3,13 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Tue May  7 20:45:46 2024
-# Process ID: 7189
+# Start of session at: Tue May 14 09:00:05 2024
+# Process ID: 44001
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
 # Command line: vivado
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 2311.300 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 4337.089 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
 start_gui
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
@@ -120,6 +120,8 @@ Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 5 for port 'o_current_sample' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv:218]
+WARNING: [VRFC 10-3823] variable 'o_lstm_inv_output_gate_bf' might have multiple concurrent drivers [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:265]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
@@ -134,50 +136,34 @@ Compiling module xil_defaultlib.tanh_appr
 Compiling module xil_defaultlib.sigmoid_appro
 Compiling module xil_defaultlib.quantization_lstm
 Compiling module xil_defaultlib.quantization_fc
-Compiling module xil_defaultlib.lstm_unit_default
+Compiling module xil_defaultlib.lstm_unit
 Compiling module xil_defaultlib.controller_default
 Compiling module xil_defaultlib.tb_accelerator_real_data
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 303. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 304. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 305. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 308. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 309. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 310. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 313. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 314. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 315. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 318. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 319. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 320. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 334. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 336. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 337. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 322. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 344. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 346. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 347. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 349. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 354. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 356. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 357. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 364. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 366. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 367. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 383. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 384. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 359. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 375. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 385. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 386. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 396. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 397. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 400. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 395. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 405. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 424. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 425. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 426. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 427. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 437. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 446. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot tb_accelerator_real_data_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}"
+   with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -view {/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/tb_accelerator_real_data_behav.wcfg} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Time resolution is 1 ps
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
 source tb_accelerator_real_data.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
@@ -188,16 +174,8 @@ source tb_accelerator_real_data.tcl
 #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
 #   }
 # }
-WARNING: Simulation object /tb_accelerator_real_data/str was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/input_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/weight_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/bias_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/cell_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
+# log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
 # run 500000ns
 File was opened successfully
 wxi = 0058f1f3
@@ -209,165 +187,31 @@ wxi = 001f4111
 wxi = 001d01fb
 wxi = 000b1822
 whi = 00d0d327
-whi = 0000000d
-whi = 003ffa3d
-whi = 000000f3
-whi = 00b8fc21
-whi = 00000005
+whi = 00fa3d0d
+whi = 0021f33f
+whi = 0005b8fc
 whi = 003714f8
-whi = 000000f6
+whi = 00f849f6
+whi = 0006be0a
+whi = 00bbec30
 ///////////////////////////////////////////////////////////
 //////////////////// Test No[3] Start /////////////////////
 ///////////////////////////////////////////////////////////
 
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded.
-INFO: [USF-XSim-97] XSim simulation ran for 500000ns
-close_sim
-INFO: [Simtcl 6-16] Simulation closed
-launch_simulation
-Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'tb_accelerator_real_data'
-INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-72] Using boost library from '/home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'tb_accelerator_real_data' in fileset 'sim_1'...
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
-xvlog --incr --relax -L uvm -prj tb_accelerator_real_data_vlog.prj
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/MAC.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MAC
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module controller
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module lstm_unit
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_fc.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module quantization_fc
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module quantization_lstm
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module sigmoid_appro
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/tanh_appr.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tanh_appr
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_accelerator_real_data
-Waiting for jobs to finish...
-No pending jobs, compilation finished.
-INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
-xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log
-Vivado Simulator v2023.1
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /home/vanloi/Documents/Loi_study/Vivado/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_accelerator_real_data_behav xil_defaultlib.tb_accelerator_real_data xil_defaultlib.glbl -log elaborate.log 
-Using 8 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv, Line : 22, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
-WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv, Line : 27, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
-WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv, Line : 32, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
-WARNING: [XSIM 43-4468] File : /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv, Line : 37, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.$unit_MAC_sv_3305401855
-Compiling module xil_defaultlib.MAC_default
-Compiling module xil_defaultlib.tanh_appr
-Compiling module xil_defaultlib.sigmoid_appro
-Compiling module xil_defaultlib.quantization_lstm
-Compiling module xil_defaultlib.quantization_fc
-Compiling module xil_defaultlib.lstm_unit_default
-Compiling module xil_defaultlib.controller_default
-Compiling module xil_defaultlib.tb_accelerator_real_data
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 303. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 304. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 305. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 308. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 309. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 310. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 313. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 314. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 315. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 318. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 319. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 320. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 334. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 336. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 337. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 344. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 346. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 347. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 354. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 356. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 357. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 364. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 366. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 367. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 383. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 384. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 385. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 386. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 396. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 397. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 400. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/new/tb_accelerator_real_data.sv" Line 405. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_accelerator_real_data_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-98] *** Running xsim
-   with args "tb_accelerator_real_data_behav -key {Behavioral:sim_1:Functional:tb_accelerator_real_data} -tclbatch {tb_accelerator_real_data.tcl} -log {simulate.log}"
-INFO: [USF-XSim-8] Loading simulator feature
-Time resolution is 1 ps
-source tb_accelerator_real_data.tcl
-# set curr_wave [current_wave_config]
-# if { [string length $curr_wave] == 0 } {
-#   if { [llength [get_objects]] > 0} {
-#     add_wave /
-#     set_property needs_save false [current_wave_config]
-#   } else {
-#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
-#   }
-# }
-WARNING: Simulation object /tb_accelerator_real_data/str was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/input_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/weight_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/bias_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-WARNING: Simulation object /tb_accelerator_real_data/cell_pkt was not traceable in the design for the following reason:
-Vivado Simulator does not support tracing of System Verilog Dynamic Type object.
-# run 500000ns
-File was opened successfully
-wxi = 0058f1f3
-wxi = 00e7f6e4
-wxi = 0013d5e2
-wxi = 00104b29
-wxi = 00050704
-wxi = 001f4111
-wxi = 001d01fb
-wxi = 000b1822
-whi = 00d0d327
-whi = 0000000d
-whi = 003ffa3d
-whi = 000000f3
-whi = 00b8fc21
-whi = 00000005
-whi = 003714f8
-whi = 000000f6
-///////////////////////////////////////////////////////////
-//////////////////// Test No[3] Start /////////////////////
-///////////////////////////////////////////////////////////
 
+#####################################################
+-----------------------------------------------------
+
+!!!!!!!!!!!!!!!!   TESTCASE PASS   !!!!!!!!!!!!!!!!!!
+
+-----------------------------------------------------
+#####################################################
+
+---------------------- END ------------------------
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_accelerator_real_data_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 500000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 8064.523 ; gain = 102.168 ; free physical = 2058 ; free virtual = 9499
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed May  8 14:24:33 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue May 14 12:46:50 2024...
