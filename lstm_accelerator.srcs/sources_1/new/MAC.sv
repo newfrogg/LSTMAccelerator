@@ -50,15 +50,15 @@ module MAC (
     
     logic signed [31:0]           out_temp;
 
-    logic signed [31:0]             weights_bf_0;
-    logic signed [31:0]             weights_bf_1;
-    logic signed [31:0]             weights_bf_2;
-    logic signed [31:0]            data_in_bf_0;
-    logic signed [31:0]            data_in_bf_1;
-    logic signed [31:0]            data_in_bf_2;
-    logic signed [31:0]      prev_sum_bf;
+    logic signed [7:0]             weights_bf_0;
+    logic signed [7:0]             weights_bf_1;
+    logic signed [7:0]             weights_bf_2;
+    logic signed [7:0]             data_in_bf_0;
+    logic signed [7:0]             data_in_bf_1;
+    logic signed [7:0]             data_in_bf_2;
+    logic signed [31:0]            prev_sum_bf;
        
-    logic signed  [31:0]           accu_bf;
+    logic signed [31:0]           accu_bf;
     assign out = out_temp;
   
     always @ (posedge clk or negedge rstn) begin
@@ -93,39 +93,39 @@ module MAC (
                     state <= STATE_MULT;
                     if (is_signed) begin
                         if (data_in_0[7]) begin
-                            weights_bf_0 <= {{24{1'b1}}, (~weights_0 + 8'h01)};
-                            data_in_bf_0 <= {{24{1'b1}}, (~data_in_0 + 8'h01)};
+                            weights_bf_0 <= (~weights_0 + 8'h01);
+                            data_in_bf_0 <= (~data_in_0 + 8'h01);
                         end
                         else begin
-                            weights_bf_0 <= {{24{1'b0}}, weights_0};
-                            data_in_bf_0 <= {{24{1'b0}}, data_in_0};
+                            weights_bf_0 <= weights_0;
+                            data_in_bf_0 <= data_in_0;
                         end
                         
                         if (data_in_1[7]) begin
-                            weights_bf_1 <= {{24{1'b1}}, (~weights_1 + 8'h01)};
-                            data_in_bf_1 <= {{24{1'b1}}, (~data_in_1 + 8'h01)};
+                            weights_bf_1 <= (~weights_1 + 8'h01);
+                            data_in_bf_1 <= (~data_in_1 + 8'h01);
                         end
                         else begin
-                            weights_bf_1 <= {{24{1'b0}}, weights_1};
-                            data_in_bf_1 <= {{24{1'b0}}, data_in_1};
+                            weights_bf_1 <= weights_1;
+                            data_in_bf_1 <= data_in_1;
                         end
                         
                         if (data_in_2[7]) begin
-                            weights_bf_2 <= {{24{1'b1}}, (~weights_2 + 8'h01)};
-                            data_in_bf_2 <= {{24{1'b1}}, (~data_in_2 + 8'h01)};
+                            weights_bf_2 <= (~weights_2 + 8'h01);
+                            data_in_bf_2 <= (~data_in_2 + 8'h01);
                         end
                         else begin
-                            weights_bf_2 <= {{24{1'b0}}, weights_2};
-                            data_in_bf_2 <= {{24{1'b0}}, data_in_2};
+                            weights_bf_2 <= weights_2;
+                            data_in_bf_2 <= data_in_2;
                         end
                     end
                     else begin
-                        weights_bf_0 <= {{24{1'b0}}, weights_0};
-                        data_in_bf_0 <= {{24{1'b0}}, data_in_0};
-                        weights_bf_1 <= {{24{1'b0}}, weights_1};
-                        data_in_bf_1 <= {{24{1'b0}}, data_in_1};
-                        weights_bf_2 <= {{24{1'b0}}, weights_2};
-                        data_in_bf_2 <= {{24{1'b0}}, data_in_2};
+                        weights_bf_0 <= weights_0;
+                        data_in_bf_0 <= data_in_0;
+                        weights_bf_1 <= weights_1;
+                        data_in_bf_1 <= data_in_1;
+                        weights_bf_2 <= weights_2;
+                        data_in_bf_2 <= data_in_2;
                     end
                     
                     
@@ -191,8 +191,8 @@ module MAC (
                             
                             3'b111: begin
 //                                sum_arr_bf[index]   <= (weights_bf_0 + weights_bf_1 + weights_bf_2) <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2+ weights_bf_1 + weights_bf_0) << index);
-                                else accu_bf                <= accu_bf + ((weights_bf_2+ weights_bf_1 + weights_bf_0) << index);
+                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
+                                else accu_bf                <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
                             end
                                 
                             default: begin

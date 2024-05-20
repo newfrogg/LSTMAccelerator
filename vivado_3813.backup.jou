@@ -1,0 +1,88 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu May 16 13:49:02 2024
+# Process ID: 3813
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
+# Command line: vivado
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 1098.384 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr
+update_compile_order -fileset sources_1
+set_property -name {xsim.simulate.runtime} -value {15000000ns} -objects [get_filesets sim_1]
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+set_property -name {xsim.simulate.runtime} -value {500000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+save_wave_config {/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg}
+set_property -name {xsim.simulate.runtime} -value {50000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+current_wave_config {tb_accelerator_real_data_behav.wcfg}
+add_wave {{/tb_accelerator_real_data/o_weight}} 
+current_wave_config {tb_accelerator_real_data_behav.wcfg}
+add_wave {{/tb_accelerator_real_data/o_data_input}} 
+current_wave_config {tb_accelerator_real_data_behav.wcfg}
+add_wave {{/tb_accelerator_real_data/o_pre_sum}} 
+save_wave_config {/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+set_property -name {xsim.simulate.runtime} -value {500000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+save_wave_config {/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+current_wave_config {tb_accelerator_real_data_behav.wcfg}
+add_wave {{/tb_accelerator_real_data/o_mac_is_signed}} 
+set_property -name {xsim.simulate.runtime} -value {15000000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
+source tb_accelerator_real_data.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_run impl_1
+open_run synth_1 -name synth_1
+report_utilization -name utilization_1
+report_drc -name drc_1 -ruledecks {default}
+current_design impl_1
+report_power -name {power_1}
+close_sim

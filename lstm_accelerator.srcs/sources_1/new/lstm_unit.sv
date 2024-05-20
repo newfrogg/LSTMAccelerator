@@ -238,6 +238,11 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             data_in_bf_1           <= {W_BITWIDTH{1'b0}};
             data_in_bf_2           <= {W_BITWIDTH{1'b0}};
             pre_sum_bf             <= {OUT_BITWIDTH{1'b0}};
+            inv_cell_update_bf  <= {QUANTIZE_SIZE{1'b0}};
+            inv_cell_update     <= 1'b0;
+            inv_cell_state_bf   <= {QUANTIZE_SIZE{1'b0}};
+            inv_cell_state      <= 1'b0;
+
             
 //            tanh_en             <= 1'b0;
 //            sigmoid_en          <= 1'b0;

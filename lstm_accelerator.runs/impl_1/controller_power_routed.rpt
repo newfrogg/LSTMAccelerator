@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Thu May 16 12:57:43 2024
+| Date             : Thu May 16 22:59:23 2024
 | Host             : vanloi-laptop running 64-bit Ubuntu 22.04.4 LTS
 | Command          : report_power -file controller_power_routed.rpt -pb controller_power_summary_routed.pb -rpx controller_power_routed.rpx
 | Design           : controller
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.534        |
+| Total On-Chip Power (W)  | 0.505        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.423        |
-| Device Static (W)        | 0.111        |
+| Dynamic (W)              | 0.394        |
+| Device Static (W)        | 0.110        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 78.8         |
-| Junction Temperature (C) | 31.2         |
+| Max Ambient (C)          | 79.2         |
+| Junction Temperature (C) | 30.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.058 |        3 |       --- |             --- |
-| Slice Logic    |     0.140 |    73036 |       --- |             --- |
-|   LUT as Logic |     0.127 |    38441 |     53200 |           72.26 |
-|   CARRY4       |     0.011 |     2815 |     13300 |           21.17 |
-|   Register     |     0.002 |    23915 |    106400 |           22.48 |
-|   F7/F8 Muxes  |    <0.001 |      638 |     53200 |            1.20 |
+| Clocks         |     0.057 |        3 |       --- |             --- |
+| Slice Logic    |     0.129 |    66150 |       --- |             --- |
+|   LUT as Logic |     0.116 |    32580 |     53200 |           61.24 |
+|   CARRY4       |     0.011 |     2495 |     13300 |           18.76 |
+|   Register     |     0.002 |    23759 |    106400 |           22.33 |
+|   F7/F8 Muxes  |    <0.001 |     1335 |     53200 |            2.51 |
 |   Others       |     0.000 |      194 |       --- |             --- |
-| Signals        |     0.171 |    65718 |       --- |             --- |
+| Signals        |     0.155 |    57687 |       --- |             --- |
 | DSPs           |     0.053 |       64 |       220 |           29.09 |
 | I/O            |    <0.001 |       71 |       125 |           56.80 |
-| Static Power   |     0.111 |          |           |                 |
-| Total          |     0.534 |          |           |                 |
+| Static Power   |     0.110 |          |           |                 |
+| Total          |     0.505 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.431 |       0.422 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.403 |       0.394 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -149,70 +149,70 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| controller                |     0.423 |
-|   genblk1[0].u_lstm_unit  |     0.024 |
+| controller                |     0.394 |
+|   genblk1[0].u_lstm_unit  |     0.023 |
 |     q1                    |     0.010 |
-|     u_mac                 |     0.005 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[10].u_lstm_unit |     0.024 |
-|     q1                    |     0.009 |
-|     u_mac                 |     0.005 |
-|     u_tanh                |     0.002 |
-|   genblk1[11].u_lstm_unit |     0.025 |
-|     q1                    |     0.009 |
-|     u_mac                 |     0.006 |
-|     u_tanh                |     0.002 |
-|   genblk1[12].u_lstm_unit |     0.024 |
+|   genblk1[10].u_lstm_unit |     0.023 |
 |     q1                    |     0.010 |
-|     u_mac                 |     0.005 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[13].u_lstm_unit |     0.024 |
+|   genblk1[11].u_lstm_unit |     0.023 |
 |     q1                    |     0.009 |
-|     u_mac                 |     0.006 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[14].u_lstm_unit |     0.024 |
+|   genblk1[12].u_lstm_unit |     0.022 |
 |     q1                    |     0.009 |
-|     u_mac                 |     0.005 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[15].u_lstm_unit |     0.024 |
+|   genblk1[13].u_lstm_unit |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[14].u_lstm_unit |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[15].u_lstm_unit |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[1].u_lstm_unit  |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[2].u_lstm_unit  |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[3].u_lstm_unit  |     0.023 |
 |     q1                    |     0.009 |
-|     u_mac                 |     0.006 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[1].u_lstm_unit  |     0.026 |
-|     q1                    |     0.010 |
-|     u_mac                 |     0.006 |
-|     u_tanh                |     0.002 |
-|   genblk1[2].u_lstm_unit  |     0.025 |
-|     q1                    |     0.010 |
-|     u_mac                 |     0.005 |
-|     u_tanh                |     0.002 |
-|   genblk1[3].u_lstm_unit  |     0.025 |
-|     q1                    |     0.010 |
-|     u_mac                 |     0.006 |
-|     u_tanh                |     0.002 |
-|   genblk1[4].u_lstm_unit  |     0.024 |
+|   genblk1[4].u_lstm_unit  |     0.023 |
 |     q1                    |     0.009 |
-|     u_mac                 |     0.005 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[5].u_lstm_unit  |     0.025 |
+|   genblk1[5].u_lstm_unit  |     0.023 |
 |     q1                    |     0.010 |
-|     u_mac                 |     0.006 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
-|   genblk1[6].u_lstm_unit  |     0.024 |
+|   genblk1[6].u_lstm_unit  |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[7].u_lstm_unit  |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[8].u_lstm_unit  |     0.023 |
+|     q1                    |     0.010 |
+|     u_mac                 |     0.004 |
+|     u_tanh                |     0.002 |
+|   genblk1[9].u_lstm_unit  |     0.023 |
 |     q1                    |     0.009 |
-|     u_mac                 |     0.005 |
-|     u_tanh                |     0.002 |
-|   genblk1[7].u_lstm_unit  |     0.025 |
-|     q1                    |     0.010 |
-|     u_mac                 |     0.006 |
-|     u_tanh                |     0.002 |
-|   genblk1[8].u_lstm_unit  |     0.024 |
-|     q1                    |     0.009 |
-|     u_mac                 |     0.005 |
-|     u_tanh                |     0.002 |
-|   genblk1[9].u_lstm_unit  |     0.025 |
-|     q1                    |     0.010 |
-|     u_mac                 |     0.006 |
+|     u_mac                 |     0.004 |
 |     u_tanh                |     0.002 |
 +---------------------------+-----------+
 

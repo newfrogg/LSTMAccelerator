@@ -1,12 +1,5 @@
-+====================+===================+=================================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                             |
-+====================+===================+=================================================+
-| clk                | clk               | genblk1[13].u_lstm_unit/u_mac/accu_bf_reg[31]/D |
-| clk                | clk               | genblk1[13].u_lstm_unit/u_mac/accu_bf_reg[30]/D |
-| clk                | clk               | genblk1[6].u_lstm_unit/u_mac/accu_bf_reg[23]/D  |
-| clk                | clk               | genblk1[13].u_lstm_unit/u_mac/accu_bf_reg[29]/D |
-| clk                | clk               | genblk1[9].u_lstm_unit/q1/ab_64_reg[58]/D       |
-| clk                | clk               | genblk1[9].u_lstm_unit/q1/ab_64_reg[52]/D       |
-| clk                | clk               | genblk1[9].u_lstm_unit/q1/ab_64_reg[57]/D       |
-| clk                | clk               | genblk1[9].u_lstm_unit/u_mac/accu_bf_reg[18]/D  |
-+--------------------+-------------------+-------------------------------------------------+
++====================+===================+================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                            |
++====================+===================+================================================+
+| clk                | clk               | genblk1[5].u_lstm_unit/u_mac/accu_bf_reg[31]/D |
++--------------------+-------------------+------------------------------------------------+
