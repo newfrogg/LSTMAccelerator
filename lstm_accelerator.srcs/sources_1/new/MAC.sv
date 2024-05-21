@@ -59,6 +59,7 @@ module MAC (
     logic signed [31:0]            prev_sum_bf;
        
     logic signed [31:0]           accu_bf;
+    logic signed [31:0]           temp;
     assign out = out_temp;
   
     always @ (posedge clk or negedge rstn) begin
@@ -78,7 +79,7 @@ module MAC (
             out_temp    <= {32{1'b0}};
             flag_accu   <= 1'b0;
             accu_bf     <= {32{1'b0}};
-            
+            temp        <= 0;
             time_remaining <= LATENCY;
         end
         else begin
@@ -144,6 +145,8 @@ module MAC (
                         state   <= STATE_ACCM;
                         done    <= 1'b1;
                         index   <= 5'b00000;
+                        temp    <= 0;
+                        accu_bf <= accu_bf + temp;
                     end
                     else begin
                         index   <= index + 1'b1;
@@ -154,45 +157,59 @@ module MAC (
                         case({data_in_bf_2[index], data_in_bf_1[index], data_in_bf_0[index]})
                             3'b001: begin
 //                                sum_arr_bf[index]   <= weights_bf_0 <<< index;
-                                if (is_signed) accu_bf    <= accu_bf + (weights_bf_0 << index);
-                                else  accu_bf             <= accu_bf + (weights_bf_0 << index);                            
+//                                if (is_signed) accu_bf    <= accu_bf + (weights_bf_0 << index);
+//                                else  accu_bf             <= accu_bf + (weights_bf_0 << index);
+                                temp                <= (weights_bf_0 << index);
+                                accu_bf             <= accu_bf + temp;
+//                                accu_bf             <= accu_bf + (weights_bf_0 << index);                       
                             end
                             
                             3'b010: begin
 //                                sum_arr_bf[index]   <= weights_bf_1 <<< index;
-                                if (is_signed)  accu_bf     <= accu_bf + (weights_bf_1 << index);
-                                else            accu_bf     <= accu_bf + (weights_bf_1 << index);
-                                
+//                                if (is_signed)  accu_bf     <= accu_bf + (weights_bf_1 << index);
+//                                else            accu_bf     <= accu_bf + (weights_bf_1 << index);
+                                temp        <= (weights_bf_1 << index);
+                                accu_bf     <= accu_bf + temp;
                             end
                             
                             3'b011: begin
 //                                sum_arr_bf[index]   <= (weights_bf_1 + weights_bf_0) <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_1 + weights_bf_0) << index);
-                                else accu_bf                <= accu_bf + ((weights_bf_1 + weights_bf_0) << index);
+//                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_1 + weights_bf_0) << index);
+//                                else accu_bf                <= accu_bf + ((weights_bf_1 + weights_bf_0) << index);
+                                temp                   <= ((weights_bf_1 + weights_bf_0) << index);
+                                accu_bf                <= accu_bf + temp;
                             end
                             
                             3'b100: begin
 //                                sum_arr_bf[index]   <= weights_bf_2 <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + (weights_bf_2 << index);
-                                else accu_bf                <= accu_bf + (weights_bf_2 << index);
+//                                if (is_signed) accu_bf      <= accu_bf + (weights_bf_2 << index);
+//                                else accu_bf                <= accu_bf + (weights_bf_2 << index);
+                                temp                    <= (weights_bf_2 << index);
+                                accu_bf                 <= accu_bf + temp;
                             end
                             
                             3'b101: begin
 //                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_0) <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_0) << index); 
-                                else  accu_bf               <= accu_bf + ((weights_bf_2 + weights_bf_0) << index);                               
+//                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_0) << index); 
+//                                else  accu_bf               <= accu_bf + ((weights_bf_2 + weights_bf_0) << index);
+                                temp                    <= ((weights_bf_2 + weights_bf_0) << index);   
+                                accu_bf                 <= accu_bf + temp;          
                             end
                             
                             3'b110: begin
 //                                sum_arr_bf[index]   <= (weights_bf_2 + weights_bf_1) <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_1) << index);
-                                else  accu_bf               <= accu_bf + ((weights_bf_2 + weights_bf_1) << index);
+//                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_1) << index);
+//                                else  accu_bf               <= accu_bf + ((weights_bf_2 + weights_bf_1) << index);
+                                temp                  <= ((weights_bf_2 + weights_bf_1) << index);
+                                accu_bf               <= accu_bf + temp;
                             end
                             
                             3'b111: begin
 //                                sum_arr_bf[index]   <= (weights_bf_0 + weights_bf_1 + weights_bf_2) <<< index;
-                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
-                                else accu_bf                <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
+//                                if (is_signed) accu_bf      <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
+//                                else accu_bf                <= accu_bf + ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
+                                temp                   <= ((weights_bf_2 + weights_bf_1 + weights_bf_0) << index);
+                                accu_bf                <= accu_bf + temp;
                             end
                                 
                             default: begin

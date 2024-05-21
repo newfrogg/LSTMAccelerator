@@ -58,6 +58,7 @@ module tb_accelerator_real_data();
     
     logic               clk;
     logic               rstn;
+    logic               en;
     logic               r_valid;
     logic               is_last_data_gate;
     logic [31:0]        data_in;
@@ -198,100 +199,102 @@ module tb_accelerator_real_data();
     logic [7:0]     last_ht_unit;
     logic [7:0]     last_fc_unit;
     logic           wrong_flag;
+    logic [31:0] bram [0:63];
     
     controller uut (
         .clk(clk),
         .rstn(rstn),
+        .en(en),
         .r_valid(r_valid),
         .is_last_data_gate(is_last_data_gate),
         .data_in(data_in),
         .r_data(r_data),
         .w_valid(w_valid),
         .t_valid(t_valid),
-        .out_data(out_data),
-        .o_state(o_state),
-        .o_lstm_state(o_lstm_state),
-        .o_lstm_finish_step(o_lstm_finish_step),
-        .o_lstm_is_continued(o_lstm_is_continued),
-        .o_lstm_is_waiting(o_lstm_is_waiting),
-        .weights(weights),
-        .inputs(inputs),
-        .bias(bias),
-        .o_is_load_bias(o_is_load_bias),
-        .o_is_last_timestep(o_is_last_timestep),
-        .o_index(o_index),
-        .o_mac_state(o_mac_state),
-        .o_is_last_input(o_is_last_input),
-        .o_lstm_accu_bf(o_lstm_accu_bf),
-        .o_mac_result(o_mac_result),
-        .o_type_gate(o_type_gate),
-        .o_gate(o_gate),
-        .o_value_gate(o_value_gate),
-        .o_r_state(o_r_state),
-        .o_current_timestep(o_current_timestep),
-        .o_lstm_unit_result(o_lstm_unit_result),
-        .o_current_no_units(o_current_no_units),
-        .o_remaining_no_units(o_remaining_no_units),
-        .o_read_bias(o_read_bias),
-        .o_current_layer(o_current_layer),
-        .o_current_sample(o_current_sample),
-        .o_count_gate(o_count_gate),
-        .o_current_unit(o_current_unit),
-        .o_is_last_sample(o_is_last_sample),
-        .o_accu_input_bf(o_accu_input_bf),
-        .o_accu_forget_bf(o_accu_forget_bf),
-        .o_accu_cell_bf(o_accu_cell_bf),
-        .o_accu_output_bf(o_accu_output_bf),
-        .o_mac_accu_bf(o_mac_accu_bf),
-        .o_mac_index(o_mac_index),
-        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
-        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
-        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
-        .o_lstm_cell_state(o_lstm_cell_state),
-        .o_lstm_hidden_state(o_lstm_hidden_state),
-        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
-        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
-        .o_lstm_type_state(o_lstm_type_state),
-//        .o_lstm_q_di_fc(o_lstm_q_di_fc),
-//        .o_lstm_q_do_fc(o_lstm_q_do_fc),
-        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
-        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
-        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
-        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
-        .o_sigmoid_count(o_sigmoid_count),
-        .o_lstm_remain_waiting_time(o_lstm_remain_waiting_time),
-        .o_lstm_ht_flag(o_lstm_ht_flag),
-        .o_sigmoid_en(o_sigmoid_en),
-        .o_sigmoid_done(o_sigmoid_done),
-        .o_lstm_fc_flag(o_lstm_fc_flag),
-        .o_lstm_inv_input_gate(o_lstm_inv_input_gate),
-        .o_lstm_inv_forget_gate(o_lstm_inv_forget_gate),
-        .o_lstm_inv_cell_update(o_lstm_inv_cell_update),
-        .o_lstm_inv_output_gate(o_lstm_inv_output_gate),
-        .o_lstm_inv_cell_state(o_lstm_inv_cell_state),
-        .o_lstm_inv_tanh_cell_bf(o_lstm_inv_tanh_cell_bf),
-//        .o_lstm_inv_input_gate_bf(o_lstm_inv_input_gate_bf),
-//        .o_lstm_inv_forget_gate_bf(o_lstm_inv_forget_gate_bf),
-        .o_lstm_inv_cell_update_bf(o_lstm_inv_cell_update_bf),
-//        .o_lstm_inv_output_gate_bf(o_lstm_inv_output_gate_bf),
-        .o_lstm_inv_cell_state_bf(o_lstm_inv_cell_state_bf),
-        .o_lstm_f_prev_cell_bf(o_lstm_f_prev_cell_bf),
-        .o_lstm_i_cell_update_bf(o_lstm_i_cell_update_bf),
-        .o_lstm_tanh_cell_bf(o_lstm_tanh_cell_bf),
-        .o_lstm_q_en(o_lstm_q_en),
-        .o_lstm_q_done(o_lstm_q_done),
-        .o_q_count(o_q_count),
-        .o_tanh_en(o_tanh_en),
-        .o_tanh_done(o_tanh_done),
-        .o_tanh_count(o_tanh_count),
-        .o_weight(o_weight),
-        .o_data_input(o_data_input),
-        .o_pre_sum(o_pre_sum),
-        .o_mac_is_signed(o_mac_is_signed),
-        .o_lstm_it(o_lstm_it),
-        .o_lstm_ft(o_lstm_ft),
-        .o_lstm_gt(o_lstm_gt),
-        .o_lstm_ot(o_lstm_ot)
+        .out_data(out_data)
+//        .o_state(o_state),
+//        .o_lstm_state(o_lstm_state),
+//        .o_lstm_finish_step(o_lstm_finish_step),
+//        .o_lstm_is_continued(o_lstm_is_continued),
+//        .o_lstm_is_waiting(o_lstm_is_waiting),
+//        .weights(weights),
+//        .inputs(inputs),
+//        .bias(bias),
+//        .o_is_load_bias(o_is_load_bias),
+//        .o_is_last_timestep(o_is_last_timestep),
+//        .o_index(o_index),
+//        .o_mac_state(o_mac_state),
+//        .o_is_last_input(o_is_last_input),
+//        .o_lstm_accu_bf(o_lstm_accu_bf),
+//        .o_mac_result(o_mac_result),
+//        .o_type_gate(o_type_gate),
+//        .o_gate(o_gate),
+//        .o_value_gate(o_value_gate),
+//        .o_r_state(o_r_state),
+//        .o_current_timestep(o_current_timestep),
+//        .o_lstm_unit_result(o_lstm_unit_result),
+//        .o_current_no_units(o_current_no_units),
+//        .o_remaining_no_units(o_remaining_no_units),
+//        .o_read_bias(o_read_bias),
+//        .o_current_layer(o_current_layer),
+//        .o_current_sample(o_current_sample),
+//        .o_count_gate(o_count_gate),
+//        .o_current_unit(o_current_unit),
+//        .o_is_last_sample(o_is_last_sample),
+//        .o_accu_input_bf(o_accu_input_bf),
+//        .o_accu_forget_bf(o_accu_forget_bf),
+//        .o_accu_cell_bf(o_accu_cell_bf),
+//        .o_accu_output_bf(o_accu_output_bf),
+//        .o_mac_accu_bf(o_mac_accu_bf),
+//        .o_mac_index(o_mac_index),
+//        .o_mac_prev_sum_bf(o_mac_prev_sum_bf),
+//        .o_lstm_cell_state_bf(o_lstm_cell_state_bf),
+//        .o_lstm_hidden_state_bf(o_lstm_hidden_state_bf),
+//        .o_lstm_cell_state(o_lstm_cell_state),
+//        .o_lstm_hidden_state(o_lstm_hidden_state),
+//        .o_lstm_q_di_lstm_state(o_lstm_q_di_lstm_state),
+//        .o_lstm_q_do_lstm_state(o_lstm_q_do_lstm_state),
+//        .o_lstm_type_state(o_lstm_type_state),
+////        .o_lstm_q_di_fc(o_lstm_q_di_fc),
+////        .o_lstm_q_do_fc(o_lstm_q_do_fc),
+//        .o_lstm_di_current_unit_tanh_bf(o_lstm_di_current_unit_tanh_bf),
+//        .o_lstm_do_current_unit_tanh_bf(o_lstm_do_current_unit_tanh_bf),
+//        .o_lstm_di_current_unit_sigmoid_bf(o_lstm_di_current_unit_sigmoid_bf),
+//        .o_lstm_do_current_unit_sigmoid_bf(o_lstm_do_current_unit_sigmoid_bf),
+//        .o_sigmoid_count(o_sigmoid_count),
+//        .o_lstm_remain_waiting_time(o_lstm_remain_waiting_time),
+//        .o_lstm_ht_flag(o_lstm_ht_flag),
+//        .o_sigmoid_en(o_sigmoid_en),
+//        .o_sigmoid_done(o_sigmoid_done),
+//        .o_lstm_fc_flag(o_lstm_fc_flag),
+//        .o_lstm_inv_input_gate(o_lstm_inv_input_gate),
+//        .o_lstm_inv_forget_gate(o_lstm_inv_forget_gate),
+//        .o_lstm_inv_cell_update(o_lstm_inv_cell_update),
+//        .o_lstm_inv_output_gate(o_lstm_inv_output_gate),
+//        .o_lstm_inv_cell_state(o_lstm_inv_cell_state),
+//        .o_lstm_inv_tanh_cell_bf(o_lstm_inv_tanh_cell_bf),
+////        .o_lstm_inv_input_gate_bf(o_lstm_inv_input_gate_bf),
+////        .o_lstm_inv_forget_gate_bf(o_lstm_inv_forget_gate_bf),
+//        .o_lstm_inv_cell_update_bf(o_lstm_inv_cell_update_bf),
+////        .o_lstm_inv_output_gate_bf(o_lstm_inv_output_gate_bf),
+//        .o_lstm_inv_cell_state_bf(o_lstm_inv_cell_state_bf),
+//        .o_lstm_f_prev_cell_bf(o_lstm_f_prev_cell_bf),
+//        .o_lstm_i_cell_update_bf(o_lstm_i_cell_update_bf),
+//        .o_lstm_tanh_cell_bf(o_lstm_tanh_cell_bf),
+//        .o_lstm_q_en(o_lstm_q_en),
+//        .o_lstm_q_done(o_lstm_q_done),
+//        .o_q_count(o_q_count),
+//        .o_tanh_en(o_tanh_en),
+//        .o_tanh_done(o_tanh_done),
+//        .o_tanh_count(o_tanh_count),
+//        .o_weight(o_weight),
+//        .o_data_input(o_data_input),
+//        .o_pre_sum(o_pre_sum),
+//        .o_mac_is_signed(o_mac_is_signed),
+//        .o_lstm_it(o_lstm_it),
+//        .o_lstm_ft(o_lstm_ft),
+//        .o_lstm_gt(o_lstm_gt),
+//        .o_lstm_ot(o_lstm_ot)
     );
     
     always #20 begin 
@@ -325,6 +328,9 @@ module tb_accelerator_real_data();
         bias_pkt        = new ();
         cell_pkt        = new ();
         o_pkt           = new ();
+        
+        $readmemb("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/rams_init_file.data", bram);
+        $display("%b", bram[0]);
         f_result = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_result/test_result_new.txt", "a");
         f_real_result = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/y_test/y_test.txt", "r");
         f_x = $fopen("/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_param/test_input_cp/x_test0.txt", "r");
@@ -513,13 +519,16 @@ module tb_accelerator_real_data();
         $fclose(f_real_result);
         clk  = 1'b0;
         rstn = 1'b0;
+        en = 1'b0;
         r_valid = 1'b0;
         data_in = 32'd0;
         
         repeat(10)
             @(negedge clk);
         rstn = 1'b1;
-        
+        repeat(10)
+            @(negedge clk);
+        en  = 1'b1;
         repeat(10)
             @(negedge clk);
     

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Tue May 21 10:22:46 2024
+# Process ID: 70104
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/impl_1
+# Command line: vivado -log controller.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source controller.tcl -notrace
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/impl_1/controller.vdi
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/impl_1/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 468.297 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+source controller.tcl -notrace
