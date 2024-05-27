@@ -3,14 +3,15 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Tue May 21 12:48:50 2024
-# Process ID: 760908
+# Start of session at: Mon May 27 11:44:21 2024
+# Process ID: 58838
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1
 # Command line: vivado -log controller.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source controller.tcl
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/controller.vds
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 2424.283 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 676.906 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
+Sourcing tcl script '/home/vanloi/.Xilinx/Vivado/Vivado_init.tcl'
 source controller.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/utils_1/imports/synth_1/controller.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/utils_1/imports/synth_1/controller.dcp for incremental synthesis
@@ -24,9 +25,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 760936
+INFO: [Synth 8-7075] Helper process launched with PID 58855
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2024.719 ; gain = 378.770 ; free physical = 1425 ; free virtual = 7243
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2031.539 ; gain = 378.801 ; free physical = 190 ; free virtual = 7243
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'controller' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'lstm_unit' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:28]
@@ -39,43 +40,39 @@ INFO: [Synth 8-6155] done synthesizing module 'tanh_appr' (0#1) [/home/vanloi/Do
 INFO: [Synth 8-6157] synthesizing module 'sigmoid_appro' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'sigmoid_appro' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/sigmoid_appro.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'quantization_lstm' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:24]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:87]
+INFO: [Synth 8-6157] synthesizing module 'mul_32x32' [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/mul_32x32.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'mul_32x32' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/mul_32x32.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:113]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:106]
 INFO: [Synth 8-6155] done synthesizing module 'quantization_lstm' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:24]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:618]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:720]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:735]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:779]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:800]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:706]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:911]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:929]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:610]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:712]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:727]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:771]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:792]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:698]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:906]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:924]
 INFO: [Synth 8-6155] done synthesizing module 'lstm_unit' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/lstm_unit.sv:28]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:411]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:480]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:572]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:628]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:397]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:420]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:489]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:581]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:637]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:406]
 INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/controller.sv:23]
-WARNING: [Synth 8-7137] Register multiplier_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:90]
-WARNING: [Synth 8-7137] Register shift_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:91]
-WARNING: [Synth 8-7137] Register mask_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:96]
-WARNING: [Synth 8-7137] Register data_in_bf_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:105]
-WARNING: [Synth 8-7137] Register ab_64_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:120]
-WARNING: [Synth 8-7137] Register remainder_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:148]
-WARNING: [Synth 8-7137] Register threshold_reg in module quantization_lstm has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sources_1/new/quantization_lstm.sv:151]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2148.656 ; gain = 502.707 ; free physical = 1268 ; free virtual = 7091
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2157.477 ; gain = 504.738 ; free physical = 272 ; free virtual = 7063
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2166.469 ; gain = 520.520 ; free physical = 1272 ; free virtual = 7092
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2175.289 ; gain = 522.551 ; free physical = 263 ; free virtual = 7059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2166.469 ; gain = 520.520 ; free physical = 1272 ; free virtual = 7092
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2175.289 ; gain = 522.551 ; free physical = 263 ; free virtual = 7059
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.25 . Memory (MB): peak = 2166.469 ; gain = 0.000 ; free physical = 1270 ; free virtual = 7090
+Netlist sorting complete. Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.28 . Memory (MB): peak = 2175.289 ; gain = 0.000 ; free physical = 189 ; free virtual = 7048
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -84,30 +81,31 @@ Parsing XDC File [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_acceler
 Finished Parsing XDC File [/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/constrs_1/new/timing_constr.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2343.219 ; gain = 0.000 ; free physical = 1236 ; free virtual = 7045
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2357.039 ; gain = 0.000 ; free physical = 172 ; free virtual = 6988
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.64 ; elapsed = 00:00:00.2 . Memory (MB): peak = 2343.219 ; gain = 0.000 ; free physical = 1236 ; free virtual = 7045
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.31 . Memory (MB): peak = 2357.039 ; gain = 0.000 ; free physical = 166 ; free virtual = 6982
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1230 ; free virtual = 7038
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 175 ; free virtual = 6974
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1230 ; free virtual = 7038
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 174 ; free virtual = 6973
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1230 ; free virtual = 7038
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 174 ; free virtual = 6973
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MAC'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'quantization_lstm'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lstm_unit'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'controller'
 ---------------------------------------------------------------------------------------------------
@@ -123,6 +121,16 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
               STATE_IDLE |                              000 |                              000
+         STATE_MUL_32X32 |                              001 |                              001
+     STATE_SAT_ROUND_MUL |                              010 |                              010
+     STATE_MUL_QUANTIZED |                              011 |                              100
+          STATE_ROUNDING |                              100 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'quantization_lstm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                              000 |                              000
                STATE_IRB |                              001 |                              001
                  STATE_Q |                              010 |                              010
               STATE_GATE |                              011 |                              011
@@ -133,7 +141,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'lstm_unit'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1226 ; free virtual = 7038
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 220 ; free virtual = 6951
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -149,28 +157,28 @@ Detailed RTL Component Info :
 	   2 Input    9 Bit       Adders := 48    
 	   2 Input    8 Bit       Adders := 97    
 	   2 Input    6 Bit       Adders := 5     
-	   2 Input    5 Bit       Adders := 17    
+	   2 Input    5 Bit       Adders := 33    
 	   2 Input    4 Bit       Adders := 1     
 	   2 Input    3 Bit       Adders := 48    
 	   2 Input    2 Bit       Adders := 49    
 	   2 Input    1 Bit       Adders := 17    
 +---Registers : 
-	               64 Bit    Registers := 16    
+	               64 Bit    Registers := 32    
 	               32 Bit    Registers := 497   
 	               24 Bit    Registers := 82    
 	               16 Bit    Registers := 272   
 	                8 Bit    Registers := 241   
 	                6 Bit    Registers := 5     
-	                5 Bit    Registers := 17    
-	                3 Bit    Registers := 48    
-	                2 Bit    Registers := 114   
-	                1 Bit    Registers := 433   
-+---Multipliers : 
-	              32x32  Multipliers := 16    
+	                5 Bit    Registers := 33    
+	                3 Bit    Registers := 64    
+	                2 Bit    Registers := 82    
+	                1 Bit    Registers := 481   
 +---Muxes : 
-	   2 Input   64 Bit        Muxes := 16    
+	   5 Input   64 Bit        Muxes := 16    
 	   2 Input   32 Bit        Muxes := 305   
-	   4 Input   32 Bit        Muxes := 192   
+	   4 Input   32 Bit        Muxes := 128   
+	   7 Input   32 Bit        Muxes := 16    
+	   5 Input   32 Bit        Muxes := 64    
 	   8 Input   32 Bit        Muxes := 160   
 	   2 Input   17 Bit        Muxes := 16    
 	   2 Input   16 Bit        Muxes := 720   
@@ -187,23 +195,26 @@ Detailed RTL Component Info :
 	   3 Input    6 Bit        Muxes := 3     
 	   4 Input    6 Bit        Muxes := 1     
 	   8 Input    6 Bit        Muxes := 4     
-	   2 Input    5 Bit        Muxes := 16    
+	   2 Input    5 Bit        Muxes := 32    
 	   4 Input    5 Bit        Muxes := 16    
 	   8 Input    5 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 473   
+	   5 Input    3 Bit        Muxes := 32    
+	   7 Input    3 Bit        Muxes := 16    
 	   4 Input    3 Bit        Muxes := 65    
-	   2 Input    3 Bit        Muxes := 457   
-	   8 Input    3 Bit        Muxes := 50    
+	   8 Input    3 Bit        Muxes := 66    
 	   3 Input    2 Bit        Muxes := 16    
-	   2 Input    2 Bit        Muxes := 100   
-	   7 Input    2 Bit        Muxes := 16    
+	   2 Input    2 Bit        Muxes := 84    
 	   4 Input    2 Bit        Muxes := 48    
-	   8 Input    2 Bit        Muxes := 68    
-	   2 Input    1 Bit        Muxes := 2877  
+	   8 Input    2 Bit        Muxes := 52    
+	   2 Input    1 Bit        Muxes := 2701  
 	   9 Input    1 Bit        Muxes := 16    
-	   4 Input    1 Bit        Muxes := 1163  
+	   4 Input    1 Bit        Muxes := 1003  
 	  10 Input    1 Bit        Muxes := 32    
-	   3 Input    1 Bit        Muxes := 115   
+	   3 Input    1 Bit        Muxes := 147   
+	   7 Input    1 Bit        Muxes := 48    
+	   5 Input    1 Bit        Muxes := 192   
 	   8 Input    1 Bit        Muxes := 1351  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -221,56 +232,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP ab_640, operation Mode is: A*B.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: Generating DSP ab_640, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: Generating DSP ab_640, operation Mode is: A*B.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: Generating DSP ab_640, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
-DSP Report: operator ab_640 is absorbed into DSP ab_640.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:27 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1193 ; free virtual = 7029
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name       | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|quantization_lstm | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:27 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 340 ; free virtual = 6918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:30 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1207 ; free virtual = 7030
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:30 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 332 ; free virtual = 6917
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:32 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1188 ; free virtual = 7024
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:32 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 332 ; free virtual = 6917
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2343.219 ; gain = 697.270 ; free physical = 1124 ; free virtual = 6947
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 309 ; free virtual = 6894
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -288,112 +269,41 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:41 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:40 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 277 ; free virtual = 6862
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:42 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:40 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 277 ; free virtual = 6862
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 196 ; free virtual = 6810
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 187 ; free virtual = 6763
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:46 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 180 ; free virtual = 6758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:46 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1092 ; free virtual = 6915
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 170 ; free virtual = 6747
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
-
-DSP Final Report (the ' indicates corresponding REG is set)
-+------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name       | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A*B'          | 15     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 15     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | A'*B          | 17     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|quantization_lstm | PCIN>>17+A'*B | 17     | 11     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-+------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -402,49 +312,47 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     1|
-|2     |CARRY4  |  2495|
-|3     |DSP48E1 |    64|
-|5     |LUT1    |  1233|
-|6     |LUT2    |  7294|
-|7     |LUT3    |  5792|
-|8     |LUT4    |  4539|
-|9     |LUT5    |  7140|
-|10    |LUT6    | 14204|
-|11    |MUXF7   |  1249|
-|12    |MUXF8   |   144|
-|13    |FDCE    | 22435|
-|14    |FDPE    |    50|
-|15    |FDRE    |  1744|
-|16    |IBUF    |    37|
-|17    |OBUF    |    35|
-+------+--------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |  2575|
+|3     |LUT1   |  1265|
+|4     |LUT2   |  7087|
+|5     |LUT3   |  6201|
+|6     |LUT4   |  5499|
+|7     |LUT5   |  7547|
+|8     |LUT6   | 16445|
+|9     |MUXF7  |  1313|
+|10    |MUXF8  |   160|
+|11    |FDCE   | 26356|
+|12    |FDPE   |    66|
+|13    |IBUF   |    37|
+|14    |OBUF   |    35|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:46 . Memory (MB): peak = 2372.977 ; gain = 727.027 ; free physical = 1091 ; free virtual = 6915
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 169 ; free virtual = 6751
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 2372.977 ; gain = 550.277 ; free physical = 1091 ; free virtual = 6915
-Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:46 . Memory (MB): peak = 2372.984 ; gain = 727.027 ; free physical = 1091 ; free virtual = 6915
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2357.039 ; gain = 522.551 ; free physical = 219 ; free virtual = 6741
+Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:00:45 . Memory (MB): peak = 2357.039 ; gain = 704.301 ; free physical = 219 ; free virtual = 6741
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.23 . Memory (MB): peak = 2372.984 ; gain = 0.000 ; free physical = 1370 ; free virtual = 7193
-INFO: [Netlist 29-17] Analyzing 3952 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.28 . Memory (MB): peak = 2357.039 ; gain = 0.000 ; free physical = 472 ; free virtual = 7000
+INFO: [Netlist 29-17] Analyzing 4048 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2422.836 ; gain = 0.000 ; free physical = 1367 ; free virtual = 7190
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2425.352 ; gain = 0.000 ; free physical = 508 ; free virtual = 6970
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 89476ccc
+Synth Design complete | Checksum: 4f26ed6c
 INFO: [Common 17-83] Releasing license: Synthesis
-51 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+56 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:00:53 . Memory (MB): peak = 2422.836 ; gain = 1126.355 ; free physical = 1366 ; free virtual = 7190
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2001.222; main = 1678.377; forked = 374.416
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3359.516; main = 2422.840; forked = 986.535
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:00:53 . Memory (MB): peak = 2425.352 ; gain = 1120.113 ; free physical = 515 ; free virtual = 6974
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2072.533; main = 1806.419; forked = 410.933
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3339.816; main = 2425.355; forked = 986.539
 INFO: [Common 17-1381] The checkpoint '/home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.runs/synth_1/controller.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file controller_utilization_synth.rpt -pb controller_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 21 12:49:50 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon May 27 11:45:22 2024...

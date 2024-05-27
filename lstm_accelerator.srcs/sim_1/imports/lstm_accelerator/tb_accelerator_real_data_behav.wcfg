@@ -5,22 +5,22 @@
    <db_ref_list>
       <db_ref path="tb_accelerator_real_data_behav.wdb" id="1">
          <top_modules>
-            <top_module name="\$unit_MAC_sv_2151200534 " />
+            <top_module name="\$unit_MAC_sv_1869744413 " />
             <top_module name="glbl" />
             <top_module name="tb_accelerator_real_data" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="25.573334 us"></ZoomStartTime>
-      <ZoomEndTime time="46.253335 us"></ZoomEndTime>
-      <Cursor1Time time="29.020000 us"></Cursor1Time>
+      <ZoomStartTime time="144.690000 us"></ZoomStartTime>
+      <ZoomEndTime time="244.940001 us"></ZoomEndTime>
+      <Cursor1Time time="188.790000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="486"></NameColumnWidth>
-      <ValueColumnWidth column_width="187"></ValueColumnWidth>
+      <NameColumnWidth column_width="576"></NameColumnWidth>
+      <ValueColumnWidth column_width="160"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="101" />
+   <WVObjectSize size="100" />
    <wvobject type="logic" fp_name="/tb_accelerator_real_data/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -275,7 +275,6 @@
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_accu_cell_bf">
          <obj_property name="ElementShortName">o_accu_cell_bf[0:1][31:0]</obj_property>
          <obj_property name="ObjectShortName">o_accu_cell_bf[0:1][31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_accu_output_bf">
          <obj_property name="ElementShortName">o_accu_output_bf[0:1][31:0]</obj_property>
@@ -284,6 +283,34 @@
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_q_di_lstm_state">
          <obj_property name="ElementShortName">o_lstm_q_di_lstm_state[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_q_di_lstm_state[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_q_di_lstm_state">
+         <obj_property name="ElementShortName">o_lstm_q_di_lstm_state[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_lstm_q_di_lstm_state[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_accelerator_real_data/o_q_ab_64">
+         <obj_property name="ElementShortName">o_q_ab_64[63:0]</obj_property>
+         <obj_property name="ObjectShortName">o_q_ab_64[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group840">
+         <obj_property name="label">mul_32x32</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/tb_accelerator_real_data/o_mul_64_din_a">
+            <obj_property name="ElementShortName">o_mul_64_din_a[31:0]</obj_property>
+            <obj_property name="ObjectShortName">o_mul_64_din_a[31:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/tb_accelerator_real_data/o_mul_64_din_b">
+            <obj_property name="ElementShortName">o_mul_64_din_b[31:0]</obj_property>
+            <obj_property name="ObjectShortName">o_mul_64_din_b[31:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/tb_accelerator_real_data/o_mul_temp">
+            <obj_property name="ElementShortName">o_mul_temp[63:0]</obj_property>
+            <obj_property name="ObjectShortName">o_mul_temp[63:0]</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_count_gate">
          <obj_property name="ElementShortName">o_count_gate[1:0]</obj_property>
@@ -349,14 +376,6 @@
          <obj_property name="ElementShortName">o_mac_result[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_mac_result[31:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_i_cell_update_bf">
-         <obj_property name="ElementShortName">o_lstm_i_cell_update_bf[31:0]</obj_property>
-         <obj_property name="ObjectShortName">o_lstm_i_cell_update_bf[31:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_f_prev_cell_bf">
-         <obj_property name="ElementShortName">o_lstm_f_prev_cell_bf[31:0]</obj_property>
-         <obj_property name="ObjectShortName">o_lstm_f_prev_cell_bf[31:0]</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_cell_state_bf">
          <obj_property name="ElementShortName">o_lstm_cell_state_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_cell_state_bf[31:0]</obj_property>
@@ -365,7 +384,7 @@
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_cell_state_bf">
          <obj_property name="ElementShortName">o_lstm_cell_state_bf[31:0]</obj_property>
          <obj_property name="ObjectShortName">o_lstm_cell_state_bf[31:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_accelerator_real_data/o_lstm_cell_state">
          <obj_property name="ElementShortName">o_lstm_cell_state[0:1][15:0]</obj_property>
@@ -442,10 +461,6 @@
       <obj_property name="ElementShortName">o_is_load_bias</obj_property>
       <obj_property name="ObjectShortName">o_is_load_bias</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_accelerator_real_data/o_is_load_cell">
-      <obj_property name="ElementShortName">o_is_load_cell</obj_property>
-      <obj_property name="ObjectShortName">o_is_load_cell</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="/tb_accelerator_real_data/o_is_last_input">
       <obj_property name="ElementShortName">o_is_last_input</obj_property>
       <obj_property name="ObjectShortName">o_is_last_input</obj_property>
@@ -463,64 +478,64 @@
       <obj_property name="ObjectShortName">o_lstm_do_current_unit_sigmoid_bf[15:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/input_matrix">
-      <obj_property name="ElementShortName">input_matrix[0:0][0:1][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">input_matrix[0:0][0:1][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">input_matrix[0:0][0:27][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_matrix[0:0][0:27][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/in_weight_matrix">
-      <obj_property name="ElementShortName">in_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">in_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">in_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/for_weight_matrix">
-      <obj_property name="ElementShortName">for_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">for_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">for_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">for_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/cell_weight_matrix">
-      <obj_property name="ElementShortName">cell_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">cell_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">cell_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">cell_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/out_weight_matrix">
-      <obj_property name="ElementShortName">out_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">out_weight_matrix[0:31][0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_weight_matrix[0:31][0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_in_weight_matrix">
-      <obj_property name="ElementShortName">r_in_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_in_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_in_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_in_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_for_weight_matrix">
-      <obj_property name="ElementShortName">r_for_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_for_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_for_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_for_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_cell_weight_matrix">
-      <obj_property name="ElementShortName">r_cell_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_cell_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_cell_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_cell_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/r_out_weight_matrix">
-      <obj_property name="ElementShortName">r_out_weight_matrix[0:3][0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_out_weight_matrix[0:3][0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">r_out_weight_matrix[0:31][0:10][31:0]</obj_property>
+      <obj_property name="ObjectShortName">r_out_weight_matrix[0:31][0:10][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/bias_matrix">
-      <obj_property name="ElementShortName">bias_matrix[0:3][0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">bias_matrix[0:3][0:3][31:0]</obj_property>
+      <obj_property name="ElementShortName">bias_matrix[0:31][0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">bias_matrix[0:31][0:3][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/ht_matrix">
-      <obj_property name="ElementShortName">ht_matrix[0:0][0:1][0:3][7:0]</obj_property>
-      <obj_property name="ObjectShortName">ht_matrix[0:0][0:1][0:3][7:0]</obj_property>
+      <obj_property name="ElementShortName">ht_matrix[0:0][0:27][0:31][7:0]</obj_property>
+      <obj_property name="ObjectShortName">ht_matrix[0:0][0:27][0:31][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/ht_flatten">
-      <obj_property name="ElementShortName">ht_flatten[0:0][0:7][7:0]</obj_property>
-      <obj_property name="ObjectShortName">ht_flatten[0:0][0:7][7:0]</obj_property>
+      <obj_property name="ElementShortName">ht_flatten[0:0][0:895][7:0]</obj_property>
+      <obj_property name="ObjectShortName">ht_flatten[0:0][0:895][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_weight">
-      <obj_property name="ElementShortName">fc_weight[0:1][0:2][31:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_weight[0:1][0:2][31:0]</obj_property>
+      <obj_property name="ElementShortName">fc_weight[0:9][0:298][31:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_weight[0:9][0:298][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_bias">
-      <obj_property name="ElementShortName">fc_bias[0:1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_bias[0:1][31:0]</obj_property>
+      <obj_property name="ElementShortName">fc_bias[0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_bias[0:9][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_result">
-      <obj_property name="ElementShortName">fc_result[0:0][0:1][7:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_result[0:0][0:1][7:0]</obj_property>
+      <obj_property name="ElementShortName">fc_result[0:0][0:9][7:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_result[0:0][0:9][7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/cell_state">
       <obj_property name="ElementShortName">cell_state[31:0]</obj_property>
@@ -675,7 +690,7 @@
       <obj_property name="ObjectShortName">y_test[0:0][3:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_accelerator_real_data/fc_result2">
-      <obj_property name="ElementShortName">fc_result2[0:0][0:1][7:0]</obj_property>
-      <obj_property name="ObjectShortName">fc_result2[0:0][0:1][7:0]</obj_property>
+      <obj_property name="ElementShortName">fc_result2[0:0][0:9][7:0]</obj_property>
+      <obj_property name="ObjectShortName">fc_result2[0:0][0:9][7:0]</obj_property>
    </wvobject>
 </wave_config>

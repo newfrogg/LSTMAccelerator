@@ -1,0 +1,49 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri May 24 12:07:22 2024
+# Process ID: 4663
+# Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
+# Command line: vivado
+# Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
+# Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 463.814 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.xpr
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/new/fibonacci_bram_wrapper.sv]
+update_compile_order -fileset sources_1
+set_property is_enabled true [get_files  /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/new/fibonacci_bram_wrapper.sv]
+update_compile_order -fileset sources_1
+open_bd_design {/home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/bd/pynqz2_example/pynqz2_example.bd}
+update_module_reference pynqz2_example_fibonacci_bram_wrapp_0_0
+startgroup
+make_bd_intf_pins_external  [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTB]
+endgroup
+delete_bd_objs [get_bd_intf_nets BRAM_PORTB_0_1]
+validate_bd_design
+set_property file_type Verilog [get_files  /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/new/fibonacci_bram.sv]
+set_property file_type Verilog [get_files  /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/new/fibonacci.sv]
+update_module_reference pynqz2_example_fibonacci_bram_wrapp_0_0
+update_module_reference pynqz2_example_fibonacci_bram_wrapp_0_0
+connect_bd_net [get_bd_pins fibonacci_bram_wrapp_0/BRAM_clk_1] [get_bd_pins blk_mem_gen_0/clkb]
+save_bd_design
+validate_bd_design
+save_bd_design
+reset_run synth_1
+reset_run pynqz2_example_axi_bram_ctrl_0_0_synth_1
+reset_run pynqz2_example_proc_sys_reset_0_0_synth_1
+reset_run pynqz2_example_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property is_enabled false [get_files  /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/bd/design_1/design_1.bd]
+make_wrapper -files [get_files /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/bd/pynqz2_example/pynqz2_example.bd] -top
+update_module_reference pynqz2_example_fibonacci_bram_wrapp_0_0
+make_wrapper -files [get_files /home/vanloi/Documents/Loi_study/DSP/pynqz2/pynqz2.srcs/sources_1/bd/pynqz2_example/pynqz2_example.bd] -top
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file /home/vanloi/Documents/Loi_study/DSP/pynqz2/part3_pynqz2_example_top.xsa

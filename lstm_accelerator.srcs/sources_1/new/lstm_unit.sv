@@ -124,7 +124,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
     
     logic   [BUFFER_SIZE-1:0]       q_di_lstm_state ;
     logic   [QUANTIZE_SIZE-1:0]     q_do_lstm_state ;
-    logic   [1:0]                   type_state      ;
+    logic   [2:0]                   type_state      ;
     
     logic   [BUFFER_SIZE-1:0]       f_prev_cell_bf;
     logic   [BUFFER_SIZE-1:0]       i_cell_update_bf;
@@ -268,7 +268,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
             mac_is_signed       <= 1'b0;
             count_gate          <= 2'b00;
             current_mult_shift  <= MULT_S0;
-            type_state          <= 2'b00;
+            type_state          <= 3'b000;
             out[0]              <= {8{1'b0}};
             out[1]              <= {8{1'b0}};
             q_di_lstm_state     <= {BUFFER_SIZE{1'b0}};
@@ -335,8 +335,8 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         data_in_bf_1    <= data_in[W_BITWIDTH*2-1:W_BITWIDTH];
                         data_in_bf_2    <= data_in[W_BITWIDTH*3-1:W_BITWIDTH*2];
                         
-                        cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
-                        cell_state[1]   <= {QUANTIZE_SIZE{1'b0}};
+//                        cell_state[0]   <= {QUANTIZE_SIZE{1'b0}};
+//                        cell_state[1]   <= {QUANTIZE_SIZE{1'b0}};
 //                        prev_cell_state[1]                  <= {QUANTIZE_SIZE{1'b0}};
                         case(is_load_bias)
                             0: pre_sum_bf     <= accu_bf[current_unit];
@@ -364,7 +364,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 sigmoid_en              <= 1'b0;
                                 q_lstm_en               <= 1'b0;
                                 internal_current_unit   <= 0;
-                                type_state              <= 0;
+                                type_state              <= 3'b000;
                                 
                                 case(gate)
                                     INPUT_GATE:     accu_input_bf[current_unit]   <= mac_result;
@@ -400,7 +400,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         if (mac_done) begin
                             if (current_layer == FC && is_last_data_gate && is_last_input) begin
                                 q_lstm_en           <= 1'b1;
-                                type_state          <= 2'b10;
+                                type_state          <= 3'b101;
                                 fc_flag             <= 1'b1;
                                 q_di_lstm_state     <= mac_result;
                                 mac_en              <= 1'b0;
@@ -484,7 +484,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 accu_input_bf[internal_current_unit]    <=  { {16{1'b0}}, q_do_lstm_state};
                                 q_lstm_en                               <= 1'b0;
 //                                count_gate                              <= count_gate + 1;
-                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                if (remain_waiting_time == 0) begin
+                                    count_gate    <= count_gate + 1;
+                                    type_state    <= 3'b001;
+                                end
                                 else remain_waiting_time = remain_waiting_time - 1;
                             end
                             else begin 
@@ -500,7 +503,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 accu_forget_bf[internal_current_unit]   <=  { {16{1'b0}}, q_do_lstm_state};
                                 q_lstm_en                               <= 1'b0;
 //                                count_gate                              <= count_gate + 1;
-                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                if (remain_waiting_time == 0) begin
+                                    count_gate    <= count_gate + 1;
+                                    type_state    <= 3'b010;
+                                end
                                 else remain_waiting_time = remain_waiting_time - 1;
                             end
                             else begin
@@ -516,7 +522,10 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 accu_cell_bf[internal_current_unit]     <=  { {16{1'b0}}, q_do_lstm_state};
                                 q_lstm_en                               <= 1'b0;
 //                                count_gate                              <= count_gate + 1;
-                                if (remain_waiting_time == 0) count_gate    <= count_gate + 1;
+                                if (remain_waiting_time == 0) begin
+                                    count_gate    <= count_gate + 1;
+                                    type_state    <= 3'b011;
+                                end
                                 else remain_waiting_time = remain_waiting_time - 1;
                             end
                             else begin
@@ -561,23 +570,6 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                         f_prev_cell_bf          <= 0;
                         i_cell_update_bf        <= 0;            
                         
-//                        if (input_gate[internal_current_unit][31]) begin
-//                            inv_input_gate_bf   <= ~input_gate[internal_current_unit] + 1;
-//                            inv_input_gate      <= 1'b1;
-//                        end
-//                        else begin 
-//                            inv_input_gate     <= 1'b0;
-//                            inv_input_gate_bf  <= input_gate[internal_current_unit];
-//                        end
-                        
-//                        if (forget_gate[internal_current_unit][31]) begin
-//                            inv_forget_gate_bf  <= ~forget_gate[internal_current_unit] + 1;
-//                            inv_forget_gate     <= 1'b1;
-//                        end
-//                        else begin
-//                            inv_forget_gate    <= 1'b0;
-//                            inv_forget_gate_bf <= forget_gate[internal_current_unit];
-//                        end
                         
                         if (cell_update[internal_current_unit][15]) begin
                             inv_cell_update_bf  <= ~cell_update[internal_current_unit] + 1;
@@ -680,7 +672,7 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                             current_mult_shift      <= 0;
                             update_cell_state_bf    <= 1'b0;
                             
-                            type_state              <= 1;  
+                            type_state              <= 3'b100;  
                             remain_waiting_time     <= MULT_LATENCY;  
                             hidden_state_bf         <= 32'h00000000;
                                                         
@@ -862,42 +854,45 @@ module lstm_unit #( parameter W_BITWIDTH = 8,
                                 is_waiting      <= 1'b1;
                                 finish_step     <= 1'b1;
 //                                state   <= STATE_IDLE;
-                                ht_flag <= 1'b1;
+//                                ht_flag <= 1'b1;
                                 remain_waiting_time <= 2'b11;
                             end
                             else begin
-                                state                   <= STATE_Q;
-                                type_state              <= 2'b00;
+//                                state                   <= STATE_Q;
+                                type_state              <= 3'b000;
                                 internal_current_unit   <= internal_current_unit + 1;
-                                remain_waiting_time     <= LATENCY;
-                                hidden_done             <= 1'b0;       
+//                                remain_waiting_time     <= LATENCY;
+                                remain_waiting_time     <= 2'b11;
+//                                hidden_done             <= 1'b0;       
                             end
+                            ht_flag <= 1'b1;
 //                            hidden_done                             <= 1'b0;
 //                            hidden_state[internal_current_unit]     <= q_do_lstm_state;
                             out[internal_current_unit]              <= q_do_lstm_state;
                             q_lstm_en   <= 1'b0;
-                            type_state  <= 2'b01;
+//                            type_state  <= 3'b100;
                         end
                         else begin
-                            q_lstm_en   <= 1'b1;
-                            type_state  <= 1'b0;
-                            if ( !inv_tanh_cell_bf ) begin
-                                q_di_lstm_state <= hidden_state_bf;
+                            if (ht_flag) begin
+                                is_waiting      <= 1'b0;
+                                if (remain_waiting_time == 0) begin 
+                                    hidden_done     <= 1'b0;
+                                    if (type_state == 3'b100) state           <= STATE_IDLE;
+                                    else state <= STATE_Q;
+                                    ht_flag         <= 1'b0;
+                                end                         
+                                else remain_waiting_time <= remain_waiting_time -1;
                             end
-                            else q_di_lstm_state <= ~hidden_state_bf + 1;
+                            else begin
+                                q_lstm_en   <= 1'b1;
+                                type_state  <= 3'b100;
+                                if ( !inv_tanh_cell_bf ) begin
+                                    q_di_lstm_state <= hidden_state_bf;
+                                end
+                                else q_di_lstm_state <= ~hidden_state_bf + 1;
+                            end
                         end
-                        
-                        if (ht_flag) begin
-                            is_waiting      <= 1'b0;
-                            if (remain_waiting_time == 0) begin 
-                                hidden_done     <= 1'b0;
-                                state           <= STATE_IDLE;
-                                ht_flag         <= 1'b0;
-                            end                         
-                            else remain_waiting_time <= remain_waiting_time -1;
-                        end
-                        else ;
-                                               
+                                                                       
                     end
                     else begin
                         if (remain_waiting_time == 0) begin

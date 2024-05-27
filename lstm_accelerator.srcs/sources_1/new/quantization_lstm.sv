@@ -25,7 +25,7 @@ module quantization_lstm(
         input           clk,
         input           rstn,
         input           en,
-        input   [1:0]   type_state,
+        input   [2:0]   type_state,
         input   [31:0]  data_in,
         output  logic   done,
         output  logic [15:0]   data_out
@@ -33,32 +33,56 @@ module quantization_lstm(
     
     localparam        
         // exponent_ht = 8
-        STATE_IDLE              = 2'h0,
-        STATE_SAT_ROUND_MUL     = 2'h1,
-        STATE_ROUNDING          = 2'h2,
-        STATE_MUL_QUANTIZED     = 2'h3,
-        LSTM_ACCUM              = 2'h0,
-        LSTM_HT                 = 2'h1,
-        FC                      = 2'h2,
-        ACCUM_MULTIPLIER        = 32'h0a72_4109,
-        ACCUM_SHIFT             = 8'h07,
-        FC_ACCUM_MULTIPLIER     = 32'h0a72_4109,
-        FC_ACCUM_SHIFT          = 8'h07;
+        STATE_IDLE              = 3'h0,
+        STATE_MUL_32X32         = 3'h1,
+        STATE_SAT_ROUND_MUL     = 3'h2,
+        STATE_ROUNDING          = 3'h3,
+        STATE_MUL_QUANTIZED     = 3'h4,
+        LSTM_IT_ACCUM           = 3'h0,
+        LSTM_FT_ACCUM           = 3'h1,
+        LSTM_GT_ACCUM           = 3'h2,
+        LSTM_OT_ACCUM           = 3'h3,
+        LSTM_HT                 = 3'h4,
+        FC                      = 3'h5,
+        ACCUM_MULTIPLIER_IT     = 32'd1550987146,
+        ACCUM_SHIFT_IT          = 8'd2,
+        ACCUM_MULTIPLIER_FT     = 32'd1618798663,
+        ACCUM_SHIFT_FT          = 8'd2,
+        ACCUM_MULTIPLIER_GT     = 32'd1505717445,
+        ACCUM_SHIFT_GT          = 8'd2,
+        ACCUM_MULTIPLIER_OT     = 32'd1789919594,
+        ACCUM_SHIFT_OT          = 8'd2,
+        FC_ACCUM_MULTIPLIER     = 32'd1116732315,
+        FC_ACCUM_SHIFT          = 8'd11;
         
     logic [31:0]    out_temp;
     logic [2:0]     count;
     
-    logic [1:0]     state;
+    logic [2:0]     state;
+    logic state_mul_done;
     
     logic [31:0]    mask;
     logic [31:0]    remainder;
     logic [31:0]    threshold;
     logic [31:0]    data_in_bf;
     logic [63:0]    ab_64;
+    logic [63:0]    ab_64_bf;
     logic [31:0]    multiplier;
     logic [7:0]     shift;
+    logic mul_en;
+    logic mul_done;
     
     assign data_out = out_temp[15:0];
+    
+    mul_32x32 u_mul_32x32 (
+        .clk(clk),
+        .rstn(rstn),
+        .en(mul_en),
+        .din_a(data_in_bf),
+        .din_b(multiplier),
+        .done(mul_done),
+        .dout(ab_64_bf)
+    );
     
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
@@ -66,13 +90,15 @@ module quantization_lstm(
             done        <= 0;
             count       <= 0;
             state       <= STATE_IDLE;
-//            mask        <= {32{1'b0}};
-//            ab_64       <= {64{1'b0}};
-//            remainder   <= {32{1'b0}};
-//            threshold   <= {32{1'b0}};
-//            multiplier  <= {32{1'b0}};
-//            data_in_bf  <= {32{1'b0}};
-//            shift       <= {8{1'b0}};
+            state_mul_done  <= 1'b0;
+            mask        <= {32{1'b0}};
+            ab_64       <= {64{1'b0}};
+            mul_en      <= 1'b0;
+            remainder   <= {32{1'b0}};
+            threshold   <= {32{1'b0}};
+            multiplier  <= {32{1'b0}};
+            data_in_bf  <= {32{1'b0}};
+            shift       <= {8{1'b0}};
             
         end
         else begin
@@ -85,10 +111,28 @@ module quantization_lstm(
                     
                     if (en && !done) begin
                         case (type_state)
-                            LSTM_ACCUM: begin
-                                state       <= STATE_SAT_ROUND_MUL;
-                                multiplier  <= ACCUM_MULTIPLIER;
-                                shift       <= ACCUM_SHIFT;
+                            LSTM_IT_ACCUM: begin
+                                state       <= STATE_MUL_32X32;
+                                multiplier  <= ACCUM_MULTIPLIER_IT;
+                                shift       <= ACCUM_SHIFT_IT;
+                            end
+                            
+                            LSTM_FT_ACCUM: begin
+                                state       <= STATE_MUL_32X32;
+                                multiplier  <= ACCUM_MULTIPLIER_FT;
+                                shift       <= ACCUM_SHIFT_FT;
+                            end
+                            
+                            LSTM_GT_ACCUM: begin
+                                state       <= STATE_MUL_32X32;
+                                multiplier  <= ACCUM_MULTIPLIER_FT;
+                                shift       <= ACCUM_SHIFT_FT;
+                            end
+                            
+                            LSTM_OT_ACCUM: begin
+                                state       <= STATE_MUL_32X32;
+                                multiplier  <= ACCUM_MULTIPLIER_OT;
+                                shift       <= ACCUM_SHIFT_OT;
                             end
                             
                             LSTM_HT: begin
@@ -97,7 +141,7 @@ module quantization_lstm(
                             end
                             
                             FC: begin
-                                state       <= STATE_SAT_ROUND_MUL;
+                                state       <= STATE_MUL_32X32;
                                 multiplier  <= FC_ACCUM_MULTIPLIER;
                                 shift       <= FC_ACCUM_SHIFT;
                             end
@@ -106,20 +150,36 @@ module quantization_lstm(
                     end
                 end
                 
+                STATE_MUL_32X32: begin
+                    if (state_mul_done) begin
+                        state           <= STATE_SAT_ROUND_MUL;
+                        mul_en          <= 0;
+                        state_mul_done  <= 1'b0;
+                    end
+                    else begin
+                        if (mul_done) begin
+                            state_mul_done  <= 1'b1;
+                            mul_en          <= 1'b0;
+                            ab_64           <= ab_64_bf;
+                        end
+                        else mul_en  <= 1'b1;
+                    end
+                end
+                
                 STATE_SAT_ROUND_MUL: begin
-                    if (count == 2) begin
+                    if (count == 1) begin
                         state   <= STATE_MUL_QUANTIZED;
 //                        mask    <= { {32{1'b0}}, {ACCUM_SHIFT{1'b1}} };
-                        if (type_state == LSTM_ACCUM) mask <= { {(32 - ACCUM_SHIFT){1'b0}}, {ACCUM_SHIFT{1'b1}} };
+                        if (type_state == LSTM_IT_ACCUM) mask <= { {(32 - ACCUM_SHIFT_IT){1'b0}}, {ACCUM_SHIFT_IT{1'b1}} };
+                        else if (type_state == LSTM_FT_ACCUM) mask <= { {(32 - ACCUM_SHIFT_FT){1'b0}}, {ACCUM_SHIFT_FT{1'b1}} };
+                        else if (type_state == LSTM_GT_ACCUM) mask <= { {(32 - ACCUM_SHIFT_GT){1'b0}}, {ACCUM_SHIFT_GT{1'b1}} };
+                        else if (type_state == LSTM_OT_ACCUM) mask <= { {(32 - ACCUM_SHIFT_OT){1'b0}}, {ACCUM_SHIFT_OT{1'b1}} };
                         else mask <= { { (32 - FC_ACCUM_SHIFT){1'b0}}, {FC_ACCUM_SHIFT{1'b1}} };
                         count   <= 0;
                     end
                     else count <= count + 1;
                     
                     if (count == 0) begin
-                        ab_64   <= data_in_bf * multiplier;
-                    end
-                    else if (count == 1) begin
                         if ((data_in_bf[31] && multiplier[31]) || (!data_in_bf[31] && !multiplier[31])) begin
                             ab_64   <= ab_64 + 32'h4000_0000;
                         end
@@ -127,7 +187,7 @@ module quantization_lstm(
                             ab_64   <= ab_64 + 32'hC000_0001;
                         end
                     end
-                    else if (count == 2) begin
+                    else if (count == 1) begin
                         if (data_in_bf == 32'h7FFF_FFFF && data_in_bf == multiplier) begin
                             data_in_bf  <= 32'h7FFF_FFFF;
                         end

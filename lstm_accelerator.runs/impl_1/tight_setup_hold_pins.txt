@@ -1,9 +1,0 @@
-+====================+===================+============================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                        |
-+====================+===================+============================================+
-| clk                | clk               | genblk1[5].u_lstm_unit/q1/ab_64_reg[58]/D  |
-| clk                | clk               | genblk1[8].u_lstm_unit/q1/ab_64_reg[62]/D  |
-| clk                | clk               | genblk1[5].u_lstm_unit/q1/ab_64_reg[57]/D  |
-| clk                | clk               | genblk1[14].u_lstm_unit/q1/ab_64_reg[61]/D |
-| clk                | clk               | genblk1[8].u_lstm_unit/q1/ab_64_reg[60]/D  |
-+--------------------+-------------------+--------------------------------------------+

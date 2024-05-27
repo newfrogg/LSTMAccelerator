@@ -113,7 +113,11 @@ module controller(
 //    output logic [15:0] o_lstm_it,
 //    output logic [15:0] o_lstm_ft,
 //    output logic [15:0] o_lstm_gt,
-//    output logic [15:0] o_lstm_ot
+//    output logic [15:0] o_lstm_ot,
+//    output logic [63:0] o_q_ab_64,
+//    output logic [31:0] o_mul_64_din_a,
+//    output logic [31:0] o_mul_64_din_b,
+//    output logic [63:0] o_mul_temp
 );
 
     localparam
@@ -122,7 +126,7 @@ module controller(
         NO_UNITS_FC             = 4'd10,
 //        NO_FEATURES             = 10,
         NO_TIMESTEPS            = 5'd28,
-        NO_SAMPLES              = 1'd1,
+        NO_SAMPLES              = 4'd1,
         
         INIT                    = 2'b00,
         LSTM                    = 2'b01,
@@ -290,8 +294,13 @@ module controller(
 //    assign o_lstm_inv_cell_state_bf  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_state_bf;
 //    assign o_lstm_inv_cell_update = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_update;
 //    assign o_lstm_inv_cell_state  = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_cell_state;
-
-
+//    assign o_q_ab_64 = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q1.ab_64;
+//    assign o_mul_64_din_a = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q1.u_mul_32x32.din_a;
+//    assign o_mul_64_din_b = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q1.u_mul_32x32.din_b;
+//    assign o_mul_temp   = genblk1[MAX_NO_UNITS-1].u_lstm_unit.q1.u_mul_32x32.temp;
+    
+    
+    
 
 //    assign o_lstm_inv_input_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_input_gate;
 //    assign o_lstm_inv_forget_gate = genblk1[MAX_NO_UNITS-1].u_lstm_unit.inv_forget_gate;
@@ -750,13 +759,6 @@ module controller(
                                 else begin
                                     out_data    <= {lstm_unit_result[current_buffer_index+3][current_unit], lstm_unit_result[current_buffer_index+2][current_unit], lstm_unit_result[current_buffer_index+1][current_unit], lstm_unit_result[current_buffer_index][current_unit]};
                                 end
-                                
-    //                            if (current_layer == LSTM) begin
-                                    
-    //                            end
-    //                            else begin
-                                
-    //                            end
                             end
                             else begin
                                 w_valid <= 0;

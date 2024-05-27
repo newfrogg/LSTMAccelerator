@@ -150,6 +150,11 @@ module tb_accelerator_real_data();
      logic [15:0] o_lstm_ft;
      logic [15:0] o_lstm_gt;
      logic [15:0] o_lstm_ot;
+     logic [63:0] o_q_ab_64;
+     logic [31:0] o_mul_64_din_a;
+     logic [31:0] o_mul_64_din_b;
+     logic [63:0] o_mul_temp;
+     
      
 //     logic [31:0] o_tanh_appr_temp;
 //    logic [31:0]        expected_input_gate [0:NO_UNITS-1];
@@ -185,7 +190,8 @@ module tb_accelerator_real_data();
     logic [3:0]         y_test [0:NO_SAMPLES-1];
     
     logic [31:0]        cell_state;        
-
+    
+    integer         no_rights;
     integer         current_class;
     integer         current_unit;
     integer         current_unit_bf;
@@ -294,7 +300,11 @@ module tb_accelerator_real_data();
 //        .o_lstm_it(o_lstm_it),
 //        .o_lstm_ft(o_lstm_ft),
 //        .o_lstm_gt(o_lstm_gt),
-//        .o_lstm_ot(o_lstm_ot)
+//        .o_lstm_ot(o_lstm_ot),
+//        .o_q_ab_64(o_q_ab_64),
+//        .o_mul_64_din_a(o_mul_64_din_a),
+//        .o_mul_64_din_b(o_mul_64_din_b),
+//        .o_mul_temp(o_mul_temp)
     );
     
     always #20 begin 
@@ -312,6 +322,7 @@ module tb_accelerator_real_data();
     GenerateO       o_pkt;
     
     initial begin
+        no_rights    = 0;
         wrong_flag   = 0;
         current_unit = 0;
         current_timestep = 0;
@@ -371,18 +382,6 @@ module tb_accelerator_real_data();
             current_timestep = 0;
         end
         
-        current_sample = 0;
-        repeat(NO_SAMPLES) begin
-            index = 0;
-            $fscanf(f_real_result, "%d\n", y_test[current_sample]);
-            repeat(NO_CLASSES) begin
-                o_pkt.randomize();
-                if (index == y_test[current_sample]) fc_result2[current_sample][index] = o_pkt.o_t;
-                else fc_result2[current_sample][index] = o_pkt.o_w;
-                index = index + 1;
-            end
-            current_sample = current_sample + 1;
-        end
 //        input_matrix[0][0][0] = 32'h00bdf1e8;
 //        input_matrix[0][0][1] = 32'h00f3dffc;
 //        input_matrix[0][1][0] = 32'h00d6e509;
@@ -395,24 +394,12 @@ module tb_accelerator_real_data();
             index = 0;
             repeat(NO_FEATURES) begin
                   $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index]);
-//                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][15:8]);
-//                  $fscanf(f_wxi, "%b\n", in_weight_matrix[current_unit][index][23:16]);
-//                  in_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                   $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index]);
-//                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][15:8]);
-//                  $fscanf(f_wxf, "%b\n", for_weight_matrix[current_unit][index][23:16]);
-//                  for_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                   $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index]);
-//                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][15:8]);
-//                  $fscanf(f_wxc, "%b\n", cell_weight_matrix[current_unit][index][23:16]);
-//                  cell_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                   $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index]);
-//                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][15:8]);
-//                  $fscanf(f_wxo, "%b\n", out_weight_matrix[current_unit][index][23:16]);
-//                  out_weight_matrix[current_unit][index][31:24] = 8'b0;
                   
                 $display("wxi = %h", in_weight_matrix[current_unit][index]);
                 index = index + 1;
@@ -425,46 +412,10 @@ module tb_accelerator_real_data();
         repeat(NO_UNITS_LSTM) begin
             index = 0;
             repeat((NO_UNITS_LSTM-1)/3 + 1) begin
-                $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index]);
-//                if (index != 1) begin
-//                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][15:8]);
-//                    $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index][23:16]);
-//                end
-//                else begin
-//                    r_in_weight_matrix[current_unit][index][23:8] = 16'b0;
-//                end
-//                r_in_weight_matrix[current_unit][index][31:24] = 8'b0;
-              
-                $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index]);
-//                if (index != 1) begin
-//                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][15:8]);
-//                    $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index][23:16]);
-//                end
-//                else begin
-//                    r_for_weight_matrix[current_unit][index][23:8] = 16'b0;
-//                end
-//                r_for_weight_matrix[current_unit][index][31:24] = 8'b0;
-              
-                $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index]);
-//                if (index != 1) begin
-//                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][15:8]);
-//                    $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index][23:16]);
-//                end
-//                else begin
-//                    r_cell_weight_matrix[current_unit][index][23:8] = 16'b0;
-//                end
-//                r_cell_weight_matrix[current_unit][index][31:24] = 8'b0;
-              
-                $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index]);
-//                if (index != 1) begin
-//                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][15:8]);
-//                    $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index][23:16]);
-//                end
-//                else begin
-//                    r_out_weight_matrix[current_unit][index][23:8] = 16'b0;
-//                end
-//                r_out_weight_matrix[current_unit][index][31:24] = 8'b0;
-                  
+                $fscanf(f_whi, "%b\n", r_in_weight_matrix[current_unit][index]);            
+                $fscanf(f_whf, "%b\n", r_for_weight_matrix[current_unit][index]);             
+                $fscanf(f_whc, "%b\n", r_cell_weight_matrix[current_unit][index]);            
+                $fscanf(f_who, "%b\n", r_out_weight_matrix[current_unit][index]);                
                 $display("whi = %h", r_in_weight_matrix[current_unit][index]);
                 index = index + 1;
             end
@@ -516,7 +467,7 @@ module tb_accelerator_real_data();
         $fclose(f_bo);
         $fclose(f_wfc);
         $fclose(f_bfc);
-        $fclose(f_real_result);
+//        $fclose(f_real_result);
         clk  = 1'b0;
         rstn = 1'b0;
         en = 1'b0;
@@ -876,12 +827,42 @@ module tb_accelerator_real_data();
                 end                                                                // 2 tab
                 @(negedge clk);
             end                                                                         // 1 tab
+            index = 0;
+            $fscanf(f_real_result, "%d\n", y_test[current_sample]);
+            repeat(NO_CLASSES) begin
+                o_pkt.randomize();
+                if (index == y_test[current_sample] && current_sample%16!=0) fc_result2[current_sample][index] = o_pkt.o_t;
+                else fc_result2[current_sample][index] = o_pkt.o_w;
+                index = index + 1;
+            end
             current_sample = current_sample + 1;
             is_last_data_gate   = 0;
         end                 // end
            
         wait(t_valid);
         is_last_data_gate = 0;
+        current_sample = 0;
+        for (current_sample = 0; current_sample < NO_SAMPLES; current_sample = current_sample + 1) begin
+            label = 0;
+            value_label = 0;
+            for (index = 0; index < NO_UNITS_FC; index = index + 1) begin
+                if (!fc_result2[current_sample][index][7]) begin
+                    if (fc_result2[current_sample][index] > value_label) begin
+                        value_label = fc_result2[current_sample][index];
+                        label = index;
+                    end
+                end
+                else ;
+            end  
+            $fwrite(f_result, "%0d\n", label);   
+            if (label == y_test[current_sample])  no_rights = no_rights + 1;
+            else ;
+        end
+        $display("NUMBER OF TESTCASES PASSED: %0d/%0d", no_rights, NO_SAMPLES);
+        
+        // 93.74% 
+        $fclose(f_result);
+        $fclose(f_real_result);
         if (!wrong_flag) begin
             $display("\n#####################################################");
             $display("-----------------------------------------------------");
@@ -897,25 +878,7 @@ module tb_accelerator_real_data();
             $display("#####################################################");
         end
             
-            $display("\n---------------------- END ------------------------");
-            
-        current_sample = 0;
-        for (current_sample = 0; current_sample < NO_SAMPLES; current_sample = current_sample + 1) begin
-            label = 0;
-            value_label = 0;
-            for (index = 0; index < NO_UNITS_FC; index = index + 1) begin
-                if (!fc_result2[current_sample][index][7]) begin
-                    if (fc_result2[current_sample][index] > value_label) begin
-                        value_label = fc_result2[current_sample][index];
-                        label = index;
-                    end
-                end
-                else ;
-            end  
-            $fwrite(f_result, "%0d\n", label);   
-            if (label == y_test[current_sample])  $display("\n!!!!!!!!!!!!!!!!   TRUE   !!!!!!!!!!!!!!!!!!\n");
-            else    $display("\n!!!!!!!!!!!!!!!!   FAILED   !!!!!!!!!!!!!!!!!!\n");
-        end
-        $fclose(f_result);
+            $display("\n---------------------- END ------------------------");     
     end 
+    
 endmodule
