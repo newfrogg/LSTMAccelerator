@@ -3,13 +3,13 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sun May 26 15:35:28 2024
-# Process ID: 5328
+# Start of session at: Tue May 28 09:03:39 2024
+# Process ID: 8084
 # Current directory: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator
 # Command line: vivado
 # Log file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.log
 # Journal file: /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/vivado.jou
-# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 3500.130 MHz, CPU Physical cores: 12, Host memory: 16444 MB
+# Running On: vanloi-laptop, OS: Linux, CPU Frequency: 2703.539 MHz, CPU Physical cores: 12, Host memory: 16444 MB
 #-----------------------------------------------------------
 start_gui
 open_project /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.xpr
@@ -17,16 +17,3 @@ update_compile_order -fileset sources_1
 launch_simulation
 open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
 source tb_accelerator_real_data.tcl
-close_sim
-launch_simulation
-open_wave_config /home/vanloi/Documents/Loi_study/DATN/vivado_LSTM/lstm_accelerator/lstm_accelerator.srcs/sim_1/imports/lstm_accelerator/tb_accelerator_real_data_behav.wcfg
-source tb_accelerator_real_data.tcl
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-launch_runs impl_1 -jobs 8
-wait_on_run impl_1
-open_run impl_1
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
-report_utilization -name utilization_1
-report_power -name {power_1}
